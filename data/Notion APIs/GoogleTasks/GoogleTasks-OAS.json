@@ -1,0 +1,1070 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "GoogleTasks",
+        "description": "Google Tasks is a free online service that helps manage your to-do lists.",
+        "version": "1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/updateTaskList": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "updateTaskList",
+                "description": "Updates the authenticated user's specified task list.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "updated": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Last modification time of the task list (as a RFC 3339 timestamp)."
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Title of the task list."
+                                    },
+                                    "etag": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "ETag of the resource."
+                                    },
+                                    "selfLink": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "URL pointing to this task list. Used to retrieve, update, or delete this task list."
+                                    },
+                                    "kind": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Type of the resource."
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateTask": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "links",
+                        "required": false,
+                        "description": "Collection of links. This collection is read-only.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "updateTask",
+                "description": "Creates a new task on the specified task list.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "due": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Due date of the task (as a RFC 3339 timestamp). Optional."
+                                    },
+                                    "selfLink": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "URL pointing to this task. Used to retrieve, update, or delete this task."
+                                    },
+                                    "notes": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Notes describing the task. Optional."
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Title of the task."
+                                    },
+                                    "position": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "String indicating the position of the task among its sibling tasks under the same parent task or at the top level. If this string is greater than another task's corresponding position string according to lexicographical ordering, the task is positioned after the other task under the same parent task (or at the top level). This field is read-only. Use the `move` method to move the task to another position."
+                                    },
+                                    "completed": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Completion date of the task (as a RFC 3339 timestamp). This field is omitted if the task has not been completed."
+                                    },
+                                    "parent": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Parent task identifier. This field is omitted if it is a top-level task. This field is read-only. Use the `move` method to move the task under a different parent or to the top level."
+                                    },
+                                    "kind": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Type of the resource."
+                                    },
+                                    "updated": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Last modification time of the task (as a RFC 3339 timestamp)."
+                                    },
+                                    "etag": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "ETag of the resource."
+                                    },
+                                    "previous": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Previous sibling task identifier. If the task is created at the first position among its siblings, this parameter is omitted. Optional."
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Status of the task. This is either `needsAction` or `completed`."
+                                    },
+                                    "hidden": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Flag indicating whether the task is hidden. This is the case if the task had been marked completed when the task list was last cleared. The default is False. This field is read-only."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task identifier."
+                                    },
+                                    "tasklistId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/revokeAccessToken": {
+            "post": {
+                "operationId": "revokeAccessToken",
+                "description": "In some cases a user may wish to revoke access given to an application. A user can revoke access by visiting Account Settings. It is also possible for an application to programmatically revoke the access given to it. Programmatic revocation is important in instances where a user unsubscribes or removes an application. In other words, part of the removal process can include an API request to ensure the permissions granted to the application are removed.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The token can be an access token or a refresh token. If the token is an access token and it has a corresponding refresh token, the refresh token will also be revoked."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/refreshToken": {
+            "post": {
+                "operationId": "refreshToken",
+                "description": "Get new accessToken by refreshToken.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "refreshToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "A token that you can use to obtain a new access token. Refresh tokens are valid until the user revokes access. Again, this field is only present in this response if you set the access_type parameter to offline in the initial request to Google's authorization server."
+                                    },
+                                    "clientId": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "Client ID"
+                                    },
+                                    "clientSecret": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "Client secret"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/patchTaskList": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "patchTaskList",
+                "description": "Updates the authenticated user's specified task list. This method supports patch semantics.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "kind": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Type of the resource."
+                                    },
+                                    "selfLink": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "URL pointing to this task list. Used to retrieve, update, or delete this task list."
+                                    },
+                                    "etag": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "ETag of the resource."
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Title of the task list."
+                                    },
+                                    "updated": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Last modification time of the task list (as a RFC 3339 timestamp)."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/patchTask": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "links",
+                        "required": false,
+                        "description": "Collection of links. This collection is read-only.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "patchTask",
+                "description": "Updates the specified task. This method supports patch semantics.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "position": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "String indicating the position of the task among its sibling tasks under the same parent task or at the top level. If this string is greater than another task's corresponding position string according to lexicographical ordering, the task is positioned after the other task under the same parent task (or at the top level). This field is read-only. Use the `move` method to move the task to another position."
+                                    },
+                                    "completed": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Completion date of the task (as a RFC 3339 timestamp). This field is omitted if the task has not been completed."
+                                    },
+                                    "parent": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Parent task identifier. This field is omitted if it is a top-level task. This field is read-only. Use the `move` method to move the task under a different parent or to the top level."
+                                    },
+                                    "selfLink": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "URL pointing to this task. Used to retrieve, update, or delete this task."
+                                    },
+                                    "due": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Due date of the task (as a RFC 3339 timestamp). Optional."
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Title of the task."
+                                    },
+                                    "notes": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Notes describing the task. Optional."
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Status of the task. This is either `needsAction` or `completed`."
+                                    },
+                                    "kind": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Type of the resource."
+                                    },
+                                    "hidden": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Flag indicating whether the task is hidden. This is the case if the task had been marked completed when the task list was last cleared. The default is False. This field is read-only."
+                                    },
+                                    "updated": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Last modification time of the task (as a RFC 3339 timestamp)."
+                                    },
+                                    "previous": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Previous sibling task identifier. If the task is created at the first position among its siblings, this parameter is omitted. Optional."
+                                    },
+                                    "etag": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "ETag of the resource."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task identifier."
+                                    },
+                                    "tasklistId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/moveTask": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "moveTask",
+                "description": "Moves the specified task to another position in the task list. This can include putting it as a child task under a new parent and/or move it to a different position among its sibling tasks.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "previous": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "New previous sibling task identifier. If the task is moved to the first position among its siblings, this parameter is omitted. Optional."
+                                    },
+                                    "parent": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "New parent task identifier. If the task is moved to the top level, this parameter is omitted. Optional."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    },
+                                    "taskId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task identifier."
+                                    },
+                                    "tasklistId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getTaskList": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "getTaskList",
+                "description": "Returns the authenticated user's specified task list.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    },
+                                    "tasklist": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getTask": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "getTask",
+                "description": "Returns the specified task.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    },
+                                    "tasklistId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    },
+                                    "taskId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getAllTasks": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "getAllTasks",
+                "description": "Returns all tasks in the specified task list.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "maxResults": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "Maximum number of task lists returned on one page. Optional. The default is 100."
+                                    },
+                                    "showHidden": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Flag indicating whether hidden tasks are returned in the result. Optional. The default is False."
+                                    },
+                                    "completedMin": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Lower bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by completion date."
+                                    },
+                                    "dueMax": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Upper bound for a task's due date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by due date."
+                                    },
+                                    "showCompleted": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Flag indicating whether completed tasks are returned in the result. Optional. The default is True."
+                                    },
+                                    "updatedMin": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Lower bound for a task's last modification time (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by last modification time."
+                                    },
+                                    "pageToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Token specifying the result page to return. Optional."
+                                    },
+                                    "showDeleted": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Flag indicating whether deleted tasks are returned in the result. Optional. The default is False."
+                                    },
+                                    "dueMin": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Lower bound for a task's due date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by due date."
+                                    },
+                                    "completedMax": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by completion date."
+                                    },
+                                    "tasklist": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getAllTaskLists": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "getAllTaskLists",
+                "description": "Returns all the authenticated user's task lists.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "maxResults": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "Maximum number of task lists returned on one page. Optional. The default is 100."
+                                    },
+                                    "pageToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Token specifying the result page to return. Optional."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getAccessToken": {
+            "post": {
+                "operationId": "getAccessToken",
+                "description": "Get AccessToken.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "redirectUri": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The same redirect URL as in received Code step."
+                                    },
+                                    "clientSecret": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "Client secret"
+                                    },
+                                    "clientId": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "Client ID"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Code you received from Google after the user granted access"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteTaskList": {
+            "post": {
+                "operationId": "deleteTaskList",
+                "description": "Deletes the authenticated user's specified task list.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "tasklist": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteTask": {
+            "post": {
+                "operationId": "deleteTask",
+                "description": "Deletes the specified task from the task list.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "tasklistId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    },
+                                    "taskId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createTaskList": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "createTaskList",
+                "description": "Creates a new task list and adds it to the authenticated user's task lists.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Title of the task list."
+                                    },
+                                    "updated": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Last modification time of the task list (as a RFC 3339 timestamp)."
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    },
+                                    "kind": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Type of the resource."
+                                    },
+                                    "etag": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "ETag of the resource."
+                                    },
+                                    "selfLink": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "URL pointing to this task list. Used to retrieve, update, or delete this task list."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createTask": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "links",
+                        "required": false,
+                        "description": "Collection of links. This collection is read-only.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "description": "List of fields.To display all fields, use `*`. Examples: id.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "createTask",
+                "description": "Creates a new task on the specified task list.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "due": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Due date of the task (as a RFC 3339 timestamp). Optional."
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Title of the task."
+                                    },
+                                    "parent": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Parent task identifier. This field is omitted if it is a top-level task. This field is read-only. Use the `move` method to move the task under a different parent or to the top level."
+                                    },
+                                    "completed": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Completion date of the task (as a RFC 3339 timestamp). This field is omitted if the task has not been completed."
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task identifier."
+                                    },
+                                    "notes": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Notes describing the task. Optional."
+                                    },
+                                    "selfLink": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "URL pointing to this task. Used to retrieve, update, or delete this task."
+                                    },
+                                    "position": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "String indicating the position of the task among its sibling tasks under the same parent task or at the top level. If this string is greater than another task's corresponding position string according to lexicographical ordering, the task is positioned after the other task under the same parent task (or at the top level). This field is read-only. Use the `move` method to move the task to another position."
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Status of the task. This is either `needsAction` or `completed`."
+                                    },
+                                    "hidden": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Flag indicating whether the task is hidden. This is the case if the task had been marked completed when the task list was last cleared. The default is False. This field is read-only."
+                                    },
+                                    "etag": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "ETag of the resource."
+                                    },
+                                    "updated": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Last modification time of the task (as a RFC 3339 timestamp)."
+                                    },
+                                    "kind": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Type of the resource."
+                                    },
+                                    "previous": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Previous sibling task identifier. If the task is created at the first position among its siblings, this parameter is omitted. Optional."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    },
+                                    "tasklistId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/clearTaskList": {
+            "post": {
+                "operationId": "clearTaskList",
+                "description": "Deletes the specified task from the task list.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "tasklistId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Task list identifier."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token. Use getAccessToken to get it."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

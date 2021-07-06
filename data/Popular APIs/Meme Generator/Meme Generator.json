@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa5971e4b0f2c975470c2c",
+    "name": "Meme Generator",
+    "title": "Meme Generator",
+    "description": "A simple meme generator that generates memes by choosing a preloaded images, and short top and bottom text sentences. Memes are served in the JPEG image file format.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "meme-generator",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2018-07-21T02:58:36.641Z",
+    "category": "Entertainment",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa5971e4b051a76d241234_medium",
+    "user": {
+        "id": 4845400,
+        "username": "meme-generator-api-meme-generator-api-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa5971e4b051a76d241234",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_5d38d668-8db1-476b-ac32-9a1fdb7fb5ba",
+                "isGraphQL": false,
+                "route": "/images",
+                "method": "POST",
+                "name": "uploadImage",
+                "description": "Upload a new meme image and add it to the list of available images.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_dd501106-25d7-4aad-b599-a2cab0b1999b",
+                "isGraphQL": false,
+                "route": "/images",
+                "method": "GET",
+                "name": "getImages",
+                "description": "Returns a list of available meme images.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_5362e6a1-6023-40c4-b97e-93103f06ec18",
+                "isGraphQL": false,
+                "route": "/fonts",
+                "method": "GET",
+                "name": "getFonts",
+                "description": "Returns a list of available fonts.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

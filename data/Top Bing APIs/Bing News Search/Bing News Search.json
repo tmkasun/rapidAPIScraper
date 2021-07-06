@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_a2b7c737-9e49-4a6f-95ef-e39956dff242",
+    "name": "Bing News Search",
+    "title": "Bing News Search",
+    "description": "An AI service from Microsoft Azure that turns any app into a news search resource.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "bing-news-search1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-08-12T23:28:20.284Z",
+    "category": "News, Media",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/a9124023-5eb0-4505-b82e-f9e691fd01aa.png",
+    "user": {
+        "id": 4379414,
+        "username": "microsoft-azure-org-microsoft-cognitive-services",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_6c077bb7-0bf5-4b12-b0b2-4434436e3be6",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_9c82a06e-fbb7-414d-b945-fce253310bba",
+                "isGraphQL": false,
+                "route": "/news/trendingtopics",
+                "method": "GET",
+                "name": "News Trending",
+                "description": "Get trending topics identified by Bing. These are the same topics shown in the banner at the bottom of the Bing home page.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_2bef1167-41a0-4a2c-9b49-4be435bf94c5",
+                "isGraphQL": false,
+                "route": "/news/search",
+                "method": "GET",
+                "name": "News Search",
+                "description": "Get news articles relevant for a given query.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_0aa346dd-16d6-40d4-930c-235f4b4fb9e6",
+                "isGraphQL": false,
+                "route": "/news",
+                "method": "GET",
+                "name": "News Category",
+                "description": "Returns news for a provided category.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5a2061f4e4b0a5e0bc5dff0a",
+    "name": "ListenNotes",
+    "title": "ListenNotes",
+    "description": "Podcast search, directory, and recommendation API. Note: We are retiring this version of API (v1) from RapidAPI. Please use the latest version v2 at https://www.listennotes.com/api/",
+    "visibility": "PUBLIC",
+    "slugifiedName": "listennotes",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-22T18:56:54.101Z",
+    "category": "Media",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5a2061f4e4b0d45349f7772d_medium",
+    "user": {
+        "id": 3499224,
+        "username": "listennotes",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5a2061f4e4b0d45349f7772d",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "5b06123ae4b09219abd3e6c9",
+                "isGraphQL": false,
+                "route": "/api/v1/best_podcasts",
+                "method": "GET",
+                "name": "Fetch a list of best podcasts by genre",
+                "description": "Get a list of curated best podcasts by genre. You can get the genre ids from /api/v1/genres endpoint",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5a6bfb3ce4b082cb6c6b9e5f",
+                "isGraphQL": false,
+                "route": "/api/v1/genres",
+                "method": "GET",
+                "name": "Fetch a list of podcast genres",
+                "description": "Get a list of podcast genres that are supported in Listen Notes. The genre id can be passed to Search API and filter results by specific genres. You may want to cache this list of genres on the client side.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5a25a618e4b07e6c1dd219e3",
+                "isGraphQL": false,
+                "route": "/api/v1/podcasts/{id}",
+                "method": "GET",
+                "name": "Fetch meta data for a podcast by id",
+                "description": "Fetch meta data for a specific podcast. You can get id from search api's response.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

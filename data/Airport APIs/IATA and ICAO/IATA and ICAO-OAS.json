@@ -1,0 +1,364 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "IATA and ICAO",
+        "description": "Powerful aviation APIs. The data includes flight tracking, real-time and historical airport schedules, airline routes, IATA and ICAO databases, airports, airlines, autocomplete and much more!",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "a"
+        }
+    ],
+    "paths": {
+        "/airportDatabase": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "codeIataAirport",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "AAA"
+                        }
+                    },
+                    {
+                        "name": "codeIso2Country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "your_api_key"
+                        }
+                    }
+                ],
+                "operationId": "Airports",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airplaneDatabase": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "numberRegistration",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "HB-JVE"
+                        }
+                    },
+                    {
+                        "name": "hexIcaoAirplane",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "your_api_key"
+                        }
+                    }
+                ],
+                "operationId": "Airplanes",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/taxDatabase": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "codeIataTax",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "AB"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "your_api_key"
+                        }
+                    }
+                ],
+                "operationId": "Tax",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/benchmarkCities": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "codeIataCity",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "AAA"
+                        }
+                    },
+                    {
+                        "name": "codeIso2Country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "your_api_key"
+                        }
+                    }
+                ],
+                "operationId": "City Benchmark",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/benchmarkAirports": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "codeIataAirport",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "AAA"
+                        }
+                    },
+                    {
+                        "name": "codeIso2Country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "your_api_key"
+                        }
+                    }
+                ],
+                "operationId": "Airport Benchmark",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/benchmarkAirlines": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "codeIataAirline",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "AA"
+                        }
+                    },
+                    {
+                        "name": "codeIso2Country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Airline Benchmark",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airlineDatabase": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "codeIso2Country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    },
+                    {
+                        "name": "codeiataairline",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "AA"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "your_api_key"
+                        }
+                    }
+                ],
+                "operationId": "Airlines",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/countryDatabase": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "codeIso2Country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "AD"
+                        }
+                    },
+                    {
+                        "name": "nameCountry",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "your_api_key"
+                        }
+                    }
+                ],
+                "operationId": "Countries",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/cityDatabase": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "codeIataCity",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "AAA"
+                        }
+                    },
+                    {
+                        "name": "codeIso2Country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "your_api_key"
+                        }
+                    }
+                ],
+                "operationId": "Cities",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

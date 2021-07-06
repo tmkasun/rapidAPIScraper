@@ -1,0 +1,526 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "LiveScore",
+        "description": "LiveScore API helps to query for football, cricket, basketball, tennis, hockey matches, leagues, news, etc... as on official site",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "news",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "league",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "match",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        }
+    ],
+    "paths": {
+        "/matches/v2/list-by-date": {
+            "get": {
+                "tags": [
+                    "match"
+                ],
+                "parameters": [
+                    {
+                        "name": "Category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "soccer"
+                        }
+                    },
+                    {
+                        "name": "Date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date string with following format yyyyMMdd",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "20201028"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "matches/v2/list-by-date",
+                "description": "List all matches by specific date\n*The default timezone currently is UTC+7",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matches/v2/list-live": {
+            "get": {
+                "tags": [
+                    "match"
+                ],
+                "parameters": [
+                    {
+                        "name": "Category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "soccer"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "matches/v2/list-live",
+                "description": "List available live matches at request time\n*The default timezone currently is UTC+7",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/leagues/v2/list": {
+            "get": {
+                "tags": [
+                    "league"
+                ],
+                "parameters": [
+                    {
+                        "name": "Category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "soccer"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "leagues/v2/list",
+                "description": "List all leagues by category (football, cricket, basketball, tennis, hockey)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/leagues/list": {
+            "get": {
+                "tags": [
+                    "league"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "soccer"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "leagues/list (Deprecated)",
+                "description": "List all leagues by category (football, cricket, basketball, tennis, hockey)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matches/list-live": {
+            "get": {
+                "tags": [
+                    "match"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "soccer"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "matches/list-live (Deprecated)",
+                "description": "List available live matches at request time",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matches/list-by-date": {
+            "get": {
+                "tags": [
+                    "match"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date string with following format yyyy-MM-dd",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "2019-08-04"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "soccer"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "matches/list-by-date (Deprecated)",
+                "description": "List all matches by specific date",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matches/list-by-league": {
+            "get": {
+                "tags": [
+                    "match"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "soccer"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": true,
+                        "description": "The value of Ccd field at top level that responded in leagues/list API",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "england"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "matches/list-by-league (Deprecated)",
+                "description": "List all matches by specific league",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matches/get-table": {
+            "get": {
+                "tags": [
+                    "match"
+                ],
+                "parameters": [
+                    {
+                        "name": "p",
+                        "in": "query",
+                        "required": true,
+                        "description": "The value of Stages/Events/IDs/p field responded in .../matches/list-by-league or .../matches/list-by-date or .../matches/list-live endpoint",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "soccer"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "The value of Stages/Events/IDs/ID field responded in .../matches/list-by-league or .../matches/list-by-date or .../matches/list-live endpoint",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "3065852"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "matches/get-table (Deprecated)",
+                "description": "Get table of related match",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matches/detail": {
+            "get": {
+                "tags": [
+                    "match"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "The value of Stages/Events/IDs/ID field responded in .../matches/list-by-league or .../matches/list-by-date or .../matches/list-live endpoint",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "922226"
+                        }
+                    },
+                    {
+                        "name": "p",
+                        "in": "query",
+                        "required": true,
+                        "description": "The value of Stages/Events/IDs/p field responded in .../matches/list-by-league or .../matches/list-by-date or .../matches/list-live endpoint",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "5"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "soccer"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "matches/detail (Deprecated)",
+                "description": "Get detail information of a match",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matches/v2/list-by-league": {
+            "get": {
+                "tags": [
+                    "match"
+                ],
+                "parameters": [
+                    {
+                        "name": "Scd",
+                        "in": "query",
+                        "required": false,
+                        "description": "The value of Scd field that responded in .../leagues/v2/list or .../matches/v2/list-by-date endpoints.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "group-b"
+                        }
+                    },
+                    {
+                        "name": "Category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "soccer"
+                        }
+                    },
+                    {
+                        "name": "Ccd",
+                        "in": "query",
+                        "required": true,
+                        "description": "The value of Ccd field that responded in .../leagues/v2/list or .../matches/v2/list-by-date endpoints.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "champions-league"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "matches/v2/list-by-league",
+                "description": "List all matches by specific league and table",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matches/v2/detail": {
+            "get": {
+                "tags": [
+                    "match"
+                ],
+                "parameters": [
+                    {
+                        "name": "LiveTable",
+                        "in": "query",
+                        "required": false,
+                        "description": "true|false - Whether or not include live table relating to current match",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "boolean",
+                            "default": "false"
+                        }
+                    },
+                    {
+                        "name": "Eid",
+                        "in": "query",
+                        "required": true,
+                        "description": "The value of Eid field returned in .../matches/v2/list-by-league or .../matches/v2/list-by-date or .../matches/v2/list-live endpoints",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "315868"
+                        }
+                    },
+                    {
+                        "name": "Category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "soccer"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "matches/v2/detail",
+                "description": "Get detail information of a match\n*The default timezone currently is UTC+7",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/news/list": {
+            "get": {
+                "tags": [
+                    "news"
+                ],
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass empty for init request, or value of key field returned right in this API to load the next records",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "required": true,
+                        "description": "One of the followings : soccer|cricket|basketball|tennis|hockey",
+                        "schema": {
+                            "type": "string",
+                            "example": "soccer"
+                        }
+                    }
+                ],
+                "operationId": "news/list",
+                "description": "List all news of specific category",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

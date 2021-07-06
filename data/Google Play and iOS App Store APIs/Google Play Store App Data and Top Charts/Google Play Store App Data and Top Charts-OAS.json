@@ -1,0 +1,115 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Google Play Store App Data and Top Charts",
+        "description": "Get App Data as displayed in the Google Play Store in multiple languages. Get the latest Top Charts for many regions and different categories",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "App Details"
+        },
+        {
+            "name": "Top Charts"
+        }
+    ],
+    "paths": {
+        "/android/category/{category}/top.json": {
+            "get": {
+                "tags": [
+                    "Top Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "list",
+                        "in": "query",
+                        "required": false,
+                        "description": "The List you would like to get",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "The Country or Region from which the information should be fetched",
+                        "schema": {
+                            "type": "string",
+                            "example": "us"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Category. Example \"GAME\"",
+                        "schema": {
+                            "type": "string",
+                            "example": "GAME"
+                        }
+                    }
+                ],
+                "operationId": "Get Top Charts",
+                "description": "Get The Google Play Top Charts Based on Category.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/android/applications/{id}/metadata.json": {
+            "get": {
+                "tags": [
+                    "App Details"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "The Country from which the information should be fetched",
+                        "schema": {
+                            "type": "string",
+                            "example": "us"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "The language in which the information should be fetched, if available",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Application Package ID",
+                        "schema": {
+                            "type": "string",
+                            "example": "com.whatsapp"
+                        }
+                    }
+                ],
+                "operationId": "Get App Details",
+                "description": "Get the App details as displayed in the Google Play Store such as: Title, Developer Information, Description, Images, Version",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

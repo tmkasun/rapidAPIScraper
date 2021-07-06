@@ -1,0 +1,788 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "TimeTable Lookup ",
+        "description": "Add airline flight schedules and connection options to your products.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Airline Information"
+        },
+        {
+            "name": "Airport Information"
+        },
+        {
+            "name": "Flight Schedules"
+        },
+        {
+            "name": "Airline Codes"
+        }
+    ],
+    "paths": {
+        "/airlines/": {
+            "get": {
+                "tags": [
+                    "Airline Information"
+                ],
+                "operationId": "airlines - Airlines and the countries they operate in",
+                "description": "Return a list of airlines and the countries they operate in",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/{airportiatacode}/routes/nonstops/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airportiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airport IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Nonstop routes for an airport",
+                "description": "Returns a list of nonstop routes for an airport",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/{airportiatacode}/routes/{airlineiatacode}/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airlineiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airline IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "airportiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airport IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Nonstop and direct routes for an airport by airline",
+                "description": "Returns a list of nonstop and direct routes for an airport restricted to an airline",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/{airportiatacode}/routes/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airportiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airport IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Nonstop and direct routes for an airport",
+                "description": "Returns a list of nonstop and direct routes for an airport",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/nearest/{lat}/{lon}/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "lon",
+                        "in": "path",
+                        "required": true,
+                        "description": "Specify longitude",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "path",
+                        "required": true,
+                        "description": "Specify latitude",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Nearest airports for a given latitude and longitude",
+                "description": "Returns the nearest airports for a given latitude and longitude",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/metros/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "operationId": "airports - Metro IATA codes",
+                "description": "Returns a list of metro IATA codes",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "operationId": "airports - List of airports",
+                "description": "Return a list of the airports worldwide",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/nearest/{countryiatacode}/{location}/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "location",
+                        "in": "path",
+                        "required": true,
+                        "description": "A location in the country",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "countryiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Country IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Latitude and longitude for location in country",
+                "description": "Returns the latitude and longitude for location in country",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/{airportiatacode}/routes/directs/{airlineiatacode}/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airportiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airport IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "airlineiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airline IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Direct routes for an airport by airline",
+                "description": "Returns a list of direct routes for an airport restricted to an airline",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/{airportiatacode}/routes/directs/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airportiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airport IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Direct routes for an airport",
+                "description": "Returns a list of direct routes for an airport",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/countries/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "operationId": "airports - Country IATA codes",
+                "description": "Returns a list of country IATA codes",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/{airportiatacode}/airlines/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airportiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airport IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Carriers operating out of an airport",
+                "description": "Return a list of carriers operating out of an airport",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/metros/{metroiatacode}/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "metroiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Metro IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Airports in a metro",
+                "description": "Returns a list of airports in a metro",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/countries/{countryiatacode}/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "countryiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Country IATA code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Airports in a country",
+                "description": "Returns a list of airports in a country",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/{airportiatacode}/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airportiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airport IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Airport information",
+                "description": "Return an airport's information",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airlines/{airlineiatacode}/routes/nonstops/{airportiatacode}/": {
+            "get": {
+                "tags": [
+                    "Airline Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airlineiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airline IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "airportiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airport IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airlines - Nonstop flights for an airline from an airport",
+                "description": "Return a list of nonstop flights for an airline from an airport",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airlines/{airlineiatacode}/routes/": {
+            "get": {
+                "tags": [
+                    "Airline Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airlineiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airline Iata Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airlines - Nonstop and direct flights for an airline",
+                "description": "Return a list of nonstop and direct flights for an airline",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airlines/{airlineiatacode}/routes/directs/{airportiatacode}/": {
+            "get": {
+                "tags": [
+                    "Airline Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airlineiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airline IATA code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "airportiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airport IATA code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airlines - Direct flights for an airline from an airport",
+                "description": "Return a list of direct flights for an airline from an airport",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airlines/{airlineiatacode}/": {
+            "get": {
+                "tags": [
+                    "Airline Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airlineiatacode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "wn/countries"
+                        }
+                    }
+                ],
+                "operationId": "airlines - Countries airline operates in",
+                "description": "Return a list of the countries that an airline operates in",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airlines/{airlineiatacode}/countries/{countryiatacode}/": {
+            "get": {
+                "tags": [
+                    "Airline Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "countryiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Country IATA code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "airlineiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airline IATA code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airlines - Airports in a country an airline operates in",
+                "description": "Return a list of airports in a country an airline operates in",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/{airportiatacode}/routes/nonstops/{airlineiatacode}/": {
+            "get": {
+                "tags": [
+                    "Airport Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "airlineiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airline IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "airportiatacode",
+                        "in": "path",
+                        "required": true,
+                        "description": "Airport IATA Code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "airports - Nonstop routes for an airport by airline",
+                "description": "Returns a list of nonstop routes for an airport restricted to an airline",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/TimeTable/{From}/{To}/{Date}/": {
+            "get": {
+                "tags": [
+                    "Flight Schedules"
+                ],
+                "parameters": [
+                    {
+                        "name": "Time",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return flights that happen during the specified time period (ANY, AM, PM, NIGHT)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Compression",
+                        "in": "query",
+                        "required": false,
+                        "description": "Displays non-stops, directs and logical single and multiple connections up to the maximum number of results requested (AUTO, NONSTOP, DIRECT, 1STOP, MORE)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "7Day",
+                        "in": "query",
+                        "required": false,
+                        "description": "Setting to \"N\" results in 1 days of results. Setting to \"Y\" results in 7 days of results. (N, Y)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Interline",
+                        "in": "query",
+                        "required": false,
+                        "description": "Please see documentation",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Results",
+                        "in": "query",
+                        "required": false,
+                        "description": "Range = 1 to 500, Maximum number of results to return",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Connection",
+                        "in": "query",
+                        "required": false,
+                        "description": "Displays non-stops, directs and logical single and multiple connections up to the maximum number of results requested",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specify the sort order for the results (Departure, Optional - Arrival, Duration, Flights)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "MaxConnect",
+                        "in": "query",
+                        "required": false,
+                        "description": "Range = 120-1200. Maximum time between flight in minutes. Default = 240 which is the IATA standard.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Max_Results",
+                        "in": "query",
+                        "required": false,
+                        "description": "Override the results count.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "NoFilter",
+                        "in": "query",
+                        "required": false,
+                        "description": "Disable Traffic Restriction Code Filters",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Airline",
+                        "in": "query",
+                        "required": false,
+                        "description": "Restrict by specific airline 2 or 3 letter airline IATA code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "FlightNumber",
+                        "in": "query",
+                        "required": false,
+                        "description": "Restrict by specific flight number must be used with Airline",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ExpandResults",
+                        "in": "query",
+                        "required": false,
+                        "description": "Y = Override the flight efficiency filter, showing more results. N = Do not override the flight efficiency filter, showing fewer results.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "From",
+                        "in": "path",
+                        "required": true,
+                        "description": "3 letter IATA code for the departure airport",
+                        "schema": {
+                            "type": "string",
+                            "example": "BOS"
+                        }
+                    },
+                    {
+                        "name": "Date",
+                        "in": "path",
+                        "required": true,
+                        "description": "Departure date (YYYYMMDD)",
+                        "schema": {
+                            "type": "string",
+                            "example": "20191217"
+                        }
+                    },
+                    {
+                        "name": "To",
+                        "in": "path",
+                        "required": true,
+                        "description": "3 letter IATA code for the destination airport",
+                        "schema": {
+                            "type": "string",
+                            "example": "LAX"
+                        }
+                    }
+                ],
+                "operationId": "Flight Schedules",
+                "description": "FlightLookup Web Services, powered by FlightLookup Routing Engine.  This API provides a powerful information source for developing sophisticated applications requiring flight related schedule data.  Whether you are a software company developing products for sale or an in-house developer, the FlightLookup Web Services APIs are unmatched in terms of breadth and richness of information. Our development tools and documentation will get you up to speed quickly enabling short development cycles.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/codes/meal/": {
+            "get": {
+                "tags": [
+                    "Airline Codes"
+                ],
+                "operationId": "codes - Meal Codes",
+                "description": "Return a list of meal code used by the airlines",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/codes/equipment/": {
+            "get": {
+                "tags": [
+                    "Airline Codes"
+                ],
+                "operationId": "codes - Equipment codes",
+                "description": "Return a list of equipment codes used by the airlines",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/codes/entertainment/": {
+            "get": {
+                "tags": [
+                    "Airline Codes"
+                ],
+                "operationId": "codes - Entertainment Codes",
+                "description": "Return a list of entertainment codes used by the airlines",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

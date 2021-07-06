@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "56f714e1e4b0b1c438f74999",
+    "name": "App Stores",
+    "title": "App Stores",
+    "description": "An API for multiple mobile app stores: Android apps on Google Play and iOS apps on Apple iTunes. Low-cost pricing and fast response times.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "app-stores",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-02-29T04:16:06.661Z",
+    "category": "Tools",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/56f714e1e4b090e91cc72e0e_medium",
+    "user": {
+        "id": 1673673,
+        "username": "danielamitay",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "56f714e1e4b090e91cc72e0e",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "56f7491ce4b0e1ef6fbad3cf",
+                "isGraphQL": false,
+                "route": "/details",
+                "method": "GET",
+                "name": "App details",
+                "description": "Fetch app store details for a given application",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "56f9e6ece4b090e91cc7350b",
+                "isGraphQL": false,
+                "route": "/autocomplete",
+                "method": "GET",
+                "name": "Autocomplete",
+                "description": "Fetch a list of autocomplete terms for a given search term",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "56f749cae4b08c0a4d9c38dd",
+                "isGraphQL": false,
+                "route": "/reviews",
+                "method": "GET",
+                "name": "User reviews",
+                "description": "Fetch the most recent user reviews for a given application",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

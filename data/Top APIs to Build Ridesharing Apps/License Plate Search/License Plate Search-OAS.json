@@ -1,0 +1,96 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "License Plate Search",
+        "description": "FindbyPlate.com is a free resource to search by license plate numbers and report bad drivers. If most cases the website will identify the car and its basic information. If other users have submitted any reports about the car, images, videos, comments or even related websites, you'd be able to see that information. Please use the service at your own risk, we do not warrant the validity of this information, nor we guarantee accuracy of the details.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/api": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "video",
+                        "in": "query",
+                        "required": false,
+                        "description": "true or false",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "pictures",
+                        "in": "query",
+                        "required": false,
+                        "description": "true or false",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "comments",
+                        "in": "query",
+                        "required": false,
+                        "description": "true or false",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "vin",
+                        "in": "query",
+                        "required": false,
+                        "description": "contact support@findbyplate.com for details",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "required": true,
+                        "description": "json or xml",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "plate",
+                        "in": "query",
+                        "required": true,
+                        "description": "License plate",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "State of License",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": ""
+                },
+                "operationId": "/api?plate={plate}&state={state}&vin={vin}&pictures={pictures}&videos={videos}&comments={comments}&format={format}",
+                "description": "This API searches for related cars to the license plate number and returns results, along with user submitted content",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

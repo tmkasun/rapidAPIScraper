@@ -1,0 +1,208 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "App Stores",
+        "description": "An API for multiple mobile app stores: Android apps on Google Play and iOS apps on Apple iTunes. Low-cost pricing and fast response times.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Search"
+        },
+        {
+            "name": "Application"
+        }
+    ],
+    "paths": {
+        "/details": {
+            "get": {
+                "tags": [
+                    "Application"
+                ],
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "The two-letter code for the language you want results in (ISO-639-1). Optional",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "The identifier for the application you would like to retrieve results for",
+                        "schema": {
+                            "type": "string",
+                            "example": "com.snapchat.android"
+                        }
+                    },
+                    {
+                        "name": "store",
+                        "in": "query",
+                        "required": true,
+                        "description": "The app store that you would like to retrieve results from (apple or google)",
+                        "schema": {
+                            "type": "string",
+                            "example": "google"
+                        }
+                    }
+                ],
+                "operationId": "App details",
+                "description": "Fetch app store details for a given application",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/autocomplete": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "The two-letter code for the language you want results in (ISO-639-1). Optional",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "term",
+                        "in": "query",
+                        "required": true,
+                        "description": "The search term you would like to retrieve autocomplete results for",
+                        "schema": {
+                            "type": "string",
+                            "example": "f"
+                        }
+                    },
+                    {
+                        "name": "store",
+                        "in": "query",
+                        "required": true,
+                        "description": "The app store that you would like to retrieve reviews from (apple or google)",
+                        "schema": {
+                            "type": "string",
+                            "example": "apple"
+                        }
+                    }
+                ],
+                "operationId": "Autocomplete",
+                "description": "Fetch a list of autocomplete terms for a given search term",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/reviews": {
+            "get": {
+                "tags": [
+                    "Application"
+                ],
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "The two-letter code for the language you want results in (ISO-639-1). Optional",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "The identifier for the application you would like to retrieve reviews for",
+                        "schema": {
+                            "type": "string",
+                            "example": "com.snapchat.android"
+                        }
+                    },
+                    {
+                        "name": "store",
+                        "in": "query",
+                        "required": true,
+                        "description": "The app store that you would like to retrieve results from (apple or google)",
+                        "schema": {
+                            "type": "string",
+                            "example": "google"
+                        }
+                    }
+                ],
+                "operationId": "User reviews",
+                "description": "Fetch the most recent user reviews for a given application",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/search": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "The two-letter code for the language you want results in (ISO-639-1). Optional",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "term",
+                        "in": "query",
+                        "required": true,
+                        "description": "The search term you would like to retrieve app results for",
+                        "schema": {
+                            "type": "string",
+                            "example": "sleep"
+                        }
+                    },
+                    {
+                        "name": "store",
+                        "in": "query",
+                        "required": true,
+                        "description": "The app store that you would like to retrieve reviews from (apple or google)",
+                        "schema": {
+                            "type": "string",
+                            "example": "google"
+                        }
+                    }
+                ],
+                "operationId": "App search",
+                "description": "Fetch the list of search results for a given term",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

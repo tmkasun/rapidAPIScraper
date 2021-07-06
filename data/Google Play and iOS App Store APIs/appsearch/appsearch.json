@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa35b9e4b00287471a0743",
+    "name": "appsearch",
+    "title": "appsearch",
+    "description": "Mimvi App Search provides mobile app search, discovery and recommendation services.  Based on proprietary biomimetic algorithms, Mimvi App Search delivers the best coverage and most relevant mobile apps, mobile content and mobile products.  Coverage includes:  iTunes, Google Play (Android), Windows Phone 7, Windows Phone 8, Facebook, Blackberry, Web Apps.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "appsearch",
+    "pricing": "FREE",
+    "updatedAt": "2019-02-20T10:10:37.316Z",
+    "category": "Advertising",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa35b9e4b008bb2ef8541d_medium",
+    "user": {
+        "id": 1659106,
+        "username": "mimviapps",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa35b9e4b008bb2ef8541d",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "53aa35bae4b0a705fcc3079d",
+                "isGraphQL": false,
+                "route": "/1.1/recommendations",
+                "method": "GET",
+                "name": "recommendations",
+                "description": "given one app as input, get recommended apps as output",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa35bae4b051a76d23f7db",
+                "isGraphQL": false,
+                "route": "/1.1/search",
+                "method": "GET",
+                "name": "search",
+                "description": "Search for apps",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

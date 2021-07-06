@@ -1,0 +1,400 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Utelly",
+        "description": "Utelly universal search and recommendations APIs for Movies, Series and TV shows.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/idlookup": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "only selects services available in a specific country - supported territories uk, us, ar, at, be, br, ca, de, es, fr, ie, id, it, is, kr, my, mx, no, nl, pt,  se & sg",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "us"
+                        }
+                    },
+                    {
+                        "name": "source",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "imdb"
+                        }
+                    },
+                    {
+                        "name": "source_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "tt3398228"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/idlookup",
+                "description": "Find where to watch a movie or tv show, with look-up using common IDs (IMDb, tmdb, wiki, etc). \n\nFor example (The Shawshank Redemption): \n\n- **IMDb**, tt0111161\n-  **TMDb**, movie/278",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "collection": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "locations": {
+                                                    "items": {
+                                                        "properties": {
+                                                            "country": {
+                                                                "items": {
+                                                                    "type": "string"
+                                                                },
+                                                                "type": "array"
+                                                            },
+                                                            "display_name": {
+                                                                "type": "string"
+                                                            },
+                                                            "icon": {
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "url": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "picture": {
+                                                    "type": "string"
+                                                },
+                                                "provider": {
+                                                    "type": "string"
+                                                },
+                                                "source_ids": {
+                                                    "properties": {
+                                                        "imdb": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "url": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "weight": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "status_code": {
+                                            "type": "integer"
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "variant": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "collection": {
+                                                "id": "5d914028302b840050acbe62",
+                                                "locations": [
+                                                    {
+                                                        "country": [
+                                                            "us"
+                                                        ],
+                                                        "display_name": "Netflix",
+                                                        "icon": "https://utellyassets7.imgix.net/locations_icons/utelly/black_new/NetflixIVAUS.png?w=92&auto=compress&app_version=5ad8898f-f073-405d-92ed-98b1c6e8fb54_er2020-02-21",
+                                                        "id": "5d81fe2fd51bef0f42268f0f",
+                                                        "name": "NetflixIVAUS",
+                                                        "url": "https://www.netflix.com/title/70298933"
+                                                    }
+                                                ],
+                                                "name": "BoJack Horseman",
+                                                "picture": "https://utellyassets9-1.imgix.net/api/Images/4e4d50a0040fd4500193202edbafce6a/Redirect",
+                                                "provider": "iva",
+                                                "source_ids": {
+                                                    "imdb": {
+                                                        "id": "tt3398228",
+                                                        "url": "https://www.imdb.com/title/tt3398228"
+                                                    }
+                                                },
+                                                "weight": 9919
+                                            },
+                                            "id": "tt3398228",
+                                            "status_code": 200,
+                                            "type": "imdb",
+                                            "variant": "ivafull"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/lookup": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "only selects services available in a specific country - supported territories uk, us, ar, at, be, br, ca, de, es, fr, ie, id, it, is, kr, my, mx, no, nl, pt,  se & sg",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "uk"
+                        }
+                    },
+                    {
+                        "name": "term",
+                        "in": "query",
+                        "required": false,
+                        "description": "name of the show you want availability - supports partial strings",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "bojack"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/lookup",
+                "description": "Lookup a tv show or movie by name and retrieve its availability across supported services for a particular country || Netflix, Amazon Prime Video, Amazon Instant Video, Apple TV+, Google Play, iTunes, YouTube Premium, Disney Plus, Hulu, Atom Tickets, CBS, DC Universe, HBO, Discovery Channel, Fandango Movies, Fox, NBC, Nickelodeon.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "variant": {
+                                            "type": "string"
+                                        },
+                                        "results": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "locations": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "display_name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "url": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "icon": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "weight": {
+                                                        "type": "integer"
+                                                    },
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "external_ids": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "imdb": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "url": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "id": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "tmdb": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "url": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "id": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "iva": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "facebook": {
+                                                                "type": "null"
+                                                            },
+                                                            "rotten_tomatoes": {
+                                                                "type": "null"
+                                                            },
+                                                            "wiki_data": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "url": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "id": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "iva_rating": {
+                                                                "type": "null"
+                                                            },
+                                                            "gracenote": {
+                                                                "type": "null"
+                                                            }
+                                                        }
+                                                    },
+                                                    "picture": {
+                                                        "type": "string"
+                                                    },
+                                                    "provider": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "updated": {
+                                            "type": "string"
+                                        },
+                                        "term": {
+                                            "type": "string"
+                                        },
+                                        "status_code": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "variant": "rapidapi_basic",
+                                            "results": [
+                                                {
+                                                    "locations": [
+                                                        {
+                                                            "display_name": "Netflix",
+                                                            "id": "5d84d6e2d95dc7385f6a442d",
+                                                            "url": "https://www.netflix.com/title/70298933",
+                                                            "name": "NetflixIVAGB",
+                                                            "icon": "https://utellyassets7.imgix.net/locations_icons/utelly/black_new/NetflixIVAGB.png?w=92&auto=compress&app_version=23f8e481-9672-42ce-b1c8-b950bb12d45a_e12122021-01-29"
+                                                        }
+                                                    ],
+                                                    "weight": 5653,
+                                                    "id": "5d914028302b840050acbe62",
+                                                    "external_ids": {
+                                                        "imdb": {
+                                                            "url": "https://www.imdb.com/title/tt3398228",
+                                                            "id": "tt3398228"
+                                                        },
+                                                        "tmdb": {
+                                                            "url": "https://www.themoviedb.org/tv/61222",
+                                                            "id": "61222"
+                                                        },
+                                                        "iva": {
+                                                            "id": "783721"
+                                                        },
+                                                        "facebook": null,
+                                                        "rotten_tomatoes": null,
+                                                        "wiki_data": {
+                                                            "url": "https://www.wikidata.org/wiki/Q17733404",
+                                                            "id": "Q17733404"
+                                                        },
+                                                        "iva_rating": null,
+                                                        "gracenote": null
+                                                    },
+                                                    "picture": "https://utellyassets9-1.imgix.net/api/Images/4e4d50a0040fd4500193202edbafce6a/Redirect?fit=crop&auto=compress&crop=faces,top",
+                                                    "provider": "iva",
+                                                    "name": "BoJack Horseman"
+                                                }
+                                            ],
+                                            "updated": "2021-01-29T05:09:14+0000",
+                                            "term": "bojack",
+                                            "status_code": 200
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

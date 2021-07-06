@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa5969e4b0f2c975470c08",
+    "name": "OpenAPI 1.2",
+    "title": "OpenAPI 1.2",
+    "description": "The TransLoc PublicAPI is a RESTful API which allows you to incorporate real-time vehicle tracking information into your web or mobile applications. It exposes several resources that allow you to access real-time information about transit systems tracked by TransLoc Inc.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "openapi-1-2",
+    "pricing": "FREE",
+    "updatedAt": "2019-02-20T10:10:52.054Z",
+    "category": "Location",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa5969e4b0a9b1348db0f1_medium",
+    "user": {
+        "id": 1905303,
+        "username": "transloc",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa5969e4b0a9b1348db0f1",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "53aa596ce4b051a76d24121d",
+                "isGraphQL": false,
+                "route": "/stops.{format}",
+                "method": "GET",
+                "name": "Stops",
+                "description": "This resource contains a list of stops. It must be restricted by agencies' IDs. It may be restricted by a geographical area filter, to retreive only a list of stops in a particular area.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa596ae4b0f2c975470c11",
+                "isGraphQL": false,
+                "route": "/routes.{format}",
+                "method": "GET",
+                "name": "Routes",
+                "description": "This resource contains a list of routes. It must be restricted by agencies' IDs. It may be restricted by a geographical area filter, to retrieve only a list of routes in a particular area.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa596ce4b008bb2ef86e76",
+                "isGraphQL": false,
+                "route": "/vehicles.{format}",
+                "method": "GET",
+                "name": "Vehicles",
+                "description": "This resource contains a list of vehicle, their properties and their locations. It must be restricted by agencies' IDs. It may be further restricted by a geographical area filter, to retrieve only the list of routes in a particular area of interest. It may also be restricted by a list of route ID's.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

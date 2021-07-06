@@ -1,0 +1,471 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Lyft",
+        "description": "Embed Lyft ride-share functionality into your app. ",
+        "version": "1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/updateRideDestination": {
+            "post": {
+                "operationId": "updateRideDestination",
+                "description": "Updates destination of the ride. Note that the ride state must still be active (not droppedOff or canceled), and that destinations on Lyft Line rides cannot be changed.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "newDestinationAddress": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Display address at/near the given location"
+                                    },
+                                    "newCoordinate": {
+                                        "type": "string",
+                                        "format": "map",
+                                        "description": "New destination latitude nad longitude coma separated"
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token received from Lyft"
+                                    },
+                                    "rideId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Id of the ride"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/requestRide": {
+            "post": {
+                "operationId": "requestRide",
+                "description": "Allows your application to request a ride on behalf of the user. The user's payment credentials on file will be charged for the ride.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "primetimeConfirmationToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Prime Time confirmation token"
+                                    },
+                                    "rideTypes": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Requested types of ride."
+                                    },
+                                    "startCoordinate": {
+                                        "type": "string",
+                                        "format": "map",
+                                        "description": "The user’s current latitude and longitude coma separated"
+                                    },
+                                    "destinationCoordinate": {
+                                        "type": "string",
+                                        "format": "map",
+                                        "description": "Destination latitude and longitude coma separated"
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token received from Lyft"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/refreshAccessToken": {
+            "post": {
+                "operationId": "refreshAccessToken",
+                "description": "Refresh existing accessToken",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "clientSecret": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "The client secret obtained from Lyft."
+                                    },
+                                    "clientId": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "The client id obtained from Lyft."
+                                    },
+                                    "refreshToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Refresh token received previously"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getRideTypes": {
+            "post": {
+                "operationId": "getRideTypes",
+                "description": "Returns information about what kinds of Lyft rides you can request at a given location.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "rideTypes": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Requested types of ride."
+                                    },
+                                    "coordinate": {
+                                        "type": "string",
+                                        "format": "map",
+                                        "description": "The user’s current latitude and longitude coma separated"
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token received from Lyft"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getNearbyAvailableDrivers": {
+            "post": {
+                "operationId": "getNearbyAvailableDrivers",
+                "description": "Returns the location of drivers near a location.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "coordinate": {
+                                        "type": "string",
+                                        "format": "map",
+                                        "description": "The user’s current latitude and longitude coma separated"
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token received from Lyft"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getMySingleRide": {
+            "post": {
+                "operationId": "getMySingleRide",
+                "description": "Returns single ride from the list of user rides.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token received from Lyft"
+                                    },
+                                    "rideId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Id of the ride"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getMyRides": {
+            "post": {
+                "operationId": "getMyRides",
+                "description": "Returns list of user rides.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "limit": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The maximum number of rides to return. The default limit is 10 if not specified. The maximum possible value is 50."
+                                    },
+                                    "endTime": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Restrict to rides starting before this point in time. The earliest supported date is 2015-01-01T00:00:00Z"
+                                    },
+                                    "startTime": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Restrict to rides starting after this point in time. The earliest supported date is 2015-01-01T00:00:00Z"
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token received from Lyft"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getMe": {
+            "post": {
+                "operationId": "getMe",
+                "description": "Returns the authenticated user's ID.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token received from Lyft"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getAccessToken": {
+            "post": {
+                "operationId": "getAccessToken",
+                "description": "Get accessToken",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "clientId": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "The client id obtained from Lyft."
+                                    },
+                                    "redirectUri": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Your redirect URI"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Code from the user."
+                                    },
+                                    "clientSecret": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "The client secret obtained from Lyft."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/estimateRideCost": {
+            "post": {
+                "operationId": "estimateRideCost",
+                "description": "Returns the estimated cost, distance, and duration of a ride between a start location and end location.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "rideTypes": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Requested types of ride."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token received from Lyft"
+                                    },
+                                    "endCoordinate": {
+                                        "type": "string",
+                                        "format": "map",
+                                        "description": "The user’s ending latitude and logintude coma separated"
+                                    },
+                                    "startCoordinate": {
+                                        "type": "string",
+                                        "format": "map",
+                                        "description": "The user’s starting latitude and logintude coma separated"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/checkDriverComeTiming": {
+            "post": {
+                "operationId": "checkDriverComeTiming",
+                "description": "Returns the estimated time in seconds it will take for the nearest driver to reach the specified location.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "rideTypes": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Requested types of ride."
+                                    },
+                                    "coordinate": {
+                                        "type": "string",
+                                        "format": "map",
+                                        "description": "The user’s current latitude nad longitude coma separated"
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token received from Lyft"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cancelRequestedRide": {
+            "post": {
+                "operationId": "cancelRequestedRide",
+                "description": "Allows your application to cancel the specified ride.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "cancelConfirmationToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Cancel confirmation token"
+                                    },
+                                    "rideId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Id of the ride"
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access Token received from Lyft"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

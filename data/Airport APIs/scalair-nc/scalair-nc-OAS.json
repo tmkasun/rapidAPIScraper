@@ -1,0 +1,119 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "scalair-nc",
+        "description": "API de Scalair NC, les indices de qualité de l'air",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Spots"
+        },
+        {
+            "name": "Global"
+        }
+    ],
+    "paths": {
+        "/scalair/logicoop/": {
+            "get": {
+                "operationId": "Logicoop",
+                "description": "Logicoop",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/scalair/": {
+            "get": {
+                "tags": [
+                    "Global"
+                ],
+                "operationId": "Global",
+                "description": "Liste de tous les indices pour tous les lieux de Nouméa",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/scalair/iqa/": {
+            "get": {
+                "tags": [
+                    "Global"
+                ],
+                "operationId": "IQAs",
+                "description": "Liste des Indices de Qualité de l'air",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/scalair/general/": {
+            "get": {
+                "tags": [
+                    "Spots"
+                ],
+                "operationId": "Général",
+                "description": "Général",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/scalair/vata/": {
+            "get": {
+                "tags": [
+                    "Spots"
+                ],
+                "operationId": "Anse Vata",
+                "description": "Anse Vata",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/scalair/faubourg/": {
+            "get": {
+                "tags": [
+                    "Spots"
+                ],
+                "operationId": "Faubougr Blanchot",
+                "description": "Faubourg Blanchot",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/scalair/montravel/": {
+            "get": {
+                "tags": [
+                    "Spots"
+                ],
+                "operationId": "Montravel",
+                "description": "Montravel",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

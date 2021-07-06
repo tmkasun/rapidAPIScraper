@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_082ea3fc-e792-4ac8-94b2-b27930266030",
+    "name": "Bing Spell Check",
+    "title": "Bing Spell Check",
+    "description": "An AI service from Microsoft Azure that turns any app into a spell check resource.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "bing-spell-check2",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-27T14:10:42.805Z",
+    "category": "Text Analysis",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/9ee95248-22bf-447b-8dbc-35902f761610.png",
+    "user": {
+        "id": 4379414,
+        "username": "microsoft-azure-org-microsoft-cognitive-services",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_9a2f69ef-0207-4c53-833e-86b0fe6c0cc6",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_a2c682b7-082a-4845-98d1-1160da7ec835",
+                "isGraphQL": false,
+                "route": "/spellcheck",
+                "method": "POST",
+                "name": "Spell Check",
+                "description": "Check spelling.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_32181ad2-c05b-4fb8-ab52-43663f1960a4",
+                "isGraphQL": false,
+                "route": "/spellcheck",
+                "method": "GET",
+                "name": "Spell Check",
+                "description": "Check spelling.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

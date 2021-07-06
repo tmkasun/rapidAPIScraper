@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "59ef20b9e4b0c95e003b329e",
+    "name": "Utelly",
+    "title": "Utelly",
+    "description": "Utelly universal search and recommendations APIs for Movies, Series and TV shows.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "utelly",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-01-13T15:35:54.686Z",
+    "category": "Entertainment",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b0/fa66f2b70f40e8a1c756d33e337c4d/8703454dc9015421d6609115ddb28552.png",
+    "user": {
+        "id": 3472592,
+        "username": "utelly",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "59ef20b9e4b06d2e9b6ccd88",
+        "tags": [
+            {
+                "id": "tag_46a87f28-cfae-4369-8688-0eb1d24e2b6d",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_3cad787b-ca7b-449a-84b4-23b40d64fd73",
+                "isGraphQL": false,
+                "route": "/idlookup",
+                "method": "GET",
+                "name": "/idlookup",
+                "description": "Find where to watch a movie or tv show, with look-up using common IDs (IMDb, tmdb, wiki, etc). \n\nFor example (The Shawshank Redemption): \n\n- **IMDb**, tt0111161\n-  **TMDb**, movie/278",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "59ef20efe4b09ee1ff544377",
+                "isGraphQL": false,
+                "route": "/lookup",
+                "method": "GET",
+                "name": "/lookup",
+                "description": "Lookup a tv show or movie by name and retrieve its availability across supported services for a particular country || Netflix, Amazon Prime Video, Amazon Instant Video, Apple TV+, Google Play, iTunes, YouTube Premium, Disney Plus, Hulu, Atom Tickets, CBS, DC Universe, HBO, Discovery Channel, Fandango Movies, Fox, NBC, Nickelodeon.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5486bc00e4b062873af3d575",
+    "name": "Google PlayStore Downloader and Scrapper",
+    "title": "Google PlayStore Downloader and Scrapper",
+    "description": "Using this API, You can generate direct download link of apk files and also grab details about the APK file from Google play store. This Google Play Store API is an unofficial one.  This API is only  for educational Purpose.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "google-playstore-downloader-and-scrapper",
+    "pricing": "FREE",
+    "updatedAt": "2019-02-20T10:10:32.890Z",
+    "category": "Tools",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5486bc00e4b097f2434b1dee_medium",
+    "user": {
+        "id": 1563234,
+        "username": "sphirelabs",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5486bc00e4b097f2434b1dee",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "5486bca7e4b019c432cf28ff",
+                "isGraphQL": false,
+                "route": "/index.php",
+                "method": "GET",
+                "name": "Google Playstore",
+                "description": "Get Direct Download Link and App Details",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

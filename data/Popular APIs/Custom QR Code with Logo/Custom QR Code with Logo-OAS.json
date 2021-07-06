@@ -1,0 +1,242 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Custom QR Code with Logo",
+        "description": "Create unique looking QR codes with logo, color and design as PNG, SVG, PDF or EPS. QR Codes can be generated in high quality for print and professional use cases. Extended documentation can be found here: https://www.qrcode-monkey.com/qr-code-api-with-logo",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/qr/uploadImage": {
+            "post": {
+                "operationId": "Upload Image",
+                "description": "Upload a logo or an image that you want to add to your QR code.  The upload request needs to have content-type \"multipart/form-data\" and the name of the image form field is \"file\". Use the filename as 'logo' value in the 'config' JSON object when creating a custom QR code.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/qr/custom": {
+            "post": {
+                "operationId": "Create Custom QR Code",
+                "description": "Create a QR code with logo, color and custom design.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "data": "https://www.qrcode-monkey.com",
+                                "config": {
+                                    "body": "circle-zebra-vertical",
+                                    "eye": "frame13",
+                                    "eyeBall": "ball15",
+                                    "erf1": [],
+                                    "erf2": [],
+                                    "erf3": [],
+                                    "brf1": [],
+                                    "brf2": [],
+                                    "brf3": [],
+                                    "bodyColor": "#0277BD",
+                                    "bgColor": "#FFFFFF",
+                                    "eye1Color": "#075685",
+                                    "eye2Color": "#075685",
+                                    "eye3Color": "#075685",
+                                    "eyeBall1Color": "#0277BD",
+                                    "eyeBall2Color": "#0277BD",
+                                    "eyeBall3Color": "#0277BD",
+                                    "gradientColor1": "#075685",
+                                    "gradientColor2": "#0277BD",
+                                    "gradientType": "linear",
+                                    "gradientOnEyes": false,
+                                    "logo": "#facebook"
+                                },
+                                "size": 600,
+                                "download": false,
+                                "file": "png"
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            },
+            "get": {
+                "parameters": [
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "description": "The minimum width and height of your QR code image in pixel.",
+                        "schema": {
+                            "type": "number",
+                            "example": "600"
+                        }
+                    },
+                    {
+                        "name": "file",
+                        "in": "query",
+                        "required": false,
+                        "description": "Set the type of your output image file. There are different formats available: png, jpg, svg (support all design options), pdf (no support for color gradients), eps (only classic QR codes).",
+                        "schema": {
+                            "type": "string",
+                            "example": "png"
+                        }
+                    },
+                    {
+                        "name": "download",
+                        "in": "query",
+                        "required": false,
+                        "description": "Set to true to force your browser to download your created file instead of displaying it.",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "config",
+                        "in": "query",
+                        "required": false,
+                        "description": "JSON object for configuration of custom QR code design. If you add a logo file to your config make sure you uploaded the image before. JSON needs to be URL encoded.",
+                        "schema": {
+                            "type": "string",
+                            "example": "{\"bodyColor\": \"#0277BD\", \"body\":\"mosaic\"}"
+                        }
+                    },
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "required": true,
+                        "description": "The content of your QR code like a URL, text or any other formats that work with QR Codes. String should be URL encoded.",
+                        "schema": {
+                            "type": "string",
+                            "example": "https://www.qrcode-monkey.com"
+                        }
+                    }
+                ],
+                "operationId": "Create Custom QR Code with GET",
+                "description": "Create custom QR Code with logo, color and design.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/qr/transparent": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "y",
+                        "in": "query",
+                        "required": false,
+                        "description": "The y position of your QR code in your image canvas.",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "download",
+                        "in": "query",
+                        "required": false,
+                        "description": "Set to true to force direct download of image file in Browser.",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "crop",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return only the QR code without the surrounding image when set to true.",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "x",
+                        "in": "query",
+                        "required": false,
+                        "description": "The x position of your QR code in your image canvas.",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "image",
+                        "in": "query",
+                        "required": false,
+                        "description": "The filename of the uploaded image or an image URL. This image is the background and canvas for your QR code.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "required": true,
+                        "description": "The content of your QR code like a URL, text or any other formats that work with QR Codes. String should be URL encoded.",
+                        "schema": {
+                            "type": "string",
+                            "example": "https://qrcode.studio"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": true,
+                        "description": "The width and height of the QR code displayed on your image.",
+                        "schema": {
+                            "type": "number",
+                            "example": "400"
+                        }
+                    }
+                ],
+                "operationId": "Create Transparent QR Code with GET",
+                "description": "Create a direct link for a transparent QR code.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "operationId": "Create Transparent QR Code",
+                "description": "Create a transparent QR Code that can be used as an overlay for any background.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "data": "https://www.qrcode-monkey.com",
+                                "image": "https://qrcode.studio/assets/img/website/scan-qr.jpg",
+                                "x": 1,
+                                "y": 1,
+                                "size": 400,
+                                "crop": true,
+                                "file": "png",
+                                "download": false
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

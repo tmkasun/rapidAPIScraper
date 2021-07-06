@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "58f72776e4b08bc9ee736016",
+    "name": "Custom QR Code with Logo",
+    "title": "Custom QR Code with Logo",
+    "description": "Create unique looking QR codes with logo, color and design as PNG, SVG, PDF or EPS. QR Codes can be generated in high quality for print and professional use cases. Extended documentation can be found here: https://www.qrcode-monkey.com/qr-code-api-with-logo",
+    "visibility": "PUBLIC",
+    "slugifiedName": "custom-qr-code-with-logo",
+    "pricing": "PAID",
+    "updatedAt": "2019-02-20T10:11:21.339Z",
+    "category": "Tools",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/84/a28ba02bb911e9932737901a242357/2b8c667ce92f41c6e197b6ebcdb8ad01.png",
+    "user": {
+        "id": 3430051,
+        "username": "qrcode-monkey",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "58f72777e4b01d2fd998c288",
+        "tags": [
+            {
+                "id": "tag_7c7d423d-7fd1-4575-a295-537e2b34699d",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "58fb5715e4b050048df08021",
+                "isGraphQL": false,
+                "route": "/qr/uploadImage",
+                "method": "POST",
+                "name": "Upload Image",
+                "description": "Upload a logo or an image that you want to add to your QR code.  The upload request needs to have content-type \"multipart/form-data\" and the name of the image form field is \"file\". Use the filename as 'logo' value in the 'config' JSON object when creating a custom QR code.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "58fb5102e4b02592d0806c88",
+                "isGraphQL": false,
+                "route": "/qr/custom",
+                "method": "POST",
+                "name": "Create Custom QR Code",
+                "description": "Create a QR code with logo, color and custom design.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "58fa6527e4b059cbf3ddc43c",
+                "isGraphQL": false,
+                "route": "/qr/custom",
+                "method": "GET",
+                "name": "Create Custom QR Code with GET",
+                "description": "Create custom QR Code with logo, color and design.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

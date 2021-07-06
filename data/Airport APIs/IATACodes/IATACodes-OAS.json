@@ -1,0 +1,146 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "IATACodes",
+        "description": "Global Aviation Data API",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/api/v5/airlines": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "language code - en (by default), fr, de, es, it, ru, th, tr",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Airline IATA code",
+                        "schema": {
+                            "type": "string",
+                            "example": "AF"
+                        }
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "required": true,
+                        "description": "Please register at http://iatacodes.org/ to use your own api_key",
+                        "schema": {
+                            "type": "string",
+                            "example": "YOUR-API-KEY"
+                        }
+                    }
+                ],
+                "operationId": "Airlines",
+                "description": "Airlines",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v5/airports": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "language code - en (by default), fr, de, es, it, ru, th, tr",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "description": "specified airport code",
+                        "schema": {
+                            "type": "string",
+                            "example": "CDG"
+                        }
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "required": true,
+                        "description": "Please register at http://iatacodes.org/ to use your own api key.",
+                        "schema": {
+                            "type": "string",
+                            "example": "YOUR-API-KEY"
+                        }
+                    }
+                ],
+                "operationId": "Airports",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v5/cities": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "language code - en (by default), fr, de, es, it, ru, th, tr",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "description": "specified iata city code",
+                        "schema": {
+                            "type": "string",
+                            "example": "PAR"
+                        }
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "required": true,
+                        "description": "Please register at http://iatacodes.org/ to use your own api_key",
+                        "schema": {
+                            "type": "string",
+                            "example": "YOUR-API-KEY"
+                        }
+                    }
+                ],
+                "operationId": "Cities",
+                "description": "Cities",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5a84a50ce4b00687d356f2a8",
+    "name": "Football Prediction",
+    "title": "Football Prediction",
+    "description": "The Football Prediction API provides predictions for upcoming football matches, average bookie odds, results for past matches and prediction performance statistics for past results.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "football-prediction",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-13T21:05:56.099Z",
+    "category": "Sports",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5a84a50ce4b06ec3937ad3e0_medium",
+    "user": {
+        "id": 3100728,
+        "username": "boggio-analytics",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5a84a50ce4b06ec3937ad3e0",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_78ffd705-c055-4769-a7bb-8ee2aa218048",
+                "isGraphQL": false,
+                "route": "/api/v2/get-list-of-fixture-ids",
+                "method": "GET",
+                "name": "Get list of fixture IDs",
+                "description": "Returns a list of fixture IDs that can be used to make requests to endpoints expecting a ID url parameter.\nCan be filtered by:\n\n- iso_date\n- market\n- federation",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5a84bb83e4b00687d356f2d3",
+                "isGraphQL": false,
+                "route": "/api/v2/predictions/{id}",
+                "method": "GET",
+                "name": "Prediction Details",
+                "description": "Grab all available predictions for a match id",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5a84cec9e4b0a62b51d02540",
+                "isGraphQL": false,
+                "route": "/api/v2/performance-stats",
+                "method": "GET",
+                "name": "Performance stats for past predictions",
+                "description": "Returns information about the accuracy of past predictions. (in the last day, 7 days, 14 days and 30 days) Can be additionally filtered by federation and market. If no market filter is provided it defaults to classic",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

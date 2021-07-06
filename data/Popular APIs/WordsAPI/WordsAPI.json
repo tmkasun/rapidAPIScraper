@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "54b6aefbe4b0eacb8d34006e",
+    "name": "WordsAPI",
+    "title": "WordsAPI",
+    "description": "Words API lets you retrieve information about English words, including definitions, synonyms, rhymes, pronunciation, syllables, and frequency of usage. It also can tell you about relationships between words, for instance that \"math\" has categories like \"algebra\" and \"geometry\", or that a \"finger\" is part of a \"hand\".",
+    "visibility": "PUBLIC",
+    "slugifiedName": "wordsapi",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-07-30T20:53:50.991Z",
+    "category": "Data",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/54b6aefbe4b0eacb8d34006f_medium",
+    "user": {
+        "id": 3849524,
+        "username": "dpventures",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "54b6aefbe4b0eacb8d34006f",
+        "tags": [
+            {
+                "id": "tag_dd0fb020-7359-4642-a756-a74596d6f981",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "54b6b054e4b0b51cad11a1bb",
+                "isGraphQL": false,
+                "route": "/words/",
+                "method": "GET",
+                "name": "Search",
+                "description": "Search for words matching the parameters you provide.  For more examples, please see the documentation on the website.  https://www.wordsapi.com/docs#search",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "54c00ec8e4b0ae089320058a",
+                "isGraphQL": false,
+                "route": "/words/?random=true",
+                "method": "GET",
+                "name": "Random",
+                "description": "Retrieve a random word, optionally matching a search criteria. You can use the same search criteria as the \"Search\" endpoint.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "54b975d4e4b0c572ce46f88d",
+                "isGraphQL": false,
+                "route": "/words/{word}/frequency",
+                "method": "GET",
+                "name": "Frequency",
+                "description": "Expands upon the frequeny score returned by the main /words/{word} endpoint.  Returns zipf, a score indicating how common the word is in the English language, with a range of 1 to 7; perMillion, the number of times the word is likely to appear in a corpus of one million English words; and diversity, a 0-1 scale the shows the likelyhood of the word appearing in an English document that is part of a corpus.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

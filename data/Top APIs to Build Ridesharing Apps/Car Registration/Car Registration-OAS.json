@@ -1,0 +1,51 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Car Registration",
+        "description": "API requires a username and password from http://www.carregistrationapi.com/ - please refer to  code examples and documentation from the official website. \r\n\r\nThe API returns car registration data based on a number plate.  The API accesses government data in many countries worldwide, including the USA, UK, Australia, India and most of Europe.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/Check/{1}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "1",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Check UK number plate",
+                "description": "Check a UK Number plate",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "basic_auth": {
+                "type": "http",
+                "description": ""
+            }
+        }
+    },
+    "security": [
+        {
+            "basic_auth": []
+        }
+    ]
+}

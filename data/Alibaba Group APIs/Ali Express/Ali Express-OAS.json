@@ -1,0 +1,548 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Ali Express",
+        "description": "Access to all AliExpress products",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "store"
+        },
+        {
+            "name": "shipping"
+        },
+        {
+            "name": "search"
+        },
+        {
+            "name": "product"
+        },
+        {
+            "name": "categories"
+        },
+        {
+            "name": "productsByCategoryV2"
+        }
+    ],
+    "paths": {
+        "/shipping/{product_id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "min_price",
+                        "in": "query",
+                        "required": false,
+                        "description": "Product price. \n\nIf not provided, it can happen that extra shipping methods are returned which are not actually offered",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "0.00"
+                        }
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "destination_country",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "CO"
+                        }
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "4000479928418"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/shipping/{product_id}",
+                "description": "Returns shipping information",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/store/get_products_by_categories/": {
+            "get": {
+                "tags": [
+                    "store"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "store_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Can for example be obtained from get_store_information: 'data' > 'shopInfo' > 'shopId'",
+                        "schema": {
+                            "type": "string",
+                            "default": "4920069"
+                        }
+                    },
+                    {
+                        "name": "group_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Can for example be obtained from get_store_information: 'data' > 'shopInfo' > 'shopId'",
+                        "schema": {
+                            "type": "string",
+                            "default": "514999731"
+                        }
+                    },
+                    {
+                        "name": "seller_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Can for example be obtained from a get_prodcut: 'storeModule' > 'sellerAdminSeq'",
+                        "schema": {
+                            "type": "string",
+                            "default": "237594664"
+                        }
+                    }
+                ],
+                "operationId": "/store/get_products_by_categories/",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/store/get_categories/{store_id}": {
+            "get": {
+                "tags": [
+                    "store"
+                ],
+                "parameters": [
+                    {
+                        "name": "store_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Can for example be obtained from get_store_information: 'data' > 'shopInfo' > 'shopId'",
+                        "schema": {
+                            "type": "string",
+                            "default": "3199057"
+                        }
+                    }
+                ],
+                "operationId": "/store/get_categories/{store_id}",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/store/{seller_id}/information": {
+            "get": {
+                "tags": [
+                    "store"
+                ],
+                "parameters": [
+                    {
+                        "name": "seller_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Can for example be obtained from a get_prodcut: 'storeModule' > 'sellerAdminSeq'",
+                        "schema": {
+                            "type": "string",
+                            "default": "111001146"
+                        }
+                    }
+                ],
+                "operationId": "/store/{seller_id}/information",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/store/{seller_id}/feedback/": {
+            "get": {
+                "tags": [
+                    "store"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Country code. used for local reviews. Use type 'local'",
+                        "schema": {
+                            "type": "string",
+                            "default": "us"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "type of feedback",
+                        "schema": {
+                            "description": "1-5 relates to the stars in the reviews. Set 'country' for type 'local'",
+                            "enum": [
+                                "all",
+                                "1",
+                                "2",
+                                "3",
+                                "4",
+                                "5",
+                                "image",
+                                "additional",
+                                "local"
+                            ],
+                            "type": "string",
+                            "default": "all"
+                        }
+                    },
+                    {
+                        "name": "seller_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Can for example be obtained from a get_prodcut: 'storeModule' > 'sellerAdminSeq'",
+                        "schema": {
+                            "type": "string",
+                            "default": "237594664"
+                        }
+                    }
+                ],
+                "operationId": "/store/{seller_id}/feedback/",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/search": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "first item number in case of pagination",
+                        "schema": {
+                            "type": "string",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "Xiomi"
+                        }
+                    }
+                ],
+                "operationId": "/search",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/productsByCategoryV2/{category_id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "sort_type",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "enum": [
+                                "default",
+                                "price",
+                                "orders",
+                                "newest"
+                            ],
+                            "type": "string",
+                            "default": "default"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "name": "sort_order",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "enum": [
+                                "default",
+                                "asc",
+                                "desc"
+                            ],
+                            "type": "string",
+                            "default": "default"
+                        }
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "205838503"
+                        }
+                    }
+                ],
+                "operationId": "/productsByCategoryV2/{category_id}",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/product/{product_id}/feedback/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Country code. used for local reviews. Use type 'local'",
+                        "schema": {
+                            "type": "string",
+                            "default": "us"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "type of feedback",
+                        "schema": {
+                            "description": "1-5 relates to the stars in the reviews. Set 'country' for type 'local'",
+                            "enum": [
+                                "all",
+                                "1",
+                                "2",
+                                "3",
+                                "4",
+                                "5",
+                                "image",
+                                "additional",
+                                "local"
+                            ],
+                            "type": "string",
+                            "default": "all"
+                        }
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "4001084094868"
+                        }
+                    }
+                ],
+                "operationId": "/product/{product_id}/feedback/",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/product/{product_id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "en"
+                        }
+                    },
+                    {
+                        "name": "product_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "4000479928418"
+                        }
+                    }
+                ],
+                "operationId": "/product/{product_id}",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/categories": {
+            "get": {
+                "operationId": "/categories",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

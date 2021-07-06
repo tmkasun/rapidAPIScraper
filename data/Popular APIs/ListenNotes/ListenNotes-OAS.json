@@ -1,0 +1,610 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ListenNotes",
+        "description": "Podcast search, directory, and recommendation API. Note: We are retiring this version of API (v1) from RapidAPI. Please use the latest version v2 at https://www.listennotes.com/api/",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Directory API"
+        },
+        {
+            "name": "Search API"
+        }
+    ],
+    "paths": {
+        "/api/v1/best_podcasts": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page number of those podcasts in this genre.",
+                        "schema": {
+                            "type": "number",
+                            "example": "2"
+                        }
+                    },
+                    {
+                        "name": "safe_mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether or not to exclude podcasts/episodes with explicit language. 1 is yes and 0 is no. Default: 0.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "genre_id",
+                        "in": "query",
+                        "required": false,
+                        "description": "You can get the id from /api/v1/genres. If not specified, it'll be all podcasts.",
+                        "schema": {
+                            "type": "number",
+                            "example": "125"
+                        }
+                    },
+                    {
+                        "name": "region",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filter best podcasts by country/region. You can get the supported country codes from the /api/v1/regions endpoint. Default: us",
+                        "schema": {
+                            "type": "string",
+                            "example": "fr"
+                        }
+                    }
+                ],
+                "operationId": "Fetch a list of best podcasts by genre",
+                "description": "Get a list of curated best podcasts by genre. You can get the genre ids from /api/v1/genres endpoint",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/genres": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "operationId": "Fetch a list of podcast genres",
+                "description": "Get a list of podcast genres that are supported in Listen Notes. The genre id can be passed to Search API and filter results by specific genres. You may want to cache this list of genres on the client side.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/podcasts/{id}": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "parameters": [
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "How do you want to sort the episodes of this podcast? Available options: recent_first (default), oldest_first",
+                        "schema": {
+                            "type": "string",
+                            "example": "recent_first"
+                        }
+                    },
+                    {
+                        "name": "next_episode_pub_date",
+                        "in": "query",
+                        "required": false,
+                        "description": "Used for episodes pagination. Typically, it's the value of next_episode_pub_date from the response of last request. If not specified, just return latest 10 episodes or oldest 10 episodes, depending on the value of \"sort\" parameter.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1479154463000"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "id for a specific podcast. You can get id from search api's response.",
+                        "schema": {
+                            "type": "string",
+                            "example": "9d6939745ed34e3aab0eb78a408ab40d"
+                        }
+                    }
+                ],
+                "operationId": "Fetch meta data for a podcast by id",
+                "description": "Fetch meta data for a specific podcast. You can get id from search api's response.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/languages": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "operationId": "Fetch a list of supported languages for podcasts",
+                "description": "Get a list of languages that are supported in Listen Notes database. You can use the language string as query parameter in the search API",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/typeahead": {
+            "get": {
+                "tags": [
+                    "Search API"
+                ],
+                "parameters": [
+                    {
+                        "name": "show_genres",
+                        "in": "query",
+                        "required": false,
+                        "description": "Autosuggest genres. 1 is yes, 0 is no. Default: 0",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "show_podcasts",
+                        "in": "query",
+                        "required": false,
+                        "description": "Autosuggest podcasts. This only searches podcast title and publisher and returns very limited info of 5 podcasts. 1 is yes, 0 is no. It's a bit slow to autosuggest podcasts, so we turn it off by default. Default: 0. If show_podcasts=1, you can also pass iTunes id (e.g., 474722933) to the q parameter to fetch podcast meta data.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "safe_mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether or not to exclude podcasts/episodes with explicit language. 1 is yes and 0 is no. Default: 0. This is only applicable when show_podcasts=1",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "Search term",
+                        "schema": {
+                            "type": "string",
+                            "example": "star"
+                        }
+                    }
+                ],
+                "operationId": "Typeahead",
+                "description": "Suggest search terms",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/episodes/{id}": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "id for a specific episode. You can get id from search api's response.",
+                        "schema": {
+                            "type": "string",
+                            "example": "7fbabe370daf4e34a225bce232764f96"
+                        }
+                    }
+                ],
+                "operationId": "Fetch meta data for an episode by id",
+                "description": "Fetch meta data for a specific episode. You can get id from search api's response.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/search": {
+            "get": {
+                "tags": [
+                    "Search API"
+                ],
+                "parameters": [
+                    {
+                        "name": "sort_by_date",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sort by date or not? If 1, sort by date. If 0 (default), sort by relevance.",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "Offset for search results, for pagination. You'll use next_offset from response for this parameter.",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "ocid",
+                        "in": "query",
+                        "required": false,
+                        "description": "A podcast id (the podcast_id field in response). This parameter is to limit search results in a specific podcast. It works only when \"type\" is episode.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ncid",
+                        "in": "query",
+                        "required": false,
+                        "description": "A podcast id (the podcast_id field in response). This parameter is to exclude search results from a specific podcast. It works only when \"type\" is episode.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "only_in",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search only in specific fields. Allowed values: title, description, author, audio. If not specified, then search every fields",
+                        "schema": {
+                            "type": "string",
+                            "example": "title"
+                        }
+                    },
+                    {
+                        "name": "len_max",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum audio length in minutes. Applicable only when type parameter is \"episode\".",
+                        "schema": {
+                            "type": "number",
+                            "example": "10"
+                        }
+                    },
+                    {
+                        "name": "len_min",
+                        "in": "query",
+                        "required": false,
+                        "description": "Minimum audio length in minutes. Applicable only when type parameter is \"episode\".",
+                        "schema": {
+                            "type": "number",
+                            "example": "2"
+                        }
+                    },
+                    {
+                        "name": "published_after",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only show episodes published after this timestamp (in milliseconds). Default: 0 (since the very first episode). If published_before & published_after are used at the same time, published_before should be bigger than published_after.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1390190241000"
+                        }
+                    },
+                    {
+                        "name": "published_before",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only show episodes published before this timestamp (in milliseconds). Default: now.  If published_before & published_after are used at the same time, published_before should be bigger than published_after.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1490190241000"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "What to search: \"episode\" (default), \"podcast\", or \"curated\"? Note: \"curated\" is for curated lists of podcasts.",
+                        "schema": {
+                            "type": "string",
+                            "example": "episode"
+                        }
+                    },
+                    {
+                        "name": "genre_ids",
+                        "in": "query",
+                        "required": false,
+                        "description": "A comma-delimited string of a list of genre ids. You can find the id and the name of all genres in the response of /api/v1/genres . It works only when \"type\" is episode or podcast.",
+                        "schema": {
+                            "type": "string",
+                            "example": "68,82"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "Limit search results to a specific language. If not specified, it'll be any language. You can get a list of supported languages from /api/v1/languages endpoint. It works only when \"type\" is episode or podcast.",
+                        "schema": {
+                            "type": "string",
+                            "example": "English"
+                        }
+                    },
+                    {
+                        "name": "safe_mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether or not to exclude podcasts/episodes with explicit language. 1 is yes and 0 is no. Default: 0. It works only when \"type\" is episode or podcast.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "Search term",
+                        "schema": {
+                            "type": "string",
+                            "example": "star wars"
+                        }
+                    }
+                ],
+                "operationId": "Full-text Search",
+                "description": "Search episodes or podcasts",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/curated_podcasts": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page number of curated lists. Default: 1",
+                        "schema": {
+                            "type": "number",
+                            "example": "2"
+                        }
+                    }
+                ],
+                "operationId": "Fetch curated lists of podcasts",
+                "description": "A bunch of curated lists from online media. For each list, you'll get basic info of up to 5 podcasts. To get detailed meta data of all podcasts in a specific list, you need to use /api/v1/curated_podcasts/{id}. We constantly add new curated lists to the database.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/curated_podcasts/{id}": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "id for a specific curated list of podcasts. You can get the id from the response of /api/v1/search?type=curated or /api/v1/curated_podcasts",
+                        "schema": {
+                            "type": "string",
+                            "example": "9c0iYKTzbtS"
+                        }
+                    }
+                ],
+                "operationId": "Fetch a curated list of podcasts by id",
+                "description": "You can get the id of a curated list from /api/v1/search?type=curated or /api/v1/curated_podcasts",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/just_listen": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "operationId": "Fetch a random podcast episode",
+                "description": "Good luck!",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/podcasts": {
+            "post": {
+                "tags": [
+                    "Directory API"
+                ],
+                "operationId": "Batch fetch basic meta data for podcasts",
+                "description": "Batch fetch basic meta data for up to 10 podcasts. This endpoint could be used to build something like OPML import, allowing users to import a bunch of podcasts via rss urls. For detailed meta data of an individual episode, you need to use /api/v1/podcasts/{id}",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "ids": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Comma-separated list of podcast ids.",
+                                        "example": "3302bc71139541baa46ecb27dbf6071a,68faf62be97149c280ebcc25178aa731"
+                                    },
+                                    "rsses": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Comma-separated rss urls.",
+                                        "example": "https://rss.art19.com/recode-decode,https://rss.art19.com/the-daily,https://www.npr.org/rss/podcast.php?id=510331,https://www.npr.org/rss/podcast.php?id=510331"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/episodes": {
+            "post": {
+                "tags": [
+                    "Directory API"
+                ],
+                "operationId": "Batch fetch basic meta data for episodes",
+                "description": "Batch fetch basic meta data for up to 10 episodes. This endpoint could be used to implement custom playlists for individual episodes. For detailed meta data of an individual episode, you need to use /api/v1/episodes/{id}",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "ids": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Comma-separated list of episode ids.",
+                                        "example": "c577d55b2b2b483c969fae3ceb58e362,0f34a9099579490993eec9e8c8cebb82,b37f33c1ba184f97a479ea794161c221"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/episodes/{id}/recommendations": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "parameters": [
+                    {
+                        "name": "safe_mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether or not to exclude podcasts/episodes with explicit language. 1 is yes and 0 is no. Default: 0.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Episode id",
+                        "schema": {
+                            "type": "string",
+                            "example": "deecd6ee486f4f47abe61998efc2c0c2"
+                        }
+                    }
+                ],
+                "operationId": "Fetch recommendations for an episode",
+                "description": "Up to 8 episode recommendations based on the given episode id",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/podcasts/{id}/recommendations": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "parameters": [
+                    {
+                        "name": "safe_mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether or not to exclude podcasts/episodes with explicit language. 1 is yes and 0 is no. Default: 0.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Podcast id",
+                        "schema": {
+                            "type": "string",
+                            "example": "25212ac3c53240a880dd5032e547047b"
+                        }
+                    }
+                ],
+                "operationId": "Fetch recommendations for a podcast",
+                "description": "Up to 8 podcast recommendations based on the given podcast id",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v1/regions": {
+            "get": {
+                "tags": [
+                    "Directory API"
+                ],
+                "operationId": "Fetch a list of supported countries/regions for best podcasts",
+                "description": "It returns a dictionary of country codes (e.g., us, gb...) & country names (United States, United Kingdom...). The country code is used in the query parameter \"region\" of the /api/v1/best_podcasts endpoint.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

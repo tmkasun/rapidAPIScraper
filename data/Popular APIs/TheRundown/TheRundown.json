@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5ace90c9e4b00687d357c4d6",
+    "name": "TheRundown",
+    "title": "TheRundown",
+    "description": "The fastest and most accurate real-time odds, scores, schedules, and stats from major sportsbooks. NFL, NBA, WNBA, MLB, NHL, NCAA Football, & NCAA Basketball with more sports soon. Live In-play odds are available for 5Dimes, Pinnacle, Matchbook, Bovada, Bodog, and Redzone. Over a dozen sportsbooks currently integrated: 5Dimes, Pinnacle, Matchbook, Betcris, Lowvig, TheGreek, YouWager, Justbet, Tigergaming, Betonline, Bookmaker, Sportsbetting, Intertops & more coming soon. Moneyline, Spread, & Total for full-games, 1st half, 2nd half, 1st Quarter/Period, 2nd Quarter/Period, 3rd Quarter/Period, and 4th Quarter/Period with more markets coming soon. See more at https://therundown.io/. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "therundown",
+    "pricing": "PAID",
+    "updatedAt": "2021-03-13T16:20:04.217Z",
+    "category": "Sports",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5ace90c9e4b06ec3937ba670_medium",
+    "user": {
+        "id": 3530763,
+        "username": "therundown",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5ace90c9e4b06ec3937ba670",
+        "tags": [
+            {
+                "id": "tag_c909066f-6f9d-4e4b-8ea7-a67c095825f9",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_f63e7ee0-65fa-4e23-be4f-e1105545c8bc",
+                "isGraphQL": false,
+                "route": "/sports/{sportID}/closing/{date}",
+                "method": "GET",
+                "name": "Closing",
+                "description": "This endpoint provides the closing lines offered for the various sportsbooks (affiliates). \n\nThe key of the associate array in the lines attribute maps to the affiliate_id of the affiliate. For example, the key of \"1\" maps to the affiliate of \"5Dimes\".\n\n Values of 0.0001 represent a pulled line, or a line that was removed from the sportsbook. \n\nAdd the below includes in the Optional parameters to include things like scores, team names for each sportsbook, or all available periods (halves/quarters/periods) for the events.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_456f89e4-a50e-4c21-a2ba-fcbe2e7370e4",
+                "isGraphQL": false,
+                "route": "/sports/{sportID}/schedule",
+                "method": "GET",
+                "name": "Schedules",
+                "description": "Get the schedule for a sportID.\n\nUse the `from` parameter to change the starting date in the format of `yyyy-mm-dd` (ex: `2020-09-20`), which defaults to today. \n\nUse a `limit` parameter to set the number of events returned in the response. The max is `500` and the default is `50`.\n\nThe schedules are ordered by `date_event` ascending, so send the largest or last `date_event` value current response to get the next available page.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5ace94c1e4b00687d357c4e8",
+                "isGraphQL": false,
+                "route": "/sports/{sportID}/events/{date}",
+                "method": "GET",
+                "name": "Events (Games)",
+                "description": "The /sports/{sport-id}/events/{date} endpoint to request events for a particular sport on a particular date. The current odds and markets will be returned when available. To get historical odds for each market, use the individual `moneyline`, `spread`, and `total` endpoints in the `Lines` endpoints group.\n\nThe date range defaults to UTC unless an offset query parameter is specified, which is the offset from UTC in minutes. For example, if the request is meant to be made from CDT, the offset should be offset=300 (5 hours).  \n\nSpecifying optional include values may be used to get lines for all markets (instead of just full-game by default) in addition to scores or the team names from specific sportsbooks. \n\nTo request multiple, simply add multiple values and duplicate the include= parameter in the request like so: `?include=all_periods&include=scores`.  \n\nWhen `include=all_periods` is used, the key for the lines changes from lines to line_periods.  \n\nAn optional offset in minutes from UTC may be sent in the request to group events by date with an offset. \n\nFor example, if you are in CDT and want to see events grouped by date in CDT, then specify ?offset=300.  \n\nAny value of 0.0001 represents the value NotPublished. This means that the sportsbook currently has not published a price or wager for this event, or that the line was removed.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

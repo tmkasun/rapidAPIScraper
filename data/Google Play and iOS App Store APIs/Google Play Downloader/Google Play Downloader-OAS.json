@@ -1,0 +1,86 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Google Play Downloader",
+        "description": "This API will allow you to get details of an android application from google play, it can also be used to generate download links and request update for the download links. This API is only for personal and educational use only. API is currently on BETA version!",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/download/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "package",
+                        "in": "query",
+                        "required": true,
+                        "description": "The application package name, this is required.",
+                        "schema": {
+                            "type": "string",
+                            "example": "com.instagram.android"
+                        }
+                    }
+                ],
+                "operationId": "Download APK",
+                "description": "Retrieve application download link",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/info/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "package",
+                        "in": "query",
+                        "required": true,
+                        "description": "The application package name, this is required.",
+                        "schema": {
+                            "type": "string",
+                            "example": "com.facebook.katana"
+                        }
+                    }
+                ],
+                "operationId": "App Info",
+                "description": "Retrieve the application complete information",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/update/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "package",
+                        "in": "query",
+                        "required": true,
+                        "description": "The application package name, this is required.",
+                        "schema": {
+                            "type": "string",
+                            "example": "com.facebook.orca"
+                        }
+                    }
+                ],
+                "operationId": "Update APK",
+                "description": "Request update for new version of apk file for downloading",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

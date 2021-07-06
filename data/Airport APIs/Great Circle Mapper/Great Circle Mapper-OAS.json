@@ -1,0 +1,153 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Great Circle Mapper",
+        "description": "Use Great Circle Mapper to calculate the air distance and flight time between all airports worldwide.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Aviation"
+        }
+    ],
+    "paths": {
+        "/airports/read/{icao_iata}": {
+            "get": {
+                "tags": [
+                    "Aviation"
+                ],
+                "parameters": [
+                    {
+                        "name": "icao_iata",
+                        "in": "path",
+                        "required": true,
+                        "description": "ICAO code or IATA code",
+                        "schema": {
+                            "type": "string",
+                            "example": "KSFO"
+                        }
+                    }
+                ],
+                "operationId": "Airport Read",
+                "description": "get airport by IATA code or ICAO code",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/search/{query}": {
+            "get": {
+                "tags": [
+                    "Aviation"
+                ],
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "path",
+                        "required": true,
+                        "description": "ICAO code, IATA code, town, airport name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Cologne"
+                        }
+                    }
+                ],
+                "operationId": "Airport Search",
+                "description": "get a list of airport records",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports/route/{route}/{speed}": {
+            "get": {
+                "tags": [
+                    "Aviation"
+                ],
+                "parameters": [
+                    {
+                        "name": "speed",
+                        "in": "path",
+                        "required": true,
+                        "description": "Speed in kts",
+                        "schema": {
+                            "type": "string",
+                            "example": "510"
+                        }
+                    },
+                    {
+                        "name": "route",
+                        "in": "path",
+                        "required": true,
+                        "description": "ICAO airport cides, separated by hyphens",
+                        "schema": {
+                            "type": "string",
+                            "example": "EGLL-KJFK"
+                        }
+                    },
+                    {
+                        "name": "vary",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Accept-Encoding"
+                        }
+                    },
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "text/html;charset=UTF-8"
+                        }
+                    }
+                ],
+                "operationId": "Air Route Calculation",
+                "description": "calculate distance and flight time for any airports and any speed",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/aircraft/read/{icao_iata}": {
+            "get": {
+                "tags": [
+                    "Aviation"
+                ],
+                "parameters": [
+                    {
+                        "name": "icao_iata",
+                        "in": "path",
+                        "required": true,
+                        "description": "ICAO 3 letter or IATA 2 letter code",
+                        "schema": {
+                            "type": "string",
+                            "example": "A388"
+                        }
+                    }
+                ],
+                "operationId": "Aircraft Type Read",
+                "description": "get aircraft type data by IATA or ICAO code",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

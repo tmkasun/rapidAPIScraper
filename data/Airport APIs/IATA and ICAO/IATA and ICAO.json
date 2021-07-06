@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5a16e564e4b0218e3e35d382",
+    "name": "IATA and ICAO",
+    "title": "IATA and ICAO",
+    "description": "Powerful aviation APIs. The data includes flight tracking, real-time and historical airport schedules, airline routes, IATA and ICAO databases, airports, airlines, autocomplete and much more!",
+    "visibility": "PUBLIC",
+    "slugifiedName": "iata-and-icao",
+    "pricing": "FREE",
+    "updatedAt": "2021-07-01T06:07:33.922Z",
+    "category": "Travel",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/81d6c168-c0a5-4196-b5f1-986e3aac7169.png",
+    "user": {
+        "id": 3495951,
+        "username": "leopieters",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5a16e564e4b0218e3e35d383",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "5a1c3020e4b0d45349f76c38",
+                "isGraphQL": false,
+                "route": "/airportDatabase",
+                "method": "GET",
+                "name": "Airports",
+                "description": "",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5a196057e4b06bd8892cb1f9",
+                "isGraphQL": false,
+                "route": "/airplaneDatabase",
+                "method": "GET",
+                "name": "Airplanes",
+                "description": "",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5a1c3328e4b06bd8892cb704",
+                "isGraphQL": false,
+                "route": "/taxDatabase",
+                "method": "GET",
+                "name": "Tax",
+                "description": "",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

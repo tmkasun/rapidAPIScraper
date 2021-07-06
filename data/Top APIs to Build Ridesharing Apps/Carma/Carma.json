@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "543b82f3e4b0163a30190515",
+    "name": "Carma",
+    "title": "Carma",
+    "description": "Get there together! Shared car seats means a faster, greener and more affordable commute for you and your neighbors.\r\nThe Carma API provides complete access to developers to build carpool apps and solutions to help solve one of the world's most universal problems.\r\nNB we have only included a small subset of the Carma APIs on mashape.com go to api.car.ma to see all of them.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "carma",
+    "pricing": "FREE",
+    "updatedAt": "2019-02-20T10:10:31.337Z",
+    "category": "Travel",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/543b82f3e4b03a202ed06209_medium",
+    "user": {
+        "id": 1540400,
+        "username": "conorroche",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "543b82f3e4b03a202ed06209",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "543b86eee4b03a202ed0620d",
+                "isGraphQL": false,
+                "route": "/v1/object/users/search",
+                "method": "GET",
+                "name": "Search Users By Alias",
+                "description": "NB For the full Carma API listing go to https://api.car.ma/apidoc/ref/index.html Search users by name, the result will be ordered so users who's last known location is closest to the given location are first. Note: This endpoint does NOT require authentication",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5444c42ae4b0aaa14e0a1e57",
+                "isGraphQL": false,
+                "route": "/v1/object/trip/nearbyUsers",
+                "method": "GET",
+                "name": "Nearby Users",
+                "description": "NB For the full Carma API listing go to https://api.car.ma/apidoc/ref/index.html This retrieves a list of nearby users according to the parameters that were supplied. Note: This endpoint does NOT require authentication.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5444d1e4e4b059d4bb42fdf6",
+                "isGraphQL": false,
+                "route": "/v1/object/trip/searchTrips",
+                "method": "GET",
+                "name": "Trip search",
+                "description": "NB For the full Carma API listing go to https://api.car.ma/apidoc/ref/index.html. This retrieves a list of trips according to the parameters that were supplied. Note: This endpoint does NOT require authentication.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

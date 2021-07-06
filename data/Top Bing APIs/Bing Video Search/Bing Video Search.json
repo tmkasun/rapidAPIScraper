@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_28e46c4e-9adf-4226-8d80-132075ddcc6b",
+    "name": "Bing Video Search",
+    "title": "Bing Video Search",
+    "description": "An AI service from Microsoft Azure that turns any app into a video search resource.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "bing-video-search1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-27T14:10:49.097Z",
+    "category": "Video, Images",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/8c812949-b848-41d5-93c2-8614c1b5738c.png",
+    "user": {
+        "id": 4379414,
+        "username": "microsoft-azure-org-microsoft-cognitive-services",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_19a38deb-b127-4c05-a2b6-14de9f26c8e9",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_6afd743a-2a82-4f08-93ee-820e81eff192",
+                "isGraphQL": false,
+                "route": "/videos/search",
+                "method": "GET",
+                "name": "Video Search",
+                "description": "Get videos relevant for a given query.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_fe76e4a2-f7b3-47ff-80c5-d08aed0e38a7",
+                "isGraphQL": false,
+                "route": "/videos/details",
+                "method": "GET",
+                "name": "Video Details",
+                "description": "Get insights about a video, such as related videos.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_9e65a2a5-be0e-483b-86b2-528517d8f11c",
+                "isGraphQL": false,
+                "route": "/videos/trending",
+                "method": "GET",
+                "name": "Trending",
+                "description": "Get currently trending videos.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

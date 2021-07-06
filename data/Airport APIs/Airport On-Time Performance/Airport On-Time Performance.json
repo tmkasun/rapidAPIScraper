@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_d7a2d21b-7184-4927-8dcf-d14e2b72a1a4",
+    "name": "Airport On-Time Performance",
+    "title": "Airport On-Time Performance",
+    "description": "Help travelers avoid airport delays with Amadeus AI APIs. The Airport On-time Performance API uses A.I. trained on Amadeus historical airport data to predict the overall percentage of on-time flight departures from a given airport on a given day. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "airport-on-time-performance",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-12T15:31:04.322Z",
+    "category": "Travel, Transportation",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/facc2a1b-3e0f-446d-a164-c455b9ada257.png",
+    "user": {
+        "id": 4393545,
+        "username": "amadeus-for-developers-amadeus-for-developers-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_251928ad-01da-4ced-968d-a869d0631f2e",
+        "tags": [
+            {
+                "id": "tag_8502282f-8416-483a-8aa9-7edac14bf94e",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_7f26fdf5-f8c6-46b8-9176-0723df10e51f",
+                "isGraphQL": false,
+                "route": "/airport/predictions/on-time",
+                "method": "GET",
+                "name": "getAirportOnTimePrediction",
+                "description": "Predict percentage of on-time departures from a given airport.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

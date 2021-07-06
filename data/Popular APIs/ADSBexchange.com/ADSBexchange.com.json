@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_162d65b0-01e6-449b-a98f-cb4774c3f3a1",
+    "name": "ADSBexchange.com",
+    "title": "ADSBexchange.com",
+    "description": "Live air traffic and aircraft positional data via ADS-B / MLAT / UAT",
+    "visibility": "PUBLIC",
+    "slugifiedName": "adsbexchange-com1",
+    "pricing": "PAID",
+    "updatedAt": "2021-07-01T18:32:33.706Z",
+    "category": "Travel, Transportation",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f6/fe727d67ed4e4c8bcd12f44a4a2204/b0748f0016ef1468c3d680d3ce9fc43d.png",
+    "user": {
+        "id": 3755450,
+        "username": "adsbx",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_8b5769bf-1ec2-4861-9af6-8e4456dc3a53",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_a26d6437-97a9-4c44-8fa5-8035f5264187",
+                "isGraphQL": false,
+                "route": "/mil/",
+                "method": "GET",
+                "name": "Tagged Military Aircraft",
+                "description": "Returns all active aircraft tagged as Military",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_aee4652d-c987-415f-ba9f-bba52ec8f6b3",
+                "isGraphQL": false,
+                "route": "/json/lat/{lat}/lon/{lon}/dist/{dist}/",
+                "method": "GET",
+                "name": "Aircraft within user specified distance up to 250 NM",
+                "description": "Show all Aircraft within specified distance up to 250 NM",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_fb00a7a2-a56a-4272-9aaa-93ac32071d11",
+                "isGraphQL": false,
+                "route": "/json/lat/{lat}/lon/{lon}/dist/50/",
+                "method": "GET",
+                "name": "Aircraft within 50 NM Radius",
+                "description": "Show all aircraft within 50 nautical mile radius of a point",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

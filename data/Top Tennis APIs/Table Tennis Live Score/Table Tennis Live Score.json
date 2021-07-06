@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_35a1ff1c-23fa-49dd-9bfd-500eeae9d8f8",
+    "name": "Table Tennis Live Score",
+    "title": "Table Tennis Live Score",
+    "description": "Table Tennis Live Score",
+    "visibility": "PUBLIC",
+    "slugifiedName": "table-tennis-live-score",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-11-09T15:38:26.754Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/36d875c1-b49a-46fe-b9cd-da5392586771.png",
+    "user": {
+        "id": 4384244,
+        "username": "qubevo-qubevo-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_6426848a-f35c-4440-83c6-6235bf5a3f5a",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_2830e9b4-dd81-45a8-891b-85a1e4acf833",
+                "isGraphQL": false,
+                "route": "/tabletennis/",
+                "method": "GET",
+                "name": "Get all live score",
+                "description": "Receive all Table tennis live matches and scores",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

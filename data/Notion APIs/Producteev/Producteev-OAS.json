@@ -1,0 +1,380 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Producteev",
+        "description": "Producteev is the leading social task management solution for teams. It’s helped thousands of teams get work done faster and more effectively. It's brought to you by Jive, the world's # 1 social business provider.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Network Invitations"
+        },
+        {
+            "name": "Files"
+        },
+        {
+            "name": "Labels"
+        },
+        {
+            "name": "NLP Suggestions"
+        }
+    ],
+    "paths": {
+        "/files/{id}": {
+            "delete": {
+                "tags": [
+                    "Files"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Delete a Producteev file",
+                "description": "Delete a file from the cloud storage.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Files"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Get a Producteev file by its id",
+                "description": "Files are usually attached to Notes. But because they remain an independant object type in the system, you need to upload the file first before being able to attach it to a note.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/label_colors": {
+            "get": {
+                "tags": [
+                    "Labels"
+                ],
+                "operationId": "Return suggested colors for labels",
+                "description": "Return the list of recommended colors (foreground and background) for the labels. You can create your labels with your own colors, but we strongly recommend to use colors returned by this API call to provide a consistent experience accross all Producteev apps.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/labels/{id}": {
+            "delete": {
+                "tags": [
+                    "Labels"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Delete a label",
+                "description": "Delete a Label from the network.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Labels"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Update a label",
+                "description": "Updating a label allows you to change its title and colors. You can send only the field you wanna update, or the full object, we will update only the field that are differents from the server. (If you wanna move it on another network, you need to create a new label and delete this one)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Labels"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Get the Label with the specified id",
+                "description": "Labels are attached to a task and are available across all your projects inside a network. This method returns a Label Object.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/network_invitations/{id}/projects/{project_id}": {
+            "post": {
+                "tags": [
+                    "Network Invitations"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "project_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Add a restricted project to a network invitation",
+                "description": "Add a restricted project to a network invitation so the user joining the invitation will join the restricted project automatically. This Method will return the list of restricted Projects attached to the Invitations",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/network_invitations/{id}/resend": {
+            "post": {
+                "tags": [
+                    "Network Invitations"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Re-send the email for a network invitation",
+                "description": "Re-send the email for a network invitation. This call works only if the invitation has the status network_invitation.status = 'pending'",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/network_invitations/{id}": {
+            "put": {
+                "tags": [
+                    "Network Invitations"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Accept or refuse an invitation to join a network",
+                "description": "Updating an invitation is the way to accept or refuse it. To do so, you need to change the status attribute.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/nlp_suggestions/{project_id}": {
+            "get": {
+                "tags": [
+                    "NLP Suggestions"
+                ],
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "required": true,
+                        "description": "This method provide suggestions based on Keyword + Query. The keywords available are : # : for labels @ : for followers + : for assignees ! : for deadline * : for priority The query parameter must contains both the keyword and the text you wanna get suggestions for. e.g ?query=@Jerome",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "project_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Return a list of suggestions for the natural language processing",
+                "description": "The call will return a collection of NLP suggestion object.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/network_invitations": {
+            "get": {
+                "tags": [
+                    "Network Invitations"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": true,
+                        "description": "requests | authorizations",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Get the list of pending invitation for the current user",
+                "description": "Network Invitations are used to add people in existing networks. To invite someone you can either use the targetUser attribute if you know that this person is on Producteev and know his id. Otherwise use email and we'll send an invite to this person via email.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Network Invitations"
+                ],
+                "operationId": "Invite a user to join the network. You can use the user id or an email address",
+                "description": "In order to invite a user on a network, you need to create a Network Invitation. You need to specify the targetUser (or an email address), the network and the type (@see list below).",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/upload/files": {
+            "post": {
+                "tags": [
+                    "Files"
+                ],
+                "operationId": "Upload a local file",
+                "description": "To create a file object from a local source you need to POST the file using the classic Multipart/form-data. The key for the uploaded data must be \"file\".",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/labels": {
+            "post": {
+                "tags": [
+                    "Labels"
+                ],
+                "operationId": "Create a new label on the network",
+                "description": "To create a Label, you need to POST a JSON label object containing the \"title\", \"foreground_color\", \"background_color\" for creation only you also need to send the id of the network in which you wanna create the label in.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/upload/remotefiles": {
+            "post": {
+                "tags": [
+                    "Files"
+                ],
+                "operationId": "Upload a remote file",
+                "description": "To create a file object from a remote source you need to POST a JSON object prefixed by \"remoteFile\" and containing the \"url\" and \"fileName\".",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "query_auth": {
+                "name": "access_token",
+                "type": "apiKey",
+                "in": "query",
+                "description": "Please check https://www.producteev.com/api/doc/#AuthenticationOAuth20Flows for more details"
+            }
+        }
+    },
+    "security": [
+        {
+            "query_auth": []
+        }
+    ]
+}

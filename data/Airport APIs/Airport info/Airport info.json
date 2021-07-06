@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_0de4a286-91f3-4060-8fa7-7415c8a65ca8",
+    "name": "Airport info",
+    "title": "Airport info",
+    "description": "Fastest and most complete database of airport codes and data, including address, phone number, website and more. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "airport-info",
+    "pricing": "FREE",
+    "updatedAt": "2019-07-30T06:30:11.781Z",
+    "category": "Travel, Transportation",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/85/7fa580404f11e9bc9f47cc6a6195df/7f8abd99bcd685f0a9956fd817ef8778.png",
+    "user": {
+        "id": 3714846,
+        "username": "Active-api",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_0dede419-a738-4de7-a7c4-5a2febd4c628",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_340c4d83-e0ae-4e4e-8759-5d53a53349c7",
+                "isGraphQL": false,
+                "route": "/airport",
+                "method": "GET",
+                "name": "Airport",
+                "description": "Lookup an airport by its IATA or ICAO code",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

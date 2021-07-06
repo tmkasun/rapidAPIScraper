@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_80b5609b-b6b4-4aff-a824-f9381f781377",
+    "name": "AeroDataBox",
+    "title": "AeroDataBox",
+    "description": "Enthusiast-driven aviation and flight data API for a small travel or aviation application. Flight status, delays, schedules. Airports, runways, delay index, statistics, distance and flight-time between. Aircraft information, aircraft image recognition by registration. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "aerodatabox",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-06-18T12:11:24.852Z",
+    "category": "Travel, Transportation",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/aa81c1cb893b82a96d67443ddfdf3c9f.png",
+    "user": {
+        "id": 4991985,
+        "username": "aerodatabox",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_504a6f94-a2de-417a-906f-740c0b34f9c9",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_897487c5-1077-4481-9f99-6992f498f488",
+                "isGraphQL": false,
+                "route": "/health/services/airports/{icao}/feeds",
+                "method": "GET",
+                "name": "Airport data feed services status by ICAO code",
+                "description": "Gets current status of airport data feed services (live flight updates, flight schedules, etc.) for requested airport.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_b350b798-40c2-4855-a057-68e4aa31bc9b",
+                "isGraphQL": false,
+                "route": "/health/services/feeds/{service}/airports",
+                "method": "GET",
+                "name": "Airports supporting data feed service",
+                "description": "**Which airports support flight schedules? **or **Which airports support live flight updates?**\n\nReturns: Collection ICAO codes of airports supporting specified airport data feed service.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_9476738a-0f2b-4b04-a6b0-bc3663181d62",
+                "isGraphQL": false,
+                "route": "/flights/{searchBy}/{searchParameter}/{dateLocal}",
+                "method": "GET",
+                "name": "Flight status",
+                "description": "Gets information about the status of the nearest (either in past or in future) flight or about flight departing or arriving on the day specified (local time), operated:\n- under specified flight number; or\n- by an aircraft with specified registration; or\n- under specified ATC-callsign; or\n- by an aircraft with specified Mode-S 24-bit ICAO Transponder address.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

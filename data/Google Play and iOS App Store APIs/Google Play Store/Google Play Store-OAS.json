@@ -1,0 +1,739 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Google Play Store",
+        "description": "See up to date reviews, ratings and rankings for products on the Google Play Store! ",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Applications Charts"
+        },
+        {
+            "name": "Music Charts"
+        },
+        {
+            "name": "Music"
+        },
+        {
+            "name": "Applications"
+        }
+    ],
+    "paths": {
+        "/applicationDetails": {
+            "post": {
+                "tags": [
+                    "Applications"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Multiple application details",
+                "description": "Get multiple application details with a single request. Billed 1.5x",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "ids": {
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "lang": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "examples": {
+                                "Multiple": {
+                                    "description": "",
+                                    "summary": "Multiple",
+                                    "value": {
+                                        "country": "",
+                                        "ids": [],
+                                        "lang": ""
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            },
+            "get": {
+                "tags": [
+                    "Applications"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    },
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Output language",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "en"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Application package id",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "net.luxteam.sacal"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Application details",
+                "description": "Get application details as displayed on Google Play Store",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "author": {
+                                            "type": "string"
+                                        },
+                                        "category": {
+                                            "type": "string"
+                                        },
+                                        "changelog": {
+                                            "type": "string"
+                                        },
+                                        "contentRating": {
+                                            "type": "string"
+                                        },
+                                        "datePublished": {
+                                            "type": "string"
+                                        },
+                                        "datePublishedIso": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "fileSize": {
+                                            "type": "string"
+                                        },
+                                        "icon": {
+                                            "type": "string"
+                                        },
+                                        "inAppBilling": {
+                                            "type": "boolean"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "numDownloads": {
+                                            "type": "string"
+                                        },
+                                        "operatingSystems": {
+                                            "type": "string"
+                                        },
+                                        "price": {
+                                            "type": "integer"
+                                        },
+                                        "priceCurrency": {
+                                            "type": "string"
+                                        },
+                                        "rating": {
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "display": {
+                                                    "type": "string"
+                                                },
+                                                "five": {
+                                                    "type": "integer"
+                                                },
+                                                "four": {
+                                                    "type": "integer"
+                                                },
+                                                "one": {
+                                                    "type": "integer"
+                                                },
+                                                "three": {
+                                                    "type": "integer"
+                                                },
+                                                "two": {
+                                                    "type": "integer"
+                                                },
+                                                "value": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "screenshots": {
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "shortDescription": {
+                                            "type": "string"
+                                        },
+                                        "storeCategory": {
+                                            "type": "string"
+                                        },
+                                        "topDeveloper": {
+                                            "type": "boolean"
+                                        },
+                                        "versionName": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "author": "Massimiliano Cannarozzo",
+                                            "category": "Transportation",
+                                            "changelog": "Updated user interface colors",
+                                            "contentRating": "Everyone",
+                                            "datePublished": "April 9, 2014",
+                                            "datePublishedIso": "2014-04-09T00:00:00+00:00",
+                                            "description": "Who has not ever done a run at breakneck speed just to discover that the flight was an hour late ? Well it happened to me often, and it was not funny. So I decided to develop this app.I thought it would be useful for me and for all the fellow travelers of the airport of Lamezia Terme to have an app that would allow to easily view on your smartphone, and in real time, the status of the flights arriving and departing. Using Lamezia Airport you will have access to all the information you may need so you will be constantly informed and updated.Thanks to Lamezia Airport you can: See scheduled and actual time or eventual delays and cancellations of flights. Check the status of each flight (checkin, security, boarding, landed and departed). Filter the flights list using the search or viewing just your favorites. Know the weather conditions and the temperature of each city of arrival or departure. Search in the historic up to two years in the past. If you have suggestions or comments about the application, please write me",
+                                            "fileSize": "2.9M",
+                                            "icon": "https://lh4.ggpht.com/0swdkSMsegGx5li-cbtU5z_z6NG38EfG73Cz8lWGfQUhvIsuPp8SSVGKby3IZYJZSg=w300-rw",
+                                            "inAppBilling": false,
+                                            "name": "Lamezia Airport",
+                                            "numDownloads": "100 - 500",
+                                            "operatingSystems": "2.3.3 and up",
+                                            "price": 0,
+                                            "priceCurrency": "",
+                                            "rating": {
+                                                "count": 21,
+                                                "display": "4.7",
+                                                "five": 18,
+                                                "four": 2,
+                                                "one": 1,
+                                                "three": 0,
+                                                "two": 0,
+                                                "value": 4.714285850524902
+                                            },
+                                            "screenshots": [
+                                                "https://lh5.ggpht.com/b6tIES_TM5Z-JGEghsSpmu2QKM6_T4K9PWkzdYTE0n46A6DDRxDfkuDUu5aGJ_CA0M_6=h310-rw",
+                                                "https://lh3.ggpht.com/ch2RH2VwrhQ6mgdrr7RUBh95Y8GcG9_uZfi3BvvoHzPO-HJEj9DbttL5JNy3ODAHvLKr=h310-rw",
+                                                "https://lh5.ggpht.com/4mKO8wEPwG_66QaVoX-JRd4qThWS_bkthy-56OmweQwUbqAV6gBS9Qb7S9UwAirRRKI=h310-rw",
+                                                "https://lh6.ggpht.com/6fPcks1ZR_zK5dfO4yqHJVj4TGFJCWibv0G5uFaSRSTzNmE7i3plpSObkLraqXx_cw4=h310-rw",
+                                                "https://lh4.ggpht.com/35oEVg-u1DlAgcWV_Wd4HiuWrSUZCZlFDJX8VHH2yLFjYaQhj4Yoe45cqSbdOkYksag=h310-rw",
+                                                "https://lh6.ggpht.com/ZPo1LwsMcRrAmqU2eghcjB8nazAUG5N5Kw1Np-S6NPb2mCMBhXDLvRI-PqPZnXvkwfAI=h310-rw",
+                                                "https://lh6.ggpht.com/jxswGahJMKc1tUyVbBkPc1YA5lwRBLT4Ef8YB-UBHnHkKSX-r9vuPxi5zvdqV8Zw3mU=h310-rw",
+                                                "https://lh5.ggpht.com/nqBZFjkjwP6hwFrI9LxB5LR3ID5wmpQfxlIbIYCvgoZePJ14KXtULXyaeCitlrXeSD0B=h310-rw"
+                                            ],
+                                            "shortDescription": "Your airport, always with you",
+                                            "storeCategory": "TRAVEL",
+                                            "topDeveloper": false,
+                                            "versionName": "1.1.0"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/topGames/{category}": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "description": "Desired category",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "GAME_ACTION"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top games",
+                "description": "Top games by category",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/topGrossingGames": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top grossing games",
+                "description": "Top grossing games",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/newPaidGames": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "New paid games",
+                "description": "New paid games",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/topApps/{category}": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "description": "Desired category",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "BUSINESS"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top applications",
+                "description": "Top applications",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/topPaidApps": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top paid applications",
+                "description": "Top paid applications",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/topGrossingApps": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top grossing applications",
+                "description": "Top grossing applications",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/topFreeApps": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top free applications",
+                "description": "Top free applications",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/newPaidApps": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "New paid applications",
+                "description": "All new paid applications",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/applicationCategories": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Application categories",
+                "description": "Application categories",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/newFreeApps": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "New free applications",
+                "description": "New free applications",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/applicationSearch": {
+            "get": {
+                "tags": [
+                    "Applications"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    },
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Desired language",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "en"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "Search query",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "lamezia+airport"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Application search",
+                "description": "Search applications into the store",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/topPaidGames": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "us"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top paid games",
+                "description": "Top paid games",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/applicationReviews": {
+            "get": {
+                "tags": [
+                    "Applications"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Reviews language",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "it"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Application package id",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "net.luxteam.sacal"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Application reviews",
+                "description": "Get application reviews",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/topFreeGames": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top free games",
+                "description": "Top free games",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/newFreeGames/{category}": {
+            "get": {
+                "tags": [
+                    "Applications Charts"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "description": "Desired category",
+                        "schema": {
+                            "type": "string",
+                            "example": "GAME_CARD"
+                        }
+                    }
+                ],
+                "operationId": "New free games",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

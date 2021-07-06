@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "56748b7ae4b04efee9356998",
+    "name": "uNoGS",
+    "title": "uNoGS",
+    "description": "uNoGS (unofficial Netflix online Global Search) allows anyone to  search the global Netflix catalog.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "unogs",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-06-09T18:27:48.935Z",
+    "category": "Entertainment",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/56748b7ae4b0e203818a2f70_medium",
+    "user": {
+        "id": 3297750,
+        "username": "unogs",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "56748b7ae4b0e203818a2f70",
+        "tags": [
+            {
+                "id": "tag_539ed360-ecb7-4aac-97f8-cf70a9bebc7b",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "57304268e4b002251bb1798d",
+                "isGraphQL": false,
+                "route": "/aaapi.cgi?t=images&q=70219642",
+                "method": "GET",
+                "name": "Images",
+                "description": "Get list of different variable sized images for this title",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5c053a11e4b0b136b4741070",
+                "isGraphQL": false,
+                "route": "/aaapi.cgi",
+                "method": "GET",
+                "name": "/aaapi.cgi",
+                "description": "Backward compatibility endpoints",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5690bcdee4b0e203818a6518",
+                "isGraphQL": false,
+                "route": "/aaapi.cgi?q={query}-!{syear},{eyear}-!{snfrate},{enfrate}-!{simdbrate},{eimdbrate}-!{genreid}-!{vtype}-!{audio}-!{subtitle}-!{imdbvotes}-!{downloadable}&t=ns&cl={clist}&st=adv&ob={sortby}&p={page}&sa={andor}",
+                "method": "GET",
+                "name": "Advanced Search",
+                "description": "This call allows you to add advanced search filter which allow you to pull specific information.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

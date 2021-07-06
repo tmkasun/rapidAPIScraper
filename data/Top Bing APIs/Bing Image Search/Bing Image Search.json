@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_93e9660f-74b9-434e-88cf-a7cd6f095dbb",
+    "name": "Bing Image Search",
+    "title": "Bing Image Search",
+    "description": "An AI service from Microsoft Azure that turns any app into an image search resource.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "bing-image-search1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-27T14:10:26.728Z",
+    "category": "Media",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/54fb8028-81d0-4f5e-a682-e398976bbe2a.png",
+    "user": {
+        "id": 4379414,
+        "username": "microsoft-azure-org-microsoft-cognitive-services",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_9a03a8f3-dfd2-4588-a01a-cea2e7e9e816",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_280c2a93-f581-4651-88be-0cb6e479dbdf",
+                "isGraphQL": false,
+                "route": "/images/trending",
+                "method": "GET",
+                "name": "Trending",
+                "description": "Get currently trending images.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_8f590b01-7545-47e7-840d-1b01d6c89a0d",
+                "isGraphQL": false,
+                "route": "/images/search",
+                "method": "GET",
+                "name": "Image Search",
+                "description": "Get relevant images for a given query.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_4b360137-c516-4013-9a8e-e6b42b6e4c84",
+                "isGraphQL": false,
+                "route": "/",
+                "method": "POST",
+                "name": "Image Insights",
+                "description": "Returns insights about an image, such as webpages that include the image.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

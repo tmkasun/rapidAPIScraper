@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5558a1a3e4b095ed24ae355a",
+    "name": "boundaries-io",
+    "title": "boundaries-io",
+    "description": "US Zipcode, County, City, and State Boundaries API:\r\n\r\nA simple & very fast API that will allow you to integrate multiple GeoJson US boundaries results into your apps and systems.\r\n\r\nThis API is designed to be used programatically for optimal performance.  When using the MashApe UI for queries expect significant latency issues on large result sets!",
+    "visibility": "PUBLIC",
+    "slugifiedName": "boundaries-io-1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-01-03T16:57:56.765Z",
+    "category": "Mapping",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/1d1b6c0d-994a-4a29-805d-1b9ae26ad575.png",
+    "user": {
+        "id": 1914277,
+        "username": "VanitySoft",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5558a1a3e4b0df756678f538",
+        "tags": [
+            {
+                "id": "tag_570b8623-1422-4f95-b902-b12ac6ddf92e",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_26e31c64-0f6c-45fe-9b64-43e706324ea7",
+                "isGraphQL": false,
+                "route": "/reaperfire/rest/v1/public/boundary/dma",
+                "method": "GET",
+                "name": "(MEGA PLAN ONLY)Query for DMA Region Area Boundary",
+                "description": "*MEGA Subscription required*\nQuery for Nielsen's DMA Region Boundary and metadata by DMA Name.\nThe metadata  data is publicly available from thevab.com  from URL  https://thevab.com/storage/app/media/Toolkit/DMA_Map_2019.pdf \nthe boundaries were created internally in boundaries-io.com and the US census files.\n\nThe result includes all counties and zip codes in the DMA  region, with DMA Ranking from 2020 located here:\nhttps://mediatracks.com/resources/nielsen-dma-rankings-2020/\n\nFor more granular data contact www.nielsen.com",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_3ef0a621-adfc-4bf2-b556-9a5b52699765",
+                "isGraphQL": false,
+                "route": "/reaperfire/rest/v1/public/boundary/neighborhood",
+                "method": "GET",
+                "name": "Query for Neighborhood  by State with City, County",
+                "description": "Query for Neighborhood  by State with City, County",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_54b6c3be-1a49-4537-b32b-174dddf1215c",
+                "isGraphQL": false,
+                "route": "/rest/v1/public/boundary/neighborhood/{name}/state/{state}",
+                "method": "GET",
+                "name": "Query for Neighborhood by Name and State",
+                "description": "Query for Neighborhood by Name and State",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

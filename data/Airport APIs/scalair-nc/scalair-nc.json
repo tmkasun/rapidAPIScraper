@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_1bfb697f-fce3-479b-89ed-7bc051e09b0f",
+    "name": "scalair-nc",
+    "title": "scalair-nc",
+    "description": "API de Scalair NC, les indices de qualité de l'air",
+    "visibility": "PUBLIC",
+    "slugifiedName": "scalair-nc",
+    "pricing": "FREE",
+    "updatedAt": "2019-10-09T22:31:07.545Z",
+    "category": "Monitoring",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ca/0c3a1c0b4f4359b6f55939e797ac88/dba32d5cbcef4aa2a71f0363f1893ad9.png",
+    "user": {
+        "id": 3882309,
+        "username": "adriens",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_b28b3a0c-c7fe-455b-8fa9-932ddecba963",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_4f8b6ce9-a5c3-486f-9dc0-f8186b8448dc",
+                "isGraphQL": false,
+                "route": "/scalair/logicoop/",
+                "method": "GET",
+                "name": "Logicoop",
+                "description": "Logicoop",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_603cf18e-69c4-4ec4-a820-aa9e0d6f2585",
+                "isGraphQL": false,
+                "route": "/scalair/",
+                "method": "GET",
+                "name": "Global",
+                "description": "Liste de tous les indices pour tous les lieux de Nouméa",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_21a102aa-2ff4-4518-99ba-deb34b177738",
+                "isGraphQL": false,
+                "route": "/scalair/iqa/",
+                "method": "GET",
+                "name": "IQAs",
+                "description": "Liste des Indices de Qualité de l'air",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

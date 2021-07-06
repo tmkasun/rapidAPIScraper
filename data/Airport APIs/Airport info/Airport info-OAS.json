@@ -1,0 +1,48 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Airport info",
+        "description": "Fastest and most complete database of airport codes and data, including address, phone number, website and more. ",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/airport": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "icao",
+                        "in": "query",
+                        "required": false,
+                        "description": "ICAO code of the airport to retrieve",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "iata",
+                        "in": "query",
+                        "required": false,
+                        "description": "IATA code of the airpor to retrieve",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Airport",
+                "description": "Lookup an airport by its IATA or ICAO code",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

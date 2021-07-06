@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_6d34ec92-4981-4226-809b-aade1b033284",
+    "name": "Tennis Odds",
+    "title": "Tennis Odds",
+    "description": "Tennis odds from over 50 bookmakers",
+    "visibility": "PUBLIC",
+    "slugifiedName": "tennis-odds",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-04T18:37:02.332Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/4e72814d-da66-4fac-a2ad-3196fce714a4.jpg",
+    "user": {
+        "id": 4571443,
+        "username": "BettingAPI",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_86ae721e-fb24-4d37-871d-a03a7196c030",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_a3e411c3-7579-43ba-ae09-b2ac02f530fb",
+                "isGraphQL": false,
+                "route": "/odds/competition/{competitionId}",
+                "method": "GET",
+                "name": "Odds by Competition ID",
+                "description": "Get all match odds from a specific competition",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_c0a663f5-2909-4efc-8852-ccf9770e4963",
+                "isGraphQL": false,
+                "route": "/odds/match/{matchId}",
+                "method": "GET",
+                "name": "Odds By Match ID",
+                "description": "Get odds for a specific match",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_431d04a8-c9e4-4b16-b2b5-97eb44447313",
+                "isGraphQL": false,
+                "route": "/odds/live",
+                "method": "GET",
+                "name": "Live Odds",
+                "description": "Get odds from live matches",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

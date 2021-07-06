@@ -1,0 +1,110 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Been Plated",
+        "description": "Plate 'em! Got their license plate? Don't just report bad drivers, plate 'em! When you see a funny license plate, or a funny looking car, plate 'em. Did you see someone loose a hubcap? Plate 'em! Stop yelling out the window at the girls in the car next to you, plate 'em. Anyone following the plate will receive an instant notification via text or email. Don't forget to follow your license plate!",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "raw"
+                        }
+                    },
+                    {
+                        "name": "label",
+                        "in": "query",
+                        "required": false,
+                        "description": "Supply a label to help recognize the plate. For example: Husband's Truck",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sms",
+                        "in": "query",
+                        "required": false,
+                        "description": "Submit a '1' to get sms notifications.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": false,
+                        "description": "Submit a '1' to get email notifications.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "apiCall",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "followPlateById"
+                        }
+                    },
+                    {
+                        "name": "plateID",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of plate.",
+                        "schema": {
+                            "type": "string",
+                            "example": "242"
+                        }
+                    },
+                    {
+                        "name": "sessionID",
+                        "in": "query",
+                        "required": true,
+                        "description": "The user's session id.",
+                        "schema": {
+                            "type": "string",
+                            "example": "xyz"
+                        }
+                    }
+                ],
+                "operationId": "Command",
+                "description": "Please check http://www.been-plated.com/developers for a list of \"apiCall\" commands and parameters combinations",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "query_auth": {
+                "name": "devKey",
+                "type": "apiKey",
+                "in": "query",
+                "description": "Please get your dev key from http://www.been-plated.com/developers?controller=apis&task=viewDashboard"
+            }
+        }
+    },
+    "security": [
+        {
+            "query_auth": []
+        }
+    ]
+}

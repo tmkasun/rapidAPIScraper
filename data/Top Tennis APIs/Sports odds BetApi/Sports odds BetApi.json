@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_9bd01b0e-0e34-42b2-a823-e1da30395280",
+    "name": "Sports odds BetApi",
+    "title": "Sports odds BetApi",
+    "description": "Sports data and odds Bets Api for all sports: football, basketball, hockey, tennis, cricket, eSports",
+    "visibility": "PUBLIC",
+    "slugifiedName": "sports-odds-betapi",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-04-07T18:10:39.540Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/516a9c40-51db-46b7-801c-315417e18483_medium",
+    "user": {
+        "id": 4030918,
+        "username": "cefey24",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_c2a3b7e3-ce09-4420-953c-4956ed623130",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_1c0bb99b-bbd5-478a-a950-67be42be281f",
+                "isGraphQL": false,
+                "route": "/v1/{dataApi}/{game_id}/{list_type}/{dataType}/{dataLang}",
+                "method": "GET",
+                "name": "Concrete match",
+                "description": "data of  concrete match",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_1910c904-2495-4c95-8628-111b19c8993c",
+                "isGraphQL": false,
+                "route": "/v1/{TypeParams}/{SportId}/{CountryId}/{TypeOdds}/{LangOdds}",
+                "method": "GET",
+                "name": "Data Tournaments All",
+                "description": "Data Tournaments All Sports & All Countries",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_9b1ddbfd-39b4-449b-a83c-fe1166926540",
+                "isGraphQL": false,
+                "route": "/v1/{TypeParams}/{SportId}/{CountryId}/{TypeOdds}/{LangOdds}",
+                "method": "GET",
+                "name": "Data Tournaments",
+                "description": "Data Tournaments",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

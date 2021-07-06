@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_05e12dfa-4ab0-4dec-a6f1-68ed8071210f",
+    "name": "Google Play Store App Data and Top Charts",
+    "title": "Google Play Store App Data and Top Charts",
+    "description": "Get App Data as displayed in the Google Play Store in multiple languages. Get the latest Top Charts for many regions and different categories",
+    "visibility": "PUBLIC",
+    "slugifiedName": "google-play-store-app-data-and-top-charts",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-07-19T07:33:50.194Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d1/1f6c5a92ce4807a06edac105ae5c72/1aede897617823be7a0bbb71b41f1aa3.png",
+    "user": {
+        "id": 3504125,
+        "username": "byteloop",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_10da1149-c7ef-4262-b780-fed5f2f8abc1",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_4529b1cb-ffce-48bc-a81a-6aebb160c1cd",
+                "isGraphQL": false,
+                "route": "/android/category/{category}/top.json",
+                "method": "GET",
+                "name": "Get Top Charts",
+                "description": "Get The Google Play Top Charts Based on Category.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_1d8cb56d-41e4-4c21-80a2-4d9dc666ec28",
+                "isGraphQL": false,
+                "route": "/android/applications/{id}/metadata.json",
+                "method": "GET",
+                "name": "Get App Details",
+                "description": "Get the App details as displayed in the Google Play Store such as: Title, Developer Information, Description, Images, Version",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

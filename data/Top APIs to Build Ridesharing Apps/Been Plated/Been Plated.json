@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa58c3e4b00287471a217c",
+    "name": "Been Plated",
+    "title": "Been Plated",
+    "description": "Plate 'em! Got their license plate? Don't just report bad drivers, plate 'em! When you see a funny license plate, or a funny looking car, plate 'em. Did you see someone loose a hubcap? Plate 'em! Stop yelling out the window at the girls in the car next to you, plate 'em. Anyone following the plate will receive an instant notification via text or email. Don't forget to follow your license plate!",
+    "visibility": "PUBLIC",
+    "slugifiedName": "been-plated-1",
+    "pricing": "FREE",
+    "updatedAt": "2019-02-20T10:10:07.295Z",
+    "category": "Social",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa58c3e4b008bb2ef86da5_medium",
+    "user": {
+        "id": 1160489,
+        "username": "twmeier",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa58c3e4b008bb2ef86da5",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "53aa58c4e4b00287471a217e",
+                "isGraphQL": false,
+                "route": "/",
+                "method": "GET",
+                "name": "Command",
+                "description": "Please check http://www.been-plated.com/developers for a list of \"apiCall\" commands and parameters combinations",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

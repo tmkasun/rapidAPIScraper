@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "59a92666e4b0b28ab0e68087",
+    "name": "Car Registration",
+    "title": "Car Registration",
+    "description": "API requires a username and password from http://www.carregistrationapi.com/ - please refer to  code examples and documentation from the official website. \r\n\r\nThe API returns car registration data based on a number plate.  The API accesses government data in many countries worldwide, including the USA, UK, Australia, India and most of Europe.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "car-registration",
+    "pricing": "FREE",
+    "updatedAt": "2019-02-20T10:11:25.036Z",
+    "category": "Business",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/59a92666e4b028109d412e07_medium",
+    "user": {
+        "id": 3478875,
+        "username": "infiniteloop",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "59a92666e4b028109d412e07",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "59a9268ce4b075a0d1d7317a",
+                "isGraphQL": false,
+                "route": "/Check/{1}",
+                "method": "GET",
+                "name": "Check UK number plate",
+                "description": "Check a UK Number plate",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

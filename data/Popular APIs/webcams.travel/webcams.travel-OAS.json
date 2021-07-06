@@ -1,0 +1,713 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "webcams.travel",
+        "description": "!!! The RapidAPI access will be discontinued by 31.12.2020. The new API available at https://api.windy.com/webcams !!! The World's Largest Landscape Webcam API ***** Get webcams by categories, country, region or just nearby your location ***** Get timelapse slideshows for every webcam ***** Get an uncluttered webcam layer for your map",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "webcams/list"
+        },
+        {
+            "name": "webcams/map"
+        },
+        {
+            "name": "users/list"
+        },
+        {
+            "name": "webcams"
+        },
+        {
+            "name": "users"
+        }
+    ],
+    "paths": {
+        "/webcams/list/webcam={webcamid}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "webcamid",
+                        "in": "path",
+                        "required": true,
+                        "description": "Comma separated list of webcamids that are in the initial list. If this modifier ist not applied, all available webcams will be in the initial list.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/webcam={webcamid}[,{webcamid}[,...]]",
+                "description": "This is a modifier. Returns a list of webcams according to the listed {webcamid}s. Multiple {webcamid}s must be separated by comma. Required: at least one {webcamid}.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/property={property}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "property",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/property={property}[,{property}[,...]]",
+                "description": "This is a modifier. Returns a list of webcams according to the listed {property}. Multiple {property} must be separated by comma. Required: at least one {property}. Possible values are \"editors\" (featured from the editors), \"hd\" (high resolution webcams), and \"live\" (webcams with a live stream).",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/map/{ne_lat},{ne_lng},{sw_lat},{sw_lng},{zoom}": {
+            "get": {
+                "tags": [
+                    "webcams/map"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ne_lat",
+                        "in": "path",
+                        "required": true,
+                        "description": "North-east WGS84 latitude of the bounding box.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "ne_lng",
+                        "in": "path",
+                        "required": true,
+                        "description": "North-east WGS84 longitude of the bounding box.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "sw_lat",
+                        "in": "path",
+                        "required": true,
+                        "description": "South-west WGS84 latitude of the bounding box.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "sw_lng",
+                        "in": "path",
+                        "required": true,
+                        "description": "South-west WGS84 longitude of the bounding box.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "zoom",
+                        "in": "path",
+                        "required": true,
+                        "description": "A zoom level compatible with Google Maps.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/map/{ne_lat},{ne_lng},{sw_lat},{sw_lng},{zoom}",
+                "description": "Returns a list of webcams optimized for displaying on a map for a given bounding box and {zoom} level. The value for the zoom level is compatible with the Google Maps zoom level.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/limit={limit},{offset}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "path",
+                        "required": true,
+                        "description": "Offset for the first item in the result list.",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "path",
+                        "required": true,
+                        "description": "Maximum number of webcams in the result list.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/limit={limit},{offset}",
+                "description": "This is a modifier. Returns the list of webcams sliced by {limit}. The optional offset is given by {offset}. Required: {limit}. The maximum value for {limit} is 50. {offset} defaults to 0. If limit is not given, then a default of limit=10 is applied.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/orderby={order},{sort}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "path",
+                        "required": true,
+                        "description": "Possible values are: \"asc\" (ascending), or \"desc\" (descending).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "required": true,
+                        "description": "Possible values are: \"popularity\" (default order: \"desc\"), \"hotness\" (default order: \"desc\"), \"new\" (default order: \"desc\"), \"recent\" (default order: \"desc\"), \"random\" (default order: \"asc\"), or \"distance\" (default order: \"asc\", only available if the modifier \"nearby\" has been applied).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/orderby={order},{sort}",
+                "description": "This is a modifier. Returns the list of webcams ordered by {order}. The optional sorting direction is given by {sort}. Required {order}.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/exclude={webcamid}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "webcamid",
+                        "in": "path",
+                        "required": true,
+                        "description": "Comma separated list of webcamids to exclude from result.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/exclude={webcamid}[,{webcamid}[,...]]",
+                "description": "This is a modifier. Exclude the {webcamid} from a list. Multiple {webcamid} must be separated by comma. Required: at least one {webcamid}",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/bbox={ne_lat},{ne_lng},{sw_lat},{sw_lng}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "ne_lat",
+                        "in": "path",
+                        "required": true,
+                        "description": "North-east WGS84 latitude of the bounding box.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "sw_lng",
+                        "in": "path",
+                        "required": true,
+                        "description": "South-west WGS84 longitude of the bounding box.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "sw_lat",
+                        "in": "path",
+                        "required": true,
+                        "description": "South-west WGS84 latitude of the bounding box.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "ne_lng",
+                        "in": "path",
+                        "required": true,
+                        "description": "North-east WGS84 longitude of the bounding box.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/bbox={ne_lat},{ne_lng},{sw_lat},{sw_lng}",
+                "description": "This is a modifier. Returns a list of the webcams in the bounding box given by north-east ({ne_lat},{ne_lng}) and south-west ({sw_lat},{sw_lng}) coordinates. Required: {ne_lat},{ne_lng},{sw_lat},{sw_lng}.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/region={region}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "region",
+                        "in": "path",
+                        "required": true,
+                        "description": "Comma separated list of ISO 3166-1-alpha-2 codes for the country and a region code separated by a dot.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/region={region}[,{region}[,...]]",
+                "description": "This is a modifier. Returns a list of webcams according to the listed region. Multiple regions must be separated by comma. Required: at least one {region}. Possible values are ISO 3166-1-alpha-2 codes for the country and a region code separated by a dot.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/country={country}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "Comma separated ISO 3166-1-alpha-2 codes for the countries.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/country={country}[,{country}[,...]]",
+                "description": "This is a modifier. Returns a list of webcams according to the listed country. Multiple countries must be separated by comma. Required: at least one {country}. Possible values are ISO 3166-1-alpha-2 codes.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/{modifier}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "modifier",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/{modifier}[/{modifier}[/...]]",
+                "description": "Returns a list of webcams according to the applied {modifier}s. Initially, the list contains all webcams. The resulting list of webcams from applying a modifer will be used as input for the following modifier. modifiers are processed from left to right. With every applied modifier, the list of webcams will be narrowed down. Possible values for {modifier} are: \"webcam\" (initial list of webcams), \"nearby\" (list of webcams around a position), \"bbox\" (list of webcams in an area), \"category\" (list of webcams in a category), \"continent\" (list of webcams in a continent), \"country\" (list of webcams in a country), \"region\" (list of webcams in a region of a country), \"exclude\" (exclude webcams from a list of webcams), \"orderby\" (order the list of webcams), \"limit\" (slice the list of webcams). \"webcam\", if given, is always applied first. \"exclude\", \"orderby\", and \"limit\" are always applied (even if not explicitly given) in this order and always after \"webcam\", \"nearby\", \"bbox\", \"category\", \"continent\", \"country\", and \"region\" have been applied.  If none of \"webcam\", \"nearby\", \"bbox\", \"category\", \"continent\", \"country\", and \"region\" are applied, then all webcams are in the list before applying \"exclude\", \"orderby\", and \"limit\".  Please refer to the description of the various {modifier}s to learn more about their parameter and defaults.  A {modifier} may be applied only once. If a {modifier} is listed multiple times, it may only applied once.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/continent={continent}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "continent",
+                        "in": "path",
+                        "required": true,
+                        "description": "Possible values for {continent} are: \"AF\" (Africa), \"AN\" (Antarctica), \"AS\" (Asia), \"EU\" (Europe), \"NA\" (North America), \"OC\" (Oceania), or \"SA\" (South America)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/continent={continent}[,{continent}[,...]]",
+                "description": "This is a modifier. Returns a list of webcams according to the listed continents. Multiple continents must be separated by comma. Required: at least one {continent}.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/nearby={lat},{lng},{radius}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "path",
+                        "required": true,
+                        "description": "Maximum distance in kilometers.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "lng",
+                        "in": "path",
+                        "required": true,
+                        "description": "WGS84 longitude.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "path",
+                        "required": true,
+                        "description": "WGS84 latitude.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/nearby={lat},{lng},{radius}",
+                "description": "This is a modifier. Returns a list of webcams near the given coordinates {lat},{lng} up to the given {radius} in kilometers. Required: {lat}, {lng}, {radius}. The maximum value for {radius} is 250.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/webcams/list/category={category}": {
+            "get": {
+                "tags": [
+                    "webcams/list"
+                ],
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Localize the results to this language, if available. Default: \"en\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "show",
+                        "in": "query",
+                        "required": false,
+                        "description": "Content to be listed in the response. Possible values are: \"webcams\", \"categories\", \"continents\", \"countries\", \"regions\", \"properties\". Default is \"webcams\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "webcams:image,location"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "description": "Comma separated list of category names.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/webcams/list/category={category}[,{category}[,...]]",
+                "description": "This is a modifier. Returns a list of webcams according to the listed categories. Multiple categories must be separated by comma. Required: at least one {category}.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

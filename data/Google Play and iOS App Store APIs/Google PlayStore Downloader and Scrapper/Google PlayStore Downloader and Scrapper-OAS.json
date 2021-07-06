@@ -1,0 +1,40 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Google PlayStore Downloader and Scrapper",
+        "description": "Using this API, You can generate direct download link of apk files and also grab details about the APK file from Google play store. This Google Play Store API is an unofficial one.  This API is only  for educational Purpose.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/index.php": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "packid",
+                        "in": "query",
+                        "required": true,
+                        "description": "Enter the Exact Package Name as In Google Play to Pull data.",
+                        "schema": {
+                            "type": "string",
+                            "example": "com.facebook.katana"
+                        }
+                    }
+                ],
+                "operationId": "Google Playstore",
+                "description": "Get Direct Download Link and App Details",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

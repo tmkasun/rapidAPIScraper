@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5af20a46e4b063f5b07c081a",
+    "name": "License Plate Search",
+    "title": "License Plate Search",
+    "description": "FindbyPlate.com is a free resource to search by license plate numbers and report bad drivers. If most cases the website will identify the car and its basic information. If other users have submitted any reports about the car, images, videos, comments or even related websites, you'd be able to see that information. Please use the service at your own risk, we do not warrant the validity of this information, nor we guarantee accuracy of the details.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "license-plate-search",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-02-20T10:11:29.808Z",
+    "category": null,
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5af20a46e4b043783402253b_medium",
+    "user": {
+        "id": 3533878,
+        "username": "apibroker",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5af20a46e4b043783402253b",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "5af20ae5e4b0437834022540",
+                "isGraphQL": false,
+                "route": "/api",
+                "method": "GET",
+                "name": "/api?plate={plate}&state={state}&vin={vin}&pictures={pictures}&videos={videos}&comments={comments}&format={format}",
+                "description": "This API searches for related cars to the license plate number and returns results, along with user submitted content",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

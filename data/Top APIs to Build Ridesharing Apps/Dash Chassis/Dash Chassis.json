@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "54343d24e4b0b18336e710eb",
+    "name": "Dash Chassis",
+    "title": "Dash Chassis",
+    "description": "Enabling the \"Internet of Cars\"",
+    "visibility": "PUBLIC",
+    "slugifiedName": "dash-chassis",
+    "pricing": "FREE",
+    "updatedAt": "2019-02-20T10:10:31.109Z",
+    "category": "Data",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/54343d24e4b08dc6c7948a95_medium",
+    "user": {
+        "id": 1533365,
+        "username": "dash-chassis",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "54343d24e4b08dc6c7948a95",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "54344100e4b0d13d0f20dfe5",
+                "isGraphQL": false,
+                "route": "/chassis/v1/user",
+                "method": "GET",
+                "name": "/chassis/v1/user",
+                "description": "Requires 'user' scope - see https://dash.by/endpoint.html?endpoint=/api/chassis/v1/user",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5434416fe4b08dc6c7948a9e",
+                "isGraphQL": false,
+                "route": "/chassis/v1/user/trips?startTime={starttime-endtime-endtime}",
+                "method": "GET",
+                "name": "/chassis/v1/user/trips?startTime={starttime-endtime-endtime}",
+                "description": "Requires 'trips' scope - https://dash.by/endpoint.html?endpoint=/api/chassis/v1/trips",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "54344253e4b04d1987eb9309",
+                "isGraphQL": false,
+                "route": "/chassis/v1/bumperstickers",
+                "method": "GET",
+                "name": "/chassis/v1/bumperstickers",
+                "description": "Requires 'user' scope - https://dash.by/endpoint.html?endpoint=/api/chassis/v1/bumperstickers",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

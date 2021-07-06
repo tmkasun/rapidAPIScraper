@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa32ade4b0a9b1348d8ea7",
+    "name": "Imgur",
+    "title": "Imgur",
+    "description": "Imgur's API exposes the entire Imgur infrastructure via a standardized programmatic interface. Using Imgur's API, you can do just about anything you can do on imgur.com, while using your programming language of choice. If you're familiar with the APIs of Twitter, Amazon's S3, del.icio.us, or a host of other web services, you'll feel right at home.\r\n\r\nThe full documentation is available at: http://api.imgur.com",
+    "visibility": "PUBLIC",
+    "slugifiedName": "imgur-9",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-02-20T10:10:18.840Z",
+    "category": "Entertainment",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa32ade4b0f2c97546ecc3_medium",
+    "user": {
+        "id": 1420049,
+        "username": "imgur",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa32ade4b0f2c97546ecc3",
+        "tags": [
+            {
+                "id": "tag_1c68c65c-6929-4450-bdb6-49e585918608",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "53e3f2bbe4b0d6f368533708",
+                "isGraphQL": false,
+                "route": "/3/image/{id}/favorite",
+                "method": "POST",
+                "name": "Image Favorite",
+                "description": "Favorite an image with the given ID. The user is required to be logged in to favorite the image.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53e3f45fe4b0fffef09182bb",
+                "isGraphQL": false,
+                "route": "/3/conversations/report/{username}",
+                "method": "POST",
+                "name": "Report Sender",
+                "description": "Report a user for sending messages that are against the Terms of Service.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53e270f4e4b0146bd897b19b",
+                "isGraphQL": false,
+                "route": "/3/gallery/{id}",
+                "method": "POST",
+                "name": "Submit to Gallery",
+                "description": "Add an Album or Image to the Gallery.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

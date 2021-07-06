@@ -1,0 +1,358 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Sports odds BetApi",
+        "description": "Sports data and odds Bets Api for all sports: football, basketball, hockey, tennis, cricket, eSports",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Countries"
+        },
+        {
+            "name": "Sports"
+        },
+        {
+            "name": "Tournaments"
+        }
+    ],
+    "paths": {
+        "/v1/{dataApi}/{game_id}/{list_type}/{dataType}/{dataLang}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "list_type",
+                        "in": "path",
+                        "required": true,
+                        "description": "Way of formation of a conclusion. There may be two kinds: sub - events will be grouped into groups. list - all events are displayed, just a general list.",
+                        "schema": {
+                            "type": "string",
+                            "example": "list"
+                        }
+                    },
+                    {
+                        "name": "dataLang",
+                        "in": "path",
+                        "required": true,
+                        "description": "ru, en",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "game_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "enter the match id",
+                        "schema": {
+                            "type": "number",
+                            "example": "222332411"
+                        }
+                    },
+                    {
+                        "name": "dataType",
+                        "in": "path",
+                        "required": true,
+                        "description": "line or live",
+                        "schema": {
+                            "type": "string",
+                            "example": "line"
+                        }
+                    },
+                    {
+                        "name": "dataApi",
+                        "in": "path",
+                        "required": true,
+                        "description": "The \"event\" parameter indicates that we return a match with a specific id",
+                        "schema": {
+                            "type": "string",
+                            "example": "event"
+                        }
+                    },
+                    {
+                        "name": "Package",
+                        "in": "header",
+                        "required": true,
+                        "description": "rewrewr",
+                        "schema": {
+                            "type": "string",
+                            "example": "4a788ec11cd42226e2fdcbd62253379c"
+                        }
+                    }
+                ],
+                "operationId": "Concrete match",
+                "description": "data of  concrete match",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/{TypeParams}/{SportId}/{CountryId}/{TypeOdds}/{LangOdds}": {
+            "get": {
+                "tags": [
+                    "Tournaments"
+                ],
+                "parameters": [
+                    {
+                        "name": "CountryId",
+                        "in": "path",
+                        "required": true,
+                        "description": "number Country[1 or 2 or 3]. All data = 0",
+                        "schema": {
+                            "type": "string",
+                            "example": "223"
+                        }
+                    },
+                    {
+                        "name": "TypeParams",
+                        "in": "path",
+                        "required": true,
+                        "description": "sports, countries, tournaments",
+                        "schema": {
+                            "type": "string",
+                            "example": "tournaments"
+                        }
+                    },
+                    {
+                        "name": "TypeOdds",
+                        "in": "path",
+                        "required": true,
+                        "description": "line, live",
+                        "schema": {
+                            "type": "string",
+                            "example": "line"
+                        }
+                    },
+                    {
+                        "name": "SportId",
+                        "in": "path",
+                        "required": true,
+                        "description": "number sport [1 or 2 or 3]. All data = 0",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "LangOdds",
+                        "in": "path",
+                        "required": true,
+                        "description": "en, ru",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "Package",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "4a788ec11cd42226e2fdcbd62253379c"
+                        }
+                    }
+                ],
+                "operationId": "Data Tournaments",
+                "description": "Data Tournaments",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/{TypeParams}/{TypeOdds}/{LangOdds}": {
+            "get": {
+                "tags": [
+                    "Sports"
+                ],
+                "parameters": [
+                    {
+                        "name": "TypeParams",
+                        "in": "path",
+                        "required": true,
+                        "description": "sports, countries, tournaments",
+                        "schema": {
+                            "type": "string",
+                            "example": "sports"
+                        }
+                    },
+                    {
+                        "name": "TypeOdds",
+                        "in": "path",
+                        "required": true,
+                        "description": "line, live",
+                        "schema": {
+                            "type": "string",
+                            "example": "line"
+                        }
+                    },
+                    {
+                        "name": "LangOdds",
+                        "in": "path",
+                        "required": true,
+                        "description": "en, ru",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "Package",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "4a788ec11cd42226e2fdcbd62253379c"
+                        }
+                    }
+                ],
+                "operationId": "Data Sport",
+                "description": "Data Sport params",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/{TypeParams}/{SportId}/{TypeOdds}/{LangOdds}": {
+            "get": {
+                "tags": [
+                    "Countries"
+                ],
+                "parameters": [
+                    {
+                        "name": "TypeParams",
+                        "in": "path",
+                        "required": true,
+                        "description": "PArams: countries",
+                        "schema": {
+                            "type": "string",
+                            "example": "countries"
+                        }
+                    },
+                    {
+                        "name": "SportId",
+                        "in": "path",
+                        "required": true,
+                        "description": "0 - it is all countries for all sports",
+                        "schema": {
+                            "type": "string",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "LangOdds",
+                        "in": "path",
+                        "required": true,
+                        "description": "en, ru, fr ....",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "TypeOdds",
+                        "in": "path",
+                        "required": true,
+                        "description": "line or live",
+                        "schema": {
+                            "type": "string",
+                            "example": "live"
+                        }
+                    },
+                    {
+                        "name": "Package",
+                        "in": "header",
+                        "required": true,
+                        "description": "Secret key",
+                        "schema": {
+                            "type": "string",
+                            "example": "4a788ec11cd42226e2fdcbd62253379c"
+                        }
+                    }
+                ],
+                "operationId": "Data Country All",
+                "description": "Data from all countries for all sports",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/events/{sport_id}/{tournament_id}/{list_type}/{page_length}/line/ru": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "page_length",
+                        "in": "path",
+                        "required": true,
+                        "description": "Number of events in answer.It must be a multiple of five. If it 's not like that. That, the system itself will occlude it to the greater side of the multiplicity.",
+                        "schema": {
+                            "type": "number",
+                            "example": "20"
+                        }
+                    },
+                    {
+                        "name": "tournament_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "tournament ID, if ID = 0, all matches for all tournament will be returning",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "sport_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "sport ID, if ID = 0, all matches for all sports will be returning",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "list_type",
+                        "in": "path",
+                        "required": true,
+                        "description": "Way of formation of a conclusion. There may be two kinds: sub - events will be as sub-items of tournaments. list - all items are displayed, simply by a common list.",
+                        "schema": {
+                            "type": "string",
+                            "example": "list"
+                        }
+                    },
+                    {
+                        "name": "Package",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "4a788ec11cd42226e2fdcbd62253379c"
+                        }
+                    }
+                ],
+                "operationId": "Data Events",
+                "description": "Data Events api",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

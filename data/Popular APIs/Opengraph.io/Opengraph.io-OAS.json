@@ -1,0 +1,82 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Opengraph.io",
+        "description": "Simplest API to unfurl URL descriptions, titles, images, products, from all sites without being blocked.  Fast and reliable.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/api/1.1/sites": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "cache_ok",
+                        "in": "query",
+                        "required": false,
+                        "description": "This will force our servers to pull a fresh version of the site being requested. By default this value is true",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "max_cache_age",
+                        "in": "query",
+                        "required": false,
+                        "description": "This specifies the maximum age in milliseconds that a cached response should be. If not specified the value is set to 5 days. (5 days * 24 hours * 60 minutes * 60 seconds * 1000 ms = 432,000,000 ms)",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "432000000"
+                        }
+                    },
+                    {
+                        "name": "full_render",
+                        "in": "query",
+                        "required": false,
+                        "description": "This will fully render the site using a chrome browser before parsing its contents. This is especially helpful for single page applications and JS redirects. This will slow down the time it takes to get a response by around 1.5 seconds.",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "accept_lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "This specifies the request language sent when requesting the url. This is useful if you want to get the site for languages other than english. The default setting for this will return an english version of a page if it exists. Note: if you specify the value auto the api will use the same language settings of your current request.",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "en-US,en;q=0.9"
+                        }
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "description": "The URL to be fetched (e.g. https://reddit.com)",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "https://reddit.com"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Site Lookup",
+                "description": "Get site description, title, image, and products",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

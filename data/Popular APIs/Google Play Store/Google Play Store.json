@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa5f40e4b0a798dbd1ba0e",
+    "name": "Google Play Store",
+    "title": "Google Play Store",
+    "description": "See up to date reviews, ratings and rankings for products on the Google Play Store! ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "google-play-store",
+    "pricing": "PAID",
+    "updatedAt": "2020-11-11T19:01:55.665Z",
+    "category": "Data",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa5f40e4b0a798dbd1ba0e_large",
+    "user": {
+        "id": 2889342,
+        "username": "maxcanna",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa5f41e4b0596140341a36",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "5414be4de4b031830c0100b8",
+                "isGraphQL": false,
+                "route": "/applicationDetails",
+                "method": "POST",
+                "name": "Multiple application details",
+                "description": "Get multiple application details with a single request. Billed 1.5x",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_92651b15-2ec3-407b-913b-342a09f06bf2",
+                "isGraphQL": false,
+                "route": "/topGames/{category}",
+                "method": "GET",
+                "name": "Top games",
+                "description": "Top games by category",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5c3e6d6ce4b0a62b04252070",
+                "isGraphQL": false,
+                "route": "/topGrossingGames",
+                "method": "GET",
+                "name": "Top grossing games",
+                "description": "Top grossing games",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

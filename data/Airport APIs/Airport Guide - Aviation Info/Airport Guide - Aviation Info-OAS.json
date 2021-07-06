@@ -1,0 +1,769 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Airport Guide - Aviation Info",
+        "description": "Get complete Airport Details by ICAO, IATA or Local IDs. AirportGuide.com has compiled data for over 25 years from multiple sources around the world to provide the best quality global landing facility data. Our database contains over 50,000 airports, heliports, balloonports, seaplane bases, ultralight fields, gliderports, and spaceports.\r\n\r\nIn addition to airport details, we have airline routes, nearby airports, airport delays, aviation calculators, METAR & TAF, airlines, airmen, and FBOs/fuel.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Airport API Group"
+        },
+        {
+            "name": "Airport Delays"
+        },
+        {
+            "name": "Airportguide Calculators"
+        },
+        {
+            "name": "METAR TAF Group"
+        },
+        {
+            "name": "Airline Group"
+        },
+        {
+            "name": "Airmen Group"
+        },
+        {
+            "name": "FBO & Fuel"
+        },
+        {
+            "name": "General Location API"
+        }
+    ],
+    "paths": {
+        "/gettaf": {
+            "get": {
+                "tags": [
+                    "METAR TAF Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": true,
+                        "description": "Pass Latitude 39.83",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "39.83"
+                        }
+                    },
+                    {
+                        "name": "long",
+                        "in": "query",
+                        "required": true,
+                        "description": "Pass Longitude -104.65",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "-104.65"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "OFFLINE - Get TAF Detail",
+                "description": "Get current Terminal Area Forecast (TAF) details given any latitude/longitude combination. The API finds METAR reports within a 20 mile radius or returns an error.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/getmetar": {
+            "get": {
+                "tags": [
+                    "METAR TAF Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "long",
+                        "in": "query",
+                        "required": true,
+                        "description": "Pass longitude -104.65",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "-104.65"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": true,
+                        "description": "Pass latitude 39.83",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "39.83"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "OFFLINE - Get METAR Detail",
+                "description": "Get current METAR details given any latitude/longitude combination. The API finds METAR reports within a 100 mile radius.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/all_delay": {
+            "get": {
+                "tags": [
+                    "Airport Delays"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "OFFLINE - All Delays US",
+                "description": "Retrieve real-time airport ground delays for US and Southern Canadian airports.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/getfbo": {
+            "get": {
+                "tags": [
+                    "FBO & Fuel"
+                ],
+                "parameters": [
+                    {
+                        "name": "param",
+                        "in": "query",
+                        "required": false,
+                        "description": "Airportguide provides accurate Data, Be specific what you searched by this saves your time and Query returns more accurate result. An optional Parameter List: business_name, services, fuel_brand, fuel_grade, offset. You need to pass json format parameters similar to above example.",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "{business_name:Signature Flight Support,services:,fuel_brand:,fuel_grade:,offset:0}"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": true,
+                        "description": "Get FBO & Fuel Search by Code, this is mandatory Parameter when you request for detail. You need to pass AIRPORT code LAX",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "LAX"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "OFFLINE - FBO & FUEL",
+                "description": "The FBO & FUEL API will search airport Fixed Based Operators by airport, fuel, services, and more. Review Parameter List.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "FBO": {
+                                            "items": {
+                                                "properties": {
+                                                    "Frequencies": {
+                                                        "type": "string"
+                                                    },
+                                                    "airport_code": {
+                                                        "type": "string"
+                                                    },
+                                                    "airport_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "business_link": {
+                                                        "type": "string"
+                                                    },
+                                                    "business_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "city": {
+                                                        "type": "string"
+                                                    },
+                                                    "country": {
+                                                        "type": "string"
+                                                    },
+                                                    "fuel_brand": {
+                                                        "type": "string"
+                                                    },
+                                                    "fuel_grade": {
+                                                        "type": "string"
+                                                    },
+                                                    "office_hours": {
+                                                        "type": "string"
+                                                    },
+                                                    "services": {
+                                                        "type": "string"
+                                                    },
+                                                    "state": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "pageNumber": {
+                                            "type": "string"
+                                        },
+                                        "result": {
+                                            "type": "string"
+                                        },
+                                        "totals": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "FBO": [
+                                                {
+                                                    "Frequencies": "Unicom: 122.95, Arinc: 130.6",
+                                                    "airport_code": "LAX",
+                                                    "airport_name": "Los Angeles International",
+                                                    "business_link": "http://airportguide.com/fbo/119294/Signature_Flight_Support",
+                                                    "business_name": "Signature Flight Support",
+                                                    "city": "Los Angeles",
+                                                    "country": "United States",
+                                                    "fuel_brand": "Independent",
+                                                    "fuel_grade": "",
+                                                    "office_hours": "24 hours/7 days a week",
+                                                    "services": "Car Rentals</br>Catering</br>Computerized Weather</br>Fuel</br>Parking (Ramp)</br>Pilot Supplies / Gifts</br>Refreshments</br>Restrooms</br>Wireless Internet",
+                                                    "state": "California"
+                                                }
+                                            ],
+                                            "pageNumber": "0",
+                                            "result": "Success",
+                                            "totals": 1
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/get_airport_by_iata": {
+            "get": {
+                "tags": [
+                    "Airport API Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "airport_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Enter the IATA airport ID to receive the airport's details.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "LAX"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Airport Details by IATA",
+                "description": "Enter an IATA airport ID and get general information regarding that airport.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "airport_code": {
+                                                "type": "string"
+                                            },
+                                            "city": {
+                                                "type": "string"
+                                            },
+                                            "commercial_airports_only": {
+                                                "type": "string"
+                                            },
+                                            "country": {
+                                                "type": "string"
+                                            },
+                                            "country_code": {
+                                                "type": "string"
+                                            },
+                                            "elevation": {
+                                                "type": "string"
+                                            },
+                                            "gmt": {
+                                                "type": "string"
+                                            },
+                                            "iata_id": {
+                                                "type": "string"
+                                            },
+                                            "icao_id": {
+                                                "type": "string"
+                                            },
+                                            "lat_format": {
+                                                "type": "string"
+                                            },
+                                            "lat_map": {
+                                                "type": "string"
+                                            },
+                                            "link_path": {
+                                                "type": "string"
+                                            },
+                                            "local_id": {
+                                                "type": "string"
+                                            },
+                                            "lon_format": {
+                                                "type": "string"
+                                            },
+                                            "lon_map": {
+                                                "type": "string"
+                                            },
+                                            "magnetic_variation": {
+                                                "type": "string"
+                                            },
+                                            "manager": {
+                                                "type": "string"
+                                            },
+                                            "manager_address": {
+                                                "type": "string"
+                                            },
+                                            "manager_csz": {
+                                                "type": "string"
+                                            },
+                                            "manager_phone": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "owner": {
+                                                "type": "string"
+                                            },
+                                            "owner_address": {
+                                                "type": "string"
+                                            },
+                                            "owner_csz": {
+                                                "type": "string"
+                                            },
+                                            "owner_phone": {
+                                                "type": "string"
+                                            },
+                                            "state": {
+                                                "type": "string"
+                                            },
+                                            "state_abbrev": {
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": [
+                                            {
+                                                "airport_code": "LAX",
+                                                "city": "Los Angeles",
+                                                "commercial_airports_only": "1",
+                                                "country": "United States",
+                                                "country_code": "US",
+                                                "elevation": "127.7",
+                                                "gmt": "-8.0",
+                                                "iata_id": "LAX",
+                                                "icao_id": "KLAX",
+                                                "lat_format": "33-56-33.4500N",
+                                                "lat_map": "33.942625",
+                                                "link_path": "https://airportguide.com/airport/info/LAX",
+                                                "local_id": "LAX",
+                                                "lon_format": "118-24-28.0900W",
+                                                "lon_map": "-118.407803",
+                                                "magnetic_variation": "12.1 E",
+                                                "manager": "KEITH WILSCHETZ",
+                                                "manager_address": "ONE WORLD WAY",
+                                                "manager_csz": "LOS ANGELES, CA 90009",
+                                                "manager_phone": "424-646-5060",
+                                                "name": "Los Angeles International",
+                                                "owner": "CITY OF LOS ANGELES",
+                                                "owner_address": "1 WORLD WAY BOX 92216",
+                                                "owner_csz": "LOS ANGELES, CA 90009-2216",
+                                                "owner_phone": "424-646-5292",
+                                                "state": "California",
+                                                "state_abbrev": "CA",
+                                                "type": "Airport"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/getairmen": {
+            "get": {
+                "tags": [
+                    "Airmen Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "param",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass Json format for multiple parameters, use above as a example.",
+                        "schema": {
+                            "type": "string",
+                            "example": "{first_name:,country:india,city:,state:,medical_class:,cert_type_level:,offset:2}"
+                        }
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "required": true,
+                        "description": "Pass Last Name and Get Airmen Details",
+                        "schema": {
+                            "type": "string",
+                            "example": "YADAV"
+                        }
+                    }
+                ],
+                "operationId": "GET AIRMEN",
+                "description": "The Airmen Search will search the FAA's Airmen Certification database by name, location, rating, medical class, and more. Retrieve Airmen by using Airportguide Data system.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airline_bycountry": {
+            "get": {
+                "tags": [
+                    "Airline Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": true,
+                        "description": "Pass the Country code, Don't have Country code list? Refer AirportGuide's Country List here: https://airportguide.com/search/browse-airports-by-country",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Airline by Country",
+                "description": "Retrieve a list of airlines by entering the country code. The successful call returns the following data: Airline Name, IATA ID, ICAO ID, Country, Airline Url, Call Signs.Airportguide provides Country Data List: https://airportguide.com/search/browse-airports-by-country/ Condition Apply: API accepts offset till 5 only. Contact us for more!",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/getairport_by_use": {
+            "get": {
+                "tags": [
+                    "Airport API Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "use",
+                        "in": "query",
+                        "required": true,
+                        "description": "Enter the landing facility use (public, private, military).",
+                        "schema": {
+                            "type": "string",
+                            "example": "public"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": true,
+                        "description": "Enter the code of the country. e.g. country=CA",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Airport by Use",
+                "description": "Retrieve a list of airports by entering the country and airport use (public, private, military). The successful call returns the following data: Airport Name, IATA ID, ICAO ID, City, State, Country, Latitude, Longitude.Airportguide provides Country Data List: https://airportguide.com/search/browse-airports-by-country/",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/count_airportusebycountry": {
+            "get": {
+                "tags": [
+                    "Airport API Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": true,
+                        "description": "Enter the CODE of the country. e.g. Country=CA",
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    }
+                ],
+                "operationId": "Airport USE by Country",
+                "description": "An Api Call which returns: Enter the Country Name to get the total number of airports in the country and the totals by Landing Facility Use. Airportguide provides Country Data List: https://airportguide.com/search/browse-airports-by-country/",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/count_airporttypebycountry": {
+            "get": {
+                "tags": [
+                    "Airport API Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": true,
+                        "description": "Enter the Code of the country. e.g. country=CA",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Airport Type by Country",
+                "description": "Enter the Country Code to get the total number of airports in the country and the totals by Landing Facility Type (Airport, Balloonport, Gliderport, Heliport, Seaplane Base, Ultralight). Airportguide provides Country Data List: https://airportguide.com/search/browse-airports-by-country/",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airline_byname": {
+            "get": {
+                "tags": [
+                    "Airline Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "description": "airline_name Enter the airline name.  Example: American Airlines, Advanced Air, etc.",
+                        "schema": {
+                            "type": "string",
+                            "example": "Island Air"
+                        }
+                    }
+                ],
+                "operationId": "Airline by Name",
+                "description": "Retrieve an airline detail by entering the Airline Name. The successful call returns the following data: Airline Name, IATA ID, ICAO ID, Country, Country code, Airline Url, Call Signs.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airline_bycode": {
+            "get": {
+                "tags": [
+                    "Airline Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": true,
+                        "description": "Enter the IATA or ICAO code for the airline.  Example: WSN, AA, UA, etc.",
+                        "schema": {
+                            "type": "string",
+                            "example": "WSN"
+                        }
+                    }
+                ],
+                "operationId": "Airline by Code(IATA, ICAO)",
+                "description": "Retrieve an airline detail by entering the Code(IATA, ICAO). The successful call returns the following data: Airline Name, IATA ID, ICAO ID, Country, Country code, Airline Url, Call Signs.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/get_airport": {
+            "get": {
+                "tags": [
+                    "Airport API Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "airport_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "Enter the airport ID. This can be an IATA ID, ICAO ID, FAA ID, TC ID, or any locally used ID for that airport.",
+                        "schema": {
+                            "type": "string",
+                            "example": "KLAX"
+                        }
+                    }
+                ],
+                "operationId": "Airport Details",
+                "description": "Enter an airport ID (FAA, IATA, ICAO, local) and get general information regarding that airport.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/sun_info": {
+            "get": {
+                "tags": [
+                    "Airportguide Calculators"
+                ],
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Pass latitude 37.795356",
+                        "schema": {
+                            "type": "string",
+                            "example": "37.795356"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "pass longitude -122.39625699999999",
+                        "schema": {
+                            "type": "string",
+                            "example": "-122.39625699999999"
+                        }
+                    },
+                    {
+                        "name": "time_zone",
+                        "in": "query",
+                        "required": true,
+                        "description": "Imp: Timezone \"/\" should be replaces by  %2F",
+                        "schema": {
+                            "type": "string",
+                            "example": "America/Los_Angeles"
+                        }
+                    }
+                ],
+                "operationId": "Sunset Sunrise",
+                "description": "Get the sunrise, sunset, civil twilight, nautical twilight, astronomical twilight, and high noon times for any latitude and longitude. Airportguide provides Timezone Data List: https://airportguide.com/api_mashapp/inc/timezone.php",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports_nearby": {
+            "get": {
+                "tags": [
+                    "Airport API Group"
+                ],
+                "parameters": [
+                    {
+                        "name": "miles",
+                        "in": "query",
+                        "required": false,
+                        "description": "pass miles. Default is 20miles",
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": true,
+                        "description": "Pass latitude 33.942495",
+                        "schema": {
+                            "type": "string",
+                            "example": "33.942495"
+                        }
+                    },
+                    {
+                        "name": "lng",
+                        "in": "query",
+                        "required": true,
+                        "description": "pass longitude -118.408068",
+                        "schema": {
+                            "type": "string",
+                            "example": "-118.408068"
+                        }
+                    }
+                ],
+                "operationId": "Nearby Airports",
+                "description": "API allows first 20 Nearby Airports according to Latitude and Longitude given by API User. API call also accepts Miles( not mandatory). A successful call returns the following data: City Name, Country, State, State Code, Latitude, Longitude, Airport Code, and Distance etc.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "query_auth": {
+                "name": "auth",
+                "type": "apiKey",
+                "in": "query",
+                "description": "authorization required authairport567"
+            }
+        }
+    },
+    "security": [
+        {
+            "query_auth": []
+        }
+    ]
+}

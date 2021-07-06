@@ -1,0 +1,303 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Meme Generator",
+        "description": "A simple meme generator that generates memes by choosing a preloaded image, and short top and bottom text sentences. Memes are served in the JPEG image file format.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "fonts",
+            "description": "List and upload fonts"
+        },
+        {
+            "name": "meme"
+        },
+        {
+            "name": "memes",
+            "description": "Generate memes"
+        },
+        {
+            "name": "images",
+            "description": "List and upload images"
+        }
+    ],
+    "paths": {
+        "/images": {
+            "post": {
+                "tags": [
+                    "images"
+                ],
+                "summary": "Upload an image",
+                "operationId": "uploadImage",
+                "description": "Upload a new meme image and add it to the list of available images.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "image": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "images"
+                ],
+                "summary": "Get image",
+                "operationId": "getImages",
+                "description": "Returns a list of available meme images.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/fonts": {
+            "get": {
+                "tags": [
+                    "fonts"
+                ],
+                "summary": "Get fonts",
+                "operationId": "getFonts",
+                "description": "Returns a list of available fonts.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "fonts"
+                ],
+                "summary": "Upload a font",
+                "operationId": "uploadFont",
+                "description": "Upload a new font and add it to the list of available fonts.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "font": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/meme": {
+            "get": {
+                "tags": [
+                    "memes"
+                ],
+                "summary": "Generate meme",
+                "parameters": [
+                    {
+                        "name": "font",
+                        "in": "query",
+                        "required": false,
+                        "description": "The font that will be used for the top and bottom texts",
+                        "schema": {
+                            "type": "string",
+                            "default": "Impact"
+                        }
+                    },
+                    {
+                        "name": "font_size",
+                        "in": "query",
+                        "required": false,
+                        "description": "The size of the font for the top and the bottom texts",
+                        "schema": {
+                            "type": "string",
+                            "default": 50
+                        }
+                    },
+                    {
+                        "name": "meme",
+                        "in": "query",
+                        "required": true,
+                        "description": "The image that will be used to generate the meme",
+                        "schema": {
+                            "type": "string",
+                            "default": "Condescending-Wonka"
+                        }
+                    },
+                    {
+                        "name": "bottom",
+                        "in": "query",
+                        "required": true,
+                        "description": "The text that will be rendered at the bottom of the image",
+                        "schema": {
+                            "type": "string",
+                            "default": "Bottom Text"
+                        }
+                    },
+                    {
+                        "name": "top",
+                        "in": "query",
+                        "required": true,
+                        "description": "The text that will be rendered at the top of the image",
+                        "schema": {
+                            "type": "string",
+                            "default": "Top Text"
+                        }
+                    }
+                ],
+                "operationId": "generateMeme",
+                "description": "The meme is generated from a set of predefined images or an image uploaded via the `uploadImage` API. To get a list of all predefined and uploaded images available to create the meme, please execute the `getImages` API or go to apimeme.com to see which images are available.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

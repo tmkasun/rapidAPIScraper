@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_3f76a568-658f-4a6d-ba73-9cbe6d9d6f4d",
+    "name": "Bing Autosuggest",
+    "title": "Bing Autosuggest",
+    "description": "An AI service from Microsoft Azure that helps users complete queries faster by adding intelligent type-ahead capabilities.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "bing-autosuggest1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-27T14:10:12.805Z",
+    "category": "Search",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/da6547bb-abbb-4778-97bf-559f84faf42c.png",
+    "user": {
+        "id": 4379414,
+        "username": "microsoft-azure-org-microsoft-cognitive-services",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_c5d67a36-9a2d-46ad-ad2b-2cb3ed45dbf0",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_fe88137f-dcef-483d-812d-f31016e35675",
+                "isGraphQL": false,
+                "route": "/suggestions",
+                "method": "GET",
+                "name": "Suggestions",
+                "description": "This operation provides suggestions for a given query or partial query.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

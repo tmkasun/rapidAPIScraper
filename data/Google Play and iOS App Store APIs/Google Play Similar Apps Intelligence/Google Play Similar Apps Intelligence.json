@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_92050497-1843-4c93-85d1-f387de4a1a04",
+    "name": "Google Play Similar Apps Intelligence",
+    "title": "Google Play Similar Apps Intelligence",
+    "description": "The most comprehensive API for Similar Apps data. Access Similar Apps data for all Google Play apps & games in 93 countries. Useful for data-driven App Store Optimization, competitor tracking and market research / analysis.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "google-play-similar-apps-intelligence",
+    "pricing": "PAID",
+    "updatedAt": "2019-08-28T07:59:03.754Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/97/122d509d3a4bbc8c9ca7ba19287eb9/c9f15ffde3088b8dcaea8e5fd27239e8.png",
+    "user": {
+        "id": 3820988,
+        "username": "thetool",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4ad6604b-54e3-4f58-b80e-fd85304e5e43",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_0e8057c1-6cd6-479e-9331-723220bed229",
+                "isGraphQL": false,
+                "route": "/v1/app/{market_id}/referring",
+                "method": "GET",
+                "name": "Referring Apps",
+                "description": "Retrieve the apps that refer to any app / game in the Similar App Cards on the Google Play Store for a given day / period + country. Cost is 3 credits per 100 referring apps (or any fraction of it). You can use the parameter limit to avoid unexpected charges.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_383d8330-e3b6-4930-8329-24be675e9394",
+                "isGraphQL": false,
+                "route": "/v1/app/{market_id}/similar",
+                "method": "GET",
+                "name": "Similar Apps",
+                "description": "Retrieve the apps / games that appear in the Similar App Cards of any app for a given day and country. Cost is 1 credit per 5 similar apps (or any fraction of it). You can use the parameter limit to avoid unexpected charges.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_a46a3859-044d-4c0c-b7d6-ffb654622129",
+                "isGraphQL": false,
+                "route": "/v1/svrank",
+                "method": "GET",
+                "name": "Top SVRank",
+                "description": "Retrieve the TOP SVRank apps for a given day and country. Cost is 3 credits per 100 results (or any fraction of it). You can use the parameter limit to avoid unexpected charges.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

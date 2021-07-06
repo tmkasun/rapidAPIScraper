@@ -1,0 +1,107 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "uNoGS",
+        "description": "uNoGS (unofficial Netflix online Global Search) allows anyone to  search the global Netflix catalog.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Title Information"
+        },
+        {
+            "name": "Search"
+        },
+        {
+            "name": "Country Details"
+        }
+    ],
+    "paths": {
+        "/aaapi.cgi": {
+            "get": {
+                "tags": [
+                    "Country Details"
+                ],
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "required": false,
+                        "description": "add search string to query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "daysback",
+                        "in": "path",
+                        "required": true,
+                        "description": "number of days back to search (max 100)",
+                        "schema": {
+                            "type": "string",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "cc",
+                        "in": "path",
+                        "required": true,
+                        "description": "2 letter country code of country you want to query",
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    }
+                ],
+                "operationId": "Deleted",
+                "description": "get deleted titles by country or query",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/aaapi.cgi/": {
+            "get": {
+                "tags": [
+                    "Title Information"
+                ],
+                "parameters": [
+                    {
+                        "name": "imdbid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Update IMDB",
+                "description": "Use this to update a particular imdb id in the uNoGS database",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api.cgi": {
+            "get": {
+                "operationId": "/api.cgi",
+                "description": "Backward compatibility endpoints",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

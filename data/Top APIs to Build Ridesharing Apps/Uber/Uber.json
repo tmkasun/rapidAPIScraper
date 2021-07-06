@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53f73c71e4b0904c7053aaa7",
+    "name": "Uber",
+    "title": "Uber",
+    "description": "An API to call an Uber car to your location.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "uber",
+    "pricing": "FREE",
+    "updatedAt": "2019-02-20T10:10:28.706Z",
+    "category": "Communication",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53f73c71e4b013f37496615e_medium",
+    "user": {
+        "id": 1482461,
+        "username": "t14ha70d",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53f73c71e4b013f37496615e",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "53f75041e4b01280f4cc9b20",
+                "isGraphQL": false,
+                "route": "/v1/estimates/price",
+                "method": "GET",
+                "name": "Estimated price range",
+                "description": "The Price Estimates endpoint returns an estimated price range for each product offered at a given location. The price estimate is provided as a formatted string with the full price range and the localized currency symbol.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53f750c4e4b043b0325446ea",
+                "isGraphQL": false,
+                "route": "/v1/history",
+                "method": "GET",
+                "name": "User lifetime activity",
+                "description": "The User Activity endpoint returns data about a user's lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53f750f0e4b0834937e068ec",
+                "isGraphQL": false,
+                "route": "/v1/me",
+                "method": "GET",
+                "name": "User information",
+                "description": "The User Profile endpoint returns information about the Uber user that has authorized with the application.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

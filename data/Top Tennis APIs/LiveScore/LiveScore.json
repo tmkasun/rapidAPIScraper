@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_bfab5f18-bcc1-4f7e-8b5d-bc9b30dd4d8c",
+    "name": "LiveScore",
+    "title": "LiveScore",
+    "description": "LiveScore API helps to query for football, cricket, basketball, tennis, hockey matches, leagues, news, etc... as on official site",
+    "visibility": "PUBLIC",
+    "slugifiedName": "livescore6",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-21T06:53:20.926Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/e8/c06052e95248eca2d4bac36143840d/adb83c8fcdf92690b7a3687f7b3bb2c3.png",
+    "user": {
+        "id": 3604431,
+        "username": "apidojo",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_b28b833b-922b-454b-a497-d90b8379d3db",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_aa538212-4824-4fd9-ae78-bda41464fa64",
+                "isGraphQL": false,
+                "route": "/matches/v2/list-by-date",
+                "method": "GET",
+                "name": "matches/v2/list-by-date",
+                "description": "List all matches by specific date\n*The default timezone currently is UTC+7",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_748fa3c4-142a-40b4-9c4f-7925ee013c63",
+                "isGraphQL": false,
+                "route": "/matches/v2/list-live",
+                "method": "GET",
+                "name": "matches/v2/list-live",
+                "description": "List available live matches at request time\n*The default timezone currently is UTC+7",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_8d8b3ad0-2b02-4d29-bd61-079fbf66e200",
+                "isGraphQL": false,
+                "route": "/leagues/v2/list",
+                "method": "GET",
+                "name": "leagues/v2/list",
+                "description": "List all leagues by category (football, cricket, basketball, tennis, hockey)",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,380 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Carma",
+        "description": "Get there together! Shared car seats means a faster, greener and more affordable commute for you and your neighbors.\r\nThe Carma API provides complete access to developers to build carpool apps and solutions to help solve one of the world's most universal problems.\r\nNB we have only included a small subset of the Carma APIs on mashape.com go to api.car.ma to see all of them.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/v1/object/users/search": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "userfields",
+                        "in": "query",
+                        "required": false,
+                        "description": "A comma-separated list of fields that should be included with the user object. Clients SHOULD ask for the minimum amount of data they require. If this parameter is not included then the default is used. If this is passed in with an empty value as in ?userFields= then this will return just the user id and a flag indicating whether the user account has been deleted. The other supported values are: NAME, ALIAS, REGISTRATION_TIME, EMAIL,PHOTO_URL, HOME_CITY, COUNTRY, WEBPAGE, BIO, LAST_KNOWN_LOCATION, LAST_KNOWN_LOCATION_ADDRESS, LAST_KNOWN_LOCATION_ADDRESS_STREET, IS_CURRENTLY_RIDESHARING, LAST_TRIP_SEARCH, RATING, IS_FAVOURITE, IS_FREE_RIDER, IS_FREE_DRIVER, VALIDATIONS_EMAIL, VALIDATIONS_PHONE, VALIDATIONS_NUM_POSITIVE_REVIEWS, VALIDATIONS_CONNECTED_FACEBOOK, VALIDATIONS_AFFILIATES, LAST_SEEN_TIMESTAMP, LAST_LOGIN_TIMESTAMP, GENDER, CREDIT_BALANCES, LOCALE, TEST_ACCOUNT_STATUS, LAST_CHANGED_TIMESTAMP_BASIC, ACHIEVEMENTS, DISTANCE NOTE: The calling user can see all of their own details but will only see a subset of the public fields of another user",
+                        "schema": {
+                            "type": "string",
+                            "example": "ALIAS, PHOTO_URL, DISTANCE"
+                        }
+                    },
+                    {
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": false,
+                        "description": "Which page to return, 1-indexed. For example, page=2 with max=50 will get users 51-100.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of users to return.",
+                        "schema": {
+                            "type": "number",
+                            "example": "20"
+                        }
+                    },
+                    {
+                        "name": "lon",
+                        "in": "query",
+                        "required": false,
+                        "description": "The longitude of the given location in decimal degrees between -180 and 180 (+ for E Long, - for W Long), used to order users nearest to this location, optional",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": false,
+                        "description": "The latitude of the given location in decimal degrees between -90 and 90 (+ for N Lat, - for S Lat), used to order users nearest to this location, optional",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "required": false,
+                        "description": "The user id of the user doing the search, optional can be -1 for non logged in users",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "The oauth client id of the calling application. Clients should provide this otherwise they may be subject to much lower rate limits and may be blocked in future.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "required": true,
+                        "description": "The search keyword. This can be a prefix of a users first name, or a first name and an initial of a surname. e.g. both Bob and Bobby S will match Bobby Sandz. More than 1 character of the surname will not be matched e.g. Bobby Sa will not match Bobby Sandz as surnames are private.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "description": "The representation of the content to return, Carma supports json and xml representations.",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "operationId": "Search Users By Alias",
+                "description": "NB For the full Carma API listing go to https://api.car.ma/apidoc/ref/index.html Search users by name, the result will be ordered so users who's last known location is closest to the given location are first. Note: This endpoint does NOT require authentication",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/object/trip/nearbyUsers": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "currentlat",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional current location used for contextualising addresses in decimal degrees between -90 and 90 (+ for N Lat, - for S Lat)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "currentlon",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional current location used for contextualising addresses in decimal degrees between -180 and 180 (+ for E Long, - for W Long)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "onlinesince",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only return users that have been online since the specified time in millisecs from the epoch. -1 to disable.",
+                        "schema": {
+                            "type": "number",
+                            "example": "-1"
+                        }
+                    },
+                    {
+                        "name": "orderbyonlinems",
+                        "in": "query",
+                        "required": false,
+                        "description": "If -1 then the results are ordered with the users nearest to the current or origin location first. \t *            If not -1 this will group the results such that users who have been online since this number of milliseconds, followed by \t *            the remaining users, within these groups the users are ordered by distance between their last location and the current location given \t *            or the origin location given if the current location is not available.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "originradius",
+                        "in": "query",
+                        "required": false,
+                        "description": "The radius of the search from the origin in meters.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "userid",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the calling user (can be used if logged in to indicate the calling user such that their ride data is excluded from the results; can be SELF to indicate the caller, if authenticated)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "originlabel",
+                        "in": "query",
+                        "required": false,
+                        "description": "A user-provided label for the origin (e.g. an address).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userFields",
+                        "in": "query",
+                        "required": false,
+                        "description": "A comma-separated list of fields that should be included with the user object. Clients SHOULD ask for the minimum amount of data they require. If this parameter is not included then the default is used. If this is passed in with an empty value as in ?userFields= then this will return just the user id and a flag indicating whether the user account has been deleted. The other supported values are: NAME, ALIAS, REGISTRATION_TIME, EMAIL,PHOTO_URL, HOME_CITY, COUNTRY, WEBPAGE, BIO, LAST_KNOWN_LOCATION, LAST_KNOWN_LOCATION_ADDRESS, LAST_KNOWN_LOCATION_ADDRESS_STREET, IS_CURRENTLY_RIDESHARING, LAST_TRIP_SEARCH, RATING, IS_FAVOURITE, IS_FREE_RIDER, IS_FREE_DRIVER, VALIDATIONS_EMAIL, VALIDATIONS_PHONE, VALIDATIONS_NUM_POSITIVE_REVIEWS, VALIDATIONS_CONNECTED_FACEBOOK, VALIDATIONS_AFFILIATES, LAST_SEEN_TIMESTAMP, LAST_LOGIN_TIMESTAMP, GENDER, CREDIT_BALANCES, LOCALE, TEST_ACCOUNT_STATUS, LAST_CHANGED_TIMESTAMP_BASIC, ACHIEVEMENTS, DISTANCE NOTE: The calling user can see all of their own details but will only see a subset of the public fields of another user",
+                        "schema": {
+                            "type": "string",
+                            "example": "ALIAS,BIO,PHOTO_URL"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of results returned for each page.",
+                        "schema": {
+                            "type": "number",
+                            "example": "20"
+                        }
+                    },
+                    {
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": false,
+                        "description": "Which page to return, 1-indexed. For example, page=2 with max=50 will get users 51-100.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "originlat",
+                        "in": "query",
+                        "required": true,
+                        "description": "The latitude of the origin of the nearby users search in decimal degrees between -90 and 90 (+ for N Lat, - for S Lat)",
+                        "schema": {
+                            "type": "number",
+                            "example": "37.78886"
+                        }
+                    },
+                    {
+                        "name": "originlon",
+                        "in": "query",
+                        "required": true,
+                        "description": "the longitude of the origin for the nearby users search in decimal degrees between -180 and 180 (+ for E Long, - for W Long)",
+                        "schema": {
+                            "type": "number",
+                            "example": "-122.395782"
+                        }
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "The oauth client id of the calling application. Clients should provide this otherwise they may be subject to much lower rate limits and may be blocked in future.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "operationId": "Nearby Users",
+                "description": "NB For the full Carma API listing go to https://api.car.ma/apidoc/ref/index.html This retrieves a list of nearby users according to the parameters that were supplied. Note: This endpoint does NOT require authentication.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/object/trip/searchTrips": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "userfields",
+                        "in": "query",
+                        "required": false,
+                        "description": "userFields \t\tA comma-separated list of fields that should be included with the user object. Clients SHOULD ask for the minimum amount of data they require. If this parameter is not included then the default is used. If this is passed in with an empty value as in ?userFields= then this will return just the user id and a flag indicating whether the user account has been deleted. The other supported values are: NAME, ALIAS, REGISTRATION_TIME, EMAIL,PHOTO_URL, HOME_CITY, COUNTRY, WEBPAGE, BIO, LAST_KNOWN_LOCATION, LAST_KNOWN_LOCATION_ADDRESS, LAST_KNOWN_LOCATION_ADDRESS_STREET, IS_CURRENTLY_RIDESHARING, LAST_TRIP_SEARCH, RATING, IS_FAVOURITE, IS_FREE_RIDER, IS_FREE_DRIVER, VALIDATIONS_EMAIL, VALIDATIONS_PHONE, VALIDATIONS_NUM_POSITIVE_REVIEWS, VALIDATIONS_CONNECTED_FACEBOOK, VALIDATIONS_AFFILIATES, LAST_SEEN_TIMESTAMP, LAST_LOGIN_TIMESTAMP, GENDER, CREDIT_BALANCES, LOCALE, TEST_ACCOUNT_STATUS, LAST_CHANGED_TIMESTAMP_BASIC, ACHIEVEMENTS, DISTANCE NOTE: The calling user can see all of their own details but will only see a subset of the public fields of another user",
+                        "schema": {
+                            "type": "string",
+                            "example": "ALIAS,PHOTO_URL"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of results returned for each page",
+                        "schema": {
+                            "type": "number",
+                            "example": "20"
+                        }
+                    },
+                    {
+                        "name": "pageNum",
+                        "in": "query",
+                        "required": false,
+                        "description": "Which page to return, 1-indexed. For example, page=2 with max=50 will get users 51-100.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "destinationLat",
+                        "in": "query",
+                        "required": false,
+                        "description": "the latitude of the destination, in decimal degrees between -90 and 90 (+ for N Lat, - for S Lat)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "destinationLon",
+                        "in": "query",
+                        "required": false,
+                        "description": "the longitude of the destination in decimal degrees between -180 and 180 (+ for E Long, - for W Long), null if destination should be ignored",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "originLat",
+                        "in": "query",
+                        "required": false,
+                        "description": "the latitude of the origin in decimal degrees between -90 and 90 (+ for N Lat, - for S Lat)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "originLon",
+                        "in": "query",
+                        "required": false,
+                        "description": "the longitude of the origin in decimal degrees between -180 and 180 (+ for E Long, - for W Long)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "The oauth client id of the calling application. Clients should provide this otherwise they may be subject to much lower rate limits and may be blocked in future.",
+                        "schema": {
+                            "type": "string",
+                            "example": "myapp"
+                        }
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": false,
+                        "description": "The representation of the content to return, Carma supports json and xml representations.",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "operationId": "Trip search",
+                "description": "NB For the full Carma API listing go to https://api.car.ma/apidoc/ref/index.html. This retrieves a list of trips according to the parameters that were supplied. Note: This endpoint does NOT require authentication.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "oauth2_auth": {
+                "type": "oauth2",
+                "flows": {
+                    "authorizationCode": {
+                        "authorizationUrl": "https://api.car.ma/security/oauth/authorize",
+                        "tokenUrl": "https://api.car.ma/security/oauth/token",
+                        "scopes": {
+                            "rtr": "this is the standard scope for acting on behalf of a user"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        {
+            "oauth2_auth": []
+        }
+    ]
+}

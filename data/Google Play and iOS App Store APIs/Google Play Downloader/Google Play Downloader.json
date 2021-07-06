@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5bea8381e4b0d1763ed6e99d",
+    "name": "Google Play Downloader",
+    "title": "Google Play Downloader",
+    "description": "This API will allow you to get details of an android application from google play, it can also be used to generate download links and request update for the download links. This API is only for personal and educational use only. API is currently on BETA version!",
+    "visibility": "PUBLIC",
+    "slugifiedName": "google-play-downloader",
+    "pricing": "FREE",
+    "updatedAt": "2019-08-06T08:36:07.039Z",
+    "category": null,
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5bea8382e4b09efa5fbd0c47_medium",
+    "user": {
+        "id": 3595248,
+        "username": "nogats",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5bea8382e4b09efa5fbd0c47",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "5bebfb79e4b0d1763ed6ef87",
+                "isGraphQL": false,
+                "route": "/download/",
+                "method": "GET",
+                "name": "Download APK",
+                "description": "Retrieve application download link",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5beade78e4b0a5d5a03baa1e",
+                "isGraphQL": false,
+                "route": "/info/",
+                "method": "GET",
+                "name": "App Info",
+                "description": "Retrieve the application complete information",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5becbc3be4b0d1763ed6f309",
+                "isGraphQL": false,
+                "route": "/update/",
+                "method": "GET",
+                "name": "Update APK",
+                "description": "Request update for new version of apk file for downloading",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

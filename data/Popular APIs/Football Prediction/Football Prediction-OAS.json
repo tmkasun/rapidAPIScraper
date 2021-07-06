@@ -1,0 +1,831 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Football Prediction",
+        "description": "The Football Prediction API provides predictions for upcoming football matches, average bookie odds, results for past matches and prediction performance statistics for past results.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Past performance"
+        },
+        {
+            "name": "Utils"
+        },
+        {
+            "name": "Match Statistics"
+        },
+        {
+            "name": "Forecasting"
+        }
+    ],
+    "paths": {
+        "/api/v2/get-list-of-fixture-ids": {
+            "get": {
+                "tags": [
+                    "Utils"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Get list of fixture IDs",
+                "description": "Returns a list of fixture IDs that can be used to make requests to endpoints expecting a ID url parameter.\nCan be filtered by:\n\n- iso_date\n- market\n- federation",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "items": {
+                                                "type": "integer"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": [
+                                                102909,
+                                                102910,
+                                                102734,
+                                                102742,
+                                                102741,
+                                                102864,
+                                                102866,
+                                                102863,
+                                                102865,
+                                                102867,
+                                                102868,
+                                                102720,
+                                                102857,
+                                                102707,
+                                                102711,
+                                                102701,
+                                                102887,
+                                                102838,
+                                                102855,
+                                                102837,
+                                                102827,
+                                                102710,
+                                                102902,
+                                                102791,
+                                                102792,
+                                                102704,
+                                                102712,
+                                                102702,
+                                                102870,
+                                                102900,
+                                                102709,
+                                                102716,
+                                                102829,
+                                                102901,
+                                                102700,
+                                                102706,
+                                                102794,
+                                                102831,
+                                                102795,
+                                                102854,
+                                                102749,
+                                                102903,
+                                                102828,
+                                                102703,
+                                                102727,
+                                                102793,
+                                                102748,
+                                                102879,
+                                                102971,
+                                                102719,
+                                                102830,
+                                                102861,
+                                                102737,
+                                                102750,
+                                                102970,
+                                                102770,
+                                                102860,
+                                                102718,
+                                                102905,
+                                                102758,
+                                                102927,
+                                                102886,
+                                                102930,
+                                                102762,
+                                                102766,
+                                                102767,
+                                                102926,
+                                                102761,
+                                                102763,
+                                                102877,
+                                                102840,
+                                                102872,
+                                                102779,
+                                                102878,
+                                                102918,
+                                                102876,
+                                                102740,
+                                                102919,
+                                                102875,
+                                                102759,
+                                                102874,
+                                                102777,
+                                                102715,
+                                                102760,
+                                                102889
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v2/predictions/{id}": {
+            "get": {
+                "tags": [
+                    "Forecasting"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "99999"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Prediction Details",
+                "description": "Grab all available predictions for a match id",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "items": {
+                                                "properties": {
+                                                    "available_markets": {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "away_strength": {
+                                                        "type": "number"
+                                                    },
+                                                    "away_team": {
+                                                        "type": "string"
+                                                    },
+                                                    "competition_cluster": {
+                                                        "type": "string"
+                                                    },
+                                                    "competition_name": {
+                                                        "type": "string"
+                                                    },
+                                                    "distance_between_teams": {
+                                                        "type": "integer"
+                                                    },
+                                                    "federation": {
+                                                        "type": "string"
+                                                    },
+                                                    "field_length": {
+                                                        "type": "integer"
+                                                    },
+                                                    "field_width": {
+                                                        "type": "integer"
+                                                    },
+                                                    "home_strength": {
+                                                        "type": "number"
+                                                    },
+                                                    "home_team": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "is_expired": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "last_update_at": {
+                                                        "type": "string"
+                                                    },
+                                                    "prediction_per_market": {
+                                                        "properties": {
+                                                            "classic": {
+                                                                "properties": {
+                                                                    "odds": {
+                                                                        "properties": {
+                                                                            "1": {
+                                                                                "type": "number"
+                                                                            },
+                                                                            "2": {
+                                                                                "type": "number"
+                                                                            },
+                                                                            "12": {
+                                                                                "type": "number"
+                                                                            },
+                                                                            "1X": {
+                                                                                "type": "number"
+                                                                            },
+                                                                            "X": {
+                                                                                "type": "number"
+                                                                            },
+                                                                            "X2": {
+                                                                                "type": "number"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "prediction": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "probabilities": {
+                                                                        "properties": {
+                                                                            "1": {
+                                                                                "type": "number"
+                                                                            },
+                                                                            "2": {
+                                                                                "type": "number"
+                                                                            },
+                                                                            "12": {
+                                                                                "type": "number"
+                                                                            },
+                                                                            "1X": {
+                                                                                "type": "number"
+                                                                            },
+                                                                            "X": {
+                                                                                "type": "number"
+                                                                            },
+                                                                            "X2": {
+                                                                                "type": "number"
+                                                                            }
+                                                                        },
+                                                                        "type": "object"
+                                                                    },
+                                                                    "status": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "result": {
+                                                        "type": "string"
+                                                    },
+                                                    "season": {
+                                                        "type": "string"
+                                                    },
+                                                    "stadium_capacity": {
+                                                        "type": "integer"
+                                                    },
+                                                    "start_date": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": [
+                                                {
+                                                    "available_markets": [
+                                                        "classic"
+                                                    ],
+                                                    "away_strength": 0.8651199370821864,
+                                                    "away_team": "Granada CF",
+                                                    "competition_cluster": "Spain",
+                                                    "competition_name": "Primera Division",
+                                                    "distance_between_teams": 634,
+                                                    "federation": "UEFA",
+                                                    "field_length": 105,
+                                                    "field_width": 67,
+                                                    "home_strength": 1.772133205345935,
+                                                    "home_team": "Deportivo Alaves",
+                                                    "id": 99999,
+                                                    "is_expired": true,
+                                                    "last_update_at": "2020-07-01T13:12:34.400000",
+                                                    "prediction_per_market": {
+                                                        "classic": {
+                                                            "odds": {
+                                                                "1": 2.269,
+                                                                "2": 3.649,
+                                                                "12": 1.373,
+                                                                "1X": 1.281,
+                                                                "X": 3.037,
+                                                                "X2": 1.623
+                                                            },
+                                                            "prediction": "1X",
+                                                            "probabilities": {
+                                                                "1": 0.432,
+                                                                "2": 0.273,
+                                                                "12": 0.705,
+                                                                "1X": 0.727,
+                                                                "X": 0.295,
+                                                                "X2": 0.568
+                                                            },
+                                                            "status": "lost"
+                                                        }
+                                                    },
+                                                    "result": "0 - 2",
+                                                    "season": "2019 - 2020",
+                                                    "stadium_capacity": 19840,
+                                                    "start_date": "2020-07-01T18:30:00"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v2/performance-stats": {
+            "get": {
+                "tags": [
+                    "Past performance"
+                ],
+                "parameters": [
+                    {
+                        "name": "federation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filter stats by federation",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "market",
+                        "in": "query",
+                        "required": false,
+                        "description": "Show stats for a different prediction market. Defaults to \"classic\" if not provided",
+                        "schema": {
+                            "type": "string",
+                            "example": "classic"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Performance stats for past predictions",
+                "description": "Returns information about the accuracy of past predictions. (in the last day, 7 days, 14 days and 30 days) Can be additionally filtered by federation and market. If no market filter is provided it defaults to classic",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "accuracy": {
+                                                    "properties": {
+                                                        "last_14_days": {
+                                                            "type": "number"
+                                                        },
+                                                        "last_30_days": {
+                                                            "type": "number"
+                                                        },
+                                                        "last_7_days": {
+                                                            "type": "number"
+                                                        },
+                                                        "yesterday": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "details": {
+                                                    "properties": {
+                                                        "last_14_days": {
+                                                            "properties": {
+                                                                "lost": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "pending": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "postponed": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "total": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "won": {
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "last_30_days": {
+                                                            "properties": {
+                                                                "lost": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "pending": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "postponed": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "total": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "won": {
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "last_7_days": {
+                                                            "properties": {
+                                                                "lost": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "pending": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "postponed": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "total": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "won": {
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "yesterday": {
+                                                            "properties": {
+                                                                "lost": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "pending": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "postponed": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "total": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "won": {
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "market": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": {
+                                                "accuracy": {
+                                                    "last_14_days": 0.6501831501831502,
+                                                    "last_30_days": 0.6706161137440758,
+                                                    "last_7_days": 0.6741573033707865,
+                                                    "yesterday": 0.7073170731707317
+                                                },
+                                                "details": {
+                                                    "last_14_days": {
+                                                        "lost": 191,
+                                                        "pending": 0,
+                                                        "postponed": 8,
+                                                        "total": 554,
+                                                        "won": 355
+                                                    },
+                                                    "last_30_days": {
+                                                        "lost": 417,
+                                                        "pending": 0,
+                                                        "postponed": 20,
+                                                        "total": 1286,
+                                                        "won": 849
+                                                    },
+                                                    "last_7_days": {
+                                                        "lost": 87,
+                                                        "pending": 0,
+                                                        "postponed": 1,
+                                                        "total": 268,
+                                                        "won": 180
+                                                    },
+                                                    "yesterday": {
+                                                        "lost": 12,
+                                                        "pending": 0,
+                                                        "postponed": 0,
+                                                        "total": 41,
+                                                        "won": 29
+                                                    }
+                                                },
+                                                "market": "classic"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v2/list-federations": {
+            "get": {
+                "tags": [
+                    "Utils"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "List available federations",
+                "description": "Returns an array of all the available federations.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": [
+                                                "UEFA",
+                                                "CAF",
+                                                "OFC",
+                                                "CONMEBOL",
+                                                "CONCACAF",
+                                                "AFC"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v2/away-league-stats/{id}": {
+            "get": {
+                "tags": [
+                    "Match Statistics"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "(use predictions endpoint to get list of IDs)",
+                        "schema": {
+                            "type": "number",
+                            "example": "86397"
+                        }
+                    }
+                ],
+                "operationId": "Away Team League Stats",
+                "description": "Shows the league table and stats for the away team of an upcoming match.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v2/away-last-10/{id}": {
+            "get": {
+                "tags": [
+                    "Match Statistics"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "(use predictions endpoint to get list of IDs)",
+                        "schema": {
+                            "type": "number",
+                            "example": "81930"
+                        }
+                    }
+                ],
+                "operationId": "Away Team Last 10 Matches",
+                "description": "Grab the statistics and list of the last 10 matches played by the away team for a certain ID",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v2/home-last-10/{id}": {
+            "get": {
+                "tags": [
+                    "Match Statistics"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "(use predictions endpoint to get list of IDs)",
+                        "schema": {
+                            "type": "number",
+                            "example": "81930"
+                        }
+                    }
+                ],
+                "operationId": "Home Team Last 10 Matches",
+                "description": "Grab the statistics and list of the last 10 matches played by the home team for a certain ID",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v2/home-league-stats/{id}": {
+            "get": {
+                "tags": [
+                    "Match Statistics"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "(use predictions endpoint to get list of IDs)",
+                        "schema": {
+                            "type": "number",
+                            "example": "81930"
+                        }
+                    }
+                ],
+                "operationId": "Home Team League Stats",
+                "description": "Shows the league table and stats for the home team of an upcoming match.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v2/head-to-head/{id}": {
+            "get": {
+                "tags": [
+                    "Match Statistics"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Limit the search to only X previous encounters. (max is 10)",
+                        "schema": {
+                            "type": "number",
+                            "example": "10"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "(use predictions endpoint to get list of IDs)",
+                        "schema": {
+                            "type": "number",
+                            "example": "81930"
+                        }
+                    }
+                ],
+                "operationId": "Head To Head",
+                "description": "Shows head to head stats and previous encounters for the home and away team of an upcoming match.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v2/list-markets": {
+            "get": {
+                "tags": [
+                    "Utils"
+                ],
+                "operationId": "List available markets",
+                "description": "List all available markets and the ones that are enabled for your subscription plan",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/v2/predictions": {
+            "get": {
+                "tags": [
+                    "Forecasting"
+                ],
+                "parameters": [
+                    {
+                        "name": "market",
+                        "in": "query",
+                        "required": false,
+                        "description": "Shows the predictions for a certain market. Defaults to \"classic\" if not provided",
+                        "schema": {
+                            "type": "string",
+                            "example": "classic"
+                        }
+                    },
+                    {
+                        "name": "iso_date",
+                        "in": "query",
+                        "required": false,
+                        "description": "Will filter the results by date. Can be used to show past results.",
+                        "schema": {
+                            "type": "string",
+                            "example": "2018-12-01"
+                        }
+                    },
+                    {
+                        "name": "federation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filter the predictions by federation",
+                        "schema": {
+                            "type": "string",
+                            "example": "UEFA"
+                        }
+                    }
+                ],
+                "operationId": "Predictions",
+                "description": "This endpoint returns a list of the football predictions scheduled to start in the next 48hours. URL parameters can be specified to show past predictions or to filter by federation and prediction market.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_6782358b-7488-4d1b-9f29-e0cda00166ba",
+    "name": "Mashvisor",
+    "title": "Mashvisor",
+    "description": "Mashvisor APIs allow you to conduct real estate market analysis of any US housing market for both long term rental properties (traditional rentals) and short term rental properties (Airbnb rentals). Furthermore, you get access to nationwide real estate data for traditional rental listings as well as Airbnb listings. The data includes but is not limited to price estimate of MLS listings and off market properties, traditional rental rates (rental income), recurring rental expenses, Airbnb nightly rates, Airbnb occupancy rate, Airbnb rental income traditional and Airbnb return on investment including cash flow, cash on cash return, and cap rate.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "mashvisor",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-02-12T11:43:01.732Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/6dd95f95-9d57-4ea8-966a-739cddd4407d_medium",
+    "user": {
+        "id": 4093831,
+        "username": "mashvisor-team",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_476d4f63-4ca2-4b40-b893-a81d7a9e23cd",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_4f01bc83-2ddf-4cce-ba37-2716753b3607",
+                "isGraphQL": false,
+                "route": "/city/listings",
+                "method": "GET",
+                "name": "List Properties",
+                "description": "The endpoint will fetch all listings in a city or in a zip code with their IDs and addresses whether they are active on the market, or off-market",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_4d8ce374-4849-47f7-8d1f-cb68b66340f9",
+                "isGraphQL": false,
+                "route": "/property",
+                "method": "GET",
+                "name": "Find Property",
+                "description": "This endpoint retrieves the property's detailed data set stored in Mashvisor database.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_e443c172-e65d-4aab-9b3a-3b597b01f9ed",
+                "isGraphQL": false,
+                "route": "/ml/recommended_property",
+                "method": "POST",
+                "name": "Property Recommender",
+                "description": "Get recommended properties specs based on Mashvisor AI recommender score, read more about the score in the API details section.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

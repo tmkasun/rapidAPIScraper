@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa36c6e4b008bb2ef85602",
+    "name": "Great Circle Mapper",
+    "title": "Great Circle Mapper",
+    "description": "Use Great Circle Mapper to calculate the air distance and flight time between all airports worldwide.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "great-circle-mapper",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-01-21T07:09:54.684Z",
+    "category": "Travel",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa36c6e4b0b60946a2e56e_medium",
+    "user": {
+        "id": 1421183,
+        "username": "marcusgoede",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa36c6e4b0b60946a2e56e",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "53aa36c7e4b0f2c97546f2d6",
+                "isGraphQL": false,
+                "route": "/airports/read/{icao_iata}",
+                "method": "GET",
+                "name": "Airport Read",
+                "description": "get airport by IATA code or ICAO code",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa36c8e4b051a76d23f9a8",
+                "isGraphQL": false,
+                "route": "/airports/search/{query}",
+                "method": "GET",
+                "name": "Airport Search",
+                "description": "get a list of airport records",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa36c7e4b008bb2ef85605",
+                "isGraphQL": false,
+                "route": "/airports/route/{route}/{speed}",
+                "method": "GET",
+                "name": "Air Route Calculation",
+                "description": "calculate distance and flight time for any airports and any speed",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

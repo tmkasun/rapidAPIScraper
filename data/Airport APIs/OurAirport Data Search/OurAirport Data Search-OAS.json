@@ -1,0 +1,312 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "OurAirport Data Search",
+        "description": "Search through the OurAirport.com .csv data files with this hosted and blazing fast REST API. Data files are updated once a month. All fields in the CSV are returned by the API.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Nearest Airport"
+        },
+        {
+            "name": "Helpful Endpoints"
+        },
+        {
+            "name": "Advanced Usage"
+        },
+        {
+            "name": "Basic Search"
+        }
+    ],
+    "paths": {
+        "/region/{nameOrIdOrKeyword}": {
+            "get": {
+                "tags": [
+                    "Basic Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "required": false,
+                        "description": "Provides the details of the countries (and their matched continents) in a separate \"lookup\" structure in the results.",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "nameOrIdOrKeyword",
+                        "in": "path",
+                        "required": true,
+                        "description": "The name of the province/state, or its GeoNames database ID or a keyword",
+                        "schema": {
+                            "type": "string",
+                            "example": "washington"
+                        }
+                    }
+                ],
+                "operationId": "Search for region (region is a state or province in a country)",
+                "description": "Search for a region in the regions.csv dataset using one of the following:  The GeoNames ID for the region (eg: \"306124\" that is Washington State, USA's ID) or The name of the region (eg: \"Washington\") or A keyword to search for the region (the final column in the regions.csv file)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/country/{nameOrIdOrKeyword}": {
+            "get": {
+                "tags": [
+                    "Basic Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "required": false,
+                        "description": "Provides the name(s) of the continents the found country/countries belong to, in a separate \"lookup\" structure in the result data.",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "nameOrIdOrKeyword",
+                        "in": "path",
+                        "required": true,
+                        "description": "The name of the country, or its ID from the GeoNames database or a keyword",
+                        "schema": {
+                            "type": "string",
+                            "example": "India"
+                        }
+                    }
+                ],
+                "operationId": "Search for country",
+                "description": "Search for a country in the countries.csv dataset using one of the following: The GeoNames ID for the country (eg: \"302634\" that is India's ID) or The name of the country (eg: \"India\") or A keyword to search for the country (the final column in the countries.csv file).",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airport/{nameIATAorGeoNamesID}": {
+            "get": {
+                "tags": [
+                    "Basic Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "required": false,
+                        "description": "When true, expands the region and country data into a \"lookup\" entity set.",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "nameIATAorGeoNamesID",
+                        "in": "path",
+                        "required": true,
+                        "description": "Name of the airport, IATA code, ICAO code or GeoNames ID",
+                        "schema": {
+                            "type": "string",
+                            "example": "DEL"
+                        }
+                    }
+                ],
+                "operationId": "Search for airport",
+                "description": "Search for an airport by its IATA code, airport name or GeoNames ID",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airports-in/{country}/{region}": {
+            "get": {
+                "tags": [
+                    "Helpful Endpoints"
+                ],
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "required": false,
+                        "description": "If set, will return expanded information about the country and the region",
+                        "schema": {
+                            "type": "boolean",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "region",
+                        "in": "path",
+                        "required": true,
+                        "description": "(Optional) State or Province, 5-letter ISO code, or full name of the region. When omitted, will return ALL the airports in the provided Country.",
+                        "schema": {
+                            "type": "string",
+                            "example": "IN-DL"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "Country, 2-letter ISO code, or name of the country",
+                        "schema": {
+                            "type": "string",
+                            "example": "IN"
+                        }
+                    }
+                ],
+                "operationId": "Find all airports in Country/Region",
+                "description": "Returns all the airports with the provided country and region",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/nearest/{LatLon}": {
+            "get": {
+                "tags": [
+                    "Nearest Airport"
+                ],
+                "parameters": [
+                    {
+                        "name": "iataOnly",
+                        "in": "query",
+                        "required": false,
+                        "description": "When TRUE, only returns airports that have an IATA code (private and special purpose airports and heliports/etc may not have an IATA code)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "maxResults",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum number of airports to return. With increasing number, airports further away are returned (1 - only the most nearest airport, 100 - even airports hundreds of Km away are returned)",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "required": false,
+                        "description": "When TRUE, the regions, countries and continents are expanded into a \"lookup\" extension element.",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "LatLon",
+                        "in": "path",
+                        "required": true,
+                        "description": "Geographical coordinates (Latitude & Longitude) separated by comma",
+                        "schema": {
+                            "type": "string",
+                            "example": "18.5820,73.9197"
+                        }
+                    }
+                ],
+                "operationId": "Get the nearest airport (Lat & Lon)",
+                "description": "Finds the nearest airport to the provided coordinates",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/geolocate/{ipAddress}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "ipAddress",
+                        "in": "path",
+                        "required": true,
+                        "description": "The IP address to find the geolocation for",
+                        "schema": {
+                            "type": "string",
+                            "example": "8.8.8.8"
+                        }
+                    }
+                ],
+                "operationId": "Geolocate [IP address to Coordinates]",
+                "description": "Translate the provided IP address to a Latitude,Longitude coordinates pair",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/nearest/{ipv4_address}": {
+            "get": {
+                "tags": [
+                    "Nearest Airport"
+                ],
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "required": false,
+                        "description": "When TRUE, the regions, countries and continents are expanded into a \\\"lookup\\\" extension element.",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "iataOnly",
+                        "in": "query",
+                        "required": false,
+                        "description": "When TRUE, only returns airports that have an IATA code (private and special purpose airports and heliports/etc may not have an IATA code)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "maxResults",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum number of airports to return. With increasing number, airports further away are returned (1 - only the most nearest airport, 100 - even airports hundreds of Km away are returned)",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "ipv4_address",
+                        "in": "path",
+                        "required": true,
+                        "description": "The IPv4 address to find the airport for",
+                        "schema": {
+                            "type": "string",
+                            "example": "52.172.204.196"
+                        }
+                    }
+                ],
+                "operationId": "Get nearest airport (IP address)",
+                "description": "Get the nearest airport by IP Address",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5be40a72e4b0d1763ed6d48a",
+    "name": "Distance",
+    "title": "Distance",
+    "description": "Calculate distances and travel time between cities, addresses, postcodes or airports. Geocoding, car or foot directions, airline  and many more data included. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "distance",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-10-22T19:26:25.832Z",
+    "category": "Mapping",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5be40a72e4b08725af2ad3a7_medium",
+    "user": {
+        "id": 3593524,
+        "username": "Distance.to",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5be40a72e4b08725af2ad3a7",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "5be54a68e4b0a5d5a03b9935",
+                "isGraphQL": false,
+                "route": "/get",
+                "method": "GET",
+                "name": "Get distance",
+                "description": "Get a distance between locations",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

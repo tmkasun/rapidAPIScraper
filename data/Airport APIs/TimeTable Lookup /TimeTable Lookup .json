@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_a8d91d24-b721-4c5b-9995-b5306e292749",
+    "name": "TimeTable Lookup ",
+    "title": "TimeTable Lookup ",
+    "description": "Add airline flight schedules and connection options to your products.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "timetable-lookup",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-02-08T17:49:24.723Z",
+    "category": "Travel, Transportation",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/cdd764ab-9eaa-4249-8db0-aacb676b079e_medium",
+    "user": {
+        "id": 1415604,
+        "username": "flightlookup",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_6171d64e-fc0d-436b-9b61-ec101103f6c1",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_ccf0d9a9-e675-410c-9915-6469b07d58d0",
+                "isGraphQL": false,
+                "route": "/airlines/",
+                "method": "GET",
+                "name": "airlines - Airlines and the countries they operate in",
+                "description": "Return a list of airlines and the countries they operate in",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_18dcea70-0553-4520-8f8a-77fbd6e2df50",
+                "isGraphQL": false,
+                "route": "/airports/{airportiatacode}/routes/nonstops/",
+                "method": "GET",
+                "name": "airports - Nonstop routes for an airport",
+                "description": "Returns a list of nonstop routes for an airport",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_3885c5eb-e8b9-4a2e-97cf-4a159dcb082e",
+                "isGraphQL": false,
+                "route": "/airports/{airportiatacode}/routes/{airlineiatacode}/",
+                "method": "GET",
+                "name": "airports - Nonstop and direct routes for an airport by airline",
+                "description": "Returns a list of nonstop and direct routes for an airport restricted to an airline",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

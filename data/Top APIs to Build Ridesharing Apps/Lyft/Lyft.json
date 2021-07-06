@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "113",
+    "name": "Lyft",
+    "title": "Lyft",
+    "description": "Embed Lyft ride-share functionality into your app. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "Lyft",
+    "pricing": "FREE",
+    "updatedAt": "2017-11-05T10:00:08.000Z",
+    "category": "Travel, Transportation",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/8d/e21ac0db6711e883447f1aae905c4d/lyft.png",
+    "user": {
+        "id": 3876,
+        "username": "volodimir.kudriachenko",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_d6a90130-f966-11e7-aa9e-7fdbe96fd9e9",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_d6a90130-f966-11e7-aa9e-7fdbe96fd9e9updateRideDestination",
+                "isGraphQL": false,
+                "route": "/updateRideDestination",
+                "method": "POST",
+                "name": "updateRideDestination",
+                "description": "Updates destination of the ride. Note that the ride state must still be active (not droppedOff or canceled), and that destinations on Lyft Line rides cannot be changed.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_d6a90130-f966-11e7-aa9e-7fdbe96fd9e9requestRide",
+                "isGraphQL": false,
+                "route": "/requestRide",
+                "method": "POST",
+                "name": "requestRide",
+                "description": "Allows your application to request a ride on behalf of the user. The user's payment credentials on file will be charged for the ride.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_d6a90130-f966-11e7-aa9e-7fdbe96fd9e9refreshAccessToken",
+                "isGraphQL": false,
+                "route": "/refreshAccessToken",
+                "method": "POST",
+                "name": "refreshAccessToken",
+                "description": "Refresh existing accessToken",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

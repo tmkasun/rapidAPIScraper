@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_135e4cd8-d8ab-4c90-8bf7-c77ff0f5d313",
+    "name": "Bing Entity Search",
+    "title": "Bing Entity Search",
+    "description": "An AI service from Microsoft Azure that recognizes and classifies named entities, and finds search results based on them.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "bing-entity-search",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-27T14:10:20.476Z",
+    "category": "Search",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d0b7e069-fccc-481e-8c43-30db5be92a44.png",
+    "user": {
+        "id": 4379414,
+        "username": "microsoft-azure-org-microsoft-cognitive-services",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_77f786e5-4b68-4c1b-ab12-f6490611e12e",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_96b6a66d-753d-474a-a083-bd5e15e3ac31",
+                "isGraphQL": false,
+                "route": "/entities",
+                "method": "GET",
+                "name": "Entities Search",
+                "description": "Get entities and places results for a given query.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

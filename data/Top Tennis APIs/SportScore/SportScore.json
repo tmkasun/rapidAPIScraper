@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_91ba2ed4-b1bb-40b9-8520-a5076836da7a",
+    "name": "SportScore",
+    "title": "SportScore",
+    "description": "Multiple sports API. https://tipsscore.com/ Detailed data on teams, standings, players, coach, starting lineups, team stadiums, odds and odds-history, match locations, video goals and highlights. Real-time data: live-score, table score (tennis), game incidents (substitutions, corners, cards)",
+    "visibility": "PUBLIC",
+    "slugifiedName": "sportscore1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-06-21T05:22:05.654Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/24d8b188-adb2-489a-8edd-38dee12092da.png",
+    "user": {
+        "id": 4638318,
+        "username": "tipsters",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_7cb3eeec-b5a6-44ea-bda6-de16c307f955",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_6c95e445-390a-4918-88e3-57ca4594682f",
+                "isGraphQL": false,
+                "route": "/events/search",
+                "method": "POST",
+                "name": "Search events",
+                "description": "Get a list of events by filter. Returns events list. Simple pagination is used",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_7a15dd6b-914c-4ad1-9ed6-a031638d313b",
+                "isGraphQL": false,
+                "route": "/events/live",
+                "method": "GET",
+                "name": "Event live list",
+                "description": "Returns list of events",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_9b46036b-6fa6-40b1-8cdb-9bfb1f99f7f4",
+                "isGraphQL": false,
+                "route": "/events/date/{date}",
+                "method": "GET",
+                "name": "Event list by date",
+                "description": "Returns list of events. The filter works like this: date - 24 hours, date + 24 hours. Use your own filters to filter the resulting list more accurately.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

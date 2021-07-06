@@ -1,0 +1,124 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Dash Chassis",
+        "description": "Enabling the \"Internet of Cars\"",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/chassis/v1/user": {
+            "get": {
+                "operationId": "/chassis/v1/user",
+                "description": "Requires 'user' scope - see https://dash.by/endpoint.html?endpoint=/api/chassis/v1/user",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/chassis/v1/user/trips": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "starttime-endtime-endtime",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/chassis/v1/user/trips?startTime={starttime-endtime-endtime}",
+                "description": "Requires 'trips' scope - https://dash.by/endpoint.html?endpoint=/api/chassis/v1/trips",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/chassis/v1/bumperstickers": {
+            "get": {
+                "operationId": "/chassis/v1/bumperstickers",
+                "description": "Requires 'user' scope - https://dash.by/endpoint.html?endpoint=/api/chassis/v1/bumperstickers",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/chassis/v1/stats": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "starttime-endtime-endtime",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/chassis/v1/stats?startTime={starttime-endtime-endtime}",
+                "description": "Requires 'trips' scope - https://dash.by/endpoint.html?endpoint=/api/chassis/v1/stats",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/chassis/v1/routes/{tripid}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "tripid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/chassis/v1/routes/{tripid}",
+                "description": "Requires 'trips' scope - https://dash.by/endpoint.html?endpoint=/api/chassis/v1/routes",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "oauth2_auth": {
+                "type": "oauth2",
+                "flows": {
+                    "authorizationCode": {
+                        "authorizationUrl": "https://dash.by/auth/authorize",
+                        "tokenUrl": "https://dash.by/auth/token",
+                        "scopes": {
+                            "trips": "https://dash.by/auth-scopes.html",
+                            "user": "https://dash.by/auth-scopes.html"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        {
+            "oauth2_auth": []
+        }
+    ]
+}

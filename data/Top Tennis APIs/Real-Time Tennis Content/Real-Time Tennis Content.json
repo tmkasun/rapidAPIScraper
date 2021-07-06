@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_a9b89d5b-c403-4d46-8ad3-0272c43aef82",
+    "name": "Real-Time Tennis Content",
+    "title": "Real-Time Tennis Content",
+    "description": "Our \"Real-Time Tennis Content\" API returns present and historical information on tennis from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of tennis with our solution, or collect historical structured data on the most relevant past stories and events. Returns list of items concerning tennis. Identified by its IAB code IAB17-40, this endpoint returns news items which contain topics such as tennis, Wimbeldon, Australian Open etc. Similar news topics are clustered together. Test our api for free and do not hesitate to reach us out for further information.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "real-time-tennis-content",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-12-04T17:36:02.527Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/2b5a6fde-b84a-4328-b817-6de9f62bb4b8.jpg",
+    "user": {
+        "id": 4551023,
+        "username": "connexun-srl-connexun-srl-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_9b18e6bf-ed6b-4b28-a7c9-911b964e889e",
+        "tags": [
+            {
+                "id": "tag_647b3132-d4e3-4551-bc5c-e45f2274e1eb",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_4223610e-a3aa-4208-a07a-09d14651a2b0",
+                "isGraphQL": false,
+                "route": "/tennis",
+                "method": "GET",
+                "name": "/real-time_tennis_content",
+                "description": "The API returns real-time and historical content and information on tennis from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of tennis with our solution, or collect historical structured data on the most relevant past stories and events.\n\nReturns list of items concerning tennis. Identified by its IAB code IAB17-40, this endpoint returns news items which contains topics such as tennis, Wimbeldon, Australian Open etc. Similar news topics are clustered together.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

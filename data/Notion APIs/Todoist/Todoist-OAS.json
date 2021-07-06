@@ -1,0 +1,2611 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Todoist",
+        "description": "Do more to customize the experience, organize your tasks and projects, and optimize your productivity.",
+        "version": "1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/webhookEvent": {
+            "post": {
+                "operationId": "webhookEvent",
+                "description": "The Todoist Webhooks API allows applications to receive real-time notification (in the form of HTTP POST payload) on the subscribed user events. Notice that once you have a webhook setup, you will start receiving webhook events from all your app users immediately.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateUsersProperties": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateUsersProperties",
+                "description": "Update user’s properties",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateReminder": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateReminder",
+                "description": "Update a reminder from the user account related to the API credentials.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateProject": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateProject",
+                "description": "Update an existing project.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateNotificationSettings": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "notificationType",
+                        "required": true,
+                        "description": "The notification type.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "updateNotificationSettings",
+                "description": "Update the user’s notification settings.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "dontNotify": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Whether notifications of this service should be notified (1 to not notify, and 0 to notify)."
+                                    },
+                                    "service": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "The service type, which can take the values: email or push."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateNote": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateNote",
+                "description": "Update a note.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateMultipleOrders": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "idOrderMapping",
+                        "required": true,
+                        "description": "A dictionary, where a label id is the key, and the order its value: label_id: order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateMultipleOrders",
+                "description": "A dictionary, where a label id is the key, and the order its value: labelId : order.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "uuid": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "You should generate a unique string ID for each command and specify it in the uuid field.See more in readme."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateMultipleOrdersAndIndents": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "idsToOrdersIndents",
+                        "required": true,
+                        "description": "A dictionary array, with a project id as key and a two elements list as value: project_id: [item_order, indent]",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateMultipleOrdersAndIndents",
+                "description": "Update the orders and indents of multiple projects at once.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "uuid": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "You should generate a unique string ID for each command and specify it in the uuid field.See more in readme."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateLabel": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateLabel",
+                "description": "Update a label.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateKarmaGoals": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateKarmaGoals",
+                "description": "Update the karma goals of the user.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateItem": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateItem",
+                "description": "Updates an item for the user related to the API credentials.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateFilter": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateFilter",
+                "description": "Update a filter.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updateDayOrders": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "updateDayOrders",
+                "description": "Update the day orders of multiple items at once.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/uncompleteItems": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "itemIds",
+                        "required": true,
+                        "description": "A list of items to uncomplete.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "uncompleteItems",
+                "description": "Uncomplete tasks and move them to the active projects.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "restoreState": {
+                                        "type": "string",
+                                        "format": "json",
+                                        "description": "A dictionary object, where the item id is the key, and its value is a list of four elements, whether the item is in history, whether it is checked, its order and indent - item_id: [in_history, checked, item_order, indent]."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "uuid": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "You should generate a unique string ID for each command and specify it in the uuid field.See more in readme."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/unarchiveProject": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "required": true,
+                        "description": "List of the ids of the projects to delete (could be temp ids).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "unarchiveProject",
+                "description": "Unarchive project and its children.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "uuid": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "You should generate a unique string ID for each command and specify it in the uuid field.See more in readme."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/shareProject": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "shareProject",
+                "description": "Share a project with another user.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/setLastKnown": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "setLastKnown",
+                "description": "Set the last known notification.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sendInvitation": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "emailList",
+                        "required": true,
+                        "description": "The emails of users which will be invited.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "sendInvitation",
+                "description": "This function allows you to send invitation to your business account. Every invitation object has an unique id and secret code.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "message": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Additional text which will be included to invitation welcome message."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/revokeAccessToken": {
+            "post": {
+                "operationId": "revokeAccessToken",
+                "description": "Access tokens obtained via OAuth could be revoke.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "clientId": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "The unique Client ID of the Todoist application that you registered."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "clientSecret": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "The unique Client Secret of the Todoist application that you registered."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rejectInvitation": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "rejectInvitation",
+                "description": "Reject an invitation to join a shared project.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rejectBusinessInvitation": {
+            "post": {
+                "operationId": "rejectBusinessInvitation",
+                "description": "The invitation is rejected and deleted. Note that the client doesn’t have to provide the user’s token to reject invitation: it’s enough to provide knowledge of invitation secret business account yet.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "secret": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The secret fetched from the live notification (a string value)."
+                                    },
+                                    "invitationId": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The invitation id (a number)."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/registerNewUser": {
+            "post": {
+                "operationId": "registerNewUser",
+                "description": "Register a new user.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "timezone": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The user’s timezone (a string value such as UTC, Europe/Lisbon, US/Eastern, Asian/Taipei). By default we use the user’s IP address to determine the timezone."
+                                    },
+                                    "lang": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "The user’s language."
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The user’s password."
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The user’s email."
+                                    },
+                                    "fullName": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The user’s real name formatted as Firstname Lastname."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/readResources": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "resourceTypes",
+                        "required": true,
+                        "description": "Used to specify what resources to fetch from the server.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "readResources",
+                "description": "Tokens obtained via the old email/password authentication method could be migrated to the new OAuth access token.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "syncToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "A special string, used to allow the client to perform incremental sync. Pass * to retrieve all active resource data."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/quickAddTask": {
+            "post": {
+                "operationId": "quickAddTask",
+                "description": "Add a new task using the Quick Add Task implementation available in the official clients.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "note": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The content of the note."
+                                    },
+                                    "reminder": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "The date of the reminder, added in free form text."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "text": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The text of the task that is parsed. It can include a due date in free form text, a project name starting with the # character, a label starting with the @ character, and an assignee starting with the + character."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/moveItem": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "moveItem",
+                "description": "Move a task from one project to another project.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/markAsUnread": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "markAsUnread",
+                "description": "Mark the notification as unread.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/markAsRead": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "markAsRead",
+                "description": "Mark the notification as read.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/markAllAsRead": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "markAllAsRead",
+                "description": "Mark all notifications as read.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getUploadsFiles": {
+            "post": {
+                "operationId": "getUploadsFiles",
+                "description": "Get all user’s uploads.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "limit": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The number of items to return (a number, where the default is 30, and the maximum is 50)."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "lastId": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "Can be used for pagination. This should be the minimum upload id you’ve fetched so far. All results will be listed before that id."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getProjectInfo": {
+            "post": {
+                "operationId": "getProjectInfo",
+                "description": "This function is used to extract detailed information about the project, including all the note",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "allData": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Whether to return the parent project and notes of the item (a true or false value, while the default is true)."
+                                    },
+                                    "projectId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The project’s unique id."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getProjectData": {
+            "post": {
+                "operationId": "getProjectData",
+                "description": "Get a project’s uncompleted items.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "projectId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The project’s unique id."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getProductivityStats": {
+            "post": {
+                "operationId": "getProductivityStats",
+                "description": "Get the user’s productivity stats.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getObjectEmail": {
+            "post": {
+                "operationId": "getObjectEmail",
+                "description": "Gets an existing email.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "objType": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "The object’s type."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "objId": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The object’s id."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getItemInfo": {
+            "post": {
+                "operationId": "getItemInfo",
+                "description": "This function is used to extract detailed information about the item, including all the notes.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "allData": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Whether to return the parent project and notes of the item (a true or false value, while the default is true)."
+                                    },
+                                    "itemId": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The item’s unique id."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getBackups": {
+            "post": {
+                "operationId": "getBackups",
+                "description": "Todoist creates a backup archive of users’ data on a daily basis. Backup archives can also be accessed from the web app (Todoist Settings -> Backups).",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getArchivedProjects": {
+            "post": {
+                "operationId": "getArchivedProjects",
+                "description": "Get the user’s archived projects.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getAllCompletedItems": {
+            "post": {
+                "operationId": "getAllCompletedItems",
+                "description": "Only available for Todoist Premium users.Get all the user’s completed items (tasks).Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "since": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Return items with a completed date newer than since (a string value formatted as 2007-4-29T10:13)."
+                                    },
+                                    "offset": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "Can be used for pagination, when more than the limit number of tasks are returned."
+                                    },
+                                    "projectId": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "Filter the tasks by project id."
+                                    },
+                                    "limit": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The number of items to return (where the default is 30, and the maximum is 50)."
+                                    },
+                                    "until": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Return items with a completed date same or older than until (a string value formatted as 2007-4-29T10:13)."
+                                    },
+                                    "annotateNotes": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Return notes together with the completed items (a true or false value)."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getActivityLogs": {
+            "post": {
+                "operationId": "getActivityLogs",
+                "description": "Get activity logs.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "objectEventTypes": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "An alternative way to filter by multiple object and event types. This takes a list of strings of the form [object_type]:[event_type] (where either object_type part or the event_type part can be omitted), such as for example [`item:`, `note:added`]. When this parameter is specified the object_type, event_type and object_id parameters are ignored."
+                                    },
+                                    "limit": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The number of events to return, where the default is 30, and the maximum is 100."
+                                    },
+                                    "objectId": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "Filters events by a specific object id, but only if the objectType has been also specified."
+                                    },
+                                    "since": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Return items with a completed date newer than since (a string value formatted as 2007-4-29T10:13)."
+                                    },
+                                    "parentItemId": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "Filters object events by the id of the project they belong to, so this implicitly limits the results to items and notes."
+                                    },
+                                    "until": {
+                                        "type": "string",
+                                        "format": "datepicker",
+                                        "description": "Return items with a completed date same or older than until (a string value formatted as 2007-4-29T10:13)."
+                                    },
+                                    "offset": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The number of events to skip, which can be used for pagination in order to get more events than those returned by the previous call."
+                                    },
+                                    "eventType": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Filters events by a specific event type."
+                                    },
+                                    "initiatorId": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "Filters event by the id of the initiator."
+                                    },
+                                    "objectType": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Filters events by a specific object type."
+                                    },
+                                    "parentProjectId": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "Filters object events by the id of the project they belong to, so this implicitly limits the results to items and notes."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getAccessToken": {
+            "post": {
+                "operationId": "getAccessToken",
+                "description": "Exchanging authorization codes for access token.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "redirectUri": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The URL to which to send the response to this request."
+                                    },
+                                    "clientSecret": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "The unique Client Secret of the Todoist application that you registered."
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The unique string code that you obtained in the authorization request."
+                                    },
+                                    "clientId": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "The unique Client ID of the Todoist application that you registered."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/exchangeApiToken": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "scope",
+                        "required": true,
+                        "description": "Scopes of the OAuth token. Please refer to the OAuth section for the detailed list of available scopes.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "exchangeApiToken",
+                "description": "Tokens obtained via the old email/password authentication method could be migrated to the new OAuth access token.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "clientId": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "The unique Client ID of the Todoist application that you registered."
+                                    },
+                                    "apiToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Token obtained from the email/password authentication."
+                                    },
+                                    "clientSecret": {
+                                        "type": "string",
+                                        "format": "credentials",
+                                        "description": "The unique Client Secret of the Todoist application that you registered."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/disableObjectEmail": {
+            "post": {
+                "operationId": "disableObjectEmail",
+                "description": "Disables an email address for an object.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "objType": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "The object’s type."
+                                    },
+                                    "objId": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The object’s id."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteReminder": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "deleteReminder",
+                "description": "Delete a reminder from the user account related to the API credentials.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteProject": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "required": true,
+                        "description": "List of the ids of the projects to delete (could be temp ids).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "deleteProject",
+                "description": "Delete an existing project.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "uuid": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "You should generate a unique string ID for each command and specify it in the uuid field.See more in readme."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteNote": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "deleteNote",
+                "description": "Delete a note.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteLabel": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "deleteLabel",
+                "description": "Update a label.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteItem": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "itemIds",
+                        "required": true,
+                        "description": "List of the ids of the projects to delete (could be temp ids).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "deleteItem",
+                "description": "Delete an existing task.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "uuid": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "You should generate a unique string ID for each command and specify it in the uuid field.See more in readme."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteInvitation": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "deleteInvitation",
+                "description": "Delete an invitation to join a shared project.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteFilter": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "deleteFilter",
+                "description": "Delete a filter.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteExistingUser": {
+            "post": {
+                "operationId": "deleteExistingUser",
+                "description": "Delete an existing user.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "reasonForDelete": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "A reason for deletion, that is used for sending feedback back to Todoist."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "currentPassword": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The number of items to return (a number, where the default is 30, and the maximum is 50)."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteCollaborator": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "deleteCollaborator",
+                "description": "Share a project with another user.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/crossOriginResourceSharing": {
+            "post": {
+                "operationId": "crossOriginResourceSharing",
+                "description": "All API endpoints not related to the 3 OAuth steps support Cross Origin Resource Sharing (CORS) for requests from any origin.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "origin": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Cross Origin Resource Sharing (CORS) "
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createReminder": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "createReminder",
+                "description": "Add a new reminder to the user account related to the API credentials.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createProjectNote": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "createProjectNote",
+                "description": "Add a project note.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createProject": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "createProject",
+                "description": "Create project.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createObjectEmail": {
+            "post": {
+                "operationId": "createObjectEmail",
+                "description": "Creates a new email address for an object.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "objType": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "The object’s type."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "objId": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The object’s id."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createNote": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "createNote",
+                "description": "Add a note.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createMultipleCommand": {
+            "post": {
+                "operationId": "createMultipleCommand",
+                "description": "Create request with multiple command.See more in readme.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "commands": {
+                                        "type": "string",
+                                        "format": "json",
+                                        "description": "A JSON array of Command object. Each command will be processed in the specified order."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createLabel": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "createLabel",
+                "description": "Create a label.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createItem": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "createItem",
+                "description": "Add a new task to a project.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createFilter": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "createFilter",
+                "description": "Add a filter.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/completeRecurringTask": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "completeRecurringTask",
+                "description": "Complete a recurring task, and the reason why this is a special case is because we need to mark a recurring completion (and using itemUpdate won’t do this). See also item_close for a simplified version of the command.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/completeItems": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "itemIds",
+                        "required": true,
+                        "description": "A list of ids to complete (numbers or temp ids).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "completeItems",
+                "description": "Complete tasks and optionally move them to history. See also itemClose for a simplified version of the command.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "forceHistory": {
+                                        "type": "string",
+                                        "format": "select",
+                                        "description": "Whether these tasks should be moved to history (where 1 is true and 0 is false, and the default is 1) This is useful when checking off sub tasks."
+                                    },
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "uuid": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "You should generate a unique string ID for each command and specify it in the uuid field.See more in readme."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/closeItem": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "closeItem",
+                "description": "A simplified version of itemComplete . The command does exactly what official clients do when you close a task: regular task is completed and moved to history, subtask is checked (marked as done, but not moved to history), recurring task is moved forward (due date is updated).",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/clearLocations": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "clearLocations",
+                "description": "Clears the locations list, which is used for the location reminders.Is only available for Todoist Premium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/archiveProject": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "required": true,
+                        "description": "List of the ids of the projects to delete (could be temp ids).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "archiveProject",
+                "description": "Archive project and its children.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "uuid": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "You should generate a unique string ID for each command and specify it in the uuid field.See more in readme."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/acceptInvitation": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "commands",
+                        "required": true,
+                        "description": "Array of Command object. Each command will be processed in the specified order.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
+                ],
+                "operationId": "acceptInvitation",
+                "description": "Accept an invitation to join a shared project.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/acceptBusinessInvitation": {
+            "post": {
+                "operationId": "acceptBusinessInvitation",
+                "description": "This function allows you to send invitation to your business account. Every invitation object has an unique id and secret code.Only available for Todoist Premium users.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "accessToken": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Access token obtained from the OAuth authentication."
+                                    },
+                                    "secret": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The secret fetched from the live notification (a string value)."
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "The invitation id (a number)."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

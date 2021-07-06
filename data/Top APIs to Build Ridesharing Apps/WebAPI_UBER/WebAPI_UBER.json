@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "56d9bfd5e4b0b7099e081edc",
+    "name": "WebAPI_UBER",
+    "title": "WebAPI_UBER",
+    "description": "Profile for Uber Users",
+    "visibility": "PUBLIC",
+    "slugifiedName": "webapi_uber",
+    "pricing": "FREE",
+    "updatedAt": "2019-02-20T10:10:59.917Z",
+    "category": null,
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/56d9bfd5e4b0b7099e081edd_medium",
+    "user": {
+        "id": 2161440,
+        "username": "lxluislxl",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "56d9bfd5e4b0b7099e081edd",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "56d9c0b3e4b039804b391b56",
+                "isGraphQL": false,
+                "route": "/v1/me",
+                "method": "GET",
+                "name": "User Information",
+                "description": "User Information",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

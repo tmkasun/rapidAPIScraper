@@ -1,0 +1,2360 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Mashvisor",
+        "description": "Mashvisor APIs allow you to conduct real estate market analysis of any US housing market for both long term rental properties (traditional rentals) and short term rental properties (Airbnb rentals). Furthermore, you get access to nationwide real estate data for traditional rental listings as well as Airbnb listings. The data includes but is not limited to price estimate of MLS listings and off market properties, traditional rental rates (rental income), recurring rental expenses, Airbnb nightly rates, Airbnb occupancy rate, Airbnb rental income traditional and Airbnb return on investment including cash flow, cash on cash return, and cap rate.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Predictive Scores"
+        },
+        {
+            "name": "Investment Analysis"
+        },
+        {
+            "name": "Property"
+        },
+        {
+            "name": "Search"
+        },
+        {
+            "name": "Trends"
+        },
+        {
+            "name": "Long Term Rentals"
+        },
+        {
+            "name": "Short Term Rentals"
+        },
+        {
+            "name": "Rental Rates"
+        }
+    ],
+    "paths": {
+        "/city/listings": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "Los Angeles"
+                        }
+                    },
+                    {
+                        "name": "baths",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "externalDocs": {},
+                            "default": "2"
+                        }
+                    },
+                    {
+                        "name": "beds",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "externalDocs": {},
+                            "default": "2"
+                        }
+                    },
+                    {
+                        "name": "zip_cod",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "90024"
+                        }
+                    },
+                    {
+                        "name": "min_price",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "externalDocs": {},
+                            "default": "400000"
+                        }
+                    },
+                    {
+                        "name": "max_price",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "externalDocs": {},
+                            "default": "500000"
+                        }
+                    },
+                    {
+                        "name": "foreclosure",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "externalDocs": {},
+                            "default": "false"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "externalDocs": {},
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "CA"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "url": "https://www.mashvisor.com/api-doc/#search",
+                    "description": ""
+                },
+                "operationId": "List Properties",
+                "description": "The endpoint will fetch all listings in a city or in a zip code with their IDs and addresses whether they are active on the market, or off-market",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/property": {
+            "get": {
+                "tags": [
+                    "Property"
+                ],
+                "parameters": [
+                    {
+                        "name": "zip_code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property zip code",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "The property Id from the Mashvisor database.",
+                        "schema": {
+                            "type": "number",
+                            "example": "2430136"
+                        }
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property street address",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parcel_number",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property parcel or APN",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property city",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mls_id",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property MLS id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the property should be provided to the api or api will throw error 404",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Find Property",
+                "description": "This endpoint retrieves the property's detailed data set stored in Mashvisor database.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/ml/recommended_property": {
+            "post": {
+                "tags": [
+                    "Predictive Scores"
+                ],
+                "operationId": "Property Recommender",
+                "description": "Get recommended properties specs based on Mashvisor AI recommender score, read more about the score in the API details section.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "AgeRange": "45-54",
+                                "WealthScore": "50.0",
+                                "Gender": "Female",
+                                "EstimatedHouseholdIncome": "> $250,000",
+                                "PresenceOfChildren": "YES",
+                                "NumberOfChildren": "1",
+                                "MaritalStatusInHousehold": "Single",
+                                "Investing": "YES",
+                                "EstWealth": "> $499,999",
+                                "NumberCreditLines": "1",
+                                "LengthOfResidence": "11 - 15 years",
+                                "Sale1 Transfer Amt": "590000.0",
+                                "BusinessOwner": "UNKNOWN"
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/ml/mashmeter": {
+            "post": {
+                "tags": [
+                    "Predictive Scores"
+                ],
+                "operationId": "Mashmeter",
+                "description": "Get neighborhood Mashmeter value, see more about the score in the API details section.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "airbnb_listings": 1104,
+                                "median_airbnb_coc": 6.60582,
+                                "airbnb_price_to_rent_ratio": 27.884447053896,
+                                "traditional_listings": 7,
+                                "median_traditional_coc": 0.7074975,
+                                "traditional_price_to_rent_ratio": 28.650655961001,
+                                "walkscore": 55
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/ml/investment-likelihood": {
+            "post": {
+                "tags": [
+                    "Predictive Scores"
+                ],
+                "operationId": "Investment Likelihood",
+                "description": "Get investment likelihood score for a property, read more about the score in API details section.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "airbnb_ROI": 9.33728,
+                                "airbnb_rental": 3235.36,
+                                "traditional_ROI": 1.92281,
+                                "traditional_rental": 1270,
+                                "baths": 10,
+                                "beds": 10,
+                                "days_on_market": 152,
+                                "home_type": "Multi Family",
+                                "list_price": 599000,
+                                "sqft": 2000
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/neighborhood/{id}/traditional/listing": {
+            "get": {
+                "tags": [
+                    "Investment Analysis"
+                ],
+                "parameters": [
+                    {
+                        "name": "items",
+                        "in": "query",
+                        "required": false,
+                        "description": "Items number",
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        }
+                    },
+                    {
+                        "name": "min_price",
+                        "in": "query",
+                        "required": false,
+                        "description": "min_price of rental value",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sorting type. Possible input: * address * similarity * distance * beds * baths * price",
+                        "schema": {
+                            "type": "string",
+                            "example": "distance"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "required": false,
+                        "description": "Bedrooms number",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "pid",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property to fetch comparable listings for.",
+                        "schema": {
+                            "type": "number",
+                            "example": "325215"
+                        }
+                    },
+                    {
+                        "name": "max_price",
+                        "in": "query",
+                        "required": false,
+                        "description": "max_price of rental value",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page number",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "description": "Order type: desc, or asc",
+                        "schema": {
+                            "type": "string",
+                            "example": "desc"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The neighborhood Id from the Mashvisor database.",
+                        "schema": {
+                            "type": "number",
+                            "example": "397651"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the neighborhood should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "NY"
+                        }
+                    }
+                ],
+                "operationId": "Traditional Comparable Listings",
+                "description": "This endpoint retrieves the traditional neighborhood's listing data set in Mashvisor database with similarity and distance regarding the target MLS property.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/property/marker": {
+            "get": {
+                "tags": [
+                    "Investment Analysis"
+                ],
+                "parameters": [
+                    {
+                        "name": "startupCost",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "example": "8000"
+                        }
+                    },
+                    {
+                        "name": "loanType",
+                        "in": "query",
+                        "required": false,
+                        "description": "The loan type, e.g: 30",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "loanTerm",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "loanInterestOnlyYears",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "downPayment",
+                        "in": "query",
+                        "required": false,
+                        "description": "The downpayment for mortgage calculations, e.g: 40000",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "loanArmType",
+                        "in": "query",
+                        "required": false,
+                        "description": "3/1, 5/1, 7/1, 10/1",
+                        "schema": {
+                            "type": "number",
+                            "example": "\t3/1"
+                        }
+                    },
+                    {
+                        "name": "interestRate",
+                        "in": "query",
+                        "required": false,
+                        "description": "The interest rate for mortgage, e.g: 3.51",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "loanArmRate",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "example": ".25"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the property should be provided to the api or API will throw error 404",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    },
+                    {
+                        "name": "payment",
+                        "in": "query",
+                        "required": true,
+                        "description": "CASH, or LOAN",
+                        "schema": {
+                            "type": "string",
+                            "example": "CASH"
+                        }
+                    },
+                    {
+                        "name": "pid",
+                        "in": "query",
+                        "required": true,
+                        "description": "The property Id from the Mashvisor database.",
+                        "schema": {
+                            "type": "number",
+                            "example": "2207289"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": true,
+                        "description": "Investment, Airbnb, or Traditional",
+                        "schema": {
+                            "type": "string",
+                            "example": "Investment"
+                        }
+                    }
+                ],
+                "operationId": "Property Marker",
+                "description": "This endpoint retrieves snapshot data about a specific property.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/property/{id}/investment/breakdown": {
+            "get": {
+                "tags": [
+                    "Investment Analysis"
+                ],
+                "parameters": [
+                    {
+                        "name": "is_days",
+                        "in": "query",
+                        "required": false,
+                        "description": "If it's set to 0, the \\\"traditional_occupancy\\\" is considered as a percentage, if it's 1, it's considered as num of days per year",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "traditional_rental",
+                        "in": "query",
+                        "required": false,
+                        "description": "Monthly traditional rental income, ex: 1700",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "turnover_cost",
+                        "in": "query",
+                        "required": false,
+                        "description": "Turnover cost",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "max_bid",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the property listing price to its value",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "airbnb_rental",
+                        "in": "query",
+                        "required": false,
+                        "description": "Monthly Airbnb rental income, ex: 2000",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "airbnb_occupancy",
+                        "in": "query",
+                        "required": false,
+                        "description": "num of days per year, or a percentage Based on \\\"is_days\\\" param, eg: 70 as a percentage, or 150 as days",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "traditional_occupancy",
+                        "in": "query",
+                        "required": false,
+                        "description": "num of days per year, or a percentage Based on \\\"is_days\\\" param, eg: 70 as a percentage, or 150 as days",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "recurring_cost",
+                        "in": "query",
+                        "required": true,
+                        "description": "Recurring cost of the investment strategy, ex: 1435",
+                        "schema": {
+                            "type": "number",
+                            "example": "1435"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the property should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "GA"
+                        }
+                    },
+                    {
+                        "name": "startup_cost",
+                        "in": "query",
+                        "required": true,
+                        "description": "Startup cost for the investment, e.x: 8000",
+                        "schema": {
+                            "type": "number",
+                            "example": "8000"
+                        }
+                    },
+                    {
+                        "name": "source",
+                        "in": "query",
+                        "required": true,
+                        "description": "Defines the monthly calculations should be calculated for \\\"Airbnb\\\" or \\\"Traditional\\\"",
+                        "schema": {
+                            "type": "string",
+                            "example": "Airbnb"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The property Id from the Mashvisor database.",
+                        "schema": {
+                            "type": "number",
+                            "example": "664367"
+                        }
+                    }
+                ],
+                "operationId": "Investment Breakdown",
+                "description": "This endpoint retrieves the property's investment breakdown performance for Airbnb or Traditional.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/neighborhood/{id}/airbnb/details": {
+            "get": {
+                "tags": [
+                    "Investment Analysis"
+                ],
+                "parameters": [
+                    {
+                        "name": "items",
+                        "in": "query",
+                        "required": false,
+                        "description": "Items number",
+                        "schema": {
+                            "type": "number",
+                            "example": "3"
+                        }
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sorting type. Possible input: * name * similarity * distance * address * occupancy * night_price * rental_income * num_of_baths * num_of_rooms * reviews_count",
+                        "schema": {
+                            "type": "string",
+                            "example": "occupancy"
+                        }
+                    },
+                    {
+                        "name": "pid",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property to fetch comparable listings for.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "bedrooms",
+                        "in": "query",
+                        "required": false,
+                        "description": "Bedrooms number; 0 - 4",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "in": "query",
+                        "required": false,
+                        "description": "Order type: desc, or asc",
+                        "schema": {
+                            "type": "string",
+                            "example": "desc"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page number",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the neighborhood should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "IL"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The neighborhood Id from the Mashvisor database.",
+                        "schema": {
+                            "type": "number",
+                            "example": "269590"
+                        }
+                    }
+                ],
+                "operationId": "Airbnb Comparable Listings",
+                "description": "This endpoint retrieves the Airbnb neighborhood's listing data set in Mashvisor database with similarity and distance regarding the target MLS property.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/property/{id}/investment": {
+            "get": {
+                "tags": [
+                    "Investment Analysis"
+                ],
+                "parameters": [
+                    {
+                        "name": "airbnb_rental",
+                        "in": "query",
+                        "required": false,
+                        "description": "Monthly Airbnb rental income, ex: 2000",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "airbnb_home_owner_insurance",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the airbnb home owner insurance cost, e.g: 83",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "traditional_rental",
+                        "in": "query",
+                        "required": false,
+                        "description": "Monthly traditional rental income, ex: 1700",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "traditional_home_owner_insurance",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the traditional home owner insurance cost, e.g: 83",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "interest_rate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Interest rate",
+                        "schema": {
+                            "type": "number",
+                            "example": "0.5"
+                        }
+                    },
+                    {
+                        "name": "startup_cost",
+                        "in": "query",
+                        "required": false,
+                        "description": "Startup cost",
+                        "schema": {
+                            "type": "number",
+                            "example": "8000"
+                        }
+                    },
+                    {
+                        "name": "traditional_total_expenses",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the traditional total expenses, e.g: 1900",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "traditional_property_tax",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the traditional property tax value, e.g: 1705",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "is_days",
+                        "in": "query",
+                        "required": false,
+                        "description": "If it's set to 0, the \"traditional_occupancy\" is considered as a percentage, if it's 1, it's considered as num of days per year",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "traditional_management_cost",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the traditional management cost, e.g: 130",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "payment_type",
+                        "in": "query",
+                        "required": false,
+                        "description": "loan, cash",
+                        "schema": {
+                            "type": "string",
+                            "example": "loan"
+                        }
+                    },
+                    {
+                        "name": "traditional_occupancy",
+                        "in": "query",
+                        "required": false,
+                        "description": "num of days per year, or a percentage Based on \"is_days\" param, eg: 70 as a percentage, or 150 as days",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "traditional_maintenance_cost",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the traditional maintenance cost, e.g: 250",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "loan_type",
+                        "in": "query",
+                        "required": false,
+                        "description": "Loan type",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "airbnb_management_cost",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the airbnb management cost, e.g: 120",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "airbnb_maintenance_cost",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the airbnb maintenance cost, e.g: 230",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "max_bid",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the property listing price to its value",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "airbnb_total_expenses",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the airbnb total expenses, e.g: 1700",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "airbnb_occupancy",
+                        "in": "query",
+                        "required": false,
+                        "description": "num of days per year, or a percentage Based on \"is_days\" param, eg: 70 as a percentage, or 150 as days",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "down_payment",
+                        "in": "query",
+                        "required": false,
+                        "description": "Down payment",
+                        "schema": {
+                            "type": "number",
+                            "example": "10000"
+                        }
+                    },
+                    {
+                        "name": "airbnb_property_tax",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sets the airbnb property tax value, e.g: 1705",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The property Id from the Mashvisor database.",
+                        "schema": {
+                            "type": "number",
+                            "example": "664367"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the property should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "GA"
+                        }
+                    }
+                ],
+                "operationId": "Property Investment Performance",
+                "description": "This endpoint retrieves the property's investment performance.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/search/heatmap": {
+            "get": {
+                "tags": [
+                    "Trends"
+                ],
+                "parameters": [
+                    {
+                        "name": "ne_lat",
+                        "in": "query",
+                        "required": true,
+                        "description": "To search to a specific geo area, north east point latitude. e.g: 34.410846062851626",
+                        "schema": {
+                            "type": "number",
+                            "example": "34.410846062851626"
+                        }
+                    },
+                    {
+                        "name": "sw_lng",
+                        "in": "query",
+                        "required": true,
+                        "description": "To search to a specific geo area, south west point longitude. e.g: -118.72974734005544",
+                        "schema": {
+                            "type": "number",
+                            "example": "-118.72974734005544"
+                        }
+                    },
+                    {
+                        "name": "ne_lng",
+                        "in": "query",
+                        "required": true,
+                        "description": "To search to a specific geo area, north east point longitude. e.g: -117.99366335568044",
+                        "schema": {
+                            "type": "number",
+                            "example": "-117.99366335568044"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state to search in. e.g: CA",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": true,
+                        "description": "AirbnbCoc, or listingPrice, TraditionalCoc, OccupancyRate, AirbnbRental, TraditionalRental",
+                        "schema": {
+                            "type": "string",
+                            "example": "OccupancyRate"
+                        }
+                    },
+                    {
+                        "name": "sw_lat",
+                        "in": "query",
+                        "required": true,
+                        "description": "To search to a specific geo area, south west point latitude. e.g: 33.76436731683163",
+                        "schema": {
+                            "type": "number",
+                            "example": "33.76436731683163"
+                        }
+                    }
+                ],
+                "operationId": "Get Location Heatmap",
+                "description": "This endpoint retrieves the investment performance heatmap for a specific geo area.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/property/office/details": {
+            "get": {
+                "tags": [
+                    "Property"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the property should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "description": "The office Id from the Mashvisor database.",
+                        "schema": {
+                            "type": "number",
+                            "example": "6067"
+                        }
+                    }
+                ],
+                "operationId": "Get Office",
+                "description": "This endpoint retrieves the real estate office details for a specific office id.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/agents/profile/detail": {
+            "get": {
+                "tags": [
+                    "Property"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "description": "The agent full name from the Mashvisor database.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "The agent city from the Mashvisor database.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "The agent Id from the Mashvisor database.",
+                        "schema": {
+                            "type": "string",
+                            "example": "51266"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the property should be provided to the api or api will throw error 404",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Agent",
+                "description": "This endpoint retrieves a random agent for given non-agent user.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/property/{id}/taxing": {
+            "get": {
+                "tags": [
+                    "Property"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the property should be provided to the api or api will throw error 404",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The property Id from the Mashvisor database.",
+                        "schema": {
+                            "type": "number",
+                            "example": "2214791"
+                        }
+                    }
+                ],
+                "operationId": "Get Taxing",
+                "description": "This endpoint retrieves the property's detailed data set stored in Mashvisor database.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/neighborhood/{id}/bar": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Neighborhood id",
+                        "schema": {
+                            "type": "number",
+                            "example": "268201"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "\tNeighborhood's state",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Neighborhood Overview",
+                "description": "This endpoint retrieves a neighborhood investment analysis and overview.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/trends/neighborhoods": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "items",
+                        "in": "query",
+                        "required": false,
+                        "description": "The items to return the content for. Valid values: 10, ... etc.",
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "The page to return the content for. Valid values:1, ... etc",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": true,
+                        "description": "Sity name, ex: Las Vegas.",
+                        "schema": {
+                            "type": "string",
+                            "example": "Miami Beach"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "State name, ex: NV.",
+                        "schema": {
+                            "type": "string",
+                            "example": "FL"
+                        }
+                    }
+                ],
+                "operationId": "Top Neighborhoods",
+                "description": "This endpoint retrieves the neighborhoods has the biggest occupancy in a specific city and state.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/city/properties/{state}/{city}": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "required": true,
+                        "description": "State name, ex: NV.",
+                        "schema": {
+                            "type": "string",
+                            "example": "GA"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "required": true,
+                        "description": "City Name, Ex: Los Angeles",
+                        "schema": {
+                            "type": "string",
+                            "example": "Atlanta"
+                        }
+                    }
+                ],
+                "operationId": "City Top Properties",
+                "description": "This endpoint retrieves the city's top investment properties performance.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/city/investment/{state}/{city}": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "required": true,
+                        "description": "State name, ex: NV.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "required": true,
+                        "description": "City Name, Ex: Los Angeles",
+                        "schema": {
+                            "type": "string",
+                            "example": "Los Angeles"
+                        }
+                    }
+                ],
+                "operationId": "City Investment Performance",
+                "description": "This endpoint retrieves the city investment performance, median price, airbnb listings, MLS listings, traditional listings, cap rates, rental rates, and much more",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/city/top-markets": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "items",
+                        "in": "query",
+                        "required": false,
+                        "description": "The items to return the content for. Valid values: 10, ... etc.",
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "State name, ex: NV.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "List Top Markets",
+                "description": "This endpoint retrieves the top housing cities with their active homes for sale count in a specific state.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/city/neighborhoods/{state}/{city}": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "required": true,
+                        "description": "State name, ex: NV.",
+                        "schema": {
+                            "type": "string",
+                            "example": "FL"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "required": true,
+                        "description": "City Name, Ex: Los Angeles",
+                        "schema": {
+                            "type": "string",
+                            "example": "Miami"
+                        }
+                    }
+                ],
+                "operationId": "List Neighborhoods",
+                "description": "This endpoint lists all city available neighborhoods.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/city/list": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "The page to return the content for. Valid values:1, ... etc.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "items",
+                        "in": "query",
+                        "required": false,
+                        "description": "The items to return the content for. Valid values: 10, ... etc.",
+                        "schema": {
+                            "type": "number",
+                            "example": "10"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "State name, ex: NV. If ignored, it will fetch all available cities",
+                        "schema": {
+                            "type": "string",
+                            "example": "FL"
+                        }
+                    }
+                ],
+                "operationId": "List Cities",
+                "description": "This endpoint retrieves cities a specific state.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/trends/summary/{state}/{city}": {
+            "get": {
+                "tags": [
+                    "Trends"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "required": true,
+                        "description": "State name, ex: NV.",
+                        "schema": {
+                            "type": "string",
+                            "example": "FL"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "required": true,
+                        "description": "City name, ex: Las Vegas.",
+                        "schema": {
+                            "type": "string",
+                            "example": "Miami Beach"
+                        }
+                    }
+                ],
+                "operationId": "Get City Summary",
+                "description": "This endpoint retrieves a summary of airbnb properties, traditional properties, investment properties, and active neighborhoods available on Mashvisor.com for a specific .",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/trends/cities": {
+            "get": {
+                "tags": [
+                    "Trends"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page number",
+                        "schema": {
+                            "type": "string",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "items",
+                        "in": "query",
+                        "required": false,
+                        "description": "The items to return the content for. Valid values: 10, ... etc",
+                        "schema": {
+                            "type": "string",
+                            "example": "5"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "State* name, ex: NV.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Top Airbnb Cities",
+                "description": "Top Airbnb Cities, this endpoint retrieves the cities has the highest occupancy rates with their total Airbnb active listings in a specific state.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/traditional-property": {
+            "get": {
+                "tags": [
+                    "Long Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "The traditional property Id from the Mashvisor database.",
+                        "schema": {
+                            "type": "number",
+                            "example": "5637233"
+                        }
+                    },
+                    {
+                        "name": "mls_id",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property MLS id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property street address",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property city",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parcel_number",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property parcel or APN",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "zip_code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Property postal code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the property should be provided to the api or api will throw error 404",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Traditional Property",
+                "description": "This endpoint retrieves the traditional - long term rental - property's detailed data set stored in Mashvisor database.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/neighborhood/{id}/historical/traditional": {
+            "get": {
+                "tags": [
+                    "Long Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "beds",
+                        "in": "query",
+                        "required": false,
+                        "description": "0 to 4 bedrooms value",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "required": false,
+                        "description": "A month to fetch after",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019"
+                        }
+                    },
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "required": false,
+                        "description": "A month to fetch after",
+                        "schema": {
+                            "type": "string",
+                            "example": "2"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Neighborhood id to fetch data for",
+                        "schema": {
+                            "type": "number",
+                            "example": "268201"
+                        }
+                    }
+                ],
+                "operationId": "Get Traditional Neighborhood Historical Performance",
+                "description": "Get a submarket (neighborhood) short term historical performance for its listings as an array",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/rental-rates": {
+            "get": {
+                "tags": [
+                    "Rental Rates"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "City name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Los Angeles"
+                        }
+                    },
+                    {
+                        "name": "neighborhood",
+                        "in": "query",
+                        "required": false,
+                        "description": "Neighborhood id you're targeting",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "zip_code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Zip code value",
+                        "schema": {
+                            "type": "string",
+                            "example": "90291"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "State short name",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    },
+                    {
+                        "name": "source",
+                        "in": "query",
+                        "required": true,
+                        "description": "Targeting service to fetch estiamtes for. Possible inputs: * airbnb * traditional",
+                        "schema": {
+                            "type": "string",
+                            "example": "airbnb"
+                        }
+                    }
+                ],
+                "operationId": "Get Airbnb Rental Rates",
+                "description": "The endpoint retrieves rental income rates for Airbnb or traditional way for a city, zip code, or a neighborhood, you'll be able to fetch Airbnb rental rates - short term rentals, or long term rentals, calculated based on the location Airbnb occupancy rates",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/neighborhood/{id}/historical/airbnb": {
+            "get": {
+                "tags": [
+                    "Short Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "beds",
+                        "in": "query",
+                        "required": false,
+                        "description": "0 to 4 bedrooms value",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "average_by",
+                        "in": "query",
+                        "required": false,
+                        "description": "Neighborhood id you're targeting. Possible Inputs: * occupancy * price * revenue",
+                        "schema": {
+                            "type": "string",
+                            "example": "occupancy"
+                        }
+                    },
+                    {
+                        "name": "percentile_rate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Percentile rate",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "required": false,
+                        "description": "AirBnB category type. Possible Inputs: * flat * house * apartment * loft",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Neighborhood id to fetch data for",
+                        "schema": {
+                            "type": "number",
+                            "example": "268201"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Neighborhood Historical Performance",
+                "description": "Get an Airbnb submarket (neighborhood) short term historical performance for its listings as an array",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airbnb-property/market-summary": {
+            "get": {
+                "tags": [
+                    "Short Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "A specific city you're looking for.",
+                        "schema": {
+                            "type": "string",
+                            "example": "Los Angeles"
+                        }
+                    },
+                    {
+                        "name": "neighborhood",
+                        "in": "query",
+                        "required": false,
+                        "description": "Neighborhood id you're targeting",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "zip_code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Any postal zip code.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Market Summary",
+                "description": "Get a summary an overview for a specific Airbnb market location: city, zip code, or a neighborhood",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airbnb-property/active-listings": {
+            "get": {
+                "tags": [
+                    "Short Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "A specific city you're looking for.",
+                        "schema": {
+                            "type": "string",
+                            "example": "San Francisco"
+                        }
+                    },
+                    {
+                        "name": "zip_code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Any postal zip code.",
+                        "schema": {
+                            "type": "number",
+                            "example": "91342"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page number",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "neighborhood",
+                        "in": "query",
+                        "required": false,
+                        "description": "Neighborhood id you're targeting",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "items",
+                        "in": "query",
+                        "required": false,
+                        "description": "Item number per page",
+                        "schema": {
+                            "type": "number",
+                            "example": "4"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Listings",
+                "description": "List all active short term rentals - Airbnb listings -  for a specific location: city, zip code, or a neighborhood",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airbnb-property/property-types": {
+            "get": {
+                "tags": [
+                    "Short Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "zip_code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Any postal zip code.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "A specific city you're looking for.",
+                        "schema": {
+                            "type": "string",
+                            "example": "Los Angeles"
+                        }
+                    },
+                    {
+                        "name": "neighborhood",
+                        "in": "query",
+                        "required": false,
+                        "description": "Neighborhood id you're targeting",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Airbnb Property Types",
+                "description": "Check all Airbnb market property types for a zip code or a neighborhood and return their counts.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airbnb-property/occupancy-rates": {
+            "get": {
+                "tags": [
+                    "Short Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "A specific city you're looking for.",
+                        "schema": {
+                            "type": "string",
+                            "example": "Los Angeles"
+                        }
+                    },
+                    {
+                        "name": "zip_code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Any postal zip code.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "neighborhood",
+                        "in": "query",
+                        "required": false,
+                        "description": "Neighborhood id you're targeting",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Airbnb Occupancy Rates",
+                "description": "For each Airbnb listing, we calculate its occupancy rate, month per month, and an annual rate, and we offer our clients a 12-month historical performance for the occupancy rates. Market occupancy rates for a zip code or a neighborhood.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airbnb-property/{id}": {
+            "get": {
+                "tags": [
+                    "Short Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the listing should be provided to the api or api will throw error 404",
+                        "schema": {
+                            "type": "string",
+                            "example": "AZ"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Airbnb listing Id",
+                        "schema": {
+                            "type": "number",
+                            "example": "22518616"
+                        }
+                    }
+                ],
+                "operationId": "Get Airbnb Listing Info",
+                "description": "This endpoint retrieves an Airbnb listing detailed information, reviews, photos, host, estimated rental income, rental rate, night rate , calculated occupancy rate.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airbnb-property/{id}/historical": {
+            "get": {
+                "tags": [
+                    "Short Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state of the property should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Airbnb property record Id from the Mashvisor database",
+                        "schema": {
+                            "type": "number",
+                            "example": "23861615"
+                        }
+                    }
+                ],
+                "operationId": "Get Airbnb Historical Performance",
+                "description": "This endpoint retrieves the Airbnb listing 12 historical records - nightly price, revenue, occupancy days, unbooked nights, and occupancy rate - for a specific property.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airbnb-property/newly-listed": {
+            "get": {
+                "tags": [
+                    "Short Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "A specific city you're looking for.",
+                        "schema": {
+                            "type": "string",
+                            "example": "San Francisco"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page number",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "zip_code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Any postal zip code.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state should be provided to the api or api will throw error 404.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Airbnb Newly Listed Homes",
+                "description": "List all Airbnb homes that are recently listed for a specific location: city, or a zip code.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airbnb-property/top-reviewed": {
+            "get": {
+                "tags": [
+                    "Short Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "A specific city you're looking for.",
+                        "schema": {
+                            "type": "string",
+                            "example": "Los Angeles"
+                        }
+                    },
+                    {
+                        "name": "reviews_count",
+                        "in": "query",
+                        "required": false,
+                        "description": "Any valid integer to fetch listings counts more than the number",
+                        "schema": {
+                            "type": "number",
+                            "example": "30"
+                        }
+                    },
+                    {
+                        "name": "zip_code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Any postal zip code.",
+                        "schema": {
+                            "type": "number",
+                            "example": "91342"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page number",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state should be provided to the api or api will throw error 404",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Airbnb Top Reviewed Homes",
+                "description": "List all Airbnb top reviewed homes and most counts of reviews for a specific location: city, or a zip code",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airbnb-property/super-hosts": {
+            "get": {
+                "tags": [
+                    "Short Term Rentals"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "A specific city you're looking for.",
+                        "schema": {
+                            "type": "string",
+                            "example": "Los Angeles"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page number.",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "zip_code",
+                        "in": "query",
+                        "required": false,
+                        "description": "Any postal zip code.",
+                        "schema": {
+                            "type": "number",
+                            "example": "91342"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": true,
+                        "description": "The state should be provided to the api or api will throw error 404",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    }
+                ],
+                "operationId": "Get Airbnb Super Hosts",
+                "description": "Obtain a list of all Airbnb market super hosts for a zip code or a city.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

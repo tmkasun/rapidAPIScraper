@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "57110475e4b028dd938181c6",
+    "name": "IATACodes",
+    "title": "IATACodes",
+    "description": "Global Aviation Data API",
+    "visibility": "PUBLIC",
+    "slugifiedName": "iatacodes",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-25T05:26:06.216Z",
+    "category": "Travel",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ad814d56-5d0d-4e13-8b63-8e4acb0c3f28.png",
+    "user": {
+        "id": 4565327,
+        "username": "airlabs",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "57110475e4b0f0cd8cea3a6f",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "57110dd7e4b02d863afda3ac",
+                "isGraphQL": false,
+                "route": "/api/v5/airlines",
+                "method": "GET",
+                "name": "Airlines",
+                "description": "Airlines",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "57110633e4b0a1d871a19898",
+                "isGraphQL": false,
+                "route": "/api/v5/airports",
+                "method": "GET",
+                "name": "Airports",
+                "description": "",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "57110c87e4b002251bb123f7",
+                "isGraphQL": false,
+                "route": "/api/v5/cities",
+                "method": "GET",
+                "name": "Cities",
+                "description": "Cities",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

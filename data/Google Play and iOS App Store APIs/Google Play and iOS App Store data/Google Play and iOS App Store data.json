@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5be17d06e4b09efa5fbcedc7",
+    "name": "Google Play and iOS App Store data",
+    "title": "Google Play and iOS App Store data",
+    "description": "The most comprehensive API for global app store data. Access app data for all Google Play and iOS App Store apps in 155 countries including 6 years of historical data.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "google-play-and-ios-app-store-data",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-08-07T02:31:41.210Z",
+    "category": null,
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5be17d06e4b02e44153ff051_medium",
+    "user": {
+        "id": 3592930,
+        "username": "appmonsta",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5be17d06e4b02e44153ff051",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "5be180d2e4b09efa5fbcedd6",
+                "isGraphQL": false,
+                "route": "/v1/stores/{store}/ids/",
+                "method": "GET",
+                "name": "App IDs for all apps",
+                "description": "Get a list of all the app IDs for iTunes App Store or Google Play Store.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5be181c9e4b02e44153ff065",
+                "isGraphQL": false,
+                "route": "/v1/stores/{store}/reviews.json?language={language}",
+                "method": "GET",
+                "name": "Reviews for all apps",
+                "description": "Request most recent app reviews dump. This is a bulk API call, returning a streaming response with one record per line.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5be18193e4b08725af2aca17",
+                "isGraphQL": false,
+                "route": "/v1/stores/{store}/details.json?country={country_code}&date={date}",
+                "method": "GET",
+                "name": "Details for all apps",
+                "description": "Request the most recent app details for all apps.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

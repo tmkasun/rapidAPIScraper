@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa5085e4b0a9b1348da695",
+    "name": "Deezer",
+    "title": "Deezer",
+    "description": "Deezer is the No. 1 site for listening to music on demand. Discover more than 30 million tracks, create your own playlists, and share your favourite tracks.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "deezer-1",
+    "pricing": "FREE",
+    "updatedAt": "2019-06-25T07:38:31.017Z",
+    "category": "Entertainment",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa5085e4b07e1f4ebeb426_medium",
+    "user": {
+        "id": 1044107,
+        "username": "deezerdevs",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa5085e4b07e1f4ebeb426",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "53aa5087e4b0a9b1348da6a3",
+                "isGraphQL": false,
+                "route": "/radio/{id}",
+                "method": "GET",
+                "name": "Radio",
+                "description": "A radio object",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa5087e4b0b60946a2f5ea",
+                "isGraphQL": false,
+                "route": "/infos",
+                "method": "GET",
+                "name": "Infos",
+                "description": "Get the infos about the api in the current country",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa5086e4b0a9b1348da69e",
+                "isGraphQL": false,
+                "route": "/editorial/{id}",
+                "method": "GET",
+                "name": "Editorial",
+                "description": "An editorial object",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

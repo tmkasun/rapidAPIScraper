@@ -1,0 +1,89 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Axesso - Alibaba Data Service",
+        "description": "API to fetch information from Alibaba.com",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/alb/alibaba-lookup-product": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "https://www.alibaba.com/product-detail/High-Quality-Wireless-Controller-V4-0_62283552682.html"
+                        }
+                    }
+                ],
+                "operationId": "lookupProduct",
+                "description": "Lookup product details based on url",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/alb/alibaba-search-by-keyword": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "best_match"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": true,
+                        "description": "valid parameter is upc or text",
+                        "schema": {
+                            "type": "string",
+                            "example": "text"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Playstation 4"
+                        }
+                    }
+                ],
+                "operationId": "searchByKeyword",
+                "description": "Executes a keyword search",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

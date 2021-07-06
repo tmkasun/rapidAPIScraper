@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_32370f25-c47a-4278-9c21-e644931b70ba",
+    "name": "Tennis Live Data",
+    "title": "Tennis Live Data",
+    "description": "Tennis data for top competitions around the world including tournaments, matches, results, and rankings.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "tennis-live-data",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-06T11:09:07.088Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/2cc1aada-6ab8-4d97-b1ca-10f787e7b113.png",
+    "user": {
+        "id": 4643042,
+        "username": "sportcontentapi",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_5eb8be29-b57c-4ad6-bfc3-49c8d67c7c91",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_ce547256-33f0-4b29-a6c8-210ba1bd6ea4",
+                "isGraphQL": false,
+                "route": "/matches-results-by-player/{tourn_id}/{player_id}",
+                "method": "GET",
+                "name": "Matches By Tournament By Player",
+                "description": "Retrieves matches and results for a given `player_id `within a given `tournament_id`",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_d7f81cbe-69ec-4678-83f2-88219f10e663",
+                "isGraphQL": false,
+                "route": "/players/{tour}",
+                "method": "GET",
+                "name": "Players",
+                "description": "Full Listing of Players by Tour",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_f24ac995-2b7b-417d-b382-b705da806242",
+                "isGraphQL": false,
+                "route": "/matches-by-date/{date}",
+                "method": "GET",
+                "name": "Matches By Date",
+                "description": "Lists matches in all tours, and tournaments,  for a given date. If no date is supplied, returns matches today.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,127 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Bing Spell Check",
+        "description": "An AI service from Microsoft Azure that turns any app into a spell check resource.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/spellcheck": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "mkt",
+                        "in": "query",
+                        "required": false,
+                        "description": "For proof mode, only support en-us, es-es, pt-br, For spell mode, support all language codes.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": true,
+                        "description": "Mode of spellcheck:\n\n- **proof** - Meant to provide Office Word like spelling corrections. It can correct long queries, provide casing corrections and suppresses aggressive corrections.\n- **spell** - Meant to provide Search engine like spelling corrections. It will correct small queries(up to length 9 tokens) without any casing changes and will be more optimized (perf and relevance) towards search like queries.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Spell Check",
+                "description": "Check spelling.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "Text": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Bill Gates"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "parameters": [
+                    {
+                        "name": "mkt",
+                        "in": "query",
+                        "required": false,
+                        "description": "For proof mode, only support en-us, es-es, pt-br, For spell mode, support all language codes.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "postContextText",
+                        "in": "query",
+                        "required": false,
+                        "description": "A string that gives context to the text string. For example, the text string read is valid; however, if you set postContextText to carpet, the context changes and the text string becomes not valid. In this case, the API will suggest that you change read to red (as in red carpet).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "preContextText",
+                        "in": "query",
+                        "required": false,
+                        "description": "A string that gives context to the text string. For example, the text string petal is valid; however, if you set preContextText to bike, the context changes and the text string becomes not valid. In this case, the API will suggest that you change petal to pedal (as in bike pedal).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "required": true,
+                        "description": "The text string to check for spelling and grammar errors.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": true,
+                        "description": "Mode of spellcheck:\n- **proof** - Meant to provide Office Word like spelling corrections. It can correct long queries, provide casing corrections and suppresses aggressive corrections.\n- **spell** - Meant to provide Search engine like spelling corrections. It will correct small queries(up to length 9 tokens) without any casing changes and will be more optimized (perf and relevance) towards search like queries.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "description": "Check spelling.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

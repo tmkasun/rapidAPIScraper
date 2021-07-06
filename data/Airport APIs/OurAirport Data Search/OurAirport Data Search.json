@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_119a5ce0-fb4e-4543-a894-9fe05cecfa3a",
+    "name": "OurAirport Data Search",
+    "title": "OurAirport Data Search",
+    "description": "Search through the OurAirport.com .csv data files with this hosted and blazing fast REST API. Data files are updated once a month. All fields in the CSV are returned by the API.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ourairport-data-search",
+    "pricing": "FREE",
+    "updatedAt": "2020-06-24T05:43:56.950Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/8a/ab797879a3483591c482acac7861dc/e3287250ac7d579766cd86da257654bb.png",
+    "user": {
+        "id": 3909464,
+        "username": "sujayvsarma",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_5ae92e1a-0852-4bb6-b117-712f95a048f7",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_efce1367-e5e7-4802-a0dd-60d22fe4265d",
+                "isGraphQL": false,
+                "route": "/region/{nameOrIdOrKeyword}",
+                "method": "GET",
+                "name": "Search for region (region is a state or province in a country)",
+                "description": "Search for a region in the regions.csv dataset using one of the following:  The GeoNames ID for the region (eg: \"306124\" that is Washington State, USA's ID) or The name of the region (eg: \"Washington\") or A keyword to search for the region (the final column in the regions.csv file)",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_af923ce8-6221-4646-9ddd-55f63a4bdd72",
+                "isGraphQL": false,
+                "route": "/country/{nameOrIdOrKeyword}",
+                "method": "GET",
+                "name": "Search for country",
+                "description": "Search for a country in the countries.csv dataset using one of the following: The GeoNames ID for the country (eg: \"302634\" that is India's ID) or The name of the country (eg: \"India\") or A keyword to search for the country (the final column in the countries.csv file).",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_7cfa1cc2-afce-4680-a4db-251c7cbd008b",
+                "isGraphQL": false,
+                "route": "/airport/{nameIATAorGeoNamesID}",
+                "method": "GET",
+                "name": "Search for airport",
+                "description": "Search for an airport by its IATA code, airport name or GeoNames ID",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5a294d53e4b0367779b04e3b",
+    "name": "Web Search",
+    "title": "Web Search",
+    "description": "Billions of webpages, images and news with a single API call.  Visit us at: usearch.com",
+    "visibility": "PUBLIC",
+    "slugifiedName": "web-search",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-30T11:17:05.111Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/5a294d54e4b021a5a0c9c454_medium.png",
+    "user": {
+        "id": 3500895,
+        "username": "contextualwebsearch",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5a294d54e4b021a5a0c9c454",
+        "tags": [
+            {
+                "id": "tag_e1256e86-0a01-41c6-a701-b56042eb6cb7",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_7a9c3b95-3bbc-42b6-a852-24490e0de5fa",
+                "isGraphQL": false,
+                "route": "/api/search/TrendingNewsAPI",
+                "method": "GET",
+                "name": "trendingNews",
+                "description": "Gets news articles that are trending on the web and social networks.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_bb64a24f-5489-4b5d-9508-0857a2e37319",
+                "isGraphQL": false,
+                "route": "/api/spelling/SpellCheck",
+                "method": "GET",
+                "name": "spellCheck",
+                "description": "Check spelling.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_f6cbca18-cd83-46cf-8801-c21a462b0681",
+                "isGraphQL": false,
+                "route": "/api/Search/WebSearchAPI",
+                "method": "GET",
+                "name": "webSearch",
+                "description": "Get relevant web pages for a given query.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

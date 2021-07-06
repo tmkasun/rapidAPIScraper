@@ -1,0 +1,412 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Web Search",
+        "description": "Billions of webpages, images and news with a single API call.  Visit us at: usearch.com",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/api/search/TrendingNewsAPI": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "withThumbnails",
+                        "in": "query",
+                        "required": false,
+                        "description": "Show results with image thumbnails.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "boolean",
+                            "default": "false"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": false,
+                        "description": "The supported locations are: \\\"us\\\", \\\"in\\\",  or \\\"uk\\\".  If empty, the API returns top stories from all over the world. ",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "us"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true,
+                        "description": "The number of items per page. The maximum value is 50.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "pageNumber",
+                        "in": "query",
+                        "required": true,
+                        "description": "The page to view.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "trendingNews",
+                "description": "Gets news articles that are trending on the web and social networks.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/spelling/SpellCheck": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "required": true,
+                        "description": "The text string to check for spelling errors.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "string",
+                            "default": "teylor swiift"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "undefined"
+                },
+                "operationId": "spellCheck",
+                "description": "Check spelling.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/Search/WebSearchAPI": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "safeSearch",
+                        "in": "query",
+                        "required": false,
+                        "description": "A filter used to filter results for adult content.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true,
+                        "description": "The number of items per page. The maximum value is 50.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "number",
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "pageNumber",
+                        "in": "query",
+                        "required": true,
+                        "description": "The page to view.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "number",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "autoCorrect",
+                        "in": "query",
+                        "required": true,
+                        "description": "Automatically correct spelling.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "boolean",
+                            "default": true
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "The user's search query string.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "string",
+                            "default": "taylor swift"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "webSearch",
+                "description": "Get relevant web pages for a given query.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/search/NewsSearchAPI": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "withThumbnails",
+                        "in": "query",
+                        "required": false,
+                        "description": "Show results with image thumbnails.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "fromPublishedDate",
+                        "in": "query",
+                        "required": false,
+                        "description": "The  published date and time for the oldest article allowed.  For example: *2015-05-16T05:50:06.* See  [https://www.c-sharpcorner.com/blogs/date-and-time-format-in-c-sharp-programming1 ](url)for more possible DateTime formats. ",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "string",
+                            "default": "null"
+                        }
+                    },
+                    {
+                        "name": "safeSearch",
+                        "in": "query",
+                        "required": false,
+                        "description": "A filter used to filter results for adult content.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "toPublishedDate",
+                        "in": "query",
+                        "required": false,
+                        "description": "The  published date and time for the newest article allowed.  For example: *2015-05-16T05:50:06.* See  [https://www.c-sharpcorner.com/blogs/date-and-time-format-in-c-sharp-programming1 ](url)for more possible DateTime formats. ",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "string",
+                            "default": "null"
+                        }
+                    },
+                    {
+                        "name": "pageNumber",
+                        "in": "query",
+                        "required": true,
+                        "description": "The page to view.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "number",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "The user's search query string.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "string",
+                            "default": "taylor swift"
+                        }
+                    },
+                    {
+                        "name": "autoCorrect",
+                        "in": "query",
+                        "required": true,
+                        "description": "Automatically correct spelling.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "boolean",
+                            "default": true
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true,
+                        "description": "The number of items per page. The maximum value is 50.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "number",
+                            "default": "10"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "newsSearch",
+                "description": "Get news articles relevant for a given query.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/Search/ImageSearchAPI": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "safeSearch",
+                        "in": "query",
+                        "required": false,
+                        "description": "A filter used to filter results for adult content.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "autoCorrect",
+                        "in": "query",
+                        "required": true,
+                        "description": "Automatically correct spelling.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "boolean",
+                            "default": true
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": true,
+                        "description": "The number of items per page. The maximum value is 50.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "number",
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "pageNumber",
+                        "in": "query",
+                        "required": true,
+                        "description": "The page to view.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "number",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "The user's search query string.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "string",
+                            "default": "taylor swift"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "imageSearch",
+                "description": "Get relevant images for a given query.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/spelling/AutoComplete": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "required": true,
+                        "description": "The prefix to complete",
+                        "schema": {
+                            "type": "string",
+                            "example": "do"
+                        }
+                    }
+                ],
+                "operationId": "autoComplete",
+                "description": "Suggest as-you-type completion.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,101 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "appsearch",
+        "description": "Mimvi App Search provides mobile app search, discovery and recommendation services.  Based on proprietary biomimetic algorithms, Mimvi App Search delivers the best coverage and most relevant mobile apps, mobile content and mobile products.  Coverage includes:  iTunes, Google Play (Android), Windows Phone 7, Windows Phone 8, Facebook, Blackberry, Web Apps.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/1.1/recommendations": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "platform",
+                        "in": "query",
+                        "required": false,
+                        "description": "optional; same enumerations as search method",
+                        "schema": {
+                            "type": "string",
+                            "example": "itunes"
+                        }
+                    },
+                    {
+                        "name": "app_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "mimvi ID of app,",
+                        "schema": {
+                            "type": "string",
+                            "example": "123"
+                        }
+                    }
+                ],
+                "operationId": "recommendations",
+                "description": "given one app as input, get recommended apps as output",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/1.1/search": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "platform",
+                        "in": "query",
+                        "required": false,
+                        "description": "optional; empty=all; otherwise one of the following:  android, blackberry, facebook, ipad, itunes, mobileweb, windows",
+                        "schema": {
+                            "type": "string",
+                            "example": "itunes"
+                        }
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": true,
+                        "description": "how many results to return; may be limited by api; deverlopers are responsbile for counting hte number of returned results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "required": true,
+                        "description": "where to start in the result list, integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "URL-encoded search query of 1,000 character maximum",
+                        "schema": {
+                            "type": "string",
+                            "example": "test"
+                        }
+                    }
+                ],
+                "operationId": "search",
+                "description": "Search for apps",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

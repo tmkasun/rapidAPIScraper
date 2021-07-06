@@ -1,0 +1,206 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Uber",
+        "description": "An API to call an Uber car to your location.",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/v1/estimates/price": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "end_longitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Longitude component of end location.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "end_latitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Latitude component of end location.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "start_longitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Longitude component of start location.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "start_latitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Latitude component of start location.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "Estimated price range",
+                "description": "The Price Estimates endpoint returns an estimated price range for each product offered at a given location. The price estimate is provided as a formatted string with the full price range and the localized currency symbol.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/history": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": true,
+                        "description": "Number of items to retrieve. Default is 5, maximum is 100.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": true,
+                        "description": "Offset the list of returned results by this amount. Default is zero.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "User lifetime activity",
+                "description": "The User Activity endpoint returns data about a user's lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/me": {
+            "get": {
+                "operationId": "User information",
+                "description": "The User Profile endpoint returns information about the Uber user that has authorized with the application.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/estimates/time": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "product_id",
+                        "in": "query",
+                        "required": false,
+                        "description": "Unique identifier representing a specific product for a given latitude & longitude.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "customer_uuid",
+                        "in": "query",
+                        "required": false,
+                        "description": "Unique customer identifier to be used for experience customization.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_longitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Longitude component.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "start_latitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Latitude component.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "product ETAs",
+                "description": "The Time Estimates endpoint returns ETAs for all products offered at a given location, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate, up-to-date ETAs.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/products": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Longitude component of location.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Latitude component of location.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "product information",
+                "description": "The Products endpoint returns information about the Uber products offered at a given location. The response includes the display name and other details about each product, and lists the products in the proper display order.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "oauth2_auth": {
+                "type": "oauth2",
+                "flows": {
+                    "authorizationCode": {
+                        "authorizationUrl": "https://login.uber.com/oauth/authorize",
+                        "tokenUrl": "https://login.uber.com/oauth/token"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        {
+            "oauth2_auth": []
+        }
+    ]
+}

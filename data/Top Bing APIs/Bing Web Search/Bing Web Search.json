@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_0ca4c0d4-ef2a-47f1-8c9d-ffce8bcf31f6",
+    "name": "Bing Web Search",
+    "title": "Bing Web Search",
+    "description": "An AI service from Microsoft Azure that enables safe, ad-free, location-aware search for your users, surfacing relevant information from web results, images, local businesses, news, videos, and visuals.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "bing-web-search1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-27T14:10:56.242Z",
+    "category": "Search",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d7cbccb9-dbaa-4896-842f-dbce0f8b3910.png",
+    "user": {
+        "id": 4379414,
+        "username": "microsoft-azure-org-microsoft-cognitive-services",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_38a4d294-2ba4-4f97-a8e6-28dec65721fc",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_4a1d0249-95f9-4df5-a7cd-960002211643",
+                "isGraphQL": false,
+                "route": "/search",
+                "method": "GET",
+                "name": "Web Search",
+                "description": "The Bing Web Search API enables you to integrate Bing's search capabilities in your applications. By sending search queries with the API, you can get relevant webpages, images, videos, news and more.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

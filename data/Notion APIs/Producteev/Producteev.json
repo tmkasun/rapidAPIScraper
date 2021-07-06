@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa5893e4b0596140340f24",
+    "name": "Producteev",
+    "title": "Producteev",
+    "description": "Producteev is the leading social task management solution for teams. It’s helped thousands of teams get work done faster and more effectively. It's brought to you by Jive, the world's # 1 social business provider.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "producteev",
+    "pricing": "FREE",
+    "updatedAt": "2019-02-20T10:10:05.619Z",
+    "category": "Social",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa5893e4b0596140340f25_medium",
+    "user": {
+        "id": 1100380,
+        "username": "ilannewyork",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa5893e4b0596140340f25",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "53aa5894e4b0a9b1348daf62",
+                "isGraphQL": false,
+                "route": "/files/{id}",
+                "method": "DELETE",
+                "name": "Delete a Producteev file",
+                "description": "Delete a file from the cloud storage.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa5896e4b0a798dbd1aee4",
+                "isGraphQL": false,
+                "route": "/label_colors",
+                "method": "GET",
+                "name": "Return suggested colors for labels",
+                "description": "Return the list of recommended colors (foreground and background) for the labels. You can create your labels with your own colors, but we strongly recommend to use colors returned by this API call to provide a consistent experience accross all Producteev apps.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa5895e4b0596140340f32",
+                "isGraphQL": false,
+                "route": "/labels/{id}",
+                "method": "DELETE",
+                "name": "Delete a label",
+                "description": "Delete a Label from the network.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

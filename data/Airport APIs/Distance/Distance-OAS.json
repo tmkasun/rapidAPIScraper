@@ -1,0 +1,59 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Distance",
+        "description": "Calculate distances and travel time between cities, addresses, postcodes or airports. Geocoding, car or foot directions, airline  and many more data included. ",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/get": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "foot",
+                        "in": "query",
+                        "required": false,
+                        "description": "Add foot route distance and duration",
+                        "schema": {
+                            "type": "boolean",
+                            "example": "false"
+                        }
+                    },
+                    {
+                        "name": "car",
+                        "in": "query",
+                        "required": false,
+                        "description": "Add car route distance and duration",
+                        "schema": {
+                            "type": "boolean",
+                            "example": "false"
+                        }
+                    },
+                    {
+                        "name": "route",
+                        "in": "query",
+                        "required": true,
+                        "description": "A route is described of an array of point objects. Every point object exists of a \"t\" property, which describes the name of the point. (Can be address, city, iata or lat,lng ) and an optional \"c\" propertie which describes the country in ISO 3166-1 alpha-2 or alpha-3 (DE or DEU, ES, US,...) Example: [{\"t\":\"TXL\"},{\"t\":\"Hamburg\"}]",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Get distance",
+                "description": "Get a distance between locations",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

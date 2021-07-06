@@ -1,0 +1,784 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "WordsAPI",
+        "description": "Words API lets you retrieve information about English words, including definitions, synonyms, rhymes, pronunciation, syllables, and frequency of usage. It also can tell you about relationships between words, for instance that \"math\" has categories like \"algebra\" and \"geometry\", or that a \"finger\" is part of a \"hand\".",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Words"
+        },
+        {
+            "name": "Related Words"
+        },
+        {
+            "name": "Word Details"
+        }
+    ],
+    "paths": {
+        "/words/": {
+            "get": {
+                "tags": [
+                    "Words"
+                ],
+                "operationId": "Random",
+                "description": "Retrieve a random word, optionally matching a search criteria. You can use the same search criteria as the \"Search\" endpoint.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/frequency": {
+            "get": {
+                "tags": [
+                    "Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"apartment\"",
+                        "schema": {
+                            "type": "string",
+                            "example": "apartment"
+                        }
+                    }
+                ],
+                "operationId": "Frequency",
+                "description": "Expands upon the frequeny score returned by the main /words/{word} endpoint.  Returns zipf, a score indicating how common the word is in the English language, with a range of 1 to 7; perMillion, the number of times the word is likely to appear in a corpus of one million English words; and diversity, a 0-1 scale the shows the likelyhood of the word appearing in an English document that is part of a corpus.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/syllables": {
+            "get": {
+                "tags": [
+                    "Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"incredible\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "incredible"
+                        }
+                    }
+                ],
+                "operationId": "Syllables",
+                "description": "Returns the word broken down into syllables.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/pronunciation": {
+            "get": {
+                "tags": [
+                    "Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"wind\". It sounds different depending on if its a noun or a verb.",
+                        "schema": {
+                            "type": "string",
+                            "example": "wind"
+                        }
+                    }
+                ],
+                "operationId": "Pronunciation",
+                "description": "How to pronounce a word, according to the International Phonetic Alphabet. May include multiple results if the word is pronounced differently depending on its part of speech.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{words}/pertainsTo": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "words",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \".22-caliber\".",
+                        "schema": {
+                            "type": "string",
+                            "example": ".22-caliber"
+                        }
+                    }
+                ],
+                "operationId": "Pertains To",
+                "description": "Words to which the original word is relevant.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/regionOf": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"canada\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "canada"
+                        }
+                    }
+                ],
+                "operationId": "Region Of",
+                "description": "Words used in the specified geographical area.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/inRegion": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"chips\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "chips"
+                        }
+                    }
+                ],
+                "operationId": "In Region",
+                "description": "Geographical areas where the word is used.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/hasUsages": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"colloquialism\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "colloquialism"
+                        }
+                    }
+                ],
+                "operationId": "Has Usages",
+                "description": "Words that are examples of the domain the original word defines.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/usageOf": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"advil\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "advil"
+                        }
+                    }
+                ],
+                "operationId": "Usage Of",
+                "description": "Words that the original word is a domain usage of.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/hasCategories": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"math\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Has Categories",
+                "description": "Categories of the parameter word.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/inCategory": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"chaotic\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "chaotic"
+                        }
+                    }
+                ],
+                "operationId": "In Category",
+                "description": "The domain category to which the original word belongs.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/hasSubstances": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"wood\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "wood"
+                        }
+                    }
+                ],
+                "operationId": "Has Substances",
+                "description": "Words that are substances of the parameter word.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/substanceOf": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Substance Of",
+                "description": "Substances to which the original word is a part of.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/hasMembers": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"cosmos\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "cosmos"
+                        }
+                    }
+                ],
+                "operationId": "Has Members",
+                "description": "Words that belong to the group defined by the parameter word.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/memberOf": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"dory\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "dory"
+                        }
+                    }
+                ],
+                "operationId": "Member Of",
+                "description": "A group to which the word belongs.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/entails": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"rub\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Entails",
+                "description": "Words that are implied by the original word. Usually used for verbs.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/also": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"bump\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "bump"
+                        }
+                    }
+                ],
+                "operationId": "Also",
+                "description": "Phrases of which the word is a part.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/similarTo": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"bloody\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "bloody"
+                        }
+                    }
+                ],
+                "operationId": "Similar To",
+                "description": "Words that similar to the original word, but are not synonyms.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/hasInstances": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"president\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Has Instances",
+                "description": "Words that are examples of the parameter word.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/instanceOf": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"einstein\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "einstein"
+                        }
+                    }
+                ],
+                "operationId": "Is an Instance Of",
+                "description": "Words that the parameter word is an example of.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/hasParts": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"building\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "building"
+                        }
+                    }
+                ],
+                "operationId": "Has Parts",
+                "description": "Words that are parts of the original word.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/partOf": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"finger\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "finger"
+                        }
+                    }
+                ],
+                "operationId": "Part Of",
+                "description": "The larger whole to which the word belongs.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/hasTypes": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"purple\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Has Types",
+                "description": "Get more specific examples of types of this word.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/antonyms": {
+            "get": {
+                "tags": [
+                    "Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"free\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Antonyms",
+                "description": "Get antonyms (opposites) of a word.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/typeOf": {
+            "get": {
+                "tags": [
+                    "Related Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"hatchback\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "hatchback"
+                        }
+                    }
+                ],
+                "operationId": "Is a Type Of",
+                "description": "Finds word that are more general than the given word.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/rhymes": {
+            "get": {
+                "tags": [
+                    "Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Rhymes",
+                "description": "Get a list of words that rhyme with the given word.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/examples": {
+            "get": {
+                "tags": [
+                    "Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"uneventful\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Examples",
+                "description": "Get examples of how the word is used.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/definitions": {
+            "get": {
+                "tags": [
+                    "Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"incredible\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "incredible"
+                        }
+                    }
+                ],
+                "operationId": "Definitions",
+                "description": "Get definitions of a word, including the part of speech.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}": {
+            "get": {
+                "tags": [
+                    "Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"example\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Word",
+                "description": "Retrieve information about a word. Results can include definitions, part of speech, synonyms, related words, syllables, and pronunciation. This method is useful to see which relationships are attached to which definition and part of speech of a word.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/words/{word}/synonyms": {
+            "get": {
+                "tags": [
+                    "Words"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "description": "Try \"lovely\".",
+                        "schema": {
+                            "type": "string",
+                            "example": "lovely"
+                        }
+                    }
+                ],
+                "operationId": "Synonyms",
+                "description": "Get synonyms of a word",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

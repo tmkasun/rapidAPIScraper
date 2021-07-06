@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_9a07aba2-4dd4-4afb-86a3-93fad9e88725",
+    "name": "Ali Express",
+    "title": "Ali Express",
+    "description": "Access to all AliExpress products",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ali-express1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-02-14T17:59:47.747Z",
+    "category": "eCommerce",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ad1b651c-6afa-4c88-99b5-80281e3491f4_medium",
+    "user": {
+        "id": 4037674,
+        "username": "rene.meuselwitz",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_bc1e745c-0b8c-474f-95be-6daeb09a1eb9",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_1d90b576-4e4b-4623-9613-0543367eb498",
+                "isGraphQL": false,
+                "route": "/shipping/{product_id}",
+                "method": "GET",
+                "name": "/shipping/{product_id}",
+                "description": "Returns shipping information",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_7bca235d-54c7-49b1-be41-c1c21e047d23",
+                "isGraphQL": false,
+                "route": "/store/get_products_by_categories/",
+                "method": "GET",
+                "name": "/store/get_products_by_categories/",
+                "description": " ",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_06c28ba1-dabd-4752-a966-5ebbe819fa49",
+                "isGraphQL": false,
+                "route": "/store/get_categories/{store_id}",
+                "method": "GET",
+                "name": "/store/get_categories/{store_id}",
+                "description": " ",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}
