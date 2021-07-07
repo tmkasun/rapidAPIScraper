@@ -1,0 +1,24 @@
+[2021-07-07 11:23:38,984] SEVERE {b7a.log.crash} - Index -1 out of bounds for length 0 
+java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 0
+	at io.ballerina.generators.BallerinaServiceGenerator.generateSyntaxTree(BallerinaServiceGenerator.java:174)
+	at io.ballerina.openapi.CodeGenerator.generateBallerinaService(CodeGenerator.java:408)
+	at io.ballerina.openapi.CodeGenerator.generateBalSource(CodeGenerator.java:219)
+	at io.ballerina.openapi.CodeGenerator.generateBothFiles(CodeGenerator.java:114)
+	at io.ballerina.openapi.cmd.OpenApiCmd.generateBothFiles(OpenApiCmd.java:299)
+	at io.ballerina.openapi.cmd.OpenApiCmd.openApiToBallerina(OpenApiCmd.java:212)
+	at io.ballerina.openapi.cmd.OpenApiCmd.execute(OpenApiCmd.java:137)
+	at java.base/java.util.Optional.ifPresent(Optional.java:183)
+	at io.ballerina.cli.launcher.Main.main(Main.java:58)
+ 
+[2021-07-07 11:24:03,965] SEVERE {b7a.log.crash} - Index -1 out of bounds for length 0 
+java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 0
+	at io.ballerina.generators.BallerinaServiceGenerator.generateSyntaxTree(BallerinaServiceGenerator.java:174)
+	at io.ballerina.openapi.CodeGenerator.generateBallerinaService(CodeGenerator.java:408)
+	at io.ballerina.openapi.CodeGenerator.generateBalSource(CodeGenerator.java:219)
+	at io.ballerina.openapi.CodeGenerator.generateBothFiles(CodeGenerator.java:114)
+	at io.ballerina.openapi.cmd.OpenApiCmd.generateBothFiles(OpenApiCmd.java:299)
+	at io.ballerina.openapi.cmd.OpenApiCmd.openApiToBallerina(OpenApiCmd.java:212)
+	at io.ballerina.openapi.cmd.OpenApiCmd.execute(OpenApiCmd.java:137)
+	at java.base/java.util.Optional.ifPresent(Optional.java:183)
+	at io.ballerina.cli.launcher.Main.main(Main.java:58)
+ 
