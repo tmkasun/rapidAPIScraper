@@ -1,0 +1,121 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_0da1b465-d78b-479a-a2f4-3e6c910648f8",
+            "value": "✓"
+        },
+        {
+            "name": "tag_723c8931-00b0-476d-b83f-3b155991e8fa",
+            "value": "Official"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5ab58615e4b0a62b51d0aca4",
+        "apiId": "5ab58615e4b084deb4eaac11"
+    },
+    "info": {
+        "title": "TeleSign PhoneID",
+        "description": "Detailed and actionable global phone number and subscriber data intelligence to strengthen authentications, evaluate fraud risks, and enhance the user experience",
+        "version": "v1",
+        "x-category": "Communication",
+        "x-long-description": "",
+        "x-website": "https://www.telesign.com/products/phone-intelligence/phone-id/",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5ab58615e4b0a62b51d0aca4_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://telesign-telesign-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/phoneid/{complete_phone_number}": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "complete_phone_number",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "PhoneID",
+                "description": "Enter a phone number to receive detailed information about carrier, location, and other details.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "account_lifecycle_event": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The account lifecycle event parameter allows you to send information about what stage an end user was in when you retrieved information about their phone number. Acceptable values for this parameter are -  create - For the creation of a new account. sign-in - For when an end user signs in to their account. transact - For when an end user completes a transaction within their account. update - For when an update is performed, such as an update of account information or similar. delete - For when an account is deleted."
+                                    },
+                                    "originating_ip": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Your end user’s IP address (do not send your own Ip address). IPv4 and IPv6 are supported. For IPv4, the value must be in the format defined by the Internet Engineering Task Force (IETF) in the Internet-Draft doucment titled Internet Protocol. For IPv6, the value must be in the format defined by the IETF in the Internet-Draft document titled IP Version 6 Addressing Architecture."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/phoneid/{complete_number}": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "complete_number",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "operationId": "Contact Add-on",
+                "description": "The Contact add-on allows you to retrieve the name and address associated with the phone number you submit, without requesting explicit consent from your end user",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "addons": {
+                                    "contact": {}
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

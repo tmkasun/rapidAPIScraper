@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5c191e0de4b09c6b17cfb09a",
+    "name": "LunaPic Photo Effects",
+    "title": "LunaPic Photo Effects",
+    "description": "The most popular Lunapic.com art filters are now available via API.  A full list of over 100 supported art effects are listed here http://lunapic.com/?filters",
+    "visibility": "PUBLIC",
+    "slugifiedName": "lunapic-photo-effects",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-16T17:26:46.015Z",
+    "category": "Video, Images",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5c191e0fe4b0b136b4743b53_medium",
+    "user": {
+        "id": 1965153,
+        "username": "PhotoOpt10",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5c191e0fe4b0b136b4743b53",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "5c191eace4b0a62b0424eb35",
+                "isGraphQL": false,
+                "route": "/v2/api-call.php",
+                "method": "GET",
+                "name": "/v2/api-call.php",
+                "description": "Process Image from URL",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

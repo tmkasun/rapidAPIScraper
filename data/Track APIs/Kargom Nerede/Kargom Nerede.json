@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_f109662e-3bd7-4f6b-99f6-1b8f405cfd1e",
+    "name": "Kargom Nerede",
+    "title": "Kargom Nerede",
+    "description": "Türkiye'deki kargo şirketlerini  Aras Kargo, Yurtiçi Kargo, Sürat Kargo, PTT Kargo, MNG Kargo, HepsiJet, TrendyolExpress, UPS Kargo, ByExpress Kargo, Kolay Gelsin, Horoz Lojistik, CanadaPost, DHL Kargo, Fedex, TNT Kargo, Usps, Yanwen, AliExpress, Ceva Lojistik, İnter Global Kargo, Kargoİst, Jetizz takip edebilirsiniz.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "kargom-nerede",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-10-07T13:03:59.001Z",
+    "category": "Logistics",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/32be3a00-8dcc-4cde-b9ac-6558dab82561.png",
+    "user": {
+        "id": 4702584,
+        "username": "kargomneredeco",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_918761b8-ad83-427a-bedb-b830cd44772e",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_1335fddb-5800-4970-ba5e-41fc8721628a",
+                "isGraphQL": false,
+                "route": "/tracking",
+                "method": "POST",
+                "name": "tracking",
+                "description": "Tracking",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_bd9c78a8-c9ee-4223-b351-37e61faa2384",
+                "isGraphQL": false,
+                "route": "/companies",
+                "method": "GET",
+                "name": "companies",
+                "description": "Companies",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

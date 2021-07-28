@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_7d7f5491-4e10-47ae-b5a0-77858200f062",
+    "name": "Easy Instagram Service",
+    "title": "Easy Instagram Service",
+    "description": "You will not pay for empty response. Get Instagram public details, follower, following, post.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "easy-instagram-service",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-06-12T10:53:45.084Z",
+    "category": "Social",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/e5/5cb71b9b4647f9aa2438f8c8ea4c6f/0c9b69917c20855028c67e79e9508e0a.png",
+    "user": {
+        "id": 2235612,
+        "username": "ariefsam",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_da613b6f-2b1d-4579-8794-256aab23cd4c",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_33fb960e-4488-4222-b80b-f173d265d8c7",
+                "isGraphQL": false,
+                "route": "/get-post",
+                "method": "GET",
+                "name": "Get Instagram Post by shortcode",
+                "description": "Get Instagram Post by shortcode",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_63325a3c-2c70-4b88-a2a5-a9c21e186b32",
+                "isGraphQL": false,
+                "route": "/username",
+                "method": "GET",
+                "name": "Get Instagram Profile By Username",
+                "description": "Get Instagram follower,following, average like, last post.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,184 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_8a1f8094-6cec-4028-ad77-e8187ece7c85",
+            "value": "✓"
+        },
+        {
+            "name": "tag_2a323db3-669a-4f5c-86a8-bd89b8dbb204",
+            "value": "Official"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_09be1dc4-d4ac-4bde-ad42-1990b67a06ba",
+        "apiId": "api_f08a7bf8-305d-4f5c-84bb-d9031464dd24"
+    },
+    "info": {
+        "title": "Twilio Lookup",
+        "description": "Reduce undeliverable messages, identify local-friendly number formats, and resolve caller names with Twilio Lookup. Find phone types, carriers, and more; Lookup allows you to programmatically get information about phone numbers so you can be as effective as possible.",
+        "version": "v1",
+        "x-category": "SMS",
+        "x-long-description": "",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/5b/73aee5988e4e238f2446ac433a5360/c582e4a1d5628c43a455b8e9d6e5b40a.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://twilio-lookup.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/PhoneNumbers/caller-name": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "addOnsData",
+                        "in": "query",
+                        "required": false,
+                        "description": "Data specific to the add-on you would like to invoke. The content and format of this value depends on the add-on.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "countryCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "The ISO country code of the phone number to fetch. This is used to specify the country when the phone number is provided in a national format.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "addOns",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unique_name of an Add-on you would like to invoke. Can be the unique_name of an Add-on that is installed on your account. You can specify multiple instances of this parameter to invoke multiple Add-ons. For more information about Add-ons, see the Add-ons documentation.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phoneNumber",
+                        "in": "query",
+                        "required": true,
+                        "description": "The phone number to lookup in E.164 format, which consists of a + followed by the country code and subscriber number.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Lookup a Phone Number Include Caller Name",
+                "description": "Returns phone number information matching the specified request. Formatting information is standard. Carrier, Caller Name, and phone number type information can be requested, in addition to using Add-ons to access 3rd party data sources.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/PhoneNumbers/carrier": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "countryCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "The ISO country code of the phone number to fetch. This is used to specify the country when the phone number is provided in a national format.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "addOns",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unique_name of an Add-on you would like to invoke. Can be the unique_name of an Add-on that is installed on your account. You can specify multiple instances of this parameter to invoke multiple Add-ons. For more information about Add-ons, see the Add-ons documentation.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "addOnsData",
+                        "in": "query",
+                        "required": false,
+                        "description": "Data specific to the add-on you would like to invoke. The content and format of this value depends on the add-on.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phoneNumber",
+                        "in": "query",
+                        "required": true,
+                        "description": "The phone number to lookup in E.164 format, which consists of a + followed by the country code and subscriber number.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Lookup a Phone Number Include Carrier",
+                "description": "Returns phone number information matching the specified request. Formatting information is standard. Carrier, Caller Name, and phone number type information can be requested, in addition to using Add-ons to access 3rd party data sources.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/PhoneNumbers": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "addOns",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unique_name of an Add-on you would like to invoke. Can be the unique_name of an Add-on that is installed on your account. You can specify multiple instances of this parameter to invoke multiple Add-ons. For more information about Add-ons, see the Add-ons documentation.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "addOnsData",
+                        "in": "query",
+                        "required": false,
+                        "description": "Data specific to the add-on you would like to invoke. The content and format of this value depends on the add-on.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "countryCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "The ISO country code of the phone number to fetch. This is used to specify the country when the phone number is provided in a national format.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phoneNumber",
+                        "in": "query",
+                        "required": true,
+                        "description": "The phone number to lookup in E.164 format, which consists of a + followed by the country code and subscriber number.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Lookup a Phone Number",
+                "description": "Returns phone number information matching the specified request. Formatting information is standard. Carrier, Caller Name, and phone number type information can be requested, in addition to using Add-ons to access 3rd party data sources.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

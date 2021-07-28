@@ -1,0 +1,616 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_cbc3278c-0d4f-4fb9-a074-fa70ec6d997f",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_a83145ed-5f4b-49cc-803b-4ac366644648",
+        "apiId": "api_8273d77f-64ea-4199-bf41-67e03d259f27"
+    },
+    "info": {
+        "title": "IP Geo Location ",
+        "description": "API returns location data such as country, city, latitude, longitude, timezone, asn, currency, security data for IPv4 and IPv6 addresses in JSON or XML formats.  ",
+        "version": "v1",
+        "x-category": "Location",
+        "x-long-description": "IP geo location API gives the detailed information about IP location of your visitors. Data includes information about country, city, latitude and longitude, timezone, asn, currency and some security data.  \nAPI supports IPv4 and IPv6 IP addresses.  \nResponse formats: json and xml.\nSupported languages: \n- en: English\n- ru: Russian\n - zh: Chinese\n - es: Spanish\n - ar: Arabic\n - fr: French\n - fa: Persian\n - ja,: Japanese\n - pl: Polish\n - it: Italian\n - pt: Portuguese\n - de: German\n\nWe update our API on the weekly basis. If you would like to be notified of any major api updates, please let us know.\n\nIf you would like to have a better latency please subscribe and use this api directly from us.  The list of plans is available on https://getgeoapi.com/plans/",
+        "x-website": "https://getgeoapi.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/52/6c1740354211e994a3c7dbaed426e4/6c4a84853b826b48a70db245145cfb09.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://ip-geo-location.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/ip/check": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "language code to return the results in the specific language. Available options are: en, ru, zh, es, ar, fr, fa, ja, pl, it, pt, de",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "required": false,
+                        "description": "The desired format of the data.  Options: json or xml",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "json"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "description": "Lets you to return only required data. It can be comma separated. Options: asn, city, country, continent, area, currency, security, time, postcode. If left blank the API will return all available data.",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Visitor Lookup",
+                "description": "Returns the IP address of the client with all the location data",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "area": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "asn": {
+                                            "properties": {
+                                                "number": {
+                                                    "type": "string"
+                                                },
+                                                "organisation": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "city": {
+                                            "properties": {
+                                                "geonameid": {
+                                                    "type": "integer"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "population": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "continent": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "geonameid": {
+                                                    "type": "integer"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "country": {
+                                            "properties": {
+                                                "area_size": {
+                                                    "type": "string"
+                                                },
+                                                "capital": {
+                                                    "type": "string"
+                                                },
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "geonameid": {
+                                                    "type": "integer"
+                                                },
+                                                "is_in_eu": {
+                                                    "type": "boolean"
+                                                },
+                                                "languages": {
+                                                    "properties": {
+                                                        "en": {
+                                                            "type": "string"
+                                                        },
+                                                        "es": {
+                                                            "type": "string"
+                                                        },
+                                                        "fr": {
+                                                            "type": "string"
+                                                        },
+                                                        "haw": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "phone_code": {
+                                                    "type": "string"
+                                                },
+                                                "population": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "currency": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ip": {
+                                            "type": "string"
+                                        },
+                                        "location": {
+                                            "properties": {
+                                                "latitude": {
+                                                    "type": "number"
+                                                },
+                                                "longitude": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "postcode": {
+                                            "type": "string"
+                                        },
+                                        "security": {
+                                            "properties": {
+                                                "is_crawler": {
+                                                    "type": "boolean"
+                                                },
+                                                "is_proxy": {
+                                                    "type": "boolean"
+                                                },
+                                                "is_thread": {
+                                                    "type": "boolean"
+                                                },
+                                                "is_tor": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "time": {
+                                            "properties": {
+                                                "gtm_offset": {
+                                                    "type": "integer"
+                                                },
+                                                "time": {
+                                                    "type": "string"
+                                                },
+                                                "timezone": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "area": {
+                                                "code": "US-LA",
+                                                "geonameid": 4331987,
+                                                "name": "Louisiana"
+                                            },
+                                            "asn": {
+                                                "number": 7018,
+                                                "organisation": "ATT-INTERNET4"
+                                            },
+                                            "city": {
+                                                "geonameid": 4321005,
+                                                "name": "Covington",
+                                                "population": 9928
+                                            },
+                                            "continent": {
+                                                "code": "NA",
+                                                "geonameid": 6255149,
+                                                "name": "North America"
+                                            },
+                                            "country": {
+                                                "area_size": "9629091.00 sq. km",
+                                                "capital": "Washington",
+                                                "code": "US",
+                                                "flag": {
+                                                    "emoji": "🇺🇸",
+                                                    "file": "http://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_United_States.svg",
+                                                    "unicode": "U+1F1FA U+1F1F8"
+                                                },
+                                                "geonameid": 6252001,
+                                                "is_in_eu": false,
+                                                "languages": {
+                                                    "en": "English",
+                                                    "es": "Spanish; Castilian",
+                                                    "fr": "French",
+                                                    "haw": "Hawaiian"
+                                                },
+                                                "name": "United States",
+                                                "phone_code": "1",
+                                                "population": 327167434
+                                            },
+                                            "currency": {
+                                                "code": "USD",
+                                                "name": "US Dollar"
+                                            },
+                                            "ip": "23.123.12.11",
+                                            "location": {
+                                                "latitude": 30.5661,
+                                                "longitude": -90.1098
+                                            },
+                                            "postcode": "70435",
+                                            "security": {
+                                                "is_crawler": false,
+                                                "is_proxy": false,
+                                                "is_thread": false,
+                                                "is_tor": false
+                                            },
+                                            "status": "success",
+                                            "time": {
+                                                "gtm_offset": -18000,
+                                                "time": "2020-08-10 10:04:20 -0500",
+                                                "timezone": "America/Chicago"
+                                            },
+                                            "type": "IPv4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/ip/{ip}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "description": "Lets you to return only required data. It can be comma separated. Options: asn, city, country, continent, area, currency, security, time, postcode. If left blank the API will return all available data.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "required": false,
+                        "description": "The desired format of the data.  Options: json or xml",
+                        "schema": {
+                            "type": "string",
+                            "example": "json"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "language code to return the results in the specific language. Available options are: en, ru, zh, es, ar, fr, fa, ja, pl, it, pt, de",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ip",
+                        "in": "path",
+                        "required": true,
+                        "description": "IPv4 or IPv6 address",
+                        "schema": {
+                            "type": "string",
+                            "example": "23.123.12.11"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "IP Lookup",
+                "description": "Provides geo information for the given IP",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "area": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "asn": {
+                                            "properties": {
+                                                "number": {
+                                                    "type": "string"
+                                                },
+                                                "organisation": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "city": {
+                                            "properties": {
+                                                "geonameid": {
+                                                    "type": "integer"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "population": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "continent": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "geonameid": {
+                                                    "type": "integer"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "country": {
+                                            "properties": {
+                                                "area_size": {
+                                                    "type": "string"
+                                                },
+                                                "capital": {
+                                                    "type": "string"
+                                                },
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "geonameid": {
+                                                    "type": "integer"
+                                                },
+                                                "is_in_eu": {
+                                                    "type": "boolean"
+                                                },
+                                                "languages": {
+                                                    "properties": {
+                                                        "en": {
+                                                            "type": "string"
+                                                        },
+                                                        "es": {
+                                                            "type": "string"
+                                                        },
+                                                        "fr": {
+                                                            "type": "string"
+                                                        },
+                                                        "haw": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "phone_code": {
+                                                    "type": "string"
+                                                },
+                                                "population": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "currency": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ip": {
+                                            "type": "string"
+                                        },
+                                        "location": {
+                                            "properties": {
+                                                "latitude": {
+                                                    "type": "number"
+                                                },
+                                                "longitude": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "postcode": {
+                                            "type": "string"
+                                        },
+                                        "security": {
+                                            "properties": {
+                                                "is_crawler": {
+                                                    "type": "boolean"
+                                                },
+                                                "is_proxy": {
+                                                    "type": "boolean"
+                                                },
+                                                "is_thread": {
+                                                    "type": "boolean"
+                                                },
+                                                "is_tor": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "time": {
+                                            "properties": {
+                                                "gtm_offset": {
+                                                    "type": "integer"
+                                                },
+                                                "time": {
+                                                    "type": "string"
+                                                },
+                                                "timezone": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "area": {
+                                                "code": "US-LA",
+                                                "geonameid": 4331987,
+                                                "name": "Louisiana"
+                                            },
+                                            "asn": {
+                                                "number": 7018,
+                                                "organisation": "ATT-INTERNET4"
+                                            },
+                                            "city": {
+                                                "geonameid": 4321005,
+                                                "name": "Covington",
+                                                "population": 9928
+                                            },
+                                            "continent": {
+                                                "code": "NA",
+                                                "geonameid": 6255149,
+                                                "name": "North America"
+                                            },
+                                            "country": {
+                                                "area_size": "9629091.00 sq. km",
+                                                "capital": "Washington",
+                                                "code": "US",
+                                                "flag": {
+                                                    "emoji": "🇺🇸",
+                                                    "file": "http://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_United_States.svg",
+                                                    "unicode": "U+1F1FA U+1F1F8"
+                                                },
+                                                "geonameid": 6252001,
+                                                "is_in_eu": false,
+                                                "languages": {
+                                                    "en": "English",
+                                                    "es": "Spanish; Castilian",
+                                                    "fr": "French",
+                                                    "haw": "Hawaiian"
+                                                },
+                                                "name": "United States",
+                                                "phone_code": "1",
+                                                "population": 327167434
+                                            },
+                                            "currency": {
+                                                "code": "USD",
+                                                "name": "US Dollar"
+                                            },
+                                            "ip": "23.123.12.11",
+                                            "location": {
+                                                "latitude": 30.5661,
+                                                "longitude": -90.1098
+                                            },
+                                            "postcode": "70435",
+                                            "security": {
+                                                "is_crawler": false,
+                                                "is_proxy": false,
+                                                "is_thread": false,
+                                                "is_tor": false
+                                            },
+                                            "status": "success",
+                                            "time": {
+                                                "gtm_offset": -18000,
+                                                "time": "2020-08-10 10:04:20 -0500",
+                                                "timezone": "America/Chicago"
+                                            },
+                                            "type": "IPv4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

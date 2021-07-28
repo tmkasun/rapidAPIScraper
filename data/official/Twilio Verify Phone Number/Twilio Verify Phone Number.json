@@ -1,0 +1,70 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_bf11c1be-67e9-4977-b7c3-5c0c64796a0d",
+    "name": "Twilio Verify Phone Number",
+    "title": "Twilio Verify Phone Number",
+    "description": "As part of Twilio's account security offerings, the Twilio Verify API makes it simple to add phone verification to your web application. It supports codes sent via voice and SMS.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "twilio-verify-phone-number",
+    "pricing": "PAID",
+    "updatedAt": "2020-02-20T19:51:52.133Z",
+    "category": "Business",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/dc/31ce1de9af4d52bd779f5cf0bfe732/33b38479a74dd2ce1490c8074f7b3df1.png",
+    "user": {
+        "id": 3842232,
+        "username": "twilio",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_de940974-d3e8-4d19-8730-b5a364a6b6ee",
+        "tags": [
+            {
+                "id": "tag_63d930e6-b122-4afc-a8f5-1dd657740e2d",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            },
+            {
+                "id": "tag_48f4dde3-c00f-4cb3-828b-e754c67beb11",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_0364d241-f423-4ff4-9e3e-e51de3cdc835",
+                "type": "tag",
+                "value": "Official",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_fb6ff5bb-40cf-4509-b333-bdeaa42083b5",
+                "isGraphQL": false,
+                "route": "/Services/{serviceSid}/RateLimits/{rateLimitSid}/Buckets/{sid}",
+                "method": "DELETE",
+                "name": "Delete a Bucket",
+                "description": " ",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_f6634cac-9430-4cd9-80c6-91188130bb79",
+                "isGraphQL": false,
+                "route": "/Services/{serviceSid}/RateLimits/{sid}",
+                "method": "GET",
+                "name": "Fetch a Rate Limit",
+                "description": " ",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_ef58e979-dc2a-4330-9cff-4290ff817611",
+                "isGraphQL": false,
+                "route": "/Services/{serviceSid}/RateLimits",
+                "method": "POST",
+                "name": "Create a Rate Limit",
+                "description": "The Rate Limit represents the key that your application will provide when starting a phone verification request. For example, you may create a rate limit for an end-user IP address to prevent a malicious bot. See the section on Selecting Rate Limit Keys for information on this topic.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

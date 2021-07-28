@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_071bc5b8-33e9-4b54-a6d5-f1167a80483f",
+    "name": "Realty Mole Property",
+    "title": "Realty Mole Property",
+    "description": "Search for real estate data like property owner details, property attributes (square footage, # of bedrooms, etc), rental history, zip code data, etc. across millions of properties and rentals. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "realty-mole-property-api",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-29T19:06:46.229Z",
+    "category": "Business",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ed/f8b1fc867a49ae83de5fb509ec07d3/5918b2bfe3d867de749196d9408b4aac.png",
+    "user": {
+        "id": 3838181,
+        "username": "realtymole",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4e045a0d-bb35-4292-a609-fbe03a0bdbe4",
+        "tags": [
+            {
+                "id": "tag_a1148532-8776-4a67-b499-212935427b78",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_98499372-490a-4cac-bd85-d7f36e726df0",
+                "isGraphQL": false,
+                "route": "/salePrice",
+                "method": "GET",
+                "name": "Sale Price Estimate",
+                "description": "**IN BETA** Based on the provided property details this API will return a sale price  estimate along with comparable properties. Most of the response values are self-explanatory. Please note that distance measurements are given in kilometers.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_d79871f2-c4dd-4a69-8e82-b7439bbd0d26",
+                "isGraphQL": false,
+                "route": "/saleListings",
+                "method": "GET",
+                "name": "Sale Listings",
+                "description": "**IN BETA** Search for sale listings for specific properties or a list of properties based on your criteria (city, state, etc.) This API returns the sale price, bedrooms, bathrooms, days on market and other data specified in the original sale listing.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_dc9d9d1c-7253-4278-a09f-a1ee125b34cb",
+                "isGraphQL": false,
+                "route": "/zipCodes/{zipCode}",
+                "method": "GET",
+                "name": "Zip Code Rental Data",
+                "description": "Returns rental data for a specified zip code like the average rent by zip code, the number of rentals seen in that zip code. It also includes detailed breakdowns of rental data by bedroom count.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

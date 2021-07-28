@@ -1,0 +1,70 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5ab58615e4b084deb4eaac11",
+    "name": "TeleSign PhoneID",
+    "title": "TeleSign PhoneID",
+    "description": "Detailed and actionable global phone number and subscriber data intelligence to strengthen authentications, evaluate fraud risks, and enhance the user experience",
+    "visibility": "PUBLIC",
+    "slugifiedName": "telesign-phoneid",
+    "pricing": "PAID",
+    "updatedAt": "2019-11-04T02:10:18.281Z",
+    "category": "Communication",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5ab58615e4b0a62b51d0aca4_medium",
+    "user": {
+        "id": 3526630,
+        "username": "telesign",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5ab58615e4b0a62b51d0aca4",
+        "tags": [
+            {
+                "id": "tag_0da1b465-d78b-479a-a2f4-3e6c910648f8",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            },
+            {
+                "id": "tag_723c8931-00b0-476d-b83f-3b155991e8fa",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_0364d241-f423-4ff4-9e3e-e51de3cdc835",
+                "type": "tag",
+                "value": "Official",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "5ab587e3e4b084deb4eaac18",
+                "isGraphQL": false,
+                "route": "/phoneid/{complete_phone_number}",
+                "method": "POST",
+                "name": "PhoneID",
+                "description": "Enter a phone number to receive detailed information about carrier, location, and other details.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5b15b377e4b091d6b334523e",
+                "isGraphQL": false,
+                "route": "/phoneid/{complete_number}",
+                "method": "POST",
+                "name": "Device Info Add-on",
+                "description": "",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5b15c2e5e4b0918c6cecf3bc",
+                "isGraphQL": false,
+                "route": "/phoneid/{complete_number}",
+                "method": "POST",
+                "name": "Subscriber Status Add-on",
+                "description": "",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

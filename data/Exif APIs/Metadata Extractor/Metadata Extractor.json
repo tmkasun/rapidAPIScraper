@@ -1,0 +1,35 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_7c0d9a90-6148-4d0c-9542-af267631d12a",
+    "name": "Metadata Extractor",
+    "title": "Metadata Extractor",
+    "description": "Extract Exif,  XMP, IPTC, ICC, JFIF, MPEG, QuickTime, PDF, Flash and Photoshop Metadata from any file",
+    "visibility": "PUBLIC",
+    "slugifiedName": "metadata-extractor",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-10T01:38:32.189Z",
+    "category": "Video, Images",
+    "thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/c9ad0cd8-e301-4743-b8f8-7c990ac3af3f.png",
+    "user": {
+        "id": 4320820,
+        "username": "igniwork-igniwork",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_19d56d1d-4842-4add-83ad-80b74c2d2546",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_24e7611a-668c-4b0c-8661-0df30b3bed29",
+                "isGraphQL": false,
+                "route": "/",
+                "method": "GET",
+                "name": "Metadata from file URL",
+                "description": "Gets Metadata from a given file URL",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

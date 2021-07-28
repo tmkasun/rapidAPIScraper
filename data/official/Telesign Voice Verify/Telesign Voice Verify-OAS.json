@@ -1,0 +1,166 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_356dda03-2e57-4366-9218-dfd2a150e47e",
+            "value": "✓"
+        },
+        {
+            "name": "tag_e4e80021-8b99-409b-b73a-dfe808bd9741",
+            "value": "Official"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5bb05582e4b01c1322c6e087",
+        "apiId": "5bb05582e4b02d6cfa6a6826"
+    },
+    "info": {
+        "title": "Telesign Voice Verify",
+        "description": "An API that delivers patented phone-based verification and two-factor authentication (2FA) using a one-time passcode (OTP) sent over voice message in the event the end-user chooses the voice method, provides a landline or is not authorized to receive SMS messages in a specific country.",
+        "version": "v1",
+        "x-long-description": "",
+        "x-website": "https://www.telesign.com/products/voice-verify/",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5bb05582e4b01c1322c6e087_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://telesign-telesign-voice-verify-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/voice-verify": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "originating_ip",
+                        "in": "query",
+                        "required": false,
+                        "description": "Your end user’s IP address (do not send your own IP address). IPv4 and IPv6 are supported. For IPv4, the value must be in the format defined by the Internet Engineering Task Force (IETF) in the Internet-Draft document titled Internet Protocol. For IPv6, the value must be in the format defined by the IETF in the Internet-Draft document titled .",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "extension_template",
+                        "in": "query",
+                        "required": false,
+                        "description": "A numerical string that specifies the extension used in the call, as described above. If the user must be reached at an extension, then use this parameter to specify the extension number. The extension string is composed of digits. You may use a maximum of 28 characters to specify your extension. For the extension_type=1 (DTMF digits are dialed), you can include commas in the extension number string, where each comma represents a one second pause in the dialing sequence.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "extension_type",
+                        "in": "query",
+                        "required": false,
+                        "description": "It is not an issue when a user’s phone number belongs to a modern Private Branch Exchange (PBX) because outside numbers are usually assigned to individual extensions. Older PBX systems on the other hand, require extra call processing because incoming calls require either a live switchboard operator or an automated attendant to request the number of the user’s extension before completing the call. By default, TeleSign does not support older PBX systems, but you can enable support for either live or automated switchboard scenarios by including the extension_type parameter. When you use this parameter, you must also use extension_template.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pressx",
+                        "in": "query",
+                        "required": false,
+                        "description": "PressX is a feature that allows you to send an end user a message that asks them to press a digit in order to hear their verification code. The message is in English, and as follows: Hello. Thank you for using the phone verification system. Please press digit to hear your code. The digit is randomly selected by TeleSign, and the end user gets two tries to get the correct digit. If the end user presses the correct digit, they will receive a message containing their verification code. Please note that this feature is only available in English, so you cannot use a language tag for other languages with it. To use this feature, you would put pressx=1 in the body of your request. You cannot use this feature with TTS.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tts_message",
+                        "in": "query",
+                        "required": false,
+                        "description": "Allows you to pass a text-to-speech (TTS) message. By default, TeleSign sends a scripted message to the phone. Messages default to en-US, unless otherwise stated by the language parameter. The default message is “Hello. Thank you for using our phone verification system. Your code is [code]. Once again, your code is [code]. Goodbye.” To generate a TeleSign assigned validation code (this is recommended), include $$CODE$$ in the message string. This generates a random string with the appropriate length as part of the TTS message.For a list of languages, see the section Supported Languages for Messages on the Codes, Languages, and Time Zones (REST) page. For tips relating to creating TTS messages, see Text-to-Speech (TTS) Hints below.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "caller_id",
+                        "in": "query",
+                        "required": false,
+                        "description": "This parameter allows you to set a phone number as caller ID for a Voice API message sent to your end users. In order to use a specific caller ID, you must purchase a phone number from TeleSign. This can be done by contacting your Technical Account Manager and asking to buy one or more numbers. Be aware that 100% preservation of a caller ID value is not guaranteed. TeleSign or a terminating operator may override the caller ID value that your end user will receive in order to improve delivery quality or follow local Telecom regulations in particular countries. Learn how to buy a number to use as caller id in the Buy a Phone Number (Caller ID) section of this page.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "prompt_digit",
+                        "in": "query",
+                        "required": false,
+                        "description": "This digit is to be used in conjunction with prompt_message. Provide a single digit 0-9 that you want the end user to press. After playing the prompt message, the system will wait and give the end user two chances to press the correct digit. If they do, the message in the message parameter plays. All messages use the same voice tag if you choose to include one.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "prompt_message",
+                        "in": "query",
+                        "required": false,
+                        "description": "This message is to be used in conjunction with prompt_digit. You provide a message to play, it is converted to text-to-speech and sent in a call and played for the end user. You are limited to 2000 code points. The message should contain the digit you want to press. For example, you might have the message - Press 7 to continue. Make sure the digit in your message matches the digit you send for prompt_digit. If the end user presses the correct digit, then the message you have for the message parameter plays. If the end user does not press the correct digit, the follow up message does not play. All messages use the same voice tag if you choose to include one. NOTE: Do not use this feature with the language tag option.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "The IETF language tag used in applying predefined templates. For a complete list of language tags, see the section Supported Languages for Messages on the Codes, Languages, and Time Zones (REST) page.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "call_forward_action",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specifies the action that you want TeleSign to perform if the phone number has Call Forwarding enabled. Valid values include block and flag.  Block - If set to block, TeleSign services abort the verification process immediately, and return the call status code 130 - Call Blocked by TeleSign. Flag - If set to flag, then TeleSign continues the verification process as usual. This also returns an indicator identifying the phone number as having Call Forwarding enabled, giving you the option of processing the phone number. [Default] TeleSign processes the verification request by performing a Call Forwarding detection check.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ucid",
+                        "in": "query",
+                        "required": false,
+                        "description": "A string specifying a use case code. Choices include -  ATCK - for use in a 2FA situation like updating an account or logging in BACF - for creating an account where the service may be vulnerable to bulk attacks and fraudsters BACS - for creating an account where the service may be vulnerable to bulk attacks or individual spammers CHBK - for use when someone is trying to buy something expensive or unusual and you want to verify it is really them CLDR - calendar event LEAD - for use in a situation where you require a person to enter personal information in order to obtain information about something like a loan or realty or school, and you want to check if the person is bogus or not OTHR - if you have a situation not addressed by other tags PWRT - for use in a situation where a password reset is required RESV - for use when you have end users making reservations and not showing up, and you want to be able to include phone verification in the loop RXPF - for use when you are trying to prevent prescription fraud SHIP - for use when you are sending a shipping notification THEF - for use when you are trying to prevent an end user from deactivating or redirecting a phone number in order to take over someone else’s identity TRVF - for use when you are transferring money and you want to check to see if it is approved by sending a text message or phone call to your end user. This is similar to CHBK, but is specifically for a money transaction UNKN - if you have a situation not addressed by other tags (same as OTHR)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "verify_code",
+                        "in": "query",
+                        "required": true,
+                        "description": "The verification code used for the code challenge. This is a randomly-generated numeric value. By default, TeleSign automatically generates a five-digit value for you. If you prefer to use your own verification code, you can override the default behavior by including this parameter and giving it a numeric value between 100 and 99999.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phone_number",
+                        "in": "query",
+                        "required": true,
+                        "description": "The end user’s phone number, as a string of digits without spaces or punctuation, beginning with the country dialing code (for example, “1” for North America).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Voice Verify",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

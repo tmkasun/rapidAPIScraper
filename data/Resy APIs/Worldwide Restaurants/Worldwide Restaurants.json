@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_965bcc95-1768-4ea1-bbdd-d1c9571ba39b",
+    "name": "Worldwide Restaurants",
+    "title": "Worldwide Restaurants",
+    "description": "#1 Worldwide Restaurants Database! Complete and Robust.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "worldwide-restaurants",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-08-10T11:48:12.794Z",
+    "category": "Search",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/3b/0e9806a2294cd8ade3abd0a118525e/13927cbf72a7fb8b17683bd228ecca1c.png",
+    "user": {
+        "id": 3556600,
+        "username": "ptwebsolution",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_d698928a-a9bf-403f-a76b-7d0157a8c1e2",
+        "tags": [],
+        "endpoints": [
+            {
+                "id": "apiendpoint_b4fc47ab-5e81-42d6-8d74-b0f8cacc1f17",
+                "isGraphQL": false,
+                "route": "/typeahead",
+                "method": "POST",
+                "name": "Typeahead",
+                "description": "Location Autocomplete",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_023d20f7-e15c-4783-96dd-0fcb0256abd4",
+                "isGraphQL": false,
+                "route": "/photos",
+                "method": "POST",
+                "name": "Photos",
+                "description": "Restaurant Photos",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_ff510b0e-4fd5-413a-8de1-48d6b903119b",
+                "isGraphQL": false,
+                "route": "/detail",
+                "method": "POST",
+                "name": "Detail",
+                "description": "Restaurant Detail",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

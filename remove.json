@@ -1,0 +1,148 @@
+{
+    "data": {
+        "product": {
+            "id": "5b0d98cfe4b091d6b3343827",
+            "name": "SendGrid",
+            "pricing": "FREEMIUM",
+            "category": "Email",
+            "createdAt": "1527617743663",
+            "updatedAt": "1616576290948",
+            "status": "ACTIVE",
+            "visibility": "PUBLIC",
+            "slugifiedName": "sendgrid",
+            "description": "Welcome to SendGrid’s Web API v3! This API is RESTful, fully featured, and easy to integrate with.",
+            "longDescription": "",
+            "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0f/6e4a73e9ca4402a2857f850097d8b1/b1041e5e7273d024c2b4e50ee1f8bad2.png",
+            "apiType": "http",
+            "owner": {
+                "__typename": "Entity",
+                "id": "3548557",
+                "name": null,
+                "slugifiedName": "sendgrid",
+                "type": "User",
+                "thumbnail": "https://s3.amazonaws.com/rapidapi-prod-user/9071a569-9898-4379-a413-4a9f652cc407",
+                "parents": []
+            },
+            "version": {
+                "id": "5b0d98cfe4b083052c9cc3ba",
+                "tags": [
+                    {
+                        "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                        "value": "✓",
+                        "id": "tag_32670353-150e-4b74-a456-8f1cb555dbe9",
+                        "__typename": "APITag"
+                    },
+                    {
+                        "tagdefinition": "tagdefinition_0364d241-f423-4ff4-9e3e-e51de3cdc835",
+                        "value": "Official",
+                        "id": "tag_81d70eea-43f2-4501-9cce-d8ca45b9d635",
+                        "__typename": "APITag"
+                    }
+                ],
+                "billingItems": [
+                    {
+                        "id": "5b0d98d1e4b083052c9cc3bb",
+                        "name": "emails",
+                        "description": null,
+                        "type": "billingitem",
+                        "allEndpoints": false,
+                        "billintItemEndpoints": [
+                            {
+                                "id": "5b21b8dee4b05b36a9cbfc7c",
+                                "endpoint": "5b0d9984e4b089f3dc474eda",
+                                "apiEndpoint": {
+                                    "id": "5b0d9984e4b089f3dc474eda",
+                                    "method": "POST",
+                                    "name": "Send",
+                                    "route": "/mail/send",
+                                    "description": "This endpoint allows you to send email over SendGrid’s v3 Web API,",
+                                    "__typename": "Endpoint"
+                                },
+                                "__typename": "BillingItemEndpoint"
+                            }
+                        ],
+                        "__typename": "BillingItem"
+                    }
+                ],
+                "billingFeatures": [],
+                "billingPlans": [
+                    {
+                        "version": {
+                            "billinglimits": [
+                                {
+                                    "id": "billinglimit_225ea557-d9e4-4c48-b398-3e719dfb0e81",
+                                    "limitType": "soft",
+                                    "__typename": "BillingLimit"
+                                }
+                            ],
+                            "rateLimit": {
+                                "enabled": false,
+                                "__typename": "RateLimit"
+                            },
+                            "__typename": "BillingPlanVersion"
+                        },
+                        "__typename": "BillingPlan"
+                    },
+                    {
+                        "version": {
+                            "billinglimits": [
+                                {
+                                    "id": "5b2001e7e4b0cc6cf6530b68",
+                                    "limitType": "soft",
+                                    "__typename": "BillingLimit"
+                                }
+                            ],
+                            "rateLimit": null,
+                            "__typename": "BillingPlanVersion"
+                        },
+                        "__typename": "BillingPlan"
+                    },
+                    {
+                        "version": {
+                            "billinglimits": [
+                                {
+                                    "id": "5b21ba35e4b0cc6cf65312d9",
+                                    "limitType": "soft",
+                                    "__typename": "BillingLimit"
+                                }
+                            ],
+                            "rateLimit": null,
+                            "__typename": "BillingPlanVersion"
+                        },
+                        "__typename": "BillingPlan"
+                    },
+                    {
+                        "version": {
+                            "billinglimits": [
+                                {
+                                    "id": "5b21ba5de4b06fc8c9001228",
+                                    "limitType": "soft",
+                                    "__typename": "BillingLimit"
+                                }
+                            ],
+                            "rateLimit": null,
+                            "__typename": "BillingPlanVersion"
+                        },
+                        "__typename": "BillingPlan"
+                    }
+                ],
+                "__typename": "ApiVersion"
+            },
+            "score": {
+                "avgLatency": 200,
+                "avgSuccessRate": 97,
+                "avgServiceLevel": 100,
+                "popularityScore": 9.4,
+                "__typename": "Score"
+            },
+            "rating": {
+                "rating": 4.8,
+                "votes": 4,
+                "bestRating": 5,
+                "__typename": "apiRating"
+            },
+            "__typename": "Api"
+        }
+    },
+    "extensions": {}
+}

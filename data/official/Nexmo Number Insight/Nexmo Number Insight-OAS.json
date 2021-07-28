@@ -1,0 +1,178 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_ea4dde3f-6298-4bcc-a246-a457b994e2d0",
+            "value": "✓"
+        },
+        {
+            "name": "tag_6c4bd402-845b-45fa-bbdb-421694caee9d",
+            "value": "Official"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5b3ab3f4e4b04182618a86c4",
+        "apiId": "5b3ab3f3e4b035818b6b6e8b"
+    },
+    "info": {
+        "title": "Nexmo Number Insight",
+        "description": "The smart way to get real-time intelligence on numbers anywhere in the world and protect yourself from fraud and spam.",
+        "version": "v1",
+        "x-category": "Communication",
+        "x-long-description": "",
+        "x-website": "https://www.nexmo.com/products/number-insight",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5b3ab3f4e4b04182618a86c4_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://nexmo-nexmo-number-insight-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Advanced"
+        },
+        {
+            "name": "Standard"
+        },
+        {
+            "name": "Basic"
+        }
+    ],
+    "paths": {
+        "/advanced/json": {
+            "post": {
+                "tags": [
+                    "Advanced"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "If a number does not have a country code or is uncertain, set the two-character country code. This code must be in ISO 3166-1 alpha-2 format and in upper case. For example, GB or US. If you set country and number is already in E.164  format, country must match the country code in number.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ip",
+                        "in": "query",
+                        "required": false,
+                        "description": "The IP address of the user. If supplied, we will compare this to the country the user's phone is located in and return an error if it does not match.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cnam",
+                        "in": "query",
+                        "required": false,
+                        "description": "Indicates if the name of the person who owns the phone number should be looked up and returned in the response. Set to true to receive phone number owner name in the response. This features is available for US numbers only and incurs an additional charge.",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "required": true,
+                        "description": "A single phone number that you need insight about in national or international format.",
+                        "schema": {
+                            "type": "string",
+                            "example": "14088349983"
+                        }
+                    }
+                ],
+                "operationId": "Number Insight Advanced",
+                "description": "The Number Insight Advanced API provides all the data from the Number Insight Standard API together with additional information on if the number is likely to be valid, ported, not in the US, or roaming.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standard/json": {
+            "post": {
+                "tags": [
+                    "Standard"
+                ],
+                "parameters": [
+                    {
+                        "name": "cnam",
+                        "in": "query",
+                        "required": false,
+                        "description": "Indicates if the name of the person who owns the phone number should be looked up and returned in the response. Set to true to receive phone number owner name in the response. This features is available for US numbers only and incurs an additional charge.",
+                        "schema": {
+                            "type": "boolean",
+                            "example": "true"
+                        }
+                    },
+                    {
+                        "name": "ip",
+                        "in": "query",
+                        "required": false,
+                        "description": "The IP address of the user. If supplied, we will compare this to the country the user's phone is located in and return an error if it does not match.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "If a number does not have a country code or is uncertain, set the two-character country code. This code must be in ISO 3166-1 alpha-2 format and in upper case. For example, GB or US. If you set country and number is already in E.164  format, country must match the country code in number.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "required": true,
+                        "description": "A single phone number that you need insight about in national or international format.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Number Insight Standard",
+                "description": "You can use Nexmo's Number Insight Standard API to retrieve a user's landline or mobile number, including checking to see that it is registered to an operator. This can help you verify that a phone number is real and give you information on how to format the number.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/basic/json": {
+            "post": {
+                "tags": [
+                    "Basic"
+                ],
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "required": true,
+                        "description": "A single phone number that you need insight about in national or international format.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Number Insight Basic",
+                "description": "You can use Nexmo's Number Insight Basic API to retrieve local and international representations of a phone number by doing semantic checks on the number you submit. This can help you normalise and consistently print numbers in your user interface and gives you information to help you decide if a phone number accept the phone number entered by your user, or ask them to check and correct it.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5b1f1210e4b059a7a9d94843",
+    "name": "Crunchbase",
+    "title": "Crunchbase",
+    "description": "Build powerful applications and integrate Crunchbase into your web and mobile applications with the REST API.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "crunchbase",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-24T21:32:43.407Z",
+    "category": "Data",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5b1f1210e4b05b36a9cbf13f_medium",
+    "user": {
+        "id": 4211731,
+        "username": "crunchbase-team1-crunchbase",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4d7196c8-5785-4520-8129-ac7d3663b98a",
+        "tags": [
+            {
+                "id": "tag_3c70c92c-4610-464a-b685-9dc06ee7ba1d",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            },
+            {
+                "id": "tag_30381cc5-c74b-4216-b8a6-3859dec8cd9f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_0364d241-f423-4ff4-9e3e-e51de3cdc835",
+                "type": "tag",
+                "value": "Official",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_d3aee9df-c94d-4cc4-865e-941c47649e36",
+                "isGraphQL": false,
+                "route": "/searches/organizations",
+                "method": "POST",
+                "name": "/searches/organizations",
+                "description": "Search Organization Entities. Can perform more complex filtering based on the query defined in the request body.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_ba36bc25-9ad2-4920-91b5-6b6a55a90b43",
+                "isGraphQL": false,
+                "route": "/entities/organizations/{entity_id}",
+                "method": "GET",
+                "name": "/entities/organizations/{entity_id}",
+                "description": " ",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_123ef088-2194-4340-91f6-8eb91fc5528f",
+                "isGraphQL": false,
+                "route": "/autocompletes",
+                "method": "GET",
+                "name": "/autocompletes",
+                "description": " ",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}
