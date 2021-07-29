@@ -1,0 +1,440 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_028e9479-c32d-4b5b-8984-a4a47152b40f",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_70557b30-5229-47a3-91b8-69d66b019d5b",
+        "apiId": "api_55d94f62-cfe0-4f4c-b4b3-cf63e2e723ab"
+    },
+    "info": {
+        "title": "Volleyball Data",
+        "description": "Broadage Volleyball API will give you wide range of data of world's top volleyball leagues, including fixtures, standings, match lists and many more. Our Volleyball Coverage includes the biggest volleyball tournaments from all around the world with in-depth coverage, giving you the opportunity to present the best sports data to users located anywhere.<br>This is a limited version in RapidApi. <a href=\"https://www.broadage.com/signup/api/free?utm_source=rapidapi&utm_medium=click&utm_campaign=volleyball_api\" target=”_blank”>Please, click here to start your Free Trial and try the endpoints with live data now!</a>",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Fixtures, standings and livescores data for Volleyball is served to you via Broadage Volleyball API to fulfill all your needs. All the action on court is live and updated instantly, with set and match scores.\n\nTurkish Volleyball League, Poland PlusLiga, Italy Serie A1, Russia Super League and many top tournaments from Europe, highly rated international club tournaments like CEV Champions League and CEV Cup are are just some of the tournaments that Broadage Volleyball Coverage includes.",
+        "x-website": "https://www.broadage.com/sports-data-api/volleyball",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/30788955-0500-4229-afae-28c35e0cbcd1.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://volleyball-data.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "H2H Data",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Post-Match Data"
+        },
+        {
+            "name": "Live Data"
+        },
+        {
+            "name": "Pre-Match Data"
+        }
+    ],
+    "paths": {
+        "/tournament/fixture": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "17"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Tournament Fixture Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/tournament-fixture/"
+                },
+                "operationId": "Tournament Fixture",
+                "description": "Full match list with period and final scores.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/list": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Tournament List Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/tournament-list/"
+                },
+                "operationId": "Tournament List",
+                "description": "List of tournaments in your data coverage.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/statistics/result/points": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "94982"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Result Statistics: Points Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/result-statistics-points/"
+                },
+                "operationId": "Result Statistics: Points",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Volleyball Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/list/recent": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "94982"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Recent Match List Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/recent-match-list/"
+                },
+                "operationId": "Recent Match List",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Volleyball Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "Date of the match. The format is {dd/MM/yyyy}. Match List data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "29/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Match List: All Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/match-list-all/"
+                },
+                "operationId": "Daily Match List-All",
+                "description": "Daily match list including scheduled, live and finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/results": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "Date of the match. The format is {dd/MM/yyyy}. Match List data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "28/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Match List: Results Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/match-list-results/"
+                },
+                "operationId": "Daily Match List-Results",
+                "description": "Daily match list including finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/live": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "Date of the match. The format is {dd/MM/yyyy}. Match List data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "28/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Match List: Live Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/match-list-live/"
+                },
+                "operationId": "Daily Match List-Live",
+                "description": "Daily match list including live matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/scheduled": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "Date of the match. The format is {dd/MM/yyyy}. Match List data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "29/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Match List: Scheduled Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/match-list-scheduled/"
+                },
+                "operationId": "Daily Match List-Scheduled",
+                "description": "Daily match list including scheduled matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/team/statistics/seasonal/points": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the team.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1050"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Seasonal Statistics: Points Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/seasonal-statistics-points/"
+                },
+                "operationId": "Seasonal Statistics: Points",
+                "description": "Provides the goal statistics of the team in the tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/teams": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "17"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Tournament Teams Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/tournament-teams/"
+                },
+                "operationId": "Tournament Teams",
+                "description": "List of teams participating in a specific tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/standings": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "17"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Tournament Standings Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/tournament-standings/"
+                },
+                "operationId": "Tournament Standings",
+                "description": "Team Rankings for a specific competition.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/info": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "17"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Tournament Info Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/tournament-info/"
+                },
+                "operationId": "Tournament Info",
+                "description": "Current season, stage structure(divisions,conferences etc.), country and many more information about a tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/team/schedule": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the team.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1050"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Volleyball API Team Schedule Documentation",
+                    "url": "https://www.broadage.com/developers/volleyball-api/team-schedule/"
+                },
+                "operationId": "Team Schedule",
+                "description": "Team fixtures by all the tournaments a team participates.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,299 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_1ca88fe3-2c59-4265-937a-5294e64f4a60",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_149cd47a-5c76-4807-b2bf-256bb87e440e",
+        "apiId": "api_9361589b-3c18-4e48-907f-beaff3eb3923"
+    },
+    "info": {
+        "title": "Car Data",
+        "description": "Use this API to pull relevant automobile data such as the car make, model, type, and year.",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "Use this API to pull relevant automobile data such as the car make, model, type, and year.\n\nCar data, automobile data, auto data.",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/faaed3e0-a0bc-4a62-b972-7fbc461add28.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://car-data.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/cars": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "model",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "make",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "0"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Cars",
+                "description": "Retrieve and filter lists of cars",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/cars/years": {
+            "get": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Years",
+                "description": "get a list of supported years",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": [
+                                            2020,
+                                            2019,
+                                            2018,
+                                            2017,
+                                            2016,
+                                            2015,
+                                            2014,
+                                            2013,
+                                            2012,
+                                            2011,
+                                            2010,
+                                            2009,
+                                            2008,
+                                            2007,
+                                            2006,
+                                            2005,
+                                            2004,
+                                            2003,
+                                            2002,
+                                            2001,
+                                            2000,
+                                            1999,
+                                            1998,
+                                            1997,
+                                            1996,
+                                            1995,
+                                            1994,
+                                            1993,
+                                            1992
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/cars/makes": {
+            "get": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Makes",
+                "description": "get a list of supported makes",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": [
+                                            "Audi",
+                                            "Chevrolet",
+                                            "Cadillac",
+                                            "Acura",
+                                            "BMW",
+                                            "Chrysler",
+                                            "Ford",
+                                            "Buick",
+                                            "INFINITI",
+                                            "GMC",
+                                            "Honda",
+                                            "Hyundai",
+                                            "Jeep",
+                                            "Genesis",
+                                            "Dodge",
+                                            "Jaguar",
+                                            "Kia",
+                                            "Land Rover",
+                                            "Lexus",
+                                            "Mercedes-Be",
+                                            "Mitsubishi",
+                                            "Lincoln",
+                                            "MAZDA",
+                                            "Nissan",
+                                            "MINI",
+                                            "Porsche",
+                                            "Ram",
+                                            "Subaru",
+                                            "Toyota",
+                                            "Volkswagen",
+                                            "Volvo",
+                                            "Alfa Romeo",
+                                            "FIAT",
+                                            "Freightline",
+                                            "Maserati",
+                                            "Tesla",
+                                            "Aston Marti",
+                                            "Bentley",
+                                            "Ferrari",
+                                            "Lamborghini",
+                                            "Lotus",
+                                            "McLaren",
+                                            "Rolls-Royce",
+                                            "smart",
+                                            "Scion",
+                                            "SRT",
+                                            "Suzuki",
+                                            "Fisker",
+                                            "Maybach",
+                                            "Mercury",
+                                            "Saab",
+                                            "HUMMER",
+                                            "Pontiac",
+                                            "Saturn",
+                                            "Isuzu",
+                                            "Panoz",
+                                            "Oldsmobile",
+                                            "Daewoo",
+                                            "Plymouth",
+                                            "Eagle",
+                                            "Geo",
+                                            "Daihatsu"
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/cars/types": {
+            "get": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Types",
+                "description": "get a list of supported types",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": [
+                                            "SUV",
+                                            "Sedan",
+                                            "Coupe, Conv",
+                                            "Pickup",
+                                            "Van/Minivan",
+                                            "Convertible",
+                                            "Hatchback, ",
+                                            "Hatchback",
+                                            "Coupe",
+                                            "Sedan, Hatc",
+                                            "Wagon",
+                                            "Coupe, Wago",
+                                            "Wagon, Seda",
+                                            "Sedan, Coup",
+                                            "SUV1992",
+                                            "Coupe, Seda",
+                                            "Sedan, Wago",
+                                            "Sedan, Conv",
+                                            "SUV2020",
+                                            "Coupe, Hatc",
+                                            "Wagon, Conv",
+                                            "SUV, Pickup",
+                                            "Wagon, SUV",
+                                            "SUV, Wagon"
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

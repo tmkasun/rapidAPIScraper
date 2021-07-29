@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_16d93fbd-9f1a-4d64-bed1-44cf8a37e2e4",
+    "name": "Face Enroll",
+    "title": "Face Enroll",
+    "description": "PresentID Face enroll API allows you to register your users for future authentication. This API stores two image files along with the user's personal information. Before saving, it is checked whether these two images belong to one person or not. So allows the user to authenticate by sending the face and personID.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "face-enroll1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-20T16:24:38.318Z",
+    "category": "Visual Recognition",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/3928e800-ff31-49bb-b1d1-4313253b0423.png",
+    "user": {
+        "id": 4565546,
+        "username": "PresentID",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_c5ce9de3-a2ee-44f2-b05a-ef0da573acca",
+        "tags": [
+            {
+                "id": "tag_98cfebf3-e688-49a5-a2c7-75409966852b",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_f2bbb610-73db-4b71-9f56-c898082e4c5b",
+                "isGraphQL": false,
+                "route": "/Login",
+                "method": "POST",
+                "name": "Login by face",
+                "description": "Identify your clients by their photo face.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_97b19846-6469-4397-b4bb-d4b94f36af1a",
+                "isGraphQL": false,
+                "route": "/Register",
+                "method": "POST",
+                "name": "Enroll by face",
+                "description": "Enroll by face API allows you to register your users for future authentication. In this API, it stores two image files along with the user's personal information. Before saving, it is checked whether these two images belong to one person or not. The parameters must be submitted in ```multipart form```. The API is called by ```POST``` method.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

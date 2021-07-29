@@ -1,0 +1,2334 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_d0a5544d-57eb-4a94-a2e4-f45d7f8cc6b6",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_5392b01a-7497-4564-aa21-ca57d2c1219f",
+        "apiId": "api_901e945b-a0ef-4cbd-a184-02047cb1c6ba"
+    },
+    "info": {
+        "title": "History",
+        "description": "Get 20 years historical weather data in Europe + Pollen + UV + Air Quality data",
+        "version": "v1",
+        "x-category": "Weather",
+        "x-long-description": "---- For the past 15 years we have been collecting and analyzing weather data with our own meteorological unit, to provide the most accurate forecast possible for any given location in the world. We believe that weather is still an under-valued key business component. With this API  you can enrich and improve your data models with highly accurate historical weather data. ---\n\n--- This API provides weather historical and forecast data: for a given location (latitude/longitude) or ZIP-Code (Country/Zip), you can get weather conditions on daily or hourly level--- \n\n--- The historical data covers entire Europe and starts from 2015. For Germany, the weather data is available from 2005. The pollen data and air quality data starts from 2020-08-10 and 2016, respectively.\n\n--- But that is not all! We also collect and analyze a lot of other data not available via the API. Just shoot us a short email (info@meteonomiqs.com) to get the full catalog and pricing.---\n\nList of all available info:\n\nDaily data:\n1. air quality (Fill rate depends on the next station):\n\ta) Distance: distance to the next station for air quality [m]\n\tb) CO\n\tc) NO2\n\td) O3\n\te) PM10\n\tf) SO2\n2. anomaly:\n\ta) long_time_t2m_avg: long time daily mean temperature [°C]\n\tb) long_time_t2m_max: long time daily maximum temperature [°C]\n\tc) long_time_t2m_min: long time daily minimum temperature [°C]\n\td) temp_anomaly_max: difference between long time daily maximum temperature and daily maximum temperature [°C]\n\te) temp_anomaly_mean: difference between long time daily mean temperature and daily mean temperature [°C]\n\tf) temp_anomaly_min: difference between long time daily minimum temperature and daily minimum temperature [°C]\t\n3. astronomy: \n\ta) max_sunshine: maximal possible sunhours [h], the time between sunrise and sunset\n\tb) sunrise: sunrise\n\tc) sunset: sunset\n4. location:\n\ta) date: observation/forecast date\n\tb) height: height above sealevel [m]\n\tc) latitude: latitude [°]\n\td) longitude: longitude [°]\n5. meta:\n\ta) additional_info: additional information - normally not filled\n\tb) errors: error messages - normally not filled\n\tc) sources: data sources (Not sure if we want to share this)\n6. occurrence:\n\tNormally not filled\n\ta) max_cloud_cover\n\tb) max_precipitation_intensity\n\tc) max_temperature\n\td) min_cloud_cover\n\te) min_temperature\n7. pollen:\n\ta) day: observation/forecast day\n\tb) alder\n\tc) ambrosia\n\td) ash\n\te) birch\n\tf) grasses:\n\tg) hazel\n\th) mugwort\n\ti) rye\n8. weather:\n\ta) air_pressure: air pressure on sea level [hpa]\n\tb) air_temp_max: maximum air temperature [°C]\n\tc) air_temp_mean: mean air temperature [°C]\n\td) air_temp_min: minimum air temperature [°C]\n\te) cloud_cover: cloud cover from 0:no clouds to 8:totally cloudy\n\tf) dew_point: dew point [°C]\n\tg) evaporation_pressure: evaporation pressure\n\th) precipitation: precipitation [l/m² = mm]\n\ti) precipitation_form: precipitation form - 0:no precipitation, 4 undefined, 6 rain, 7 snow, 8 rain and snow\n\tj) relative_humidity: relative humidity [%]\n\tk) snowfall: snowfall [mm]\n\tl) sunshine: sunshine duration [h]\n\tm) wind_avg: mean wind speed [m/s]\n\tn) wind_direction: wind direction [°] - 0°: north, 90°: east, 180°: south, 270°: west, 360°: north\n\to) wind_peak: maximum wind gust [m/s]\n9. weather_signals:\n\ta) ice_day: ice day flag\n\tb) rain_day: rain day flag\n        c) snow_day: snow day flag\n\td) summer_day: summer day flag\n\te) tropical_night: tropical night flag\n10. windchill:\n\ta) temp_max_windchill: maximum windchill [°C]\n\tb) temp_mean_windchill: mean windchill [°C]\n\tc) temp_min_windchill: min windchill [°C]\n\n\nHourly data:\n1. air quality (Fill rate depends on the next station):\n\ta) Distance: distance to the next station for air quality [m]\n\tb) CO\n\tc) NO2\n\td) O3\n\te) PM10\n\tf) SO2\n2. astronomy: \n\ta) max_sunshine: maximal possible sunhours [h], the time between sunrise and sunset\n\tb) sunrise: sunrise\n\tc) sunset: sunset\n3. location:\n\ta) date: observation/forecast date\n\tb) height: height above sealevel [m]\n\tc) latitude: latitude [°]\n\td) longitude: longitude [°]\n4. meta:\n\ta) additional_info: additional information - normally not filled\n\tb) errors: error messages - normally not filled\n5. weather:\n\ta) air_pressure: air pressure on sea level [hpa]\n\tb) air_temp_anomaly: difference between long time air temperature and hourly mean air temperature [°C] (for Germany)\n\tc) air_temp_long_time_avg: long time mean hourly air temperature [°C] (for Germany)\n\td) air_temp_mean: hourly mean air temperature [°C]\n\te) cloud_cover: cloud cover from 0:no clouds to 8:totally cloudy\n\tf) dew_point: dew point [°C]\n\tg) evaporation_pressure: evaporation pressure\n\th) precipitation: precipitation [l/m² = mm]\n\ti) precipitation_form: precipitation form - 0:no precipitation, 4 undefined, 6 rain, 7 snow, 8 rain and snow\n\tj) relative_humidity: relative humidity [%]\n\tk) snowfall: snowfall [mm]\n\tl) sunshine: sunshine duration [min]\n\tm) time: observation/forecast time\n\tn) wind_avg: mean wind speed [m/s]\n\to) wind_direction: wind direction [°] - 0°: north, 90°: east, 180°: south, 270°: west, 360°: north\n\tp) wind_peak: maximum wind gust [m/s]\n\tq) windchill: windchill [°C]\n\n\n# Response Codes\n\nList of response codes returned by wetter.com API\n\n### 2xx Success\nStatus Code | Status Message\n------------|----------------\n200 | OK\n204 | No Content\n\n### 3xx Redirection\nStatus Code | Status Message\n------------|----------------\n301 | Moved Permanently\n304 | Not Modified\n\n### 4xx Client errors\nStatus Code | Status Message\n------------|----------------\n400 | Bad Request\n401 | Unauthorized\n403 | Forbidden\n404 | Not Found\n405 | Method Not Allowed\n406 | Not Acceptable\n409 | Conflict\n429 | Too Many Requests\n\n### 5xx Server errors\nStatus Code | Status Message\n------------|----------------\n500 | Internal Server Error ",
+        "x-website": "www.wetter.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/a095d2e8-0871-4e15-a7df-aab1de735989.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://history3.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "hourly"
+        },
+        {
+            "name": "daily"
+        },
+        {
+            "name": "v0"
+        }
+    ],
+    "paths": {
+        "/v0/daily-zip/{country}/{zip-code}/{day}": {
+            "get": {
+                "tags": [
+                    "daily"
+                ],
+                "summary": "returns daily weather data",
+                "parameters": [
+                    {
+                        "name": "day",
+                        "in": "path",
+                        "required": true,
+                        "description": "The requested day in the format \\\\\\\"YYYYmmdd\\\\\\\"",
+                        "schema": {
+                            "format": "integer",
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "20210101"
+                        }
+                    },
+                    {
+                        "name": "parameters",
+                        "in": "query",
+                        "required": true,
+                        "description": "Define the parameter, you wish to request. Allowed options are \\\\\\\"all\\\\\\\", \\\\\\\"air_quality\\\\\\\", \\\\\\\"anomaly\\\\\\\", \\\\\\\"astronomy\\\\\\\", \\\\\\\"weather\\\\\\\", \\\\\\\"signal\\\\\\\", \\\\\\\"pollen\\\\\\\", \\\\\\\"occurrence\\\\\\\"",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "weather"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ISO Alpha-2 code of the country",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "DE"
+                        }
+                    },
+                    {
+                        "name": "zip-code",
+                        "in": "path",
+                        "required": true,
+                        "description": "The postal code for the requested country",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "81245"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": null
+                },
+                "operationId": "dailyWeatherZip",
+                "description": "This endpoint returns the historical weather for a given day for a given location (Country and zip code)",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Daily summary of the the requested parameters",
+                                    "properties": {
+                                        "air_quality": {
+                                            "properties": {
+                                                "CO": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "Distance": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "NO2": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "O3": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "PM10": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "SO2": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "anomaly": {
+                                            "properties": {
+                                                "long_time_t2m_avg": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "long_time_t2m_max": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "long_time_t2m_min": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_anomaly_max": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_anomaly_mean": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_anomaly_min": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "astronomy": {
+                                            "properties": {
+                                                "max_sunshine": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "sunrise": {
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "sunset": {
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "loacation": {
+                                            "properties": {
+                                                "date": {
+                                                    "format": "date",
+                                                    "type": "string"
+                                                },
+                                                "height": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "latitude": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "longitude": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "additional_info": {
+                                                    "type": "string"
+                                                },
+                                                "errors": {
+                                                    "type": "string"
+                                                },
+                                                "sources": {
+                                                    "items": {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "occurrence": {
+                                            "properties": {
+                                                "max_cloud_cover": {
+                                                    "type": "number"
+                                                },
+                                                "max_precipatiation_intensity": {
+                                                    "type": "number"
+                                                },
+                                                "max_temperature": {
+                                                    "type": "number"
+                                                },
+                                                "min_cloud_cover": {
+                                                    "type": "number"
+                                                },
+                                                "min_temperature": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "pollen": {
+                                            "properties": {
+                                                "alder": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "ambrosia": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "ash": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "birch": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "day": {
+                                                    "format": "date",
+                                                    "type": "string"
+                                                },
+                                                "grasses": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "hazel": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "mugwort": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "rye": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "weather": {
+                                            "properties": {
+                                                "air_pressure": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "air_temp_max": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "air_temp_mean": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "air_temp_min": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "cloud_cover": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "dew_point": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "evaporation_pressure": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "precipitation": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "precipitation_form": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "relative_humidity": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "snowfall": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "sunshine": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "wind_avg": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "wind_direction": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "wind_peak": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "weather_signals": {
+                                            "properties": {
+                                                "ice_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "rain_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "snow_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "summer_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "tropical_night": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "windchill": {
+                                            "properties": {
+                                                "temp_max_windchill": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_mean_windchill": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_min_windchill": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "air_quality": {
+                                                "CO": 0,
+                                                "Distance": 0,
+                                                "NO2": 0,
+                                                "O3": 0,
+                                                "PM10": 0,
+                                                "SO2": 0
+                                            },
+                                            "anomaly": {
+                                                "long_time_t2m_avg": 0,
+                                                "long_time_t2m_max": 0,
+                                                "long_time_t2m_min": 0,
+                                                "temp_anomaly_max": 0,
+                                                "temp_anomaly_mean": 0,
+                                                "temp_anomaly_min": 0
+                                            },
+                                            "astronomy": {
+                                                "max_sunshine": 0,
+                                                "sunrise": "",
+                                                "sunset": ""
+                                            },
+                                            "loacation": {
+                                                "date": "",
+                                                "height": 0,
+                                                "latitude": 0,
+                                                "longitude": 0
+                                            },
+                                            "meta": {
+                                                "additional_info": "",
+                                                "errors": "",
+                                                "sources": []
+                                            },
+                                            "occurrence": {
+                                                "max_cloud_cover": 0,
+                                                "max_precipatiation_intensity": 0,
+                                                "max_temperature": 0,
+                                                "min_cloud_cover": 0,
+                                                "min_temperature": 0
+                                            },
+                                            "pollen": {
+                                                "alder": 0,
+                                                "ambrosia": 0,
+                                                "ash": 0,
+                                                "birch": 0,
+                                                "day": "",
+                                                "grasses": 0,
+                                                "hazel": 0,
+                                                "mugwort": 0,
+                                                "rye": 0
+                                            },
+                                            "weather": {
+                                                "air_pressure": 0,
+                                                "air_temp_max": 0,
+                                                "air_temp_mean": 0,
+                                                "air_temp_min": 0,
+                                                "cloud_cover": 0,
+                                                "dew_point": 0,
+                                                "evaporation_pressure": 0,
+                                                "precipitation": 0,
+                                                "precipitation_form": 0,
+                                                "relative_humidity": 0,
+                                                "snowfall": 0,
+                                                "sunshine": 0,
+                                                "wind_avg": 0,
+                                                "wind_direction": 0,
+                                                "wind_peak": 0
+                                            },
+                                            "weather_signals": {
+                                                "ice_day": true,
+                                                "rain_day": true,
+                                                "snow_day": true,
+                                                "summer_day": true,
+                                                "tropical_night": true
+                                            },
+                                            "windchill": {
+                                                "temp_max_windchill": 0,
+                                                "temp_mean_windchill": 0,
+                                                "temp_min_windchill": 0
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v0/hourly-zip/{country}/{zip-code}/{day}": {
+            "get": {
+                "tags": [
+                    "hourly"
+                ],
+                "summary": "returns hourly values for a day",
+                "parameters": [
+                    {
+                        "name": "parameters",
+                        "in": "query",
+                        "required": true,
+                        "description": "Define the parameter, you wish to request. Allowed options are \\\\\\\"all\\\\\\\", \\\\\\\"air_quality\\\\\\\", \\\\\\\"anomaly\\\\\\\", \\\\\\\"astronomy\\\\\\\", \\\\\\\"weather\\\\\\\", \\\\\\\"signal\\\\\\\", \\\\\\\"pollen\\\\\\\"",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "weather"
+                        }
+                    },
+                    {
+                        "name": "day",
+                        "in": "path",
+                        "required": true,
+                        "description": "The requested day in the format \\\\\\\"YYYYmmdd\\\\\\\"",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "20210101"
+                        }
+                    },
+                    {
+                        "name": "zip-code",
+                        "in": "path",
+                        "required": true,
+                        "description": "The postal code for the requested country",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "81245"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "The ISO Alpha-2 code of the country",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "DE"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": null
+                },
+                "operationId": "hourlyWeatherZip",
+                "description": "This endpoint returns the historical weather on hourly level for a given day for a given location (country and zip-code)",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Hourly values of the the requested parameters",
+                                    "properties": {
+                                        "air_quality": {
+                                            "items": {
+                                                "properties": {
+                                                    "CO": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "Distance": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "NO2": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "O3": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "PM10": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "SO2": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "time": {
+                                                        "format": "date-time",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "astronomy": {
+                                            "properties": {
+                                                "max_sunshine": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "sunrise": {
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "sunset": {
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "location": {
+                                            "properties": {
+                                                "date": {
+                                                    "format": "date",
+                                                    "type": "string"
+                                                },
+                                                "height": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "latitude": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "longitude": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "additional_info": {
+                                                    "type": "string"
+                                                },
+                                                "errors": {
+                                                    "type": "string"
+                                                },
+                                                "sources": {
+                                                    "items": {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "weather": {
+                                            "items": {
+                                                "properties": {
+                                                    "air_pressure": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "air_temp_anomaly": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "air_temp_long_time_avg": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "air_temp_mean": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "cloud_cover": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "dew_point": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "evaporation_pressure": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "precipitation": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "precipitation_form": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "relative_humidity": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "snowfall": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "sunshine": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "time": {
+                                                        "format": "date-time",
+                                                        "type": "string"
+                                                    },
+                                                    "wind_avg": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "wind_direction": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "wind_peak": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "air_quality": [
+                                                {
+                                                    "CO": 0,
+                                                    "Distance": 0,
+                                                    "NO2": 0,
+                                                    "O3": 0,
+                                                    "PM10": 0,
+                                                    "SO2": 0,
+                                                    "time": ""
+                                                }
+                                            ],
+                                            "astronomy": {
+                                                "max_sunshine": 0,
+                                                "sunrise": "",
+                                                "sunset": ""
+                                            },
+                                            "location": {
+                                                "date": "",
+                                                "height": 0,
+                                                "latitude": 0,
+                                                "longitude": 0
+                                            },
+                                            "meta": {
+                                                "additional_info": "",
+                                                "errors": "",
+                                                "sources": []
+                                            },
+                                            "weather": [
+                                                {
+                                                    "air_pressure": 0,
+                                                    "air_temp_anomaly": 0,
+                                                    "air_temp_long_time_avg": 0,
+                                                    "air_temp_mean": 0,
+                                                    "cloud_cover": 0,
+                                                    "dew_point": 0,
+                                                    "evaporation_pressure": 0,
+                                                    "precipitation": 0,
+                                                    "precipitation_form": 0,
+                                                    "relative_humidity": 0,
+                                                    "snowfall": 0,
+                                                    "sunshine": 0,
+                                                    "time": "",
+                                                    "wind_avg": 0,
+                                                    "wind_direction": 0,
+                                                    "wind_peak": 0
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v0/daily/{lng}/{lat}/{start_day}/{end_day}": {
+            "get": {
+                "tags": [
+                    "daily"
+                ],
+                "summary": "returns daily weather data for the timespan between start day and end day",
+                "parameters": [
+                    {
+                        "name": "parameters",
+                        "in": "query",
+                        "required": true,
+                        "description": "Define the parameter, you wish to request. Allowed options are \\\"all\\\", \\\"air_quality\\\", \\\"anomaly\\\", \\\"astronomy\\\", \\\"weather\\\", \\\"signal\\\", \\\"pollen\\\", \\\"occurrence\\\"",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "weather"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "path",
+                        "required": true,
+                        "description": "The latitude in decimal format of the requested point",
+                        "schema": {
+                            "externalDocs": {},
+                            "format": "float",
+                            "maximum": 3.402823669209385e+38,
+                            "minimum": -3.402823669209385e+38,
+                            "type": "string",
+                            "default": "46.95828"
+                        }
+                    },
+                    {
+                        "name": "end_day",
+                        "in": "path",
+                        "required": true,
+                        "description": "The requested end day in the format \\\"YYYYmmdd\\\"",
+                        "schema": {
+                            "externalDocs": {},
+                            "format": "integer",
+                            "type": "string",
+                            "default": "20210102"
+                        }
+                    },
+                    {
+                        "name": "start_day",
+                        "in": "path",
+                        "required": true,
+                        "description": "The requested start day in the format \\\"YYYYmmdd\\\"",
+                        "schema": {
+                            "externalDocs": {},
+                            "format": "integer",
+                            "type": "string",
+                            "default": "20210101"
+                        }
+                    },
+                    {
+                        "name": "lng",
+                        "in": "path",
+                        "required": true,
+                        "description": "The longitude in decimal format of the requested point",
+                        "schema": {
+                            "externalDocs": {},
+                            "format": "float",
+                            "maximum": 3.402823669209385e+38,
+                            "minimum": -3.402823669209385e+38,
+                            "type": "string",
+                            "default": "10.87152"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": ""
+                },
+                "operationId": "dailyWeatherSeries",
+                "description": "This endpoint returns the historical weather for a given series of days for a given location (latitude and longitude)",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Daily summary of the the requested parameters",
+                                    "properties": {
+                                        "air_quality": {
+                                            "properties": {
+                                                "CO": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "Distance": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "NO2": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "O3": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "PM10": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "SO2": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "anomaly": {
+                                            "properties": {
+                                                "long_time_t2m_avg": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "long_time_t2m_max": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "long_time_t2m_min": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_anomaly_max": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_anomaly_mean": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_anomaly_min": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "astronomy": {
+                                            "properties": {
+                                                "max_sunshine": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "sunrise": {
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "sunset": {
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "loacation": {
+                                            "properties": {
+                                                "date": {
+                                                    "format": "date",
+                                                    "type": "string"
+                                                },
+                                                "height": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "latitude": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "longitude": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "additional_info": {
+                                                    "type": "string"
+                                                },
+                                                "errors": {
+                                                    "type": "string"
+                                                },
+                                                "sources": {
+                                                    "items": {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "occurrence": {
+                                            "properties": {
+                                                "max_cloud_cover": {
+                                                    "type": "number"
+                                                },
+                                                "max_precipatiation_intensity": {
+                                                    "type": "number"
+                                                },
+                                                "max_temperature": {
+                                                    "type": "number"
+                                                },
+                                                "min_cloud_cover": {
+                                                    "type": "number"
+                                                },
+                                                "min_temperature": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "pollen": {
+                                            "properties": {
+                                                "alder": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "ambrosia": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "ash": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "birch": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "day": {
+                                                    "format": "date",
+                                                    "type": "string"
+                                                },
+                                                "grasses": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "hazel": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "mugwort": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "rye": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "weather": {
+                                            "properties": {
+                                                "air_pressure": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "air_temp_max": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "air_temp_mean": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "air_temp_min": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "cloud_cover": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "dew_point": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "evaporation_pressure": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "precipitation": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "precipitation_form": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "relative_humidity": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "snowfall": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "sunshine": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "wind_avg": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "wind_direction": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "wind_peak": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "weather_signals": {
+                                            "properties": {
+                                                "ice_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "rain_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "snow_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "summer_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "tropical_night": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "windchill": {
+                                            "properties": {
+                                                "temp_max_windchill": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_mean_windchill": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_min_windchill": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "air_quality": {
+                                                "CO": 0,
+                                                "Distance": 0,
+                                                "NO2": 0,
+                                                "O3": 0,
+                                                "PM10": 0,
+                                                "SO2": 0
+                                            },
+                                            "anomaly": {
+                                                "long_time_t2m_avg": 0,
+                                                "long_time_t2m_max": 0,
+                                                "long_time_t2m_min": 0,
+                                                "temp_anomaly_max": 0,
+                                                "temp_anomaly_mean": 0,
+                                                "temp_anomaly_min": 0
+                                            },
+                                            "astronomy": {
+                                                "max_sunshine": 0,
+                                                "sunrise": "",
+                                                "sunset": ""
+                                            },
+                                            "loacation": {
+                                                "date": "",
+                                                "height": 0,
+                                                "latitude": 0,
+                                                "longitude": 0
+                                            },
+                                            "meta": {
+                                                "additional_info": "",
+                                                "errors": "",
+                                                "sources": []
+                                            },
+                                            "occurrence": {
+                                                "max_cloud_cover": 0,
+                                                "max_precipatiation_intensity": 0,
+                                                "max_temperature": 0,
+                                                "min_cloud_cover": 0,
+                                                "min_temperature": 0
+                                            },
+                                            "pollen": {
+                                                "alder": 0,
+                                                "ambrosia": 0,
+                                                "ash": 0,
+                                                "birch": 0,
+                                                "day": "",
+                                                "grasses": 0,
+                                                "hazel": 0,
+                                                "mugwort": 0,
+                                                "rye": 0
+                                            },
+                                            "weather": {
+                                                "air_pressure": 0,
+                                                "air_temp_max": 0,
+                                                "air_temp_mean": 0,
+                                                "air_temp_min": 0,
+                                                "cloud_cover": 0,
+                                                "dew_point": 0,
+                                                "evaporation_pressure": 0,
+                                                "precipitation": 0,
+                                                "precipitation_form": 0,
+                                                "relative_humidity": 0,
+                                                "snowfall": 0,
+                                                "sunshine": 0,
+                                                "wind_avg": 0,
+                                                "wind_direction": 0,
+                                                "wind_peak": 0
+                                            },
+                                            "weather_signals": {
+                                                "ice_day": true,
+                                                "rain_day": true,
+                                                "snow_day": true,
+                                                "summer_day": true,
+                                                "tropical_night": true
+                                            },
+                                            "windchill": {
+                                                "temp_max_windchill": 0,
+                                                "temp_mean_windchill": 0,
+                                                "temp_min_windchill": 0
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v0/daily/{lng}/{lat}/{day}": {
+            "get": {
+                "tags": [
+                    "daily"
+                ],
+                "summary": "returns daily weather data",
+                "parameters": [
+                    {
+                        "name": "day",
+                        "in": "path",
+                        "required": true,
+                        "description": "The requested day in the format \\\"YYYYmmdd\\\"",
+                        "schema": {
+                            "externalDocs": {},
+                            "format": "integer",
+                            "type": "string",
+                            "default": "20210101"
+                        }
+                    },
+                    {
+                        "name": "parameters",
+                        "in": "query",
+                        "required": true,
+                        "description": "Define the parameter, you wish to request. Allowed options are \\\"all\\\", \\\"air_quality\\\", \\\"anomaly\\\", \\\"astronomy\\\", \\\"weather\\\", \\\"signal\\\", \\\"pollen\\\", \\\"occurrence\\\"",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "weather"
+                        }
+                    },
+                    {
+                        "name": "lng",
+                        "in": "path",
+                        "required": true,
+                        "description": "The longitude in decimal format of the requested point",
+                        "schema": {
+                            "externalDocs": {},
+                            "format": "float",
+                            "maximum": 3.402823669209385e+38,
+                            "minimum": -3.402823669209385e+38,
+                            "type": "string",
+                            "default": "10.87152"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "path",
+                        "required": true,
+                        "description": "The latitude in decimal format of the requested point",
+                        "schema": {
+                            "externalDocs": {},
+                            "format": "float",
+                            "maximum": 3.402823669209385e+38,
+                            "minimum": -3.402823669209385e+38,
+                            "type": "string",
+                            "default": "46.95828"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": ""
+                },
+                "operationId": "dailyWeather",
+                "description": "This endpoint returns the historical weather for a given day for a given location (latitude and longitude)",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Daily summary of the the requested parameters",
+                                    "properties": {
+                                        "air_quality": {
+                                            "properties": {
+                                                "CO": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "Distance": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "NO2": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "O3": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "PM10": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "SO2": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "anomaly": {
+                                            "properties": {
+                                                "long_time_t2m_avg": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "long_time_t2m_max": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "long_time_t2m_min": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_anomaly_max": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_anomaly_mean": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_anomaly_min": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "astronomy": {
+                                            "properties": {
+                                                "max_sunshine": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "sunrise": {
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "sunset": {
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "loacation": {
+                                            "properties": {
+                                                "date": {
+                                                    "format": "date",
+                                                    "type": "string"
+                                                },
+                                                "height": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "latitude": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "longitude": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "additional_info": {
+                                                    "type": "string"
+                                                },
+                                                "errors": {
+                                                    "type": "string"
+                                                },
+                                                "sources": {
+                                                    "items": {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "occurrence": {
+                                            "properties": {
+                                                "max_cloud_cover": {
+                                                    "type": "number"
+                                                },
+                                                "max_precipatiation_intensity": {
+                                                    "type": "number"
+                                                },
+                                                "max_temperature": {
+                                                    "type": "number"
+                                                },
+                                                "min_cloud_cover": {
+                                                    "type": "number"
+                                                },
+                                                "min_temperature": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "pollen": {
+                                            "properties": {
+                                                "alder": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "ambrosia": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "ash": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "birch": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "day": {
+                                                    "format": "date",
+                                                    "type": "string"
+                                                },
+                                                "grasses": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "hazel": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "mugwort": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "rye": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "weather": {
+                                            "properties": {
+                                                "air_pressure": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "air_temp_max": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "air_temp_mean": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "air_temp_min": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "cloud_cover": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "dew_point": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "evaporation_pressure": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "precipitation": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "precipitation_form": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "relative_humidity": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "snowfall": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "sunshine": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "wind_avg": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "wind_direction": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "wind_peak": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "weather_signals": {
+                                            "properties": {
+                                                "ice_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "rain_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "snow_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "summer_day": {
+                                                    "type": "boolean"
+                                                },
+                                                "tropical_night": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "windchill": {
+                                            "properties": {
+                                                "temp_max_windchill": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_mean_windchill": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "temp_min_windchill": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "air_quality": {
+                                                "CO": 0,
+                                                "Distance": 0,
+                                                "NO2": 0,
+                                                "O3": 0,
+                                                "PM10": 0,
+                                                "SO2": 0
+                                            },
+                                            "anomaly": {
+                                                "long_time_t2m_avg": 0,
+                                                "long_time_t2m_max": 0,
+                                                "long_time_t2m_min": 0,
+                                                "temp_anomaly_max": 0,
+                                                "temp_anomaly_mean": 0,
+                                                "temp_anomaly_min": 0
+                                            },
+                                            "astronomy": {
+                                                "max_sunshine": 0,
+                                                "sunrise": "",
+                                                "sunset": ""
+                                            },
+                                            "loacation": {
+                                                "date": "",
+                                                "height": 0,
+                                                "latitude": 0,
+                                                "longitude": 0
+                                            },
+                                            "meta": {
+                                                "additional_info": "",
+                                                "errors": "",
+                                                "sources": []
+                                            },
+                                            "occurrence": {
+                                                "max_cloud_cover": 0,
+                                                "max_precipatiation_intensity": 0,
+                                                "max_temperature": 0,
+                                                "min_cloud_cover": 0,
+                                                "min_temperature": 0
+                                            },
+                                            "pollen": {
+                                                "alder": 0,
+                                                "ambrosia": 0,
+                                                "ash": 0,
+                                                "birch": 0,
+                                                "day": "",
+                                                "grasses": 0,
+                                                "hazel": 0,
+                                                "mugwort": 0,
+                                                "rye": 0
+                                            },
+                                            "weather": {
+                                                "air_pressure": 0,
+                                                "air_temp_max": 0,
+                                                "air_temp_mean": 0,
+                                                "air_temp_min": 0,
+                                                "cloud_cover": 0,
+                                                "dew_point": 0,
+                                                "evaporation_pressure": 0,
+                                                "precipitation": 0,
+                                                "precipitation_form": 0,
+                                                "relative_humidity": 0,
+                                                "snowfall": 0,
+                                                "sunshine": 0,
+                                                "wind_avg": 0,
+                                                "wind_direction": 0,
+                                                "wind_peak": 0
+                                            },
+                                            "weather_signals": {
+                                                "ice_day": true,
+                                                "rain_day": true,
+                                                "snow_day": true,
+                                                "summer_day": true,
+                                                "tropical_night": true
+                                            },
+                                            "windchill": {
+                                                "temp_max_windchill": 0,
+                                                "temp_mean_windchill": 0,
+                                                "temp_min_windchill": 0
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v0/hourly/{lng}/{lat}/{day}": {
+            "get": {
+                "tags": [
+                    "hourly"
+                ],
+                "summary": "returns hourly values for a day",
+                "parameters": [
+                    {
+                        "name": "lng",
+                        "in": "path",
+                        "required": true,
+                        "description": "The longitude in decimal format of the requested point",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "10.87152"
+                        }
+                    },
+                    {
+                        "name": "parameters",
+                        "in": "query",
+                        "required": true,
+                        "description": "Define the parameter, you wish to request. Allowed options are \\\"all\\\", \\\"air_quality\\\", \\\"anomaly\\\", \\\"astronomy\\\", \\\"weather\\\", \\\"signal\\\", \\\"pollen\\\"",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "weather"
+                        }
+                    },
+                    {
+                        "name": "day",
+                        "in": "path",
+                        "required": true,
+                        "description": "The requested day in the format \\\"YYYYmmdd\\\"",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "20210101"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "path",
+                        "required": true,
+                        "description": "The latitude in decimal format of the requested point",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "46.95828"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": ""
+                },
+                "operationId": "hourlyWeather",
+                "description": "This endpoint returns the historical weather on hourly level for a given day for a given location (latitude and longitude)",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Hourly values of the the requested parameters",
+                                    "properties": {
+                                        "air_quality": {
+                                            "items": {
+                                                "properties": {
+                                                    "CO": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "Distance": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "NO2": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "O3": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "PM10": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "SO2": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "time": {
+                                                        "format": "date-time",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "astronomy": {
+                                            "properties": {
+                                                "max_sunshine": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "sunrise": {
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "sunset": {
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "location": {
+                                            "properties": {
+                                                "date": {
+                                                    "format": "date",
+                                                    "type": "string"
+                                                },
+                                                "height": {
+                                                    "format": "int32",
+                                                    "maximum": 2147483647,
+                                                    "minimum": -2147483648,
+                                                    "type": "number"
+                                                },
+                                                "latitude": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                },
+                                                "longitude": {
+                                                    "format": "float",
+                                                    "maximum": 3.402823669209385e+38,
+                                                    "minimum": -3.402823669209385e+38,
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "additional_info": {
+                                                    "type": "string"
+                                                },
+                                                "errors": {
+                                                    "type": "string"
+                                                },
+                                                "sources": {
+                                                    "items": {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "weather": {
+                                            "items": {
+                                                "properties": {
+                                                    "air_pressure": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "air_temp_anomaly": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "air_temp_long_time_avg": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "air_temp_mean": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "cloud_cover": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "dew_point": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "evaporation_pressure": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "precipitation": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "precipitation_form": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "relative_humidity": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "snowfall": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "sunshine": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "time": {
+                                                        "format": "date-time",
+                                                        "type": "string"
+                                                    },
+                                                    "wind_avg": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "wind_direction": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    },
+                                                    "wind_peak": {
+                                                        "format": "float",
+                                                        "maximum": 3.402823669209385e+38,
+                                                        "minimum": -3.402823669209385e+38,
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "air_quality": [
+                                                {
+                                                    "CO": 0,
+                                                    "Distance": 0,
+                                                    "NO2": 0,
+                                                    "O3": 0,
+                                                    "PM10": 0,
+                                                    "SO2": 0,
+                                                    "time": ""
+                                                }
+                                            ],
+                                            "astronomy": {
+                                                "max_sunshine": 0,
+                                                "sunrise": "",
+                                                "sunset": ""
+                                            },
+                                            "location": {
+                                                "date": "",
+                                                "height": 0,
+                                                "latitude": 0,
+                                                "longitude": 0
+                                            },
+                                            "meta": {
+                                                "additional_info": "",
+                                                "errors": "",
+                                                "sources": []
+                                            },
+                                            "weather": [
+                                                {
+                                                    "air_pressure": 0,
+                                                    "air_temp_anomaly": 0,
+                                                    "air_temp_long_time_avg": 0,
+                                                    "air_temp_mean": 0,
+                                                    "cloud_cover": 0,
+                                                    "dew_point": 0,
+                                                    "evaporation_pressure": 0,
+                                                    "precipitation": 0,
+                                                    "precipitation_form": 0,
+                                                    "relative_humidity": 0,
+                                                    "snowfall": 0,
+                                                    "sunshine": 0,
+                                                    "time": "",
+                                                    "wind_avg": 0,
+                                                    "wind_direction": 0,
+                                                    "wind_peak": 0
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

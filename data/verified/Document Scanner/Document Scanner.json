@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_edb4b4a1-e639-47e8-8f53-1adbbd296248",
+    "name": "Document Scanner",
+    "title": "Document Scanner",
+    "description": "PresentID Document scanner API localizes document images with various distortion types from a single input image.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "document-scanner",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-20T15:39:43.780Z",
+    "category": "Machine Learning",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d6a3bb95-3e7b-4e65-8e61-304b276bfba2.png",
+    "user": {
+        "id": 4565546,
+        "username": "PresentID",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_698659a5-c3f8-4eab-b343-42ec0da5a0bb",
+        "tags": [
+            {
+                "id": "tag_f17bd895-a7f3-4af2-a391-ed56c6ca1d8c",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_397a0ee9-df5a-4c1f-ad17-751e9740e126",
+                "isGraphQL": false,
+                "route": "/DetectDocument",
+                "method": "POST",
+                "name": "Document scanner",
+                "description": "PresentID Document scanner API localizes document images with various distortion types from a single input image.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

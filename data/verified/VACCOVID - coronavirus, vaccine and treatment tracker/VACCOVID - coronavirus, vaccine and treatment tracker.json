@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_4edabb12-cf24-4091-ab1f-f0a36341e772",
+    "name": "VACCOVID - coronavirus, vaccine and treatment tracker",
+    "title": "VACCOVID - coronavirus, vaccine and treatment tracker",
+    "description": "VACCOVID.LIVE is a comprehensive up-to-date Vaccine tracker, COVID-19 tracker and Treatment tracker website which has been landed to inform people throughout the planet about the present novel coronavirus (COVID-19) pandemic. In VACCOVID you can also find the most relevant and up-to-date news about covid-19. https://vaccovid.live/",
+    "visibility": "PUBLIC",
+    "slugifiedName": "vaccovid-coronavirus-vaccine-and-treatment-tracker",
+    "pricing": "FREE",
+    "updatedAt": "2020-12-15T22:20:06.135Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d45eeebc-1efb-4549-9c1b-4f75d71f2414.png",
+    "user": {
+        "id": 4914021,
+        "username": "vaccovidlive-vaccovidlive-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_e74e21c9-a331-4b9d-af7e-53b7e4e73392",
+        "tags": [
+            {
+                "id": "tag_fe4fdb7c-19f3-4725-96fe-aab5e2ccd590",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_e8313b7c-5357-495e-bc1d-8fe40932e14b",
+                "isGraphQL": false,
+                "route": "/api/vaccines/get-vaccines/{trimedCategory}/{trimedName}",
+                "method": "GET",
+                "name": "get specific vaccine data",
+                "description": "get the data for a specific vaccine.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_420a4eff-86af-40b3-9f82-2d5dbf11cd60",
+                "isGraphQL": false,
+                "route": "/api/news/get-vaccine-news/{page}",
+                "method": "GET",
+                "name": "get all vaccine news",
+                "description": "get all vaccine news from more than 20 well-founded broadcasting services including: WHO, CNN, BBC, FOX-news, TIME, MNT(Medical-News-Today), Bloomberg, ABC-news, CBS-news, CBC-news, NBC-news, USA Today, New Scientist, National Geographic, Google news, News24, Next Big Future, The Times of India, The Wall Street Journal, The Washington Post, and Axios.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_a83ac841-23c9-40c2-b4e1-45782c32b203",
+                "isGraphQL": false,
+                "route": "/api/news/get-health-news/{page}",
+                "method": "GET",
+                "name": "get all health news",
+                "description": "get all health news from more than 20 well-founded broadcasting services including: WHO, CNN, BBC, FOX-news, TIME, MNT(Medical-News-Today), Bloomberg, ABC-news, CBS-news, CBC-news, NBC-news, USA Today, New Scientist, National Geographic, Google news, News24, Next Big Future, The Times of India, The Wall Street Journal, The Washington Post, and Axios.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

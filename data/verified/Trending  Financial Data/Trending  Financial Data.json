@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_fa9de39c-6b64-425a-b285-8b9b45c20bd7",
+    "name": "Trending  Financial Data",
+    "title": "Trending  Financial Data",
+    "description": "Our \"Trending Financial Data\" API returns present and historical content on finance from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of finance with our solution, or collect historical structured data on the most relevant past stories and events. Returns news and information categorized as financial news. The finance category is identified by it's IAB Code IAB13 and the endpoint returns an exhautive list of news items which fall under any of the subcategory of IAB13 ranging from personal finance to investments. Similar news topics are clustered together. Test our api for free and do not hesitate to reach us out for further information.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "trending-financial-data",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-07T17:35:48.646Z",
+    "category": "Finance",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b2718e0f-6783-45e7-9432-9d63a29e5b68.jpg",
+    "user": {
+        "id": 4551023,
+        "username": "connexun-srl-connexun-srl-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_9be13378-7cc7-4c74-8ca2-55f77e59d1cd",
+        "tags": [
+            {
+                "id": "tag_889beb48-c3b9-4911-82bf-c1530d981462",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_0511c04c-c11a-4ac1-bd0a-be42ecd4685d",
+                "isGraphQL": false,
+                "route": "/finance",
+                "method": "GET",
+                "name": "/real-time_financial_information",
+                "description": "The API returns real-time and historical content and information on finance from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of finance with our solution, or collect historical structured data on the most relevant past stories and events.\n\nReturns a list of news categorized as finance news. The finance category is identified by its IAB Code IAB13 and the API returns an exhautive list of news items which fall under any of the subcategories of IAB13, ranging from personal finance to investments. Similar news topics are clustered together.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

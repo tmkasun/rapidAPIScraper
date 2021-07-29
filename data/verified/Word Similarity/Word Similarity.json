@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_5475fc2a-a3f3-42a2-bf30-6ae75a2f3876",
+    "name": "Word Similarity",
+    "title": "Word Similarity",
+    "description": "Word Similarity (Owl) API lets you extract the most similar words to target words with a meaningful granularity. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "word-similarity",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-01-06T15:26:09.943Z",
+    "category": "Text Analysis",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/e961dd0b-9802-487d-bb07-495b2e284e43.png",
+    "user": {
+        "id": 4678171,
+        "username": "pedram.ataee",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_a6dff44d-330b-4417-8530-9641fcd6e1d8",
+        "tags": [
+            {
+                "id": "tag_f01afd60-c92a-444b-b846-cd7de0875fa8",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_048d118a-f470-4bfe-893b-acc7c459cc18",
+                "isGraphQL": false,
+                "route": "/general/10/{word}",
+                "method": "GET",
+                "name": "Top_10_G",
+                "description": "The top 10 most similar words in the **General** context",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_3523d776-09b6-4530-bad9-29b29614deb3",
+                "isGraphQL": false,
+                "route": "/news/50/{word}",
+                "method": "GET",
+                "name": "Top_50_N",
+                "description": "The top 50 most similar words in the **News** context",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_493efb69-d411-4785-8333-d270c1c3e1eb",
+                "isGraphQL": false,
+                "route": "/general/50/{word}",
+                "method": "GET",
+                "name": "Top_50_G",
+                "description": "The top 50 most similar words in the **General** context",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

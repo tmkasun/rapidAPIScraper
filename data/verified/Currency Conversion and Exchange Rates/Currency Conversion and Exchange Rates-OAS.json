@@ -1,0 +1,534 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_4ea5309b-b65c-4ec9-b836-7e26fcd58de3",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_6e4c2dda-0788-4043-9a2f-61bae04698f2",
+        "apiId": "api_f6ea6fcb-ac1d-4799-b11b-5b3373495d17"
+    },
+    "info": {
+        "title": "Currency Conversion and Exchange Rates",
+        "description": "Simple reliable API for current and historical foreign exchange (forex) currency rates.",
+        "version": "v1",
+        "x-category": "Finance",
+        "x-long-description": "Simple, reliable API for current exchange rates and historical foreign exchange (forex) rates.\n\nCurrency conversion,  exchange rates, forex, payment calculations, dollars to euros, convert currency, currency.",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/8ab36372-7ebe-4043-ad13-53acfe62e54c.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://currency-conversion-and-exchange-rates.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/timeseries": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "A comma-separated list of currency codes to convert the `from` parameter into.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "EUR,GBP"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Three-letter currency code of the currency would would like to convert from. This currency will be converted into the code of the currency provided in the `to` parameter",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "USD"
+                        }
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "2019-01-02"
+                        }
+                    },
+                    {
+                        "name": "start_date",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "2019-01-01"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Time-Series Endpoint",
+                "description": "Retrieve historical rates between two specified dates.\n\n`Maximum of 365 day time range`",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "base": "EUR",
+                                            "end_date": "2019-01-02",
+                                            "rates": {
+                                                "2019-01-01": {
+                                                    "AED": 4.209945,
+                                                    "AFN": 86.664284
+                                                },
+                                                "2019-01-02": {
+                                                    "AED": 4.157158,
+                                                    "AFN": 85.277332
+                                                }
+                                            },
+                                            "start_date": "2019-01-01",
+                                            "success": true,
+                                            "timeseries": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/symbols": {
+            "get": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Symbols",
+                "description": "Retrieve a list of all currently available currency symbols",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "success": true,
+                                            "symbols": {
+                                                "AED": "United Arab Emirates Dirham",
+                                                "AFN": "Afghan Afghani",
+                                                "ALL": "Albanian Lek",
+                                                "AMD": "Armenian Dram",
+                                                "ANG": "Netherlands Antillean Guilder",
+                                                "AOA": "Angolan Kwanza",
+                                                "ARS": "Argentine Peso",
+                                                "AUD": "Australian Dollar",
+                                                "AWG": "Aruban Florin",
+                                                "AZN": "Azerbaijani Manat",
+                                                "BAM": "Bosnia-Herzegovina Convertible Mark",
+                                                "BBD": "Barbadian Dollar",
+                                                "BDT": "Bangladeshi Taka",
+                                                "BGN": "Bulgarian Lev",
+                                                "BHD": "Bahraini Dinar",
+                                                "BIF": "Burundian Franc",
+                                                "BMD": "Bermudan Dollar",
+                                                "BND": "Brunei Dollar",
+                                                "BOB": "Bolivian Boliviano",
+                                                "BRL": "Brazilian Real",
+                                                "BSD": "Bahamian Dollar",
+                                                "BTC": "Bitcoin",
+                                                "BTN": "Bhutanese Ngultrum",
+                                                "BWP": "Botswanan Pula",
+                                                "BYN": "New Belarusian Ruble",
+                                                "BYR": "Belarusian Ruble",
+                                                "BZD": "Belize Dollar",
+                                                "CAD": "Canadian Dollar",
+                                                "CDF": "Congolese Franc",
+                                                "CHF": "Swiss Franc",
+                                                "CLF": "Chilean Unit of Account (UF)",
+                                                "CLP": "Chilean Peso",
+                                                "CNY": "Chinese Yuan",
+                                                "COP": "Colombian Peso",
+                                                "CRC": "Costa Rican Colón",
+                                                "CUC": "Cuban Convertible Peso",
+                                                "CUP": "Cuban Peso",
+                                                "CVE": "Cape Verdean Escudo",
+                                                "CZK": "Czech Republic Koruna",
+                                                "DJF": "Djiboutian Franc",
+                                                "DKK": "Danish Krone",
+                                                "DOP": "Dominican Peso",
+                                                "DZD": "Algerian Dinar",
+                                                "EGP": "Egyptian Pound",
+                                                "ERN": "Eritrean Nakfa",
+                                                "ETB": "Ethiopian Birr",
+                                                "EUR": "Euro",
+                                                "FJD": "Fijian Dollar",
+                                                "FKP": "Falkland Islands Pound",
+                                                "GBP": "British Pound Sterling",
+                                                "GEL": "Georgian Lari",
+                                                "GGP": "Guernsey Pound",
+                                                "GHS": "Ghanaian Cedi",
+                                                "GIP": "Gibraltar Pound",
+                                                "GMD": "Gambian Dalasi",
+                                                "GNF": "Guinean Franc",
+                                                "GTQ": "Guatemalan Quetzal",
+                                                "GYD": "Guyanaese Dollar",
+                                                "HKD": "Hong Kong Dollar",
+                                                "HNL": "Honduran Lempira",
+                                                "HRK": "Croatian Kuna",
+                                                "HTG": "Haitian Gourde",
+                                                "HUF": "Hungarian Forint",
+                                                "IDR": "Indonesian Rupiah",
+                                                "ILS": "Israeli New Sheqel",
+                                                "IMP": "Manx pound",
+                                                "INR": "Indian Rupee",
+                                                "IQD": "Iraqi Dinar",
+                                                "IRR": "Iranian Rial",
+                                                "ISK": "Icelandic Króna",
+                                                "JEP": "Jersey Pound",
+                                                "JMD": "Jamaican Dollar",
+                                                "JOD": "Jordanian Dinar",
+                                                "JPY": "Japanese Yen",
+                                                "KES": "Kenyan Shilling",
+                                                "KGS": "Kyrgystani Som",
+                                                "KHR": "Cambodian Riel",
+                                                "KMF": "Comorian Franc",
+                                                "KPW": "North Korean Won",
+                                                "KRW": "South Korean Won",
+                                                "KWD": "Kuwaiti Dinar",
+                                                "KYD": "Cayman Islands Dollar",
+                                                "KZT": "Kazakhstani Tenge",
+                                                "LAK": "Laotian Kip",
+                                                "LBP": "Lebanese Pound",
+                                                "LKR": "Sri Lankan Rupee",
+                                                "LRD": "Liberian Dollar",
+                                                "LSL": "Lesotho Loti",
+                                                "LTL": "Lithuanian Litas",
+                                                "LVL": "Latvian Lats",
+                                                "LYD": "Libyan Dinar",
+                                                "MAD": "Moroccan Dirham",
+                                                "MDL": "Moldovan Leu",
+                                                "MGA": "Malagasy Ariary",
+                                                "MKD": "Macedonian Denar",
+                                                "MMK": "Myanma Kyat",
+                                                "MNT": "Mongolian Tugrik",
+                                                "MOP": "Macanese Pataca",
+                                                "MRO": "Mauritanian Ouguiya",
+                                                "MUR": "Mauritian Rupee",
+                                                "MVR": "Maldivian Rufiyaa",
+                                                "MWK": "Malawian Kwacha",
+                                                "MXN": "Mexican Peso",
+                                                "MYR": "Malaysian Ringgit",
+                                                "MZN": "Mozambican Metical",
+                                                "NAD": "Namibian Dollar",
+                                                "NGN": "Nigerian Naira",
+                                                "NIO": "Nicaraguan Córdoba",
+                                                "NOK": "Norwegian Krone",
+                                                "NPR": "Nepalese Rupee",
+                                                "NZD": "New Zealand Dollar",
+                                                "OMR": "Omani Rial",
+                                                "PAB": "Panamanian Balboa",
+                                                "PEN": "Peruvian Nuevo Sol",
+                                                "PGK": "Papua New Guinean Kina",
+                                                "PHP": "Philippine Peso",
+                                                "PKR": "Pakistani Rupee",
+                                                "PLN": "Polish Zloty",
+                                                "PYG": "Paraguayan Guarani",
+                                                "QAR": "Qatari Rial",
+                                                "RON": "Romanian Leu",
+                                                "RSD": "Serbian Dinar",
+                                                "RUB": "Russian Ruble",
+                                                "RWF": "Rwandan Franc",
+                                                "SAR": "Saudi Riyal",
+                                                "SBD": "Solomon Islands Dollar",
+                                                "SCR": "Seychellois Rupee",
+                                                "SDG": "Sudanese Pound",
+                                                "SEK": "Swedish Krona",
+                                                "SGD": "Singapore Dollar",
+                                                "SHP": "Saint Helena Pound",
+                                                "SLL": "Sierra Leonean Leone",
+                                                "SOS": "Somali Shilling",
+                                                "SRD": "Surinamese Dollar",
+                                                "STD": "São Tomé and Príncipe Dobra",
+                                                "SVC": "Salvadoran Colón",
+                                                "SYP": "Syrian Pound",
+                                                "SZL": "Swazi Lilangeni",
+                                                "THB": "Thai Baht",
+                                                "TJS": "Tajikistani Somoni",
+                                                "TMT": "Turkmenistani Manat",
+                                                "TND": "Tunisian Dinar",
+                                                "TOP": "Tongan Paʻanga",
+                                                "TRY": "Turkish Lira",
+                                                "TTD": "Trinidad and Tobago Dollar",
+                                                "TWD": "New Taiwan Dollar",
+                                                "TZS": "Tanzanian Shilling",
+                                                "UAH": "Ukrainian Hryvnia",
+                                                "UGX": "Ugandan Shilling",
+                                                "USD": "United States Dollar",
+                                                "UYU": "Uruguayan Peso",
+                                                "UZS": "Uzbekistan Som",
+                                                "VEF": "Venezuelan Bolívar Fuerte",
+                                                "VND": "Vietnamese Dong",
+                                                "VUV": "Vanuatu Vatu",
+                                                "WST": "Samoan Tala",
+                                                "XAF": "CFA Franc BEAC",
+                                                "XAG": "Silver (troy ounce)",
+                                                "XAU": "Gold (troy ounce)",
+                                                "XCD": "East Caribbean Dollar",
+                                                "XDR": "Special Drawing Rights",
+                                                "XOF": "CFA Franc BCEAO",
+                                                "XPF": "CFP Franc",
+                                                "YER": "Yemeni Rial",
+                                                "ZAR": "South African Rand",
+                                                "ZMK": "Zambian Kwacha (pre-2013)",
+                                                "ZMW": "Zambian Kwacha",
+                                                "ZWL": "Zimbabwean Dollar"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/convert": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optionally, provide a specific date (format YYYY-MM-DD) to use historical rates for this conversion.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": true,
+                        "description": "The three-letter currency code of the currency you would like to convert from.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "USD"
+                        }
+                    },
+                    {
+                        "name": "amount",
+                        "in": "query",
+                        "required": true,
+                        "description": "The amount to be converted.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "750"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": true,
+                        "description": "The three-letter currency code of the currency you would like to convert to.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "EUR"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Convert",
+                "description": "In addition to providing converstion rates, our API provides a dedicated endpoint to easily do conversion on a specific amount of the currency.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "date": "2021-03-15",
+                                            "info": {
+                                                "rate": 0.837805,
+                                                "timestamp": 1615786266
+                                            },
+                                            "query": {
+                                                "amount": 750,
+                                                "from": "USD",
+                                                "to": "EUR"
+                                            },
+                                            "result": 628.35375,
+                                            "success": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/{date}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "A comma-separated list of currency codes to convert the `from` parameter into.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "EUR,GBP"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Three-letter currency code of the currency would would like to convert from. This currency will be converted into the code of the currency provided in the `to` parameter",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "USD"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "required": true,
+                        "description": "The date to retrieve the historical exchange rates from.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "2019-10-16"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Historical Exchange Rates",
+                "description": "Retrieve historical exchange rate data. Data is available for most currencies all the way back to the year of 1999.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "base": "USD",
+                                            "date": "2019-10-16",
+                                            "historical": true,
+                                            "rates": {
+                                                "EUR": 0.90298,
+                                                "GBP": 0.779895
+                                            },
+                                            "success": true,
+                                            "timestamp": 1571270399
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/latest": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "A comma-separated list of currency codes to convert the `from` parameter into.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "EUR,GBP"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Three-letter currency code of the currency would would like to convert from. This currency will be converted into the code of the currency provided in the `to` parameter",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "USD"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Recent Exchange Rates",
+                "description": "Retrieve the latest exchange rate data. Refresh rate will depend on your subscription: updated every 60 minutes, every 10 minutes or every 60 seconds.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "base": "USD",
+                                            "date": "2021-03-02",
+                                            "rates": {
+                                                "EUR": 0.831885,
+                                                "GBP": 0.720615
+                                            },
+                                            "success": true,
+                                            "timestamp": 1614664926
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

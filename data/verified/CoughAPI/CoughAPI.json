@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_f00eb669-2cb0-471a-9ddc-51eed163cb7a",
+    "name": "CoughAPI",
+    "title": "CoughAPI",
+    "description": "First in its class AI for cough recognition via smartphone",
+    "visibility": "PUBLIC",
+    "slugifiedName": "coughapi",
+    "pricing": "FREE",
+    "updatedAt": "2020-12-18T08:17:03.268Z",
+    "category": "Medical",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/503642b1-c0d6-4328-80fc-1b1662c3cce9.png",
+    "user": {
+        "id": 4798009,
+        "username": "CoughTracker",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_21ce5bb7-3175-4c22-9080-223ca4cb29d5",
+        "tags": [
+            {
+                "id": "tag_eda2d927-48d6-447e-bc52-49a5063520e0",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_8a5fd573-d3ec-42a3-bdaa-6c1169b8004f",
+                "isGraphQL": false,
+                "route": "/v1/recognize/url",
+                "method": "POST",
+                "name": "Recognize By Url",
+                "description": "Cough analysis audio file from url\n\nReturns an array of cough episodes if they were detected in the original sound.\nEach episode is characterized by a start and ends time stamp, duration, and type of cough (dry or wet)\nAdditionally, there is a value for the probability that the type of cough in the episode is wet (wetPrediction)",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

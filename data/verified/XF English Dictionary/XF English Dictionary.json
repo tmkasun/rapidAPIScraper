@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_a512df92-6739-4f03-9145-3c4bffcda648",
+    "name": "XF English Dictionary",
+    "title": "XF English Dictionary",
+    "description": "Provides definitions of English words and phrases plus usage examples, word forms, synonyms, antonyms, pronunciation data,  and word frequencies. Applies linguistic analysis to source text.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "xf-english-dictionary1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-03T18:59:46.234Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ec842384-e05c-49d4-9845-7127f2c84de4.png",
+    "user": {
+        "id": 4745420,
+        "username": "xf-innovations-xf-innovations-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_59943796-a81f-4627-8dd7-0b51bdde0afa",
+        "tags": [
+            {
+                "id": "tag_e5be8cc6-0fc6-4ca9-aa4c-d716104390fb",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_110b399d-03b2-4803-b5cb-7262366ce724",
+                "isGraphQL": false,
+                "route": "/v1/dictionary",
+                "method": "POST",
+                "name": "Dictionary",
+                "description": "Returns definitions of an English word (including its root forms) and/or phrases plus usage examples,  word forms, synonyms, antonyms, pronunciation data, and word frequencies. You can submit either a word, phrase or arbitrary text where the target word is selected.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

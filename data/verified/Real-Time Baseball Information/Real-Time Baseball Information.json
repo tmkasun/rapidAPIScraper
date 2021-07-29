@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_1cb8001a-b976-48cd-a258-74405e1e86f9",
+    "name": "Real-Time Baseball Information",
+    "title": "Real-Time Baseball Information",
+    "description": "Our \"Real-Time Baseball Information\" API returns present and historical content on baseball from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of baseball with our solution, or collect historical structured data on the most relevant past stories and events. Identified by IAB code IAB17-2, the api returns news items which contain topics such as baseball, IBAF, WBSC etc. Similar news topics are clustered together. Test our api for free and do not hesitate to reach us out for further information.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "real-time-baseball-information",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-07T17:21:44.939Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f86aad83-3136-4a53-8ffd-6373bda938d1.jpg",
+    "user": {
+        "id": 4551023,
+        "username": "connexun-srl-connexun-srl-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_49a65a2e-ba80-47f3-905a-cb42cda3b24f",
+        "tags": [
+            {
+                "id": "tag_95249fc1-6472-4d98-80ab-25f2018c1c22",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_b140224c-c4ba-41fe-a10d-59536dcc0aa6",
+                "isGraphQL": false,
+                "route": "/baseball",
+                "method": "GET",
+                "name": "/real-time_baseball_information",
+                "description": "The API returns real-time and historical content and information on baseball from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of baseball with our solution, or collect historical structured data on the most relevant past stories and events.\n\nIdentified by IAB code IAB17-2, the api returns news items which contain topics such as baseball, IBAF, WBSC etc. Similar news topics are clustered together.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

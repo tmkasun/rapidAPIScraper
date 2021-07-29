@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "58285db4e4b0277af3424187",
+    "name": "Airport Guide - Aviation Info",
+    "title": "Airport Guide - Aviation Info",
+    "description": "Get complete Airport Details by ICAO, IATA or Local IDs. AirportGuide.com has compiled data for over 25 years from multiple sources around the world to provide the best quality global landing facility data. Our database contains over 50,000 airports, heliports, balloonports, seaplane bases, ultralight fields, gliderports, and spaceports.\r\n\r\nIn addition to airport details, we have airline routes, nearby airports, airport delays, aviation calculators, METAR & TAF, airlines, airmen, and FBOs/fuel.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "airport-guide-aviation-info",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-19T14:45:11.890Z",
+    "category": "Travel, Transportation",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/17c88046-edd0-4700-b401-9e1c1a099d24.png",
+    "user": {
+        "id": 2934604,
+        "username": "AirportGuide",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "58285db4e4b0c681e4afa367",
+        "tags": [
+            {
+                "id": "tag_1714eb4f-d5bb-4454-b7a0-72c8e9cc2479",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "58599b90e4b08cf2d092ee1a",
+                "isGraphQL": false,
+                "route": "/gettaf",
+                "method": "GET",
+                "name": "OFFLINE - Get TAF Detail",
+                "description": "Get current Terminal Area Forecast (TAF) details given any latitude/longitude combination. The API finds METAR reports within a 20 mile radius or returns an error.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "58597e8ee4b08cf2d092eddb",
+                "isGraphQL": false,
+                "route": "/getmetar",
+                "method": "GET",
+                "name": "OFFLINE - Get METAR Detail",
+                "description": "Get current METAR details given any latitude/longitude combination. The API finds METAR reports within a 100 mile radius.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5832363fe4b0ed705551c62e",
+                "isGraphQL": false,
+                "route": "/all_delay",
+                "method": "GET",
+                "name": "OFFLINE - All Delays US",
+                "description": "Retrieve real-time airport ground delays for US and Southern Canadian airports.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

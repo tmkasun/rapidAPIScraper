@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_84587a59-80e9-4b8f-aed4-4e9f8e5996a1",
+    "name": "Noise Reduction",
+    "title": "Noise Reduction",
+    "description": "Reduce non-speech background noise in audios using machine learning.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "noise-reduction",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-08-27T06:36:55.124Z",
+    "category": "Machine Learning",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/3a/bacab8504a49afbe0cc8b149aa4cfe/475d55760ed03b48bf7c5adc9d057483.png",
+    "user": {
+        "id": 3763976,
+        "username": "kernellabs",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_bca0c1f0-388e-4352-8701-0699d2800986",
+        "tags": [
+            {
+                "id": "tag_f22f2b0c-ea36-4409-b420-24e079492954",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_f75c7376-1620-400b-a43a-64ab235d8a8f",
+                "isGraphQL": false,
+                "route": "/denoise",
+                "method": "POST",
+                "name": "denoise",
+                "description": "Takes a noisy audio file, and returns a denoised audio file. Audios taken in and returned must be in the WAV format. Each input audio file has size limit up to 10MB. Large audios can be split into clips before sending to the API.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

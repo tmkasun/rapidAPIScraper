@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5b2b3377e4b08122a9a22e4d",
+    "name": "Recipe and Ingredient Analysis",
+    "title": "Recipe and Ingredient Analysis",
+    "description": "Zestful  is the simplest way to parse recipe ingredients into beautiful JSON.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "recipe-and-ingredient-analysis",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-07-30T20:44:06.020Z",
+    "category": "Food",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/5b2b3378e4b0547c4a073a1b_medium.jpg",
+    "user": {
+        "id": 3552227,
+        "username": "zestfuldata",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5b2b3378e4b0547c4a073a1b",
+        "tags": [
+            {
+                "id": "tag_dbce2889-3656-4aa5-bfa1-8a7d151c3999",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "5b2b3424e4b0547c4a073a1e",
+                "isGraphQL": false,
+                "route": "/parseIngredients",
+                "method": "POST",
+                "name": "Parse Ingredients",
+                "description": "Parse recipe ingredients into structured data",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

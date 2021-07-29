@@ -1,0 +1,128 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_c09a75ef-f0ed-48f3-8ecb-4b3ee3910a36",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_6e78caed-6878-4ffb-bf6b-ff946b713e7f",
+        "apiId": "api_fbfed0c5-e977-452c-b309-00057b12523a"
+    },
+    "info": {
+        "title": "TrueWay Places",
+        "description": "Search for places. Provides detailed information for over 100 million places and points of interest.",
+        "version": "v1",
+        "x-category": "Mapping",
+        "x-long-description": "The Places API lets you search for places.\nYou can search for places either by proximity or a text string.\nThe API allows you to:\n- Search for places by text string\n- Search for places by proximity (Nearby Search)",
+        "x-website": "https://truewayapi.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/0ea15831-44c1-4901-8faf-dba894bf7770.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://trueway-places.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/FindPlacesNearby": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "The language in which to return results",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": false,
+                        "description": "The distance (in meters) within which to return results. Max = 10000 m",
+                        "schema": {
+                            "type": "number",
+                            "example": "150"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "The type of places that are returned",
+                        "schema": {
+                            "type": "string",
+                            "example": "cafe"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": true,
+                        "description": "The latitude/longitude around which to retrieve places",
+                        "schema": {
+                            "type": "string",
+                            "example": "37.783366,-122.402325"
+                        }
+                    }
+                ],
+                "operationId": "FindPlacesNearby",
+                "description": "Search for nearby places",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/FindPlaceByText": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "bounds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Rectangular bounds (south,west,north,east)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "The language in which to return results",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "required": true,
+                        "description": "A text string on which to search",
+                        "schema": {
+                            "type": "string",
+                            "example": "Children's Creativity Museum"
+                        }
+                    }
+                ],
+                "operationId": "FindPlaceByText",
+                "description": "Search for places by text string",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

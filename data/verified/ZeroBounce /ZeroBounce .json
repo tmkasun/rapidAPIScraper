@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_a7505994-edff-414f-bdff-c455f77e5d49",
+    "name": "ZeroBounce ",
+    "title": "ZeroBounce ",
+    "description": "Email Validation Service. Use ZeroBounce's email validation API to increase your email marketing ROI! Remove invalid email addresses from your list using our unique email verification scrubbing system to prevent email bounces.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "zerobounce1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-10-23T14:12:25.497Z",
+    "category": "Email",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/9b/0422502ef711e9b18e0daa95140cca/4d2b317e8f91a5edacd124f7b5a30b7d.png",
+    "user": {
+        "id": 3631104,
+        "username": "leeann",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_ec8c5606-1d79-45b9-a03b-64ac186046c2",
+        "tags": [
+            {
+                "id": "tag_540c3651-db5b-4832-b3c4-863d393029c1",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_43da903c-95f5-4ac9-a40f-972a66ecf5b0",
+                "isGraphQL": false,
+                "route": "/v2/validate",
+                "method": "GET",
+                "name": "Validate",
+                "description": "Validates Email",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

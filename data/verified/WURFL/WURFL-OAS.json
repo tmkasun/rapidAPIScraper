@@ -1,0 +1,187 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_bf16e7df-fde5-4895-bbd2-3d107b36dd54",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_3c26fcb3-a806-49de-b2e2-67db1811642c",
+        "apiId": "api_bde81f96-f708-4733-97d2-d76abf1dc4f3"
+    },
+    "info": {
+        "title": "WURFL",
+        "description": "WURFL is an API for Device Detection that maps HTTP requests to the properties of the device and browser",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "WURFL is the industry standard for Device Detection and Intelligence. WURFL lets you map HTTP traffic to the properties of the device and the browser. \n",
+        "x-website": "https://www.scientiamobile.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/566c5503-ef11-47d1-bd44-0d043b3e4038.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://wurfl.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "v2"
+        }
+    ],
+    "paths": {
+        "/v2/lookuprequest/json": {
+            "post": {
+                "tags": [
+                    "v2"
+                ],
+                "summary": "Return device lookup informations from HTTP request headers",
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "lookuprequest",
+                "description": "Returns device capability info using the HTTP request headers as input.\nAt least one header (\"User-Agent\") is needed.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "examples": {
+                                "lookuprequest": {
+                                    "description": "",
+                                    "summary": "lookuprequest",
+                                    "value": {
+                                        "lookup_headers": {
+                                            "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; ASUS_Z017D Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/539.36"
+                                        },
+                                        "requested_caps": null,
+                                        "requested_vcaps": null
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/v2/lookupdeviceid/json": {
+            "post": {
+                "tags": [
+                    "v2"
+                ],
+                "summary": "Return device lookup informations from a WURFL device ID",
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "lookupdeviceid",
+                "description": "Performs a device detection and returns a device's capabilities.\nPOST request body must contain, at least, the wurfl_id field",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {
+                                        "wurfl_id": "asus_z017d_ver1"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/v2/lookupuseragent/json": {
+            "post": {
+                "tags": [
+                    "v2"
+                ],
+                "summary": "Return device detection informations from User-Agent header",
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "lookupuseragent",
+                "description": "Performs a device detection and returns a device's capabilities.\nPOST request body must contain the user agent string",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {}
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {
+                                        "lookup_headers": {
+                                            "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; ASUS_Z017D Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

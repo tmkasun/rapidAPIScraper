@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "55c40a4ae4b04cc103ecb2e3",
+    "name": "uk.boundaries.io",
+    "title": "uk.boundaries.io",
+    "description": "UK Postal Code(ex. ZE1 0AE), Sector,  District,  Boundaries API:\r\n\r\nA simple & very fast API that will allow you to integrate multiple GeoJson UK Unit and sector level boundaries result into your apps and systems.\r\nThis API is designed to be used programatically for optimal performance.  When using the MashApe UI for queries expect significant latency issues on large result sets!",
+    "visibility": "PUBLIC",
+    "slugifiedName": "uk-boundaries-io",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-01-03T16:59:10.878Z",
+    "category": "Mapping",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/616bff73-6ffa-4baf-8a9b-152349385552.png",
+    "user": {
+        "id": 1914277,
+        "username": "VanitySoft",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "55c40a4ae4b06ab178a9b4e5",
+        "tags": [
+            {
+                "id": "tag_e47bd16e-47fb-48b5-a93e-442e19524b27",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_93cc9fa1-c64f-4c87-b315-e8d43a37fdee",
+                "isGraphQL": false,
+                "route": "/rest/v1/public/boundary/uk/h3/index/{h3Index}",
+                "method": "GET",
+                "name": "Query for Hexagon by H3Index",
+                "description": "Query for Hexagon by H3Index",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_2d639fe1-b581-4778-940d-1b018e98c20e",
+                "isGraphQL": false,
+                "route": "/rest/v1/public/boundary/uk/h3/location/boundary",
+                "method": "GET",
+                "name": "Query for Hexagon by Location and Resolution",
+                "description": "Query for Hexagon by Location and Resolution",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_9b30bdbc-b860-4641-9924-5bdb0e63d4e1",
+                "isGraphQL": false,
+                "route": "/rest/v1/public/boundary/uk/h3/unit/index/{h3ndex}",
+                "method": "GET",
+                "name": "Query for Postal Unit Boundary by H3Index",
+                "description": "Query for Postal Unit Boundary by H3Index\n\nIf  a Postal Unit code exists within this hexagon a boundary is returned.\nadjusting the resolution(0-16) increases the hexagon area.\n\nhttps://eng.uber.com/",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

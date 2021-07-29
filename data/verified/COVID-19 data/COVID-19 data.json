@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_36a2021b-97da-4a1d-9262-02b8222745f1",
+    "name": "COVID-19 data",
+    "title": "COVID-19 data",
+    "description": "Every 15 minutes updated statistic about Coronavirus. Latest stats by country, are collected from several reliable sources. You can also see total stats and daily reports. With 6 servers around the world, we are also fastest API related with COVID-19 on RapidAPI marketplace.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "covid-19-data",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-02-16T09:26:05.394Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/50ac3a55-4378-4965-a9a4-80bc9d05ac7a.jpg",
+    "user": {
+        "id": 3330503,
+        "username": "Gramzivi",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_d86f4843-3108-4061-921d-e98aa632601e",
+        "tags": [
+            {
+                "id": "tag_5e32e9d5-f059-426b-8a17-11a01714e567",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_cf19755e-dd5a-4723-9eb9-a2b87d824002",
+                "isGraphQL": false,
+                "route": "/report/totals",
+                "method": "GET",
+                "name": "getDailyReportTotals",
+                "description": "Get daily report data for the whole world. Date format is by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard, but you can provide different format with date-format parameter. If you don't provide the `date` parameter, the whole timeline will be returned.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_5462f281-d0ed-4e8f-9496-a6fd13330081",
+                "isGraphQL": false,
+                "route": "/country/all",
+                "method": "GET",
+                "name": "getLatestAllCountries",
+                "description": "Get latest data for all countries.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_35f69513-ea31-48fd-a97d-4e2c8165d0b3",
+                "isGraphQL": false,
+                "route": "/totals",
+                "method": "GET",
+                "name": "getLatestTotals",
+                "description": "Get latest data for whole world.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

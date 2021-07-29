@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_91d89c2a-4bc7-4bf3-8f23-5dc9b476744b",
+    "name": "API-RUGBY",
+    "title": "API-RUGBY",
+    "description": "Rugby Leagues & Cups with Livescore, Odds, Bookmakers, Statistics, Standings, Historical Data...",
+    "visibility": "PUBLIC",
+    "slugifiedName": "api-rugby",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-08T17:47:15.542Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/47a6a2e2-c8c6-4d23-8526-03d61fcdd3bd.png",
+    "user": {
+        "id": 3553584,
+        "username": "api-sports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_c472cb54-6a07-400b-a64c-b5991b398d67",
+        "tags": [
+            {
+                "id": "tag_31f201c0-0530-4c5d-ad9e-6d977a31d0c2",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_ffe79be0-8527-4dbd-b2c4-92c48e16f7ac",
+                "isGraphQL": false,
+                "route": "/teams",
+                "method": "GET",
+                "name": "Search Teams",
+                "description": "Get data about teams.\n\nThe team `id` are **unique** in the API and teams keep it among all the leagues/cups in which they participate.\n\n> **This endpoint requires at least one parameter.**",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_d36892ec-3efd-4580-9192-64a05e78f92e",
+                "isGraphQL": false,
+                "route": "/teams",
+                "method": "GET",
+                "name": "Teams",
+                "description": "Get data about teams.\n\nThe team `id` are **unique** in the API and teams keep it among all the leagues/cups in which they participate.\n\n> **This endpoint requires at least one parameter.**",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_e71a29d0-04a3-4d74-acbf-c6a9241c269b",
+                "isGraphQL": false,
+                "route": "/odds/bets",
+                "method": "GET",
+                "name": "Search Bets",
+                "description": "Get all available bets.\n\nAll bets `id` can be used in endpoint odds as filters",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

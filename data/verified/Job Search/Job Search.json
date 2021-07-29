@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_b7a4e806-115e-4cc5-bd4b-2b1551bc4762",
+    "name": "Job Search",
+    "title": "Job Search",
+    "description": "The comprehensive job search API, powered by Indeed, Simply Hired and Lawjobs.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "job-search4",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-06-20T17:51:32.186Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ddd1f736-d374-40fa-a953-4d1e6ee7d5d6.png",
+    "user": {
+        "id": 5029954,
+        "username": "lattice-data-lattice-data-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_8abbb400-2190-46db-9fc7-593e9b4e1ce1",
+        "tags": [
+            {
+                "id": "tag_239b7cdb-9360-45bb-89b1-3cb37e3992ed",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_39951977-af73-4e6c-9657-b29c4769e3ab",
+                "isGraphQL": false,
+                "route": "/lawjobs/search",
+                "method": "GET",
+                "name": "Lawjobs",
+                "description": "Conducts a comprehensive search of jobs posted in Lawjobs based on a text query.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_506c5fbb-97c1-4294-8af6-dd970bbc63a7",
+                "isGraphQL": false,
+                "route": "/simplyhired/search",
+                "method": "GET",
+                "name": "SimplyHired",
+                "description": "Search for job postings on SimplyHired based on a text query.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_ec0d0836-d970-4991-a9ac-67986718358a",
+                "isGraphQL": false,
+                "route": "/craigslist/search",
+                "method": "GET",
+                "name": "Craigslist",
+                "description": "Search for jobs postings on Craigslist based on a text query.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

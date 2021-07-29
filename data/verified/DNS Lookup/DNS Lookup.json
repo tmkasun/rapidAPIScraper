@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_034adf31-a0a6-484c-b6fd-ac9d17d48b84",
+    "name": "DNS Lookup",
+    "title": "DNS Lookup",
+    "description": "API to lookup the DNS Record related to Domain.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "dns-lookup1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-06-16T19:08:54.527Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d96be65b-0b32-4525-a086-12d80e33580b.png",
+    "user": {
+        "id": 3742087,
+        "username": "jerry.rahul2",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_a32849ef-6072-4c74-bab6-e7e5f78786a6",
+        "tags": [
+            {
+                "id": "tag_ccb12573-6ba5-44ce-a315-f5bed2dffb5b",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_e6dce0cb-da9c-4478-9e77-ea23999be694",
+                "isGraphQL": false,
+                "route": "/dns-lookup",
+                "method": "POST",
+                "name": "DNS Record Lookup",
+                "description": "Accept the Domain Name as param and returns DNS record as JSON.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

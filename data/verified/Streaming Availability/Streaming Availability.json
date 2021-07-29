@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_ba039d45-61d5-4224-9e8f-c86b62a30b08",
+    "name": "Streaming Availability",
+    "title": "Streaming Availability",
+    "description": "Lookup which shows are available on Netflix, Prime, Disney, HBO, Hulu and many other services across 60 countries",
+    "visibility": "PUBLIC",
+    "slugifiedName": "streaming-availability",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-25T22:50:32.132Z",
+    "category": "Media",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f60cf56f-f3bf-4a72-bd73-e49e09b58c58.png",
+    "user": {
+        "id": 4820746,
+        "username": "movie-of-the-night-movie-of-the-night-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_0f491f93-c139-4fef-8619-ba723612e4fd",
+        "tags": [
+            {
+                "id": "tag_8af946fe-b64d-457d-9209-e29006f340de",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_a62685e4-ab13-46cd-af0c-92760fde820e",
+                "isGraphQL": false,
+                "route": "/changes",
+                "method": "GET",
+                "name": "Changes (Ultra)",
+                "description": "Availability changes in the services, `new` or `removed`. Includes all the changes in the last 7 days. No pagination",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_6a295da4-8faa-45c8-81ff-b7d717c79e9e",
+                "isGraphQL": false,
+                "route": "/search/ultra",
+                "method": "GET",
+                "name": "Search Ultra",
+                "description": "Search through catalog of a service in the given country. Provides filters such as minimum and maximum IMDb rating, minimum and maximum IMDb vote count, show language, release year, keyword and genre. Items per page is 25. Output includes all the information about the shows, such as title, IMDb ID, TMDb ID, IMDb rating, link to shows' pages in streaming services, cast, runtime, poster and many more! Results can be ordered by `original_title`, `year`, `imdb_vote_count`, `imdb_rating`. Apart from the info about the given country-service combination, output also includes information about availability in other services for the given country.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_4ead4692-383f-4e0a-a1bd-d52d0dc5a8ff",
+                "isGraphQL": false,
+                "route": "/leaving",
+                "method": "GET",
+                "name": "Leaving",
+                "description": "Get all the leaving movies or series from a service-country combination. No pagination.\n\nIncludes all the qualifying titles leaving in the following 31 days and the ones set as leaving but without a specific leaving date (in this case leaving value will be 1 in streaming info).",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

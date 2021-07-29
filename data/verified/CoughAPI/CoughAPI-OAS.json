@@ -1,0 +1,122 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_eda2d927-48d6-447e-bc52-49a5063520e0",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_21ce5bb7-3175-4c22-9080-223ca4cb29d5",
+        "apiId": "api_f00eb669-2cb0-471a-9ddc-51eed163cb7a"
+    },
+    "info": {
+        "title": "CoughAPI",
+        "description": "First in its class AI for cough recognition via smartphone",
+        "version": "v1",
+        "x-category": "Medical",
+        "x-long-description": "The cloud-based Cough API provides developers with access to algorithms for automatic recognition of coughs and their characteristics through a user's smartphone or laptop.\nWith the Cough API, developers can build services and products with algorithms that can run in the background on the user’s devices. Algorithms can also distinguish the following cough characteristics: cough intensity, cough type (dry/wet), duration, severity.\n\nREIMBURSEMENT\nMedicare and other major payers reimburse for reviewing patient-generated health data using new remote patient monitoring CPT codes.\nYou can utilize the prepared guidelines for obtaining such reimbursement\nhttp://static.coughtracker.io/rapidapi/reimbursement-guide.pdf\n\nDISCLAIMER\nThis product is not for diagnostic and is for information purposes only. Any use this product for health-related purposes is the sole responsibility of the developer.\nTo comply with the users' privacy, the algorithm recognizes only cough and its characteristics and is unable to recognize human speech or other sounds.\n\nFor Custom pricing and Features, contact the api provider.",
+        "x-website": "https://coughtracker.io/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/503642b1-c0d6-4328-80fc-1b1662c3cce9.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://coughapi.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/v1/recognize/url": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Recognize By Url",
+                "description": "Cough analysis audio file from url\n\nReturns an array of cough episodes if they were detected in the original sound.\nEach episode is characterized by a start and ends time stamp, duration, and type of cough (dry or wet)\nAdditionally, there is a value for the probability that the type of cough in the episode is wet (wetPrediction)",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "result": {
+                                            "properties": {
+                                                "episodes": {
+                                                    "description": "Collection of cough episodes",
+                                                    "items": {
+                                                        "description": "Cough episode",
+                                                        "properties": {
+                                                            "coughType": {
+                                                                "description": "Type of cough. Possibility values: wet, dry",
+                                                                "type": "string"
+                                                            },
+                                                            "end": {
+                                                                "description": "End of cough episode in seconds",
+                                                                "type": "number"
+                                                            },
+                                                            "length": {
+                                                                "description": "Duration of cough episode in seconds",
+                                                                "type": "number"
+                                                            },
+                                                            "start": {
+                                                                "description": "Start of cough episodes, seconds",
+                                                                "type": "number"
+                                                            },
+                                                            "wetPrediction": {
+                                                                "description": "Cough episode wet probability",
+                                                                "type": "number"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "success": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "result": {
+                                                "episodes": [
+                                                    {
+                                                        "coughType": "wet",
+                                                        "end": 3.907,
+                                                        "length": 0.38,
+                                                        "start": 3.527,
+                                                        "wetPrediction": 1
+                                                    },
+                                                    {
+                                                        "coughType": "wet",
+                                                        "end": 4.175,
+                                                        "length": 0.201,
+                                                        "start": 3.974,
+                                                        "wetPrediction": 0.965581894
+                                                    }
+                                                ]
+                                            },
+                                            "success": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

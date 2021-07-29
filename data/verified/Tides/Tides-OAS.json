@@ -1,0 +1,104 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_01b0c604-33f9-4efe-8339-a93d0ff3bd11",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_bdf305c1-79d3-4012-a791-811a1d5b9f03",
+        "apiId": "api_b3dea533-fe02-45eb-8ea3-ec8021ef04d4"
+    },
+    "info": {
+        "title": "Tides",
+        "description": "Global Tides API provides tidal heights predictions at any location of the World Ocean.",
+        "version": "v1",
+        "x-category": "Weather",
+        "x-long-description": "Global Tides API provides tidal heights predictions at any location of the World Ocean.",
+        "x-website": "https://api.hood.land",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/a8/80a908b7054a89b4a7883cd193b8f8/c7cc382a5067455bf739c34eba7763ac.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://tides.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/tides": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "duration",
+                        "in": "query",
+                        "required": false,
+                        "description": "Duration is the number of minutes for which the forecast should be calculated. Default and minimum is 1 440 (one day). Please note that one response can contain max 10 080 predicted heights, so duration/interval can't be bigger than 10 080.",
+                        "schema": {
+                            "type": "string",
+                            "example": "1440"
+                        }
+                    },
+                    {
+                        "name": "timestamp",
+                        "in": "query",
+                        "required": false,
+                        "description": "Timestamp (number of seconds since the unix epoch) of the prediction beginning. Datetime represented with this timestamp will be floored to whole minute. Defaults to current timestamp",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": false,
+                        "description": "When no prediction is found in requested coordinates, API tries to return the nearest prediction. You can limit the radius by setting radius parameter to any positive integer.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "interval",
+                        "in": "query",
+                        "required": false,
+                        "description": "Interval means number of minutes between the returned measurements. Please note that one response can contain max 10 080 predicted heights, so duration/interval can't be bigger than 10 080.",
+                        "schema": {
+                            "type": "number",
+                            "example": "60"
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Latitude in range from -90 to 90",
+                        "schema": {
+                            "type": "number",
+                            "example": "44.414"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "Longitude in range from -180 to 180",
+                        "schema": {
+                            "type": "number",
+                            "example": "-2.097"
+                        }
+                    }
+                ],
+                "operationId": "Tides",
+                "description": "Endpoint for getting Tide predictions like extremes and water level",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

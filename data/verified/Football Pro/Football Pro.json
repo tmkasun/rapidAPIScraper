@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_e4c49040-caa7-443d-961e-b6f1b38f5cab",
+    "name": "Football Pro",
+    "title": "Football Pro",
+    "description": "-SportMonks API- Looking for better and reliable Football Data? More Leagues(1.000+)? Faster Livescores (>15 faster)? And more available Odds and Stats? Check https://sportmonks.com/football-api  With this SportMonks Football Pro API we offer 900+ Leagues and the fastest real-time Livescores in the market with a rich set of other features like (live)Odds, Statistics, Line-ups, Standings and many more features. For example our Livescores are often faster than TV and often >15 seconds(!!) faster compared to other suppliers. With more than 14.000 registered users we we can say we are the go-to party for Fast en Reliable Football Data.  When you want your business idea to succeed, go for quality Football Data, and not the cheapest supplier. More info: https://sportmonks.com/football-api | | Docs: https://www.sportmonks.com/docs/football/2.0/ ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "football-pro",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-31T14:52:23.425Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/e2c53404-6426-4c1f-8563-544726675810.png",
+    "user": {
+        "id": 4091459,
+        "username": "sportmonks-data",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_fa0b7421-8d0e-4a3a-bc71-00ab855b786e",
+        "tags": [
+            {
+                "id": "tag_4f3b7e0c-4e08-4019-b350-eb6f624da6c3",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_42b5deba-9fd2-4b54-8086-cbc88403200d",
+                "isGraphQL": false,
+                "route": "/api/v2.0/fixtures/between/{startDate}/{endDate}/{teamID}",
+                "method": "GET",
+                "name": "Fixtures Between 2 Dates for one team",
+                "description": "With this endpoint you can get the fixtures between two dates for one team.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_1beaa61a-aea1-4f9c-9362-243cd0d6bb31",
+                "isGraphQL": false,
+                "route": "/api/v2.0/countries",
+                "method": "GET",
+                "name": "All Countries",
+                "description": "The Countries endpoint provides you Country information like for example its Flag, IsoCode, Continent and other related Country information.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_a610f589-b598-4c4f-ab87-8f4ab64fad99",
+                "isGraphQL": false,
+                "route": "/api/v2.0/teams/{id}",
+                "method": "GET",
+                "name": "Active Season by Team ID",
+                "description": "With this endpoint you can get an overview all the active seasons of one Team by ID",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_859601e0-9a4c-4fb6-b633-370e58ea21ea",
+    "name": "Face Detection",
+    "title": "Face Detection",
+    "description": "PresentID Face detection API can detect the face(s) in your image and retrieve some features such as Age, Gender, Landmarks, etc.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "face-detection11",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-20T13:18:37.274Z",
+    "category": "Visual Recognition",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/caf65833-9a0d-41d0-8f61-62f0450744f9.png",
+    "user": {
+        "id": 4565546,
+        "username": "PresentID",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_470255d7-b778-40cb-bd1c-5b666277e6e4",
+        "tags": [
+            {
+                "id": "tag_926bbff1-3bfd-4fb6-a9a6-63c817f0feb3",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_3a6e455b-916b-4f5b-a24e-2fc2e3d5a9d0",
+                "isGraphQL": false,
+                "route": "/FaceDetection",
+                "method": "POST",
+                "name": "Send image with image URL",
+                "description": "Detect face(s) in your image and retrieve some features such as Age, Gender, Land Marks and etc.\n\n*Image size should not exceed 8 MB*\n*Also, the images must not be larger than 5000 pixels and smaller than 50 pixels*",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_00de45e6-9ac9-4776-ba98-c1af0a1dbb78",
+                "isGraphQL": false,
+                "route": "/FaceDetection",
+                "method": "POST",
+                "name": "Send image with Base64",
+                "description": "Detect face(s) in your image and retrieve some features such as Age, Gender, Land Marks and etc.\n\n*Image size should not exceed 8 MB*\n*Also, the images must not be larger than 5000 pixels and smaller than 50 pixels*",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_3a99f1cb-5e8e-4084-979f-f139b25c7106",
+                "isGraphQL": false,
+                "route": "/FaceDetection",
+                "method": "POST",
+                "name": "Send image by image file",
+                "description": "Detect face(s) in your image and retrieve some features such as Age, Gender, Land Marks and etc.\n\n*Image size should not exceed 8 MB*\n*Also, the images must not be larger than 5000 pixels and smaller than 50 pixels*",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

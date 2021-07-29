@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_99a60ded-f406-499d-9428-36669908ed9a",
+    "name": "EOD Historical Data",
+    "title": "EOD Historical Data",
+    "description": "We provide more than 20 YEARS of FUNDAMENTAL data, TECHNICAL, and DAILY historical stock prices for stocks, ETFs, Mutual Funds, and Bonds all around the world.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "eod-historical-data",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-07T14:04:34.499Z",
+    "category": "Finance",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/fff2a5b6-1667-4bbc-8f6d-0584827ff94c.png",
+    "user": {
+        "id": 4456284,
+        "username": "eod-historical-data-eod-historical-data-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_2ce8e55b-d9e8-496e-92e0-a0e0e25a24da",
+        "tags": [
+            {
+                "id": "tag_7bbfc84e-8379-450a-a8cb-dc8322ea4444",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_3a6e2a85-e99c-4b79-bbf9-adb6966b593a",
+                "isGraphQL": false,
+                "route": "/fundamentals/{ticker}",
+                "method": "GET",
+                "name": "Fundamental Data API",
+                "description": "Provides an access to fundamental data for Stocks, ETFs, Mutual Funds, and Indices for 60+ exchanges all around the world.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

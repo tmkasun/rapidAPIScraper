@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5bb75b62e4b02d6cfa6a80b4",
+    "name": "API-NBA",
+    "title": "API-NBA",
+    "description": "All NBA Stats DATA, Games, Livescore, Standings, Statistics...",
+    "visibility": "PUBLIC",
+    "slugifiedName": "api-nba",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-03T15:38:51.602Z",
+    "category": "Sports",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5bb75b62e4b085e3f4087c16_medium",
+    "user": {
+        "id": 3553584,
+        "username": "api-sports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5bb75b62e4b085e3f4087c16",
+        "tags": [
+            {
+                "id": "tag_91721bdd-05c0-40b6-a379-d7a5b2f1908d",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "5bb75f6ce4b005bfb67b7902",
+                "isGraphQL": false,
+                "route": "/teams/teamId/{teamid}",
+                "method": "GET",
+                "name": "/teams/teamId/",
+                "description": "Get team by his id",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5bb76728e4b01c1322c6f890",
+                "isGraphQL": false,
+                "route": "/teams/league/{league}",
+                "method": "GET",
+                "name": "/teams/league/",
+                "description": "Get team by league",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5bb7740ae4b02d6cfa6a8135",
+                "isGraphQL": false,
+                "route": "/standings/{league}/{seasonyear}",
+                "method": "GET",
+                "name": "/standings/",
+                "description": "Get standings by league & season",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

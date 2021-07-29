@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_27ebff1f-cf06-46c0-b458-9ff9f7f0b071",
+    "name": "COVID-19",
+    "title": "COVID-19",
+    "description": "Get statistics for all countries about COVID-19 [FREE TO USE]",
+    "visibility": "PUBLIC",
+    "slugifiedName": "covid-193",
+    "pricing": "FREE",
+    "updatedAt": "2021-01-15T22:37:05.561Z",
+    "category": "Health, Fitness",
+    "thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/1934d868-b8b9-40bf-a3a0-a978f007f89d.png",
+    "user": {
+        "id": 3553584,
+        "username": "api-sports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_8eb0bd28-182c-478d-ab63-4bd9b6c9b545",
+        "tags": [
+            {
+                "id": "tag_237a01c6-8903-4089-b7f2-f36682c2e0b9",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_97f1d614-d52d-459a-bb34-be1211366b0c",
+                "isGraphQL": false,
+                "route": "/countries",
+                "method": "GET",
+                "name": "Countries",
+                "description": "Get all available countries",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_dfb9e52d-bd90-48ec-a571-8b78610a736d",
+                "isGraphQL": false,
+                "route": "/history",
+                "method": "GET",
+                "name": "History",
+                "description": "Get historical statistics for a country",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_2feca6f0-0f58-40b7-9196-98c45c7d5083",
+                "isGraphQL": false,
+                "route": "/statistics",
+                "method": "GET",
+                "name": "Statistics",
+                "description": "Get all current statistics for all countries",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

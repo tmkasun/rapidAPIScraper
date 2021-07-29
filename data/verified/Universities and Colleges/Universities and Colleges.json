@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_29ccf87f-9db5-4ed0-8811-05253c13d241",
+    "name": "Universities and Colleges",
+    "title": "Universities and Colleges",
+    "description": "Retrieve information about the world's universities & colleges.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "universities-and-colleges",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-15T20:02:59.025Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f95d470d-b06c-4fff-bb66-6315a9cb6b9b.png",
+    "user": {
+        "id": 5179894,
+        "username": "principalapis",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_535692a6-5ca4-482e-86a9-6cb3b6772db1",
+        "tags": [
+            {
+                "id": "tag_e0b1a8b6-06a1-4c17-994b-13d41ee65374",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_c8baf7c7-3f70-4262-97f1-cb403d6a36df",
+                "isGraphQL": false,
+                "route": "/universities-by-id",
+                "method": "GET",
+                "name": "University Details by Id",
+                "description": "Retrieve a single university by ID. Automatically includes any available University details (University details cost $0.01 if additional details like school colors, mascot, website, address, and more are present in response).",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_c9be1b66-7a81-431e-9c1a-7a1330e02734",
+                "isGraphQL": false,
+                "route": "/universities",
+                "method": "GET",
+                "name": "Universities",
+                "description": "Retrieve a list of universities",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

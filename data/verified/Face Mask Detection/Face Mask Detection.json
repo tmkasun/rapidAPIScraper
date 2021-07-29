@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_47efa1c3-c46a-4d84-8504-f1ffa1f0cf12",
+    "name": "Face Mask Detection",
+    "title": "Face Mask Detection",
+    "description": "PresentID face mask detection API can detect that the person wears a mask or not.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "face-mask-detection",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-20T16:19:53.077Z",
+    "category": "Machine Learning",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b1aa95bd-2a15-4e8e-98f7-6b76f6575776.png",
+    "user": {
+        "id": 4565546,
+        "username": "PresentID",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_21a84348-c885-4a98-9f1c-1e58e2f2639a",
+        "tags": [
+            {
+                "id": "tag_d8f62235-a8dc-423d-b4de-f275b347415e",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_26af968b-de06-4805-8b29-ace74f9228b0",
+                "isGraphQL": false,
+                "route": "/FaceMaskDetection",
+                "method": "POST",
+                "name": "Send image with image URL",
+                "description": "- Send Data via Base64 or an image Url or an  image file\n- Image size should not exceed 8 MB\n- Also, the images should not be larger than 5000 pixels and smaller than 50 pixels",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_ecf83830-7e0c-4140-9b3a-e519a4285365",
+                "isGraphQL": false,
+                "route": "/FaceMaskDetection",
+                "method": "POST",
+                "name": "Send image with Base64",
+                "description": "- Send Data via Base64 or an image Url or an  image file\n- Image size should not exceed 8 MB\n- Also, the images should not be larger than 5000 pixels and smaller than 50 pixels",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_8bd5737c-56cb-4be0-902f-b17ff562c8dc",
+                "isGraphQL": false,
+                "route": "/FaceMaskDetection",
+                "method": "POST",
+                "name": "Sending image with image file",
+                "description": "- Send Data via Base64 or an image Url or an  image file\n- Image size should not exceed 8 MB\n- Also, the images should not be larger than 5000 pixels and smaller than 50 pixels",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

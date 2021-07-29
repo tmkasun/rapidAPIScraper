@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_e7a54ce9-ed7e-45f8-87a7-942e297b6420",
+    "name": "ScrapingMonkey",
+    "title": "ScrapingMonkey",
+    "description": "ScrapingMonkey is a RESTful web automation API.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "scrapingmonkey",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-26T09:10:21.779Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b9435886-930c-4818-8f16-0e148dd808d7.png",
+    "user": {
+        "id": 4343458,
+        "username": "onipot",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_1e3b6af4-62dc-44bb-aa20-84c9562b0c36",
+        "tags": [
+            {
+                "id": "tag_592ecd1c-4f4d-4700-8367-e10990c1ba26",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_3f109004-65b9-407d-99f9-627620d5968c",
+                "isGraphQL": false,
+                "route": "/byId",
+                "method": "POST",
+                "name": "/byId",
+                "description": "Get element(s) in the web page by ID.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_5cee00b8-1884-4366-a0b7-3a5370138437",
+                "isGraphQL": false,
+                "route": "/getPageHtml",
+                "method": "POST",
+                "name": "/getPageHtml",
+                "description": "Get html source code. The response will contain either statically and dynamically generated dom elements.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_2421053c-89fc-44bf-bc92-dc0c6deaa0e4",
+                "isGraphQL": false,
+                "route": "/byCssSelector",
+                "method": "POST",
+                "name": "/byCss",
+                "description": "Get elements using a css selector.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,187 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_8bc7183e-419c-4a05-a112-8aac1d4218c0",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_6bde9536-b3ce-4e4b-b124-474887bcf36f",
+        "apiId": "api_d258f8ed-8eb0-46d3-b0f4-0b17d324ceaf"
+    },
+    "info": {
+        "title": "Body Mass Index (BMI) Calculator",
+        "description": "Use this API to calculate the Body Mass Index of an individual based on their height and weight.",
+        "version": "v1",
+        "x-category": "Health and Fitness",
+        "x-long-description": "Use this API to calculate the Body Mass Index of an individual based on their height and weight.\n\nBody Mass Index, BMI, Health.",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/234fc191-1c81-40f2-bf45-fe4c3d0c22f1.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://body-mass-index-bmi-calculator.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/weight-category": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "bmi",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "19.2"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Weight Category",
+                "description": "Retrieve the weight category of an individual based on their BMI",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "bmi": "19.2",
+                                            "weightCategory": "Normal Weight"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/imperial": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "height",
+                        "in": "query",
+                        "required": true,
+                        "description": "The height of someone in inches (in)",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "68"
+                        }
+                    },
+                    {
+                        "name": "weight",
+                        "in": "query",
+                        "required": true,
+                        "description": "The weight of someone in pounds (lbs) ",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "150"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Imperial [Pounds]",
+                "description": "This endpoint will calculate the BMI of an individual using the imperial measurement system.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "bmi": 22.80493079584775,
+                                            "height": "68",
+                                            "weight": "150",
+                                            "weightCategory": ""
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/metric": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "height",
+                        "in": "query",
+                        "required": true,
+                        "description": "The height of someone in meters (m)",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1.83"
+                        }
+                    },
+                    {
+                        "name": "weight",
+                        "in": "query",
+                        "required": true,
+                        "description": "The weight of someone in kilograms (kgs)",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "150"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Metric [Kilograms]",
+                "description": "This endpoint will calculate the BMI of an individual using the imperial measurement system.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "bmi": 44.790826838663435,
+                                            "height": "1.83",
+                                            "weight": "150",
+                                            "weightCategory": ""
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

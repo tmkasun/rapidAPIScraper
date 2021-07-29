@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_7b1bf68d-7435-428d-85eb-7267f1a986ee",
+    "name": "Live Metal Prices",
+    "title": "Live Metal Prices",
+    "description": "Live prices for Gold, Silver, Palladium and Platinum in 160+ currencies including USD, GBP and EUR.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "live-metal-prices",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-03T16:53:40.792Z",
+    "category": "Finance",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/77d90790-9ff9-42a8-b247-0f7f3ebd6147.png",
+    "user": {
+        "id": 4596015,
+        "username": "solutionsbynotnull",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_b234fcf1-1f27-49de-acd6-ae88305cb750",
+        "tags": [
+            {
+                "id": "tag_e10239e6-b1e0-42a2-81ec-10631c9feb6a",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_7209146f-7011-4291-9bba-aa0f986a4947",
+                "isGraphQL": false,
+                "route": "/v1/latest/{requestedSymbols}/{requestedCurrency}",
+                "method": "GET",
+                "name": "Latest In chosen currency",
+                "description": "Select what you need for a smaller payload! Real-time Gold, Silver, Palladium, Platinum and 160+ currency rates based on selected Currency",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_549d235b-5630-4fbf-9f7c-86062d05214c",
+                "isGraphQL": false,
+                "route": "/v1/latest/{requestedSymbols}/{requestedCurrency}/{requestedUnitOfWeight}",
+                "method": "GET",
+                "name": "Latest Selected Metals in Selected Currency In Grams",
+                "description": "Select what you need for a smaller payload! Real-time Gold, Silver, Palladium, Platinum and 160+ currency rates based on selected Currency",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_ae8153d4-7aec-4bdf-aec6-b95551691691",
+                "isGraphQL": false,
+                "route": "/v1/latest/{requestedSymbols}",
+                "method": "GET",
+                "name": "Latest (retrieve selected 160+ Symbols)",
+                "description": "Select what you need for a smaller payload! Real-time Gold, Silver, Palladium, and Platinum provided in 160+ currencies including USD, GBP and EUR.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

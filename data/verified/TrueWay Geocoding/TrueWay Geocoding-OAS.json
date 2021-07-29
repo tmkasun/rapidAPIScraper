@@ -1,0 +1,121 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_ae3ceb1b-0c8d-4627-aade-a9132a7185bc",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_2c65308d-bd17-4252-8715-4e899eddfacf",
+        "apiId": "api_ed762aef-e305-4401-b2fe-b0f8c5f0f43d"
+    },
+    "info": {
+        "title": "TrueWay Geocoding",
+        "description": "Forward and Reverse Geocoding",
+        "version": "v1",
+        "x-category": "Mapping",
+        "x-long-description": "The Geocoding API is a service that provides forward and reverse geocoding of addresses.\nForward geocoding is the process of converting address into geographic coordinates(latitude,longitude).\nReverse geocoding is the process of converting geographic coordinates into a human-readable address.\n",
+        "x-website": "https://truewayapi.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f45a8fdf-f840-4d35-8283-666df16f0538_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://trueway-geocoding.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/Geocode": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "bounds",
+                        "in": "query",
+                        "required": false,
+                        "description": "The bounding box",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "The country code",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "The language in which to return results",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "en"
+                        }
+                    },
+                    {
+                        "name": "address",
+                        "in": "query",
+                        "required": true,
+                        "description": "The address that you want to geocode",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "505 Howard St, San Francisco"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Geocode",
+                "description": "Obtain geocoordinates for address",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/ReverseGeocode": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "The language in which to return results",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": true,
+                        "description": "The location for which you wish to obtain the human-readable address",
+                        "schema": {
+                            "type": "string",
+                            "example": "37.7879493,-122.3961974"
+                        }
+                    }
+                ],
+                "operationId": "ReverseGeocode",
+                "description": "Obtain address for location",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

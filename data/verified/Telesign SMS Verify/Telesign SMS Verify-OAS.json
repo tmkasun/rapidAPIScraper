@@ -1,0 +1,75 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_4a3db724-de01-4340-b1d3-9d261f8cd1ad",
+            "value": "✓"
+        },
+        {
+            "name": "tag_a2271e28-5216-4be8-817c-44a012648bb0",
+            "value": "Official"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5b357ae0e4b0547c4a07585b",
+        "apiId": "5b357adfe4b0547c4a07585a"
+    },
+    "info": {
+        "title": "Telesign SMS Verify",
+        "description": "Delivers patented phone-based verification and two-factor authentication using a time-based, one-time passcode sent over SMS",
+        "version": "v1",
+        "x-category": "SMS",
+        "x-long-description": "",
+        "x-website": "https://www.telesign.com/products/sms-verify/",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5b357ae0e4b0547c4a07585b_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://telesign-telesign-send-sms-verification-code-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/sms-verification-code": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "appName",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "verifyCode",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "phoneNumber",
+                        "in": "query",
+                        "required": true,
+                        "description": "Your test phone number with no special characters or spaces.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Send Verification Code",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

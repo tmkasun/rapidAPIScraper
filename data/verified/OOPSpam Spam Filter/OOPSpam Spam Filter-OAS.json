@@ -1,0 +1,95 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_1148ef45-115d-4a76-9593-7dc646b6564a",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_a6e27517-3e66-4f5a-9a4d-0b9ddc5ed3fa",
+        "apiId": "api_ec37d3c3-c293-4a0f-8ced-76d7f635527d"
+    },
+    "info": {
+        "title": "OOPSpam Spam Filter",
+        "description": "A privacy-friendly, new generation, highly accurate anti-spam filter for contact forms, comment systems, blogs, live chat- the limit is your creativity! ",
+        "version": "v1",
+        "x-category": "Machine Learning",
+        "x-long-description": "OOPSpam Anti-Spam API helps you better identify and score spam content by combining the output of various tools such as machine learning algorithms, blacklisted IPs, Adult Content Detection, spam words patter and many more custom rules, etc.",
+        "x-website": "https://www.oopspam.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/82/5de4264ae74b0b8f8f62b1669e6c1c/c0f13bab698de97c77c179a2e1ad075b.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://oopspam.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "endpoints"
+        }
+    ],
+    "paths": {
+        "/v1/spamdetection": {
+            "post": {
+                "tags": [
+                    "endpoints"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://www.oopspam.com/docs"
+                },
+                "operationId": "Spam detection",
+                "description": "The main endpoint that returns detailed information about a given content.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Details": {
+                                            "properties": {
+                                                "isContentSpam": {
+                                                    "type": "string"
+                                                },
+                                                "isIPBlocked": {
+                                                    "type": "boolean"
+                                                },
+                                                "numberOfSpamWords": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "Score": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "Details": {
+                                                "isContentSpam": "spam",
+                                                "isIPBlocked": true,
+                                                "numberOfSpamWords": 1
+                                            },
+                                            "Score": 6
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,263 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_47b7d01f-d347-4afc-98df-f8a082889ae6",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_4b393dd4-29b7-4c26-862a-4fd097328928",
+        "apiId": "api_d9d164a7-8fdb-48e6-9f86-dcb76f9d2fe0"
+    },
+    "info": {
+        "title": "Face Verification",
+        "description": "PresentID Face verification API(photo id matching) evaluates whether two faces belong to the same person or not.",
+        "version": "v1",
+        "x-category": "Visual Recognition",
+        "x-long-description": "PresentID Face verification API(photo id matching) evaluates whether two faces belong to the same person or not.\nThe Verify API performs authentication against two detected faces. Practically, it evaluates whether two faces belong to the same person or not. This capability is potentially useful in security scenarios.\n\n**Input:**\n- Image file\n- Image URL link\n- Base64 image\n\n**Output:**\n- Result index\n- Image specs\n- Similar percent \n- Result message\n\n**Ability & Potentials:**\n- Less than 10 seconds.\n- Accuracy is %99.76 on the LFW face verification dataset, a very popular benchmark.\n- Support IOS, Android, Windows, and Mac devices.\n- The smallest faces are detected (50px * 50px).\n- Easy integration with your app.\n\n**Use Cases:**\n- Attendance systems\n- Dating websites\n- Digital banking \n- Visitor identification\n- Expedited service\n- Access management\n- Public safety\n- Fraud Prevention\n- Know your customer\n- Attendance systems\n- Dating websites\n- Digital banking\n\n**Rules & Restrictions:**\n- Send data via Base64 or an image URL or an image file.\n- Image size should not exceed 8 MB.\n- Also, the images should not be larger than 5000 pixels and smaller than 50 pixels.",
+        "x-website": "https://www.presentid.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ab51e8ed-7273-4f00-87a5-ac20799b10f3.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://face-verification2.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/faceverification": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Send image with Base64",
+                "description": "Face verification API(photo id matching) evaluates whether two faces belong to the same person or not.\n\n*Image size should not exceed 8 MB*\n*Also, the images should not be larger than 5000 pixels and smaller than 50 pixels*",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "image2Base64": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "image1Base64": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/FaceVerification": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Send image with image file",
+                "description": "Face verification API(photo id matching) evaluates whether two faces belong to the same person or not.\n\n*Image size should not exceed 8 MB*\n*Also, the images should not be larger than 5000 pixels and smaller than 50 pixels*",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "resultIndex": {
+                                                    "type": "integer"
+                                                },
+                                                "resultMessage": {
+                                                    "type": "string"
+                                                },
+                                                "similarPercent": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "hasError": {
+                                            "type": "boolean"
+                                        },
+                                        "imageSpecs": {
+                                            "items": {
+                                                "properties": {
+                                                    "leftBottom": {
+                                                        "properties": {
+                                                            "isEmpty": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "x": {
+                                                                "type": "integer"
+                                                            },
+                                                            "y": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "leftTop": {
+                                                        "properties": {
+                                                            "isEmpty": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "x": {
+                                                                "type": "integer"
+                                                            },
+                                                            "y": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "rightBottom": {
+                                                        "properties": {
+                                                            "isEmpty": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "x": {
+                                                                "type": "integer"
+                                                            },
+                                                            "y": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "rightTop": {
+                                                        "properties": {
+                                                            "isEmpty": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "x": {
+                                                                "type": "integer"
+                                                            },
+                                                            "y": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer"
+                                        },
+                                        "statusMessage": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Face Verification": {
+                                        "description": "",
+                                        "summary": "Face Verification",
+                                        "value": {
+                                            "data": {
+                                                "resultIndex": 0,
+                                                "resultMessage": "The two faces belong to the same person. ",
+                                                "similarPercent": 100
+                                            },
+                                            "hasError": false,
+                                            "imageSpecs": [
+                                                {
+                                                    "leftBottom": {
+                                                        "isEmpty": false,
+                                                        "x": 381,
+                                                        "y": 251
+                                                    },
+                                                    "leftTop": {
+                                                        "isEmpty": false,
+                                                        "x": 381,
+                                                        "y": 146
+                                                    },
+                                                    "rightBottom": {
+                                                        "isEmpty": false,
+                                                        "x": 276,
+                                                        "y": 251
+                                                    },
+                                                    "rightTop": {
+                                                        "isEmpty": false,
+                                                        "x": 276,
+                                                        "y": 146
+                                                    }
+                                                },
+                                                {
+                                                    "leftBottom": {
+                                                        "isEmpty": false,
+                                                        "x": 305,
+                                                        "y": 297
+                                                    },
+                                                    "leftTop": {
+                                                        "isEmpty": false,
+                                                        "x": 305,
+                                                        "y": 84
+                                                    },
+                                                    "rightBottom": {
+                                                        "isEmpty": false,
+                                                        "x": 92,
+                                                        "y": 297
+                                                    },
+                                                    "rightTop": {
+                                                        "isEmpty": false,
+                                                        "x": 92,
+                                                        "y": 84
+                                                    }
+                                                }
+                                            ],
+                                            "statusCode": 200,
+                                            "statusMessage": "OK"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "photo2": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    },
+                                    "photo1": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

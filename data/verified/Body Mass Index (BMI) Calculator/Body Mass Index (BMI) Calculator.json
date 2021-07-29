@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_d258f8ed-8eb0-46d3-b0f4-0b17d324ceaf",
+    "name": "Body Mass Index (BMI) Calculator",
+    "title": "Body Mass Index (BMI) Calculator",
+    "description": "Use this API to calculate the Body Mass Index of an individual based on their height and weight.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "body-mass-index-bmi-calculator",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-09T19:55:26.176Z",
+    "category": "Health, Fitness",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/234fc191-1c81-40f2-bf45-fe4c3d0c22f1.png",
+    "user": {
+        "id": 5179894,
+        "username": "principalapis",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_6bde9536-b3ce-4e4b-b124-474887bcf36f",
+        "tags": [
+            {
+                "id": "tag_8bc7183e-419c-4a05-a112-8aac1d4218c0",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_febca87e-30ce-4f0b-be87-9b9d7ce8a281",
+                "isGraphQL": false,
+                "route": "/weight-category",
+                "method": "GET",
+                "name": "Weight Category",
+                "description": "Retrieve the weight category of an individual based on their BMI",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_d4b98b5c-629d-4c47-a9e4-f499c9064305",
+                "isGraphQL": false,
+                "route": "/imperial",
+                "method": "GET",
+                "name": "Imperial [Pounds]",
+                "description": "This endpoint will calculate the BMI of an individual using the imperial measurement system.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_3a2d30cc-bdaf-4ffe-90e8-565f5f742fdc",
+                "isGraphQL": false,
+                "route": "/metric",
+                "method": "GET",
+                "name": "Metric [Kilograms]",
+                "description": "This endpoint will calculate the BMI of an individual using the imperial measurement system.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

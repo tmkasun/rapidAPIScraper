@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_d9d164a7-8fdb-48e6-9f86-dcb76f9d2fe0",
+    "name": "Face Verification",
+    "title": "Face Verification",
+    "description": "PresentID Face verification API(photo id matching) evaluates whether two faces belong to the same person or not.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "face-verification2",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-20T14:45:11.180Z",
+    "category": "Visual Recognition",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ab51e8ed-7273-4f00-87a5-ac20799b10f3.png",
+    "user": {
+        "id": 4565546,
+        "username": "PresentID",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4b393dd4-29b7-4c26-862a-4fd097328928",
+        "tags": [
+            {
+                "id": "tag_47b7d01f-d347-4afc-98df-f8a082889ae6",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_097db741-a7b8-46d0-bec1-75f8e7d64502",
+                "isGraphQL": false,
+                "route": "/faceverification",
+                "method": "POST",
+                "name": "Send image with image URL",
+                "description": "Face verification API(photo id matching) evaluates whether two faces belong to the same person or not.\n\n*Image size should not exceed 8 MB*\n*Also, the images should not be larger than 5000 pixels and smaller than 50 pixels*",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_24451dbb-4d0b-4246-8987-960dd8d00c2e",
+                "isGraphQL": false,
+                "route": "/faceverification",
+                "method": "POST",
+                "name": "Send image with Base64",
+                "description": "Face verification API(photo id matching) evaluates whether two faces belong to the same person or not.\n\n*Image size should not exceed 8 MB*\n*Also, the images should not be larger than 5000 pixels and smaller than 50 pixels*",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_77d957b4-b075-4912-8f7e-1069bfdeee73",
+                "isGraphQL": false,
+                "route": "/FaceVerification",
+                "method": "POST",
+                "name": "Send image with image file",
+                "description": "Face verification API(photo id matching) evaluates whether two faces belong to the same person or not.\n\n*Image size should not exceed 8 MB*\n*Also, the images should not be larger than 5000 pixels and smaller than 50 pixels*",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

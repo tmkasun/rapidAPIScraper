@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_fb87f77f-3892-4258-bfbb-2d212711f3c3",
+    "name": "ScrapingAnt",
+    "title": "ScrapingAnt",
+    "description": "The easiest way to scrape Web sites. ScrapingAnt uses the latest Chrome browser and rotates proxies for you.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "scrapingant",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-11-14T22:29:09.493Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/0f680947-abdc-4a72-bd73-86730672303d.png",
+    "user": {
+        "id": 4273611,
+        "username": "okami4kak",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_c33c33c9-97ed-4954-9f36-ff87e92d84d2",
+        "tags": [
+            {
+                "id": "tag_30dfadbc-18ce-4852-a083-9ff89aa895c8",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_92f50736-2243-4bc6-b0e5-99de025f99d7",
+                "isGraphQL": false,
+                "route": "/get",
+                "method": "GET",
+                "name": "GET HTML scraping",
+                "description": "Fetch raw HTML from any website using GET request",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_874a2d0d-4a10-4b03-b249-f9fb2ad1829c",
+                "isGraphQL": false,
+                "route": "/post",
+                "method": "POST",
+                "name": "POST HTML scraping",
+                "description": "Fetch raw HTML from any website using POST request without no data encoding",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

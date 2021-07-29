@@ -1,0 +1,314 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_fa301f69-d6f7-4c05-9417-de718cc2cf11",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_75ce5242-0af3-4b36-a2d1-dcb0e77cb927",
+        "apiId": "api_b5a930f3-8b6f-40e8-86ed-f62081a7d753"
+    },
+    "info": {
+        "title": "Flight Delay Prediction",
+        "description": "Help flyers avoid delays with Amadeus AI APIs. The Flight Delay Prediction API uses A.I. trained on Amadeus historical flight delay data to give the probability that a given flight will be delayed by: under 30min., 30-60min., 60-120min or +120min./cancelled. ",
+        "version": "v1",
+        "x-category": "Transportation",
+        "x-long-description": "Flight delays are a common headache for travelers. Help your users avoid stressful delays by predicting them before they choose their flight. The Amadeus Flight Delay Prediction API uses machine-learning models trained on Amadeus historical flight delay data to predict whether a flight will be delayed. The API estimates four possible delay lengths: under 30min, 30-60min, 60-120min. and over 120in./cancelled. ",
+        "x-website": "https://developers.amadeus.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/218d6ee0-1a53-4d40-b5d1-a6c7fd45e5bd.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://flight-delay-prediction.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "travel"
+        },
+        {
+            "name": "flight-delay-prediction"
+        }
+    ],
+    "paths": {
+        "/travel/predictions/flight-delay": {
+            "get": {
+                "tags": [
+                    "flight-delay-prediction"
+                ],
+                "summary": "Return the delay segment where the flight is likely to lay.",
+                "parameters": [
+                    {
+                        "name": "departureDate",
+                        "in": "query",
+                        "required": true,
+                        "description": "the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "format": "date",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "aircraftCode",
+                        "in": "query",
+                        "required": true,
+                        "description": "IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "pattern": "[a-zA-Z0-9]{3}",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "originLocationCode",
+                        "in": "query",
+                        "required": true,
+                        "description": "city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is departing, e.g. PAR for Paris",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "pattern": "[A-Z]{3}",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "arrivalTime",
+                        "in": "query",
+                        "required": true,
+                        "description": "local time relative to destinationLocationCode on which the traveler will arrive to destination. Time respects ISO 8601 standard. e.g. 13:22:00",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "format": "date-time",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "carrierCode",
+                        "in": "query",
+                        "required": true,
+                        "description": "airline / carrier code",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "maxLength": 2,
+                            "minLength": 1,
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "destinationLocationCode",
+                        "in": "query",
+                        "required": true,
+                        "description": "city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is departing, e.g. PAR for Paris",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "pattern": "[A-Z]{3}",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "arrivalDate",
+                        "in": "query",
+                        "required": true,
+                        "description": "the date on which the traveler will arrive to the destination from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "format": "date",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "duration",
+                        "in": "query",
+                        "required": true,
+                        "description": "flight duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "departureTime",
+                        "in": "query",
+                        "required": true,
+                        "description": "local time relative to originLocationCode on which the traveler will depart from the origin. Time respects ISO 8601 standard. e.g. 13:22:00",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "format": "date-time",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "flightNumber",
+                        "in": "query",
+                        "required": true,
+                        "description": "flight number as assigned by the carrier",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "maxLength": 4,
+                            "minLength": 1,
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Official Documentation",
+                    "url": "https://developers.amadeus.com/self-service/category/air/api-doc/flight-delay-prediction"
+                },
+                "operationId": "getFlightDelayPrediction",
+                "description": "Determine the probability and length of a flight delay.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "http://json-schema.org/draft-04/schema#",
+                                    "properties": {
+                                        "data": {
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "item identifier",
+                                                        "type": "string"
+                                                    },
+                                                    "probability": {
+                                                        "description": "probability of the forecast (between 0 and 1)",
+                                                        "type": "string"
+                                                    },
+                                                    "result": {
+                                                        "description": "forecast description",
+                                                        "enum": [
+                                                            "LESS_THAN_30_MINUTES",
+                                                            "BETWEEN_30_AND_60_MINUTES",
+                                                            "BETWEEN_60_AND_120_MINUTES",
+                                                            "OVER_120_MINUTES_OR_CANCELLED"
+                                                        ],
+                                                        "type": "string"
+                                                    },
+                                                    "subType": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "description": "the resource name (`prediction`)",
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "type": "array"
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                },
+                                                "links": {
+                                                    "properties": {
+                                                        "first": {
+                                                            "format": "uri",
+                                                            "type": "string"
+                                                        },
+                                                        "last": {
+                                                            "format": "uri",
+                                                            "type": "string"
+                                                        },
+                                                        "next": {
+                                                            "format": "uri",
+                                                            "type": "string"
+                                                        },
+                                                        "previous": {
+                                                            "format": "uri",
+                                                            "type": "string"
+                                                        },
+                                                        "self": {
+                                                            "format": "uri",
+                                                            "type": "string"
+                                                        },
+                                                        "up": {
+                                                            "format": "uri",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "title": "CollectionLinks"
+                                                }
+                                            },
+                                            "title": "Collection_Meta"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "http://json-schema.org/draft-04/schema#",
+                                    "properties": {
+                                        "errors": {
+                                            "items": {
+                                                "properties": {
+                                                    "code": {
+                                                        "description": "an application-specific error code",
+                                                        "format": "int64",
+                                                        "maximum": 9223372036854776000,
+                                                        "minimum": -9223372036854776000,
+                                                        "type": "integer"
+                                                    },
+                                                    "detail": {
+                                                        "description": "explanation of the error",
+                                                        "type": "string"
+                                                    },
+                                                    "source": {
+                                                        "description": "an object containing references to the source of the error",
+                                                        "maxProperties": 1,
+                                                        "properties": {
+                                                            "example": {
+                                                                "description": "a string indicating an example of the right value",
+                                                                "type": "string"
+                                                            },
+                                                            "parameter": {
+                                                                "description": "a string indicating which URI query parameter caused the issue",
+                                                                "type": "string"
+                                                            },
+                                                            "pointer": {
+                                                                "description": "a JSON Pointer [RFC6901] to the associated entity in the request document",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "title": "Issue_Source",
+                                                        "type": "object"
+                                                    },
+                                                    "status": {
+                                                        "description": "the HTTP status code applicable to this error",
+                                                        "type": "integer"
+                                                    },
+                                                    "title": {
+                                                        "description": "a short summary of the error",
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "errors"
+                                    ]
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

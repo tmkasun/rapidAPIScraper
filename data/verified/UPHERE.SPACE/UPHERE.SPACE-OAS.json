@@ -1,0 +1,396 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_45a35263-a8b4-4707-98a6-d7471f376370",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_f7e68556-7c53-409f-b5fd-096db66a6a08",
+        "apiId": "api_f6f506f5-0d78-49ba-9f11-43d4bcfca272"
+    },
+    "info": {
+        "title": "UPHERE.SPACE",
+        "description": "Real-time satellite tracking and predictions",
+        "version": "v1",
+        "x-category": "Science",
+        "x-long-description": "Real-time tracking and predictions for thousands of satellites. Find the International Space Station, the Hubble Space telescope and many more!",
+        "x-website": "https://uphere.space",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/eab0abbf-90a5-4462-846d-d8b41977d397_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://uphere-space1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "satellites"
+        }
+    ],
+    "paths": {
+        "/satellite/list": {
+            "get": {
+                "tags": [
+                    "satellites"
+                ],
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search by text",
+                        "schema": {
+                            "type": "string",
+                            "example": "goes"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search by country",
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "description": "Page of results (60 per page)",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "API Documentation",
+                    "url": "https://uphere.space/development/api/documentation"
+                },
+                "operationId": "Satellite List",
+                "description": "List of satellites in orbit",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/satellite/list/countries": {
+            "get": {
+                "tags": [
+                    "satellites"
+                ],
+                "externalDocs": {
+                    "description": "API Documentation",
+                    "url": "https://uphere.space/development/api/documentation"
+                },
+                "operationId": "Countries",
+                "description": "Countries who have launched satellites which have been or are in orbit.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/satellite/list/categories": {
+            "get": {
+                "tags": [
+                    "satellites"
+                ],
+                "externalDocs": {
+                    "description": "API Documentation",
+                    "url": "https://uphere.space/development/api/documentation"
+                },
+                "operationId": "Categories",
+                "description": "Categories used to filter satellites",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/satellite/{number}/details": {
+            "get": {
+                "tags": [
+                    "satellites"
+                ],
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "path",
+                        "required": true,
+                        "description": "Norad TLE number",
+                        "schema": {
+                            "type": "number",
+                            "example": "43226"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "API Documentation",
+                    "url": "https://uphere.space/development/api/documentation"
+                },
+                "operationId": "Details",
+                "description": "Details by Norad TLE number",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/user/visible": {
+            "get": {
+                "tags": [
+                    "satellites"
+                ],
+                "parameters": [
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "32.1433"
+                        }
+                    },
+                    {
+                        "name": "lng",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "-117.9833"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "API Documentation",
+                    "url": "https://uphere.space/development/api/documentation"
+                },
+                "operationId": "Visible Satellites",
+                "description": "Satellites visible from a specific latitude and longitude",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/satellite/top": {
+            "get": {
+                "tags": [
+                    "satellites"
+                ],
+                "parameters": [
+                    {
+                        "name": "days",
+                        "in": "query",
+                        "required": true,
+                        "description": "Days to go back",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "API Documentation",
+                    "url": "https://uphere.space/development/api/documentation"
+                },
+                "operationId": "Popular Satellites",
+                "description": "Most popular satellites going back x days",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/satellite/{number}/location": {
+            "get": {
+                "tags": [
+                    "satellites"
+                ],
+                "parameters": [
+                    {
+                        "name": "units",
+                        "in": "query",
+                        "required": false,
+                        "description": "Units for height and speed values.  Options are:\n- imperial\n- metric",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": false,
+                        "description": "Latitude to get satellite visibility",
+                        "schema": {
+                            "type": "number",
+                            "default": "47.6484346"
+                        }
+                    },
+                    {
+                        "name": "lng",
+                        "in": "query",
+                        "required": false,
+                        "description": "Longitude to get satellite visibility",
+                        "schema": {
+                            "type": "number",
+                            "default": "122.374199"
+                        }
+                    },
+                    {
+                        "name": "number",
+                        "in": "path",
+                        "required": true,
+                        "description": "NORAD TLE number",
+                        "schema": {
+                            "type": "number",
+                            "example": "20580"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "API Documentation",
+                    "url": "https://uphere.space/development/api/documentation"
+                },
+                "operationId": "Location",
+                "description": "Current location by NORAD TLE number",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "coordinates": {
+                                            "items": {
+                                                "type": "number"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "footprint_radius": {
+                                            "type": "number"
+                                        },
+                                        "height": {
+                                            "type": "number"
+                                        },
+                                        "norad_id": {
+                                            "type": "string"
+                                        },
+                                        "speed": {
+                                            "type": "number"
+                                        },
+                                        "visibility": {
+                                            "properties": {
+                                                "azimuth": {
+                                                    "type": "number"
+                                                },
+                                                "elevation": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "coordinates": [
+                                                -69.34455439843211,
+                                                -2.834841089920333
+                                            ],
+                                            "footprint_radius": 2524684.5107199484,
+                                            "height": 332.558835040733,
+                                            "norad_id": "20580",
+                                            "speed": 16996.970517404618,
+                                            "visibility": {
+                                                "azimuth": 16.32274243382461,
+                                                "elevation": -65.93303612662568
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/satellite/list/launch-sites": {
+            "get": {
+                "tags": [
+                    "satellites"
+                ],
+                "externalDocs": {
+                    "description": "API Documentation",
+                    "url": "https://uphere.space/development/api/documentation"
+                },
+                "operationId": "Launch Sites",
+                "description": "Launch sites around the world",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/satellite/{number}/orbit": {
+            "get": {
+                "tags": [
+                    "satellites"
+                ],
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "path",
+                        "required": true,
+                        "description": "NORAD ID Number",
+                        "schema": {
+                            "type": "number",
+                            "example": "25544"
+                        }
+                    },
+                    {
+                        "name": "period",
+                        "in": "query",
+                        "required": true,
+                        "description": "Orbital period (minutes)",
+                        "schema": {
+                            "type": "number",
+                            "example": "90"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "API Documentation",
+                    "url": "https://uphere.space/development/api/documentation"
+                },
+                "operationId": "Orbit",
+                "description": "Orbital track for specified period",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

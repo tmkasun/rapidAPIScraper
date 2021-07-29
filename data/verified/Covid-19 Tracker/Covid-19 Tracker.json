@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_4579bcea-2ded-42ef-bb66-a87eccb70ace",
+    "name": "Covid-19 Tracker",
+    "title": "Covid-19 Tracker",
+    "description": "Our \"Covid-19 Tracker\" API returns present and historical content on Covid-19 from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into Covid-19 related matters with our solution, or collect historical structured data on the most relevant past stories and events. The API returns news on health topics concerning Coronavirus, as novel Covid19 topic falls under the IAB category IAB7-15 which encompasses topics on cold & flu related illnesses. Similar news topics are clusterd together. Test our api for free and do not hesitate to reach us out for further information.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "covid-19-tracker2",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-07T17:10:15.218Z",
+    "category": "Health, Fitness",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/3bf5aae7-210c-4c55-b004-2413237395fd.jpg",
+    "user": {
+        "id": 4551023,
+        "username": "connexun-srl-connexun-srl-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_df665f6f-f7b0-458c-a6d8-b273c78405e6",
+        "tags": [
+            {
+                "id": "tag_28f92e69-ef1f-459a-8502-e728de21bf4c",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_b0e8d68e-805b-425d-83af-b01f39234191",
+                "isGraphQL": false,
+                "route": "/covid",
+                "method": "GET",
+                "name": "/real-time_covid_information",
+                "description": "The API returns real-time and historical content and information on Covid-19 from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into matters concerning Coronavirus with our solution, or collect historical structured data on the most relevant past stories and events.\n\nOur endpoint returns a list of news concerning Coronavirus. The endpoint returns news on health related topics concerning Covid-19, as novel Covid-19 topic falls under IAB category IAB7-15 which encompasses topics on cold & flu related illnesses. Similar news topics are clusterd together.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

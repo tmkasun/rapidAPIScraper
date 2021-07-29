@@ -1,0 +1,135 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_5d6a180e-2733-41c4-b0c1-42d3d95010bc",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_3db1198e-e525-4178-b33b-4c1aac70730a",
+        "apiId": "api_74aad932-9b15-4e86-b60b-20d052221c7c"
+    },
+    "info": {
+        "title": "Trip Purpose Prediction",
+        "description": "Understand the reason for a trip with Amadeus AI APIs. The Trip Purpose Prediction API uses AI trained on Amadeus historical trip booking data to predict whether a given itinerary is for a business trip or a vacation. Provide travelers with a personalized experience by understanding their motivations. ",
+        "version": "v1",
+        "x-category": "Transportation",
+        "x-long-description": "Knowing why a user is traveling helps you provide a more personalized experience. The Amadeus Trip Purpose Prediction API uses machine-learning models trained on Amadeus’ historical trip booking data to predict whether a given travel itinerary is for business or leisure purposes. ",
+        "x-website": "https://developers.amadeus.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b0d42d2d-7a59-4ea7-aaa2-b187d5e52356.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://trip-purpose-prediction2.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "trip-purpose-prediction"
+        },
+        {
+            "name": "travel"
+        }
+    ],
+    "paths": {
+        "/travel/predictions/trip-purpose": {
+            "get": {
+                "tags": [
+                    "trip-purpose-prediction"
+                ],
+                "summary": "Returns the forecast purpose of a trip",
+                "parameters": [
+                    {
+                        "name": "searchDate",
+                        "in": "query",
+                        "required": false,
+                        "description": "the date on which the traveler is performing the search. If this parameter is not specified, current date will be used. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "format": "date",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "destinationLocationCode",
+                        "in": "query",
+                        "required": true,
+                        "description": "city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "pattern": "[A-Z]{3}",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "returnDate",
+                        "in": "query",
+                        "required": true,
+                        "description": "the date on which the traveler will depart from the destination to return to the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "format": "date",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "originLocationCode",
+                        "in": "query",
+                        "required": true,
+                        "description": "city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "pattern": "[A-Z]{3}",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "departureDate",
+                        "in": "query",
+                        "required": true,
+                        "description": "the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "format": "date",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Official Documentation",
+                    "url": "https://developers.amadeus.com/self-service/category/trip/api-doc/trip-purpose-prediction"
+                },
+                "operationId": "getTripPurposePrediction",
+                "description": "Predict whether a trip is for business or leisure.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "http://json-schema.org/draft-04/schema#"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "http://json-schema.org/draft-04/schema#"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

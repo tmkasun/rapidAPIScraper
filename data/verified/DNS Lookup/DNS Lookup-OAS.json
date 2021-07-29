@@ -1,0 +1,213 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_ccb12573-6ba5-44ce-a315-f5bed2dffb5b",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_a32849ef-6072-4c74-bab6-e7e5f78786a6",
+        "apiId": "api_034adf31-a0a6-484c-b6fd-ac9d17d48b84"
+    },
+    "info": {
+        "title": "DNS Lookup",
+        "description": "API to lookup the DNS Record related to Domain.",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "DNS Lookup API accepts the Domain Name as Param and returns the records related to the domain like A, NS, MX, AAAA, TXT, etc. Need help? Email: hello@emptycode.in or, Simply use Discussion Option. Thank you.",
+        "x-website": "http://tools.emptycode.in/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d96be65b-0b32-4525-a086-12d80e33580b.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://dns-lookup1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/dns-lookup": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "domainName",
+                        "in": "query",
+                        "required": true,
+                        "description": "Complete Domain Name",
+                        "schema": {
+                            "type": "string",
+                            "example": "google.co.in"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "DNS Record Lookup",
+                "description": "Accept the Domain Name as param and returns DNS record as JSON.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "dns_record": {
+                                            "properties": {
+                                                "A": {
+                                                    "items": {
+                                                        "properties": {
+                                                            "class": {
+                                                                "type": "string"
+                                                            },
+                                                            "host": {
+                                                                "type": "string"
+                                                            },
+                                                            "record": {
+                                                                "type": "string"
+                                                            },
+                                                            "ttl": {
+                                                                "type": "integer"
+                                                            },
+                                                            "type": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "AAAA": {
+                                                    "items": {
+                                                        "properties": {
+                                                            "class": {
+                                                                "type": "string"
+                                                            },
+                                                            "host": {
+                                                                "type": "string"
+                                                            },
+                                                            "record": {
+                                                                "type": "string"
+                                                            },
+                                                            "ttl": {
+                                                                "type": "integer"
+                                                            },
+                                                            "type": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "MX": {
+                                                    "items": {
+                                                        "properties": {
+                                                            "class": {
+                                                                "type": "string"
+                                                            },
+                                                            "host": {
+                                                                "type": "string"
+                                                            },
+                                                            "record": {
+                                                                "properties": {
+                                                                    "priority": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "target": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "ttl": {
+                                                                "type": "integer"
+                                                            },
+                                                            "type": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "NS": {
+                                                    "items": {
+                                                        "properties": {
+                                                            "class": {
+                                                                "type": "string"
+                                                            },
+                                                            "host": {
+                                                                "type": "string"
+                                                            },
+                                                            "record": {
+                                                                "type": "string"
+                                                            },
+                                                            "ttl": {
+                                                                "type": "integer"
+                                                            },
+                                                            "type": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "SOA": {
+                                                    "type": "array"
+                                                },
+                                                "TXT": {
+                                                    "items": {
+                                                        "properties": {
+                                                            "class": {
+                                                                "type": "string"
+                                                            },
+                                                            "host": {
+                                                                "type": "string"
+                                                            },
+                                                            "record": {
+                                                                "type": "string"
+                                                            },
+                                                            "ttl": {
+                                                                "type": "integer"
+                                                            },
+                                                            "type": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "dns_record": "google.co.in.\t\t244 IN A 172.217.163.35\ngoogle.co.in.\t\t132 IN AAAA 2404:6800:4007:801::2003\ngoogle.co.in.\t\t86344 IN NS ns2.google.com.\ngoogle.co.in.\t\t86344 IN NS ns3.google.com.\ngoogle.co.in.\t\t86344 IN NS ns1.google.com.\ngoogle.co.in.\t\t86344 IN NS ns4.google.com.\ngoogle.co.in.\t\t4 IN SOA ns1.google.com. dns-admin.google.com. (\n\t\t\t\t327595539  ; serial\n\t\t\t\t900        ; refresh (15 minutes)\n\t\t\t\t900        ; retry (15 minutes)\n\t\t\t\t1800       ; expire (30 minutes)\n\t\t\t\t60         ; minimum (1 minute)\n\t\t\t\t)\ngoogle.co.in.\t\t545 IN MX 10 aspmx.l.google.com.\ngoogle.co.in.\t\t545 IN MX 50 alt4.aspmx.l.google.com.\ngoogle.co.in.\t\t545 IN MX 30 alt2.aspmx.l.google.com.\ngoogle.co.in.\t\t545 IN MX 40 alt3.aspmx.l.google.com.\ngoogle.co.in.\t\t545 IN MX 20 alt1.aspmx.l.google.com.\ngoogle.co.in.\t\t245 IN TXT \"v=spf1 -all\"\ngoogle.co.in.\t\t86345 IN CAA 0 issue \"pki.goog\"\n",
+                                            "status": "success"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

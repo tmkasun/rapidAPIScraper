@@ -1,0 +1,228 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_e10239e6-b1e0-42a2-81ec-10631c9feb6a",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_b234fcf1-1f27-49de-acd6-ae88305cb750",
+        "apiId": "api_7b1bf68d-7435-428d-85eb-7267f1a986ee"
+    },
+    "info": {
+        "title": "Live Metal Prices",
+        "description": "Live prices for Gold, Silver, Palladium and Platinum in 160+ currencies including USD, GBP and EUR.",
+        "version": "v1",
+        "x-category": "Finance",
+        "x-long-description": "For those needing more accurate, faster, and reliable rates for metals provided in over 160 currencies including USD, GBP and EUR. ",
+        "x-website": "https://notnullsolutions.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/77d90790-9ff9-42a8-b247-0f7f3ebd6147.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://live-metal-prices.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/v1/latest/{requestedSymbols}/{requestedCurrency}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "requestedCurrency",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "EUR"
+                        }
+                    },
+                    {
+                        "name": "requestedSymbols",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "XAU,XAG,PA,PL,GBP,EUR"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Documentation for Live Metal Price API",
+                    "url": "https://notnullsolutions.com/live-metal-prices-api/live-metal-prices-api-documentation/"
+                },
+                "operationId": "Latest In chosen currency",
+                "description": "Select what you need for a smaller payload! Real-time Gold, Silver, Palladium, Platinum and 160+ currency rates based on selected Currency",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "baseCurrency": "USD",
+                                            "rates": {
+                                                "EUR": 0.85226,
+                                                "GBP": 0.77657,
+                                                "PA": 2277.23,
+                                                "PL": 931,
+                                                "XAG": 23.78,
+                                                "XAU": 1931.2
+                                            },
+                                            "success": true,
+                                            "unit": "ounce",
+                                            "validationMessage": []
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/latest/{requestedSymbols}/{requestedCurrency}/{requestedUnitOfWeight}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "requestedSymbols",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "XAU,XAG,PA,PL,GBP,EUR"
+                        }
+                    },
+                    {
+                        "name": "requestedCurrency",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "EUR"
+                        }
+                    },
+                    {
+                        "name": "requestedUnitOfWeight",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "gram"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Documentation for Live Metal Price API",
+                    "url": "https://notnullsolutions.com/live-metal-prices-api/live-metal-prices-api-documentation/"
+                },
+                "operationId": "Latest Selected Metals in Selected Currency In Grams",
+                "description": "Select what you need for a smaller payload! Real-time Gold, Silver, Palladium, Platinum and 160+ currency rates based on selected Currency",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "baseCurrency": "USD",
+                                            "rates": {
+                                                "EUR": 0.85226,
+                                                "GBP": 0.77657,
+                                                "PA": 2277.23,
+                                                "PL": 931,
+                                                "XAG": 23.78,
+                                                "XAU": 1931.2
+                                            },
+                                            "success": true,
+                                            "unit": "ounce",
+                                            "validationMessage": []
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/latest/{requestedSymbols}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "requestedSymbols",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "XAU,XAG,PA,PL,GBP,EUR"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Documentation for Live Metal Price API",
+                    "url": "https://notnullsolutions.com/live-metal-prices-api/live-metal-prices-api-documentation/"
+                },
+                "operationId": "Latest (retrieve selected 160+ Symbols)",
+                "description": "Select what you need for a smaller payload! Real-time Gold, Silver, Palladium, and Platinum provided in 160+ currencies including USD, GBP and EUR.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "baseCurrency": "USD",
+                                            "rates": {
+                                                "EUR": 0.85226,
+                                                "GBP": 0.77657,
+                                                "PA": 2277.23,
+                                                "PL": 931,
+                                                "XAG": 23.78,
+                                                "XAU": 1931.2
+                                            },
+                                            "success": true,
+                                            "unit": "ounce",
+                                            "validationMessage": []
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/latest": {
+            "get": {
+                "externalDocs": {
+                    "description": "Documentation for Live Metal Price API",
+                    "url": "https://notnullsolutions.com/live-metal-prices-api/live-metal-prices-api-documentation/"
+                },
+                "operationId": "Latest (retrieve XAU, XAG, PA, PL, EUR, GBP, USD)",
+                "description": "Real-time Gold, Silver, Palladium and Platinum prices delivered in USD, GBP and EUR.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

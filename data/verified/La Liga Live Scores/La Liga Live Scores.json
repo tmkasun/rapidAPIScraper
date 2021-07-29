@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "55e3134ae4b0fd0fcdcd15b2",
+    "name": "La Liga Live Scores",
+    "title": "La Liga Live Scores",
+    "description": "La Liga Live Scores API allows to retrieve historical data as well as current season results, scorers, lineups, substitutes, events, statistics, odds and much more all with live updates, for the top professional Spanish football league. And more features are coming...",
+    "visibility": "PUBLIC",
+    "slugifiedName": "la-liga-live-scores",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-09-13T05:38:18.477Z",
+    "category": "Sports",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/55e3134ae4b0b74f06703ede_medium",
+    "user": {
+        "id": 2431262,
+        "username": "heisenbug",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "55e3134ae4b0b74f06703ede",
+        "tags": [
+            {
+                "id": "tag_d0472a5c-041e-407b-a676-4097fcda8fea",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_dd0f3795-5c7a-40f6-a2af-40e813f8c993",
+                "isGraphQL": false,
+                "route": "/api/laliga/predict",
+                "method": "GET",
+                "name": "Prediction",
+                "description": "Returns match result perdiction (use an AI deep learning engine)",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "58a960b7e4b0ff7c9acb4496",
+                "isGraphQL": false,
+                "route": "/api/laliga/table/betting",
+                "method": "GET",
+                "name": "Bet Stats",
+                "description": "Returns aggregate data about results, goal-nogoal, underover, 1x2 and totalgoals to support your bet activities",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "59bd1ab7e4b0b0cacf7c7dde",
+                "isGraphQL": false,
+                "route": "/api/laliga/odds",
+                "method": "GET",
+                "name": "Odd quotas",
+                "description": "Returns quotas for an odd a match and a bookmaker",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

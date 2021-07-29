@@ -1,0 +1,84 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_6aaf1fed-bb80-416f-8086-f897df80a7c9",
+            "value": "✓"
+        },
+        {
+            "name": "tag_4671f965-ecc1-4183-b398-adc27e2fa813",
+            "value": "GraphQL"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_ed57e588-5eae-4eb5-ad2e-e94d344b70bf",
+        "apiId": "api_b3d6a2dd-9a96-42f2-ad2d-d744763c3600"
+    },
+    "info": {
+        "title": "translate-text",
+        "description": "GraphQL API for Text Translation with AI",
+        "version": "v1",
+        "x-category": "Translation",
+        "x-long-description": "Dynamically translate between languages using advanced machine learning.",
+        "x-website": "https://cloud-actions.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/21fcd701-4207-43f0-8dbd-fcb344d34b5c.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://translate-text3.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "graphQL",
+                "description": "USE THE CODE BELOW AS DEMO. (  RAPID API GRAPHQL DEMO ARE BUGGING )\n```\n{\n  translatePlainText(textToTranslate: \"how are you\", language: RU) {\n    translatedText\n    detectedLanguageCode\n  }  \n}\n```",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": {
+                                                "translatePlainText": {
+                                                    "detectedLanguageCode": "en",
+                                                    "language": "RU",
+                                                    "textToTranslate": "Translate this to Russian",
+                                                    "translatedText": "Перевести это на русский"
+                                                }
+                                            },
+                                            "extensions": {
+                                                "tracing": {
+                                                    "duration": 797582334,
+                                                    "endTime": "2020-07-08T10:22:10.254Z",
+                                                    "execution": {
+                                                        "resolvers": []
+                                                    },
+                                                    "startTime": "2020-07-08T10:22:09.456Z",
+                                                    "version": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

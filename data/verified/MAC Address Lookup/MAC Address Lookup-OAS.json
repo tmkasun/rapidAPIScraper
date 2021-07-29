@@ -1,0 +1,59 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_a1f2be3e-04da-4636-84b2-70e09da512ae",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_84edaaf8-3f6e-41d1-88bf-84fc6ec441a0",
+        "apiId": "api_ff1b90cb-8084-4920-a845-8f64b0b37a4a"
+    },
+    "info": {
+        "title": "MAC Address Lookup",
+        "description": "Provide Company name, address, MAC address range, MAC address prefix ",
+        "version": "v1",
+        "x-category": "Monitoring",
+        "x-long-description": "<p>This documentation is designed for developers who desire to query MACLookup API.</p>\n<h2>The information we will display</h2>\n<ul>\n<li>Vendor / Company name</li>\n<li>Company Address</li>\n<li>MAC Address Prefix (Hex, B16)</li>\n</ul>\n<h2>How to retrieve the complete information from the MAC address?</h2>\n<p>Send an&nbsp;<strong>HTTP GET</strong>&nbsp;request with your MAC address.</p>\n<p><strong>1)-</strong>&nbsp;The endpoint accepts the full MAC address or the first six characters. The MAC address may include separators such as \"-\", \":\", or \".\".</p>\n<p>A valid mac address is:</p>\n<ul>\n<li>&nbsp;00:00:00 or 00-00-00 or 00.00.00 or 000000</li>\n<li>&nbsp;00:00:00:00:00:00 or 00-00-00-00-00-00 or 00.00.00.00.00.00</li>\n</ul>\n<p><strong>2)-</strong>&nbsp;The endpoint also accepts the company's complete name or a substring. An acceptable company's name is:</p>\n<ul>\n<li>&nbsp;Cisco or Cis</li>\n</ul>\n<p>In the case of entering the company's name, it will return the complete information of all the MAC address ranges registered by that company.</p>\n<p><strong>Output Format:&nbsp;</strong>The output is in JSON format.&nbsp;</p>\n<p><strong>Error:&nbsp;</strong>If no result is found against the request, it will return \"Record Not Found.\"</p>",
+        "x-website": "https://dnschecker.org",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/18bb4a4c-7f26-4eb6-a45c-1e660b7612c4.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://mac-address-lookup1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/static_rapid/mac_lookup/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "00:15:5d:86:eb:5f"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "MAC Lookup",
+                "description": "MAC Lookup",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

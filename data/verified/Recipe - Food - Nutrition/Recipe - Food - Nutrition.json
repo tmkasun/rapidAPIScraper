@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "55bd6288e4b039adaa612523",
+    "name": "Recipe - Food - Nutrition",
+    "title": "Recipe - Food - Nutrition",
+    "description": "The spoonacular Nutrition, Recipe, and Food API allows you to access over 365,000 recipes and 86,000 food products. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.\r\n\r\nSpecial diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, low sodium, low carb, Paleo, Primal, ketogenic, FODMAP, and Whole 30. We will soon be adding Weight Watcher points, too.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "recipe-food-nutrition",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2018-08-21T00:06:22.242Z",
+    "category": "Food",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/55bd6288e4b0bb11a1db6a3d_medium",
+    "user": {
+        "id": 2166676,
+        "username": "spoonacular",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "55bd6288e4b0bb11a1db6a3d",
+        "tags": [
+            {
+                "id": "tag_f6c7032d-ac01-4855-9ef2-c86651c949b7",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "569bbadce4b04cbc4d6236ba",
+                "isGraphQL": false,
+                "route": "/food/products/classify",
+                "method": "POST",
+                "name": "Classify a Grocery Product",
+                "description": "Given a grocery product title, this endpoint allows you to detect what basic ingredient it is.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "569fedb7e4b02cacb649f63a",
+                "isGraphQL": false,
+                "route": "/food/ingredients/map",
+                "method": "POST",
+                "name": "Map Ingredients to Grocery Products",
+                "description": "Map a set of ingredients to products you can buy in the grocery store.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "569d8906e4b02cacb649f082",
+                "isGraphQL": false,
+                "route": "/food/products/classifyBatch",
+                "method": "POST",
+                "name": "Classify Grocery Products (Batch)",
+                "description": "Given a set of product jsons, get back classified products.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

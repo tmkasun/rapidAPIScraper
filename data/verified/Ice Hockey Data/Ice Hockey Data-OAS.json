@@ -1,0 +1,347 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_c53cb19e-900a-4c3a-bd29-b5cde7ad1c66",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_bd6da1b3-1f79-4e2f-9b40-8a52c12141e9",
+        "apiId": "api_7604ed0d-e664-4bcd-8674-2668da18eb98"
+    },
+    "info": {
+        "title": "Ice Hockey Data",
+        "description": "Broadage Ice Hockey API will give you wide range of data of world's top ice hockey leagues, including fixtures, standings, match lists and many more. Our Ice Hockey Coverage includes the biggest ice hockey tournaments from all around the world with in-depth coverage, giving you the opportunity to present the best sports data to users located anywhere.<br>This is a limited version in RapidApi. <a href=\"https://www.broadage.com/signup/api/free?utm_source=rapidapi&utm_medium=click&utm_campaign=icehockey_api\" target=”_blank”>Please, click here to start your Free Trial and try the endpoints with live data now!</a>",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Ice hockey scores from games all around the world, live with in depth detail. Schedules and standings for pre-season, regular season, playoffs are some of the data presented in the Broadage Ice Hockey API.\n\nNational hockey leagues from Europe and Asia combined with the highly popular NHL create a wide and global coverage for ice hockey games. Wherever you are or your audience is located, it’s highly probable that we have what you need.",
+        "x-website": "https://www.broadage.com/sports-data-api/ice-hockey",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/6c6e0a43-9766-4b84-a414-45f23cc03000.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://ice-hockey-data.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "H2H Data",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Post-Match Data"
+        },
+        {
+            "name": "Live Data"
+        },
+        {
+            "name": "Pre-Match Data"
+        }
+    ],
+    "paths": {
+        "/tournament/fixture": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "6"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Ice Hockey API Tournament Fixture Documentation",
+                    "url": "https://www.broadage.com/developers/ice-hockey-api/tournament-fixture/"
+                },
+                "operationId": "Tournament Fixture",
+                "description": "Full match list with period and final scores.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/list": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "externalDocs": {
+                    "description": "Ice Hockey API Tournament List Documentation",
+                    "url": "https://www.broadage.com/developers/ice-hockey-api/tournament-list/"
+                },
+                "operationId": "Tournament List",
+                "description": "List of tournaments in your data coverage.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/list/recent": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "106557"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Ice Hockey API Recent Match List Documentation",
+                    "url": "https://www.broadage.com/developers/ice-hockey-api/recent-match-list/"
+                },
+                "operationId": "Recent Match List",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Ice Hockey Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the match. The format is {dd/MM/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "29/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Ice Hockey API Match List: All Documentation",
+                    "url": "https://www.broadage.com/developers/ice-hockey-api/match-list-all/"
+                },
+                "operationId": "Daily Match List-All",
+                "description": "Daily match list including scheduled, live and finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/results": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the match. The format is {dd/MM/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "28/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Ice Hockey API Match List: Results Documentation",
+                    "url": "https://www.broadage.com/developers/ice-hockey-api/match-list-results/"
+                },
+                "operationId": "Daily Match List-Results",
+                "description": "Daily match list including finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/live": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the match. The format is {dd/MM/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "28/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Ice Hockey API Match List: Live Documentation",
+                    "url": "https://www.broadage.com/developers/ice-hockey-api/match-list-live/"
+                },
+                "operationId": "Daily Match List-Live",
+                "description": "Daily match list including live matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/scheduled": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the match. The format is {dd/MM/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "29/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Ice Hockey API Match List: Scheduled Documentation",
+                    "url": "https://www.broadage.com/developers/ice-hockey-api/match-list-scheduled/"
+                },
+                "operationId": "Daily Match List-Scheduled",
+                "description": "Daily match list including scheduled matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/teams": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "6"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Ice Hockey API Tournament Teams Documentation",
+                    "url": "https://www.broadage.com/developers/ice-hockey-api/tournament-teams/"
+                },
+                "operationId": "Tournament Teams",
+                "description": "List of teams participating in a specific tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/standings": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "6"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Ice Hockey API Tournament Standings Documentation",
+                    "url": "https://www.broadage.com/developers/ice-hockey-api/tournament-standings/"
+                },
+                "operationId": "Tournament Standings",
+                "description": "Team Rankings for a specific competition.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/info": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "6"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Ice Hockey API Tournament Info Documentation",
+                    "url": "https://www.broadage.com/developers/ice-hockey-api/tournament-info/"
+                },
+                "operationId": "Tournament Info",
+                "description": "Current season, stage structure(divisions,conferences etc.), country and many more information about a tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

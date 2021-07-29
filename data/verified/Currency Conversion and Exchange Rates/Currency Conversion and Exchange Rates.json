@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_f6ea6fcb-ac1d-4799-b11b-5b3373495d17",
+    "name": "Currency Conversion and Exchange Rates",
+    "title": "Currency Conversion and Exchange Rates",
+    "description": "Simple reliable API for current and historical foreign exchange (forex) currency rates.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "currency-conversion-and-exchange-rates",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-04T04:36:39.306Z",
+    "category": "Finance",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/8ab36372-7ebe-4043-ad13-53acfe62e54c.png",
+    "user": {
+        "id": 5179894,
+        "username": "principalapis",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_6e4c2dda-0788-4043-9a2f-61bae04698f2",
+        "tags": [
+            {
+                "id": "tag_4ea5309b-b65c-4ec9-b836-7e26fcd58de3",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_5f9f961d-1384-4800-8f35-e1819560eda2",
+                "isGraphQL": false,
+                "route": "/timeseries",
+                "method": "GET",
+                "name": "Time-Series Endpoint",
+                "description": "Retrieve historical rates between two specified dates.\n\n`Maximum of 365 day time range`",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_75f8bf5a-1437-4096-bfdf-3231d2b7589f",
+                "isGraphQL": false,
+                "route": "/symbols",
+                "method": "GET",
+                "name": "Symbols",
+                "description": "Retrieve a list of all currently available currency symbols",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_6d87411b-80dd-4b72-9f16-c903473324b7",
+                "isGraphQL": false,
+                "route": "/convert",
+                "method": "GET",
+                "name": "Convert",
+                "description": "In addition to providing converstion rates, our API provides a dedicated endpoint to easily do conversion on a specific amount of the currency.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_6768bc42-0c94-4ca5-8c46-df16cb9ed059",
+    "name": "Text Sentiment Analysis",
+    "title": "Text Sentiment Analysis",
+    "description": "Text sentiment analysis API",
+    "visibility": "PUBLIC",
+    "slugifiedName": "text-sentiment-analysis2",
+    "pricing": "FREE",
+    "updatedAt": "2021-06-03T10:27:11.794Z",
+    "category": "Text Analysis",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/6bbd4809-3e18-4866-b4d4-07b912e1147b.jpg",
+    "user": {
+        "id": 5223427,
+        "username": "textsla-textsla-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_968507af-3e0b-46c1-a084-1ce58693bfef",
+        "tags": [
+            {
+                "id": "tag_ebc2f2ee-fda5-4c61-bf14-a8ec0bf9d449",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_87e5e3b4-af6e-4be5-a414-1194d0e3651d",
+                "isGraphQL": false,
+                "route": "/",
+                "method": "GET",
+                "name": "Text Sentiment Analysis",
+                "description": "Insert text to get sentiment analysis score",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

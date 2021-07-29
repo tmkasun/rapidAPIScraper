@@ -1,0 +1,145 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_dbce2889-3656-4aa5-bfa1-8a7d151c3999",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5b2b3378e4b0547c4a073a1b",
+        "apiId": "5b2b3377e4b08122a9a22e4d"
+    },
+    "info": {
+        "title": "Recipe and Ingredient Analysis",
+        "description": "Zestful  is the simplest way to parse recipe ingredients into beautiful JSON.",
+        "version": "v1",
+        "x-category": "Food",
+        "x-long-description": "Zestful helps recipe apps manage ingredients intelligently. Zestful transforms ingredients from opaque strings to meaningful data in easy-to-consume JSON format. Given a plain ingredient string like \"2 cups finely chopped red onions,\" Zestful can tells you the quantity, unit of measure, food product, and preparation steps embedded in that string.",
+        "x-website": "https://zestfuldata.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/5b2b3378e4b0547c4a073a1b_medium.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://zestful.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/parseIngredients": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Parse Ingredients",
+                "description": "Parse recipe ingredients into structured data",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "null"
+                                        },
+                                        "results": {
+                                            "items": {
+                                                "properties": {
+                                                    "confidence": {
+                                                        "type": "number"
+                                                    },
+                                                    "error": {
+                                                        "type": "null"
+                                                    },
+                                                    "ingredientParsed": {
+                                                        "type": "object"
+                                                    },
+                                                    "ingredientRaw": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "error": null,
+                                            "results": [
+                                                {
+                                                    "confidence": 0.9806437,
+                                                    "error": null,
+                                                    "ingredientParsed": {
+                                                        "preparationNotes": "finely chopped",
+                                                        "product": "parsley",
+                                                        "productSizeModifier": null,
+                                                        "quantity": 2.5,
+                                                        "unit": "tablespoon",
+                                                        "usdaInfo": {
+                                                            "category": "Vegetables and Vegetable Products",
+                                                            "description": "Parsley, fresh",
+                                                            "fdcId": "170416",
+                                                            "matchMethod": "exact"
+                                                        }
+                                                    },
+                                                    "ingredientRaw": "2 1/2 tablespoons finely chopped parsley"
+                                                },
+                                                {
+                                                    "confidence": 0.9825838,
+                                                    "error": null,
+                                                    "ingredientParsed": {
+                                                        "preparationNotes": null,
+                                                        "product": "extra-virgin olive oil",
+                                                        "productSizeModifier": null,
+                                                        "quantity": 3,
+                                                        "unit": "tablespoon",
+                                                        "usdaInfo": {
+                                                            "category": "Fats and Oils",
+                                                            "description": "Oil, olive, salad or cooking",
+                                                            "fdcId": "171413",
+                                                            "matchMethod": "exact"
+                                                        }
+                                                    },
+                                                    "ingredientRaw": "3 tablespoons extra-virgin olive oil, or more to taste"
+                                                },
+                                                {
+                                                    "confidence": 0.9987106,
+                                                    "error": null,
+                                                    "ingredientParsed": {
+                                                        "preparationNotes": null,
+                                                        "product": "cinnamon",
+                                                        "productSizeModifier": null,
+                                                        "quantity": 1.5,
+                                                        "unit": "tablespoon",
+                                                        "usdaInfo": {
+                                                            "category": "Spices and Herbs",
+                                                            "description": "Spices, cinnamon, ground",
+                                                            "fdcId": "171320",
+                                                            "matchMethod": "exact"
+                                                        }
+                                                    },
+                                                    "ingredientRaw": "1 1/2 tbsp cinnamon"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_966a464d-47f0-4d4d-834d-9a45e799473f",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_dd9d65ec-d99f-4719-a177-e217b7e4501c",
+        "apiId": "api_16847be3-616b-4eda-90b8-9f2ff984a71b"
+    },
+    "info": {
+        "title": "Get Email Information",
+        "description": "Validate and retrieve useful information for an email address",
+        "version": "v1",
+        "x-category": "Email",
+        "x-long-description": "This API provides delivery information about an email address to aid in email deliverability scores. It also retrieves information about the email address such as type, geographic location, existence of vulgarity, and more.",
+        "x-website": "https://www.interzoid.com/services/getemailinfo",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/45/ee4e7f179f4ddb93e65fe6efb23d3b/35598c3e987a71b8b9337aff316bab00.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://get-email-information.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/getemailinfo": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "description": "Sample email address",
+                        "schema": {
+                            "type": "string",
+                            "example": "johnsmith@yahoo.co.uk"
+                        }
+                    }
+                ],
+                "operationId": "Get Email Information",
+                "description": "Validates and retrieves useful information for an email address",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

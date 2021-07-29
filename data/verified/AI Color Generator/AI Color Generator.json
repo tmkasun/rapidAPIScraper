@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_aa84815c-6bb0-4240-856e-f7bd06f79f7c",
+    "name": "AI Color Generator",
+    "title": "AI Color Generator",
+    "description": "Generate colors with the latest advances in AI. Find colors for palettes, gradients, branding, text, and more. Besides brainstorming colors, the Hotpot.ai color generator (https://hotpot.ai/color-generator) can extract the main colors of an image. Try the free web demo now.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ai-color-generator",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-08T05:27:16.660Z",
+    "category": "Video, Images",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/eac9e144-1c2b-4de6-8a88-36be9178f86f.jpg",
+    "user": {
+        "id": 4827930,
+        "username": "hotpot-ai-hotpot",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_98653470-419b-4cf1-b72b-875e4aa7b6f6",
+        "tags": [
+            {
+                "id": "tag_44725ffd-9b4a-4f03-b00e-d6a28d7720c6",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_52c6ba92-2df9-4a42-a917-d569d392c6e4",
+                "isGraphQL": false,
+                "route": "/default/colorGeneratorPalette",
+                "method": "POST",
+                "name": "Color Generator",
+                "description": "Generate colors with the latest advances in AI. Perfect for suggesting colors for palettes, gradients, branding, text, and more. Besides brainstorming colors, the Hotpot.ai [color generator](https://hotpot.ai/color-generator) can extract the main colors of an image. Try the free web demo now.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

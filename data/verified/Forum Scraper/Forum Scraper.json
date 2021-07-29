@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_b1594c36-6a81-4545-ab56-56d347b870e1",
+    "name": "Forum Scraper",
+    "title": "Forum Scraper",
+    "description": "Simple forum scraper.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "forum-scraper",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-06-17T14:57:33.041Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0f95b6b7-c87a-4718-990d-0b6d904e4707.png",
+    "user": {
+        "id": 3561011,
+        "username": "akfaew",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_67d21fd5-5a6a-4075-9c54-a2f176aad402",
+        "tags": [
+            {
+                "id": "tag_2f36ff2c-4bbe-4e64-9b33-d6f9742ee43f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_8271d724-9af9-47df-8d5c-1e62eb4f5ce2",
+                "isGraphQL": false,
+                "route": "/api/0.0/hackernews/get-post",
+                "method": "POST",
+                "name": "hackernews/get-post",
+                "description": "Get post by ID. Some posts may be hidden or deleted, and thus not available.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_3eac515c-e0fd-405a-b22d-97aa34042466",
+                "isGraphQL": false,
+                "route": "/api/0.0/hackernews/get-max-post-id",
+                "method": "POST",
+                "name": "hackernews/get-max-post-id",
+                "description": "Get the ID of the latest item. IDs are sequential.\n\nThis is either a post or a comment.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_150d31e9-3b78-4681-b8f4-f6ce75daea9e",
+                "isGraphQL": false,
+                "route": "/api/0.0/discourse/get-post",
+                "method": "POST",
+                "name": "discourse/get-post",
+                "description": "Get post by ID. Some posts may be hidden or deleted, and thus not available.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

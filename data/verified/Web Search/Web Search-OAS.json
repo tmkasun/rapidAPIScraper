@@ -1,0 +1,619 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_408fdbbf-61ad-4be5-b665-54f2602d1662",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_57afb610-bab8-40bf-8cf6-438e9fdbc9a4",
+        "apiId": "api_b4b9fe50-a51c-4ae1-89e5-e6df6d70a1e5"
+    },
+    "info": {
+        "title": "Web Search",
+        "description": "The comprehensive web search API, powered by Google Search.",
+        "version": "v1",
+        "x-category": "Search",
+        "x-long-description": "",
+        "x-website": "https://lattice.dev/products/google-search",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b15ce0d4-e8e7-4042-b3cf-8ed4b91ce95b.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://web-search9.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "exact",
+                        "in": "query",
+                        "required": false,
+                        "description": "Identifies a phrase that all documents in the search results must contain.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "AI"
+                        }
+                    },
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Restricts the search to documents written in a particular language (e.g., lr=lang_ja).\n\nAcceptable values are:\n\n- \\\\\\\"lang_ar\\\\\\\": Arabic\n- \\\\\\\"lang_bg\\\\\\\": Bulgarian\n- \\\\\\\"lang_ca\\\\\\\": Catalan\n- \\\\\\\"lang_cs\\\\\\\": Czech\n- \\\\\\\"lang_da\\\\\\\": Danish\n- \\\\\\\"lang_de\\\\\\\": German\n- \\\\\\\"lang_el\\\\\\\": Greek\n- \\\\\\\"lang_en\\\\\\\": English\n- \\\\\\\"lang_es\\\\\\\": Spanish\n- \\\\\\\"lang_et\\\\\\\": Estonian\n- \\\\\\\"lang_fi\\\\\\\": Finnish\n- \\\\\\\"lang_fr\\\\\\\": French\n- \\\\\\\"lang_hr\\\\\\\": Croatian\n- \\\\\\\"lang_hu\\\\\\\": Hungarian\n- \\\\\\\"lang_id\\\\\\\": Indonesian\n- \\\\\\\"lang_is\\\\\\\": Icelandic\n- \\\\\\\"lang_it\\\\\\\": Italian\n- \\\\\\\"lang_iw\\\\\\\": Hebrew\n- \\\\\\\"lang_ja\\\\\\\": Japanese\n- \\\\\\\"lang_ko\\\\\\\": Korean\n- \\\\\\\"lang_lt\\\\\\\": Lithuanian\n- \\\\\\\"lang_lv\\\\\\\": Latvian\n- \\\\\\\"lang_nl\\\\\\\": Dutch\n- \\\\\\\"lang_no\\\\\\\": Norwegian\n- \\\\\\\"lang_pl\\\\\\\": Polish\n- \\\\\\\"lang_pt\\\\\\\": Portuguese\n- \\\\\\\"lang_ro\\\\\\\": Romanian\n- \\\\\\\"lang_ru\\\\\\\": Russian\n- \\\\\\\"lang_sk\\\\\\\": Slovak\n- \\\\\\\"lang_sl\\\\\\\": Slovenian\n- \\\\\\\"lang_sr\\\\\\\": Serbian\n- \\\\\\\"lang_sv\\\\\\\": Swedish\n- \\\\\\\"lang_tr\\\\\\\": Turkish\n- \\\\\\\"lang_zh-CN\\\\\\\": Chinese (Simplified)\n- \\\\\\\"lang_zh-TW\\\\\\\": Chinese (Traditional)\n\nSee [here](https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list#http-request) for details.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "lang_en"
+                        }
+                    },
+                    {
+                        "name": "num",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of search results to return.\n\nValid values are integers between 1 and 10, inclusive.\n\nSee [here](https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list#http-request) for details.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "5"
+                        }
+                    },
+                    {
+                        "name": "cache",
+                        "in": "query",
+                        "required": false,
+                        "description": "See Google’s cached version of a site. See [here](https://support.google.com/websearch/answer/2466433?hl=en) for details.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "hashtag",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search hashtags. See [here](https://support.google.com/websearch/answer/2466433?hl=en) for details.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "microsoft"
+                        }
+                    },
+                    {
+                        "name": "social",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search social media. See [here](https://support.google.com/websearch/answer/2466433?hl=en) for details.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "facebook"
+                        }
+                    },
+                    {
+                        "name": "safe",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search safety level. Acceptable values are:\n\n- 'active': Enables SafeSearch filtering.\n- 'off': Disables SafeSearch filtering. (default)\n\nSee [here](https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list#http-request) for details.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "site",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specifies a given site which should always be included or excluded from results (see siteSearchFilter parameter, below).",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "related",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specifies that all search results should be pages that are related to the specified URL.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "price",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search related to the price of the query item (in USD). See [here](https://support.google.com/websearch/answer/2466433?hl=en) for details.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "daterestrict",
+                        "in": "query",
+                        "required": false,
+                        "description": "Restricts results to URLs based on date. Supported values include:\n\n- d[number]: requests results from the specified number of past days.\n- w[number]: requests results from the specified number of past weeks.\n- m[number]: requests results from the specified number of past months.\n- y[number]: requests results from the specified number of past years.\n\nSee [here](https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list#http-request) for details.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "y2"
+                        }
+                    },
+                    {
+                        "name": "gl",
+                        "in": "query",
+                        "required": false,
+                        "description": "Geolocation of end user.\n\n- The gl parameter value is a two-letter country code. The gl parameter boosts search results whose country of origin matches the parameter value. See the [Country Codes](https://developers.google.com/custom-search/docs/xml_results_appendices#countryCodes) page for a list of valid values.\n- Specifying a gl parameter value should lead to more relevant results. This is particularly true for international customers and, even more specifically, for customers in English- speaking countries other than the United States.\n\nSee [here](https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list#http-request) for details.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "us"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Each page consists of 10 results. Google provides up to a maximum of 10 pages of results. Page can take on values between 1-10 as a result.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "cr",
+                        "in": "query",
+                        "required": false,
+                        "description": "Restricts search results to documents originating in a particular country. You may use [Boolean operators](https://developers.google.com/custom-search/docs/xml_results_appendices#booleanOperators) in the cr parameter's value.\n\nGoogle Search determines the country of a document by analyzing:\n\n- the top-level domain (TLD) of the document's URL\n- the geographic location of the Web server's IP address\n\nSee the [Country Parameter Values](https://developers.google.com/custom-search/docs/xml_results_appendices#countryCollections) page for a list of valid values for this parameter.\n\nSee [here](https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list#http-request) for details.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "us"
+                        }
+                    },
+                    {
+                        "name": "exclude",
+                        "in": "query",
+                        "required": false,
+                        "description": "Exclude words from your search. See [here](https://support.google.com/websearch/answer/2466433?hl=en) for details.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "apple"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "The sort expression to apply to the results. The sort parameter specifies that the results be sorted according to the specified expression i.e. sort by date. [Example: sort=date.](https://developers.google.com/custom-search/docs/structured_search#sort-by-attribute)\n\nSee [here](https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list#http-request) for details.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "date"
+                        }
+                    },
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "required": true,
+                        "description": "The free text query to conduct a web search for.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "8"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Search",
+                "description": "Conducts a comprehensive web search based on a free text query.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "date": "2021-06-26T06:05:41.710162",
+                                            "status": "success",
+                                            "results": {
+                                                "kind": "customsearch#search",
+                                                "url": {
+                                                    "type": "application/json",
+                                                    "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+                                                },
+                                                "queries": {
+                                                    "request": [
+                                                        {
+                                                            "title": "Google Custom Search - site%3A+https%3A%2F%2Fwww.nytimes.com%2F+8+-apple+%23microsoft",
+                                                            "totalResults": "88",
+                                                            "searchTerms": "site%3A+https%3A%2F%2Fwww.nytimes.com%2F+8+-apple+%23microsoft",
+                                                            "count": 8,
+                                                            "startIndex": 1,
+                                                            "language": "lang_en",
+                                                            "inputEncoding": "utf8",
+                                                            "outputEncoding": "utf8",
+                                                            "safe": "off",
+                                                            "cx": "26d6fe6070070d74c",
+                                                            "sort": "date",
+                                                            "gl": "us",
+                                                            "cr": "us"
+                                                        }
+                                                    ],
+                                                    "nextPage": [
+                                                        {
+                                                            "title": "Google Custom Search - site%3A+https%3A%2F%2Fwww.nytimes.com%2F+8+-apple+%23microsoft",
+                                                            "totalResults": "88",
+                                                            "searchTerms": "site%3A+https%3A%2F%2Fwww.nytimes.com%2F+8+-apple+%23microsoft",
+                                                            "count": 8,
+                                                            "startIndex": 9,
+                                                            "language": "lang_en",
+                                                            "inputEncoding": "utf8",
+                                                            "outputEncoding": "utf8",
+                                                            "safe": "off",
+                                                            "cx": "26d6fe6070070d74c",
+                                                            "sort": "date",
+                                                            "gl": "us",
+                                                            "cr": "us"
+                                                        }
+                                                    ]
+                                                },
+                                                "context": {
+                                                    "title": "Web"
+                                                },
+                                                "searchInformation": {
+                                                    "searchTime": 0.493148,
+                                                    "formattedSearchTime": "0.49",
+                                                    "totalResults": "88",
+                                                    "formattedTotalResults": "88"
+                                                },
+                                                "spelling": {
+                                                    "correctedQuery": "site%3A+https%3A%2F%2Fwww.nytimes.com%2F+8+-apple+%23 microsoft",
+                                                    "htmlCorrectedQuery": "site%3A+https%3A%2F%2Fwww.nytimes.com%2F+8+-apple+%<b><i>23 microsoft</i></b>"
+                                                },
+                                                "items": [
+                                                    {
+                                                        "kind": "customsearch#result",
+                                                        "title": "FREE Online Website Malware Scanner - Quttera",
+                                                        "htmlTitle": "FREE Online <b>Website</b> Malware Scanner - Quttera",
+                                                        "link": "https://quttera.com/detailed_report/ufies.org",
+                                                        "displayLink": "quttera.com",
+                                                        "snippet": "Apr 2, 2021 ... check website for malware and vulnerability exploits online ... %3Dfeed%3a+\n9to5mac-macallday+%289+to+5+mac+-+apple+intelligence%29 ... 3Dfeed%3a+\niphoneincanada+%28iphone+in+canada+blog+-+canada%27s+%231+iphone \n... .php?app_id=138711277798&%3Bhref=http%3A%2F%2Fwww.funnyordie.\ncom% ...",
+                                                        "htmlSnippet": "Apr 2, 2021 <b>...</b> check <b>website</b> for malware and vulnerability exploits online ... %3Dfeed%<b>3a</b>+<br>\n9to5mac-macallday<b>+%</b>289+to+5+mac+-+<b>apple</b>+intelligence%29 ... 3Dfeed%<b>3a</b>+<br>\niphoneincanada<b>+%</b>28iphone+in+canada+blog+-+canada%27s<b>+%</b>231+iphone <br>\n... .php?app_id=138711277798&amp;%3Bhref=http%<b>3A</b>%<b>2F</b>%<b>2Fwww</b>.funnyordie.<br>\ncom%&nbsp;...",
+                                                        "formattedUrl": "https://quttera.com/detailed_report/ufies.org",
+                                                        "htmlFormattedUrl": "<b>https</b>://quttera.com/detailed_report/ufies.org",
+                                                        "pagemap": {
+                                                            "organization": [
+                                                                {
+                                                                    "name": "Quttera"
+                                                                }
+                                                            ],
+                                                            "metatags": [
+                                                                {
+                                                                    "copyright": "Quttera",
+                                                                    "viewport": "width=device-width, initial-scale=1.0",
+                                                                    "author": "Martin",
+                                                                    "alexaverifyid": "wuY8eKsieFduefAruvuWqsexmaI"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "kind": "customsearch#result",
+                                                        "title": "The curious case of ClearURLs' removal from the Google Chrome ...",
+                                                        "htmlTitle": "The curious case of ClearURLs&#39; removal from the Google Chrome ...",
+                                                        "link": "https://www.ghacks.net/2021/03/25/the-curious-case-of-clearurls-removal-from-the-google-chrome-webstore/",
+                                                        "displayLink": "www.ghacks.net",
+                                                        "snippet": "Mar 24, 2021 ... Gee, I wonder who I should trust! Here's the link to the Webstore page in question\n. I digress. Let's see why the extension was removed from the ...",
+                                                        "htmlSnippet": "Mar 24, 2021 <b>...</b> Gee, I wonder who I should trust! Here&#39;s the link to the Webstore <b>page</b> in question<br>\n. I digress. Let&#39;s see why the extension was removed from the&nbsp;...",
+                                                        "cacheId": "pTGqRCMajioJ",
+                                                        "formattedUrl": "https://www.ghacks.net/.../the-curious-case-of-clearurls-removal-from-the- google-chrome-webstore/",
+                                                        "htmlFormattedUrl": "<b>https</b>://www.ghacks.net/.../the-curious-case-of-clearurls-removal-from-the- google-chrome-webstore/",
+                                                        "pagemap": {
+                                                            "cse_thumbnail": [
+                                                                {
+                                                                    "src": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTASeNjIuhVhV78ZTg6KSNFDtP4hVN9llrNfeh9y8gjUckz4WazkVzw2qw",
+                                                                    "width": "315",
+                                                                    "height": "160"
+                                                                }
+                                                            ],
+                                                            "imageobject": [
+                                                                {
+                                                                    "url": "https://mk0ghacksnety2pjrgh8.kinstacdn.com/wp-content/uploads/2021/03/ClearURLs-extension-removed-from-Chrome-webstore.jpg"
+                                                                },
+                                                                {
+                                                                    "url": "https://mk0ghacksnety2pjrgh8.kinstacdn.com/wp-content/uploads/2005/10/ghacks-technology-news.jpg"
+                                                                }
+                                                            ],
+                                                            "person": [
+                                                                {
+                                                                    "name": "Ashwin"
+                                                                }
+                                                            ],
+                                                            "organization": [
+                                                                {
+                                                                    "name": "Ghacks Technology News"
+                                                                }
+                                                            ],
+                                                            "metatags": [
+                                                                {
+                                                                    "og:image": "https://mk0ghacksnety2pjrgh8.kinstacdn.com/wp-content/uploads/2021/03/ClearURLs-extension-removed-from-Chrome-webstore.jpg",
+                                                                    "og:type": "article",
+                                                                    "article:published_time": "2021-03-25T15:49:16+00:00",
+                                                                    "og:image:width": "940",
+                                                                    "og:site_name": "gHacks Technology News",
+                                                                    "og:title": "The curious case of ClearURLs' removal from the Google Chrome Webstore - gHacks Tech News",
+                                                                    "og:image:height": "479",
+                                                                    "td-page": "GH-Articlepage",
+                                                                    "bingbot": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+                                                                    "og:description": "ClearURLs has been removed from the Google Chrome Webstore. The extension was banned for having a description that was too detailed.",
+                                                                    "article:publisher": "https://www.facebook.com/ghacksnet",
+                                                                    "td-section": "GH-Features",
+                                                                    "gh-contentid": "the-curious-case-of-clearurls-removal-from-the-google-chrome-webstore",
+                                                                    "referrer": "no-referrer-when-downgrade",
+                                                                    "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+                                                                    "onesignal": "wordpress-plugin",
+                                                                    "og:locale": "en_US",
+                                                                    "og:url": "https://www.ghacks.net/2021/03/25/the-curious-case-of-clearurls-removal-from-the-google-chrome-webstore/"
+                                                                }
+                                                            ],
+                                                            "cse_image": [
+                                                                {
+                                                                    "src": "https://mk0ghacksnety2pjrgh8.kinstacdn.com/wp-content/uploads/2021/03/ClearURLs-extension-removed-from-Chrome-webstore.jpg"
+                                                                }
+                                                            ],
+                                                            "article": [
+                                                                {
+                                                                    "datemodified": "2021-03-25T16:49:16+01:00",
+                                                                    "description": "The ClearURLs extension has been removed from the Google Chrome Webstore. It was blocked for having a description that was too detailed.",
+                                                                    "headline": "The curious case of ClearURLs' removal from the Google Chrome Webstore",
+                                                                    "datepublished": "2021-03-25T16:49:16+01:00"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "kind": "customsearch#result",
+                                                        "title": "Hamilton West Shared Resources - Google Drive",
+                                                        "htmlTitle": "Hamilton West Shared Resources - Google Drive",
+                                                        "link": "https://docs.google.com/spreadsheet/ccc?key=0Avfl9RWd4a-gdC1WS0luemZDSFhMbXNBNFFBWDBHN2c",
+                                                        "displayLink": "docs.google.com",
+                                                        "snippet": "Jul 24, 2020 ... Article: \"Best EdTech Website of 2014\", https://www.graphite.org/blog/best-edtech \n... Article: \"AirDroid 2 Lands at Google Play, Brings Web-based remote Control ... \n%3A+freetech4teachers%2FcGEY+%28Free+Technology+for+Teachers%29#. \n... Article: \"8 Excellent Tools for Formative Assessment to Try With Your Students\"\n ...",
+                                                        "htmlSnippet": "Jul 24, 2020 <b>...</b> Article: &quot;Best EdTech <b>Website</b> of 2014&quot;, <b>https</b>://www.graphite.org/blog/best-edtech <br>\n... Article: &quot;AirDroid <b>2</b> Lands at Google Play, Brings Web-based remote Control ... <br>\n%<b>3A</b>+freetech4teachers%2FcGEY<b>+%</b>28Free+Technology+for+Teachers%29#. <br>\n... Article: &quot;<b>8</b> Excellent Tools for Formative Assessment to Try With Your Students&quot;<br>\n&nbsp;...",
+                                                        "formattedUrl": "https://docs.google.com/spreadsheet/ccc?key=0Avfl9RWd4a...",
+                                                        "htmlFormattedUrl": "<b>https</b>://docs.google.com/spreadsheet/ccc?key=0Avfl9RWd4a...",
+                                                        "pagemap": {
+                                                            "metatags": [
+                                                                {
+                                                                    "referrer": "strict-origin-when-cross-origin",
+                                                                    "viewport": "target-densitydpi=device-dpi,user-scalable=1,minimum-scale=1,maximum-scale=2.5,initial-scale=1,width=device-width",
+                                                                    "google": "notranslate"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "kind": "customsearch#result",
+                                                        "title": "Direct_URLs Combined_Search_Strings Combined_Titles https ...",
+                                                        "htmlTitle": "Direct_URLs Combined_Search_Strings Combined_Titles <b>https</b> ...",
+                                                        "link": "https://alfredexcelvachris.files.wordpress.com/2020/06/notepad-plus-plus-direct_urls.pdf",
+                                                        "displayLink": "alfredexcelvachris.files.wordpress.com",
+                                                        "snippet": "Jun 11, 2020 ... notepad++ tricks( Image Search ) \"Top 5 notepad tricks/part#2/Trickstreet ...\" ... \"\nAdobe Acrobat 8 PDF Bible - Page 1029 - Google Books Result\" ... https%3A%2F\n%2Fwww.pinterest.se%2Famp%2Fpin% ... https://apps.apple.com/us/app/\nnotepad-note-taking-app/id920402079. \"NotePad++\" ... Notepad - The New York \nTimes\".",
+                                                        "htmlSnippet": "Jun 11, 2020 <b>...</b> notepad++ tricks( Image Search ) &quot;Top 5 notepad tricks/part#<b>2</b>/Trickstreet ...&quot; ... &quot;<br>\nAdobe Acrobat <b>8</b> PDF Bible - <b>Page</b> 1029 - Google Books Result&quot; ... <b>https</b>%<b>3A</b>%<b>2F</b><br>\n%<b>2Fwww</b>.pinterest.se%2Famp%2Fpin% ... <b>https</b>://apps.<b>apple</b>.com/us/app/<br>\nnotepad-note-taking-app/id920402079. &quot;NotePad++&quot; ... Notepad - The <b>New York</b> <br>\n<b>Times</b>&quot;.",
+                                                        "formattedUrl": "https://alfredexcelvachris.files.wordpress.com/.../notepad-plus-plus-direct_ urls.pdf",
+                                                        "htmlFormattedUrl": "<b>https</b>://alfredexcelvachris.files.wordpress.com/.../notepad-plus-plus-direct_ urls.pdf",
+                                                        "pagemap": {
+                                                            "metatags": [
+                                                                {
+                                                                    "moddate": "D:20200601210937-04'00'",
+                                                                    "creationdate": "D:20200601210937-04'00'",
+                                                                    "creator": "Microsoft® Excel® for Microsoft 365",
+                                                                    "author": "excel1star",
+                                                                    "producer": "Microsoft® Excel® for Microsoft 365"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "mime": "application/pdf",
+                                                        "fileFormat": "PDF/Adobe Acrobat"
+                                                    },
+                                                    {
+                                                        "kind": "customsearch#result",
+                                                        "title": "http://00024390000067.000webhostapp.com/late-code/late-code ...",
+                                                        "htmlTitle": "http://00024390000067.000webhostapp.com/late-code/late-code ...",
+                                                        "link": "https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-links-ACTIVE.txt",
+                                                        "displayLink": "raw.githubusercontent.com",
+                                                        "snippet": "Oct 26, 2019 ... ... http://194433.com http://1dollaradz.com/tw1k3steps-splash-page-copy/ir-msg \nhttp://2012.zzz.com.ua ... http://appkcheck-summary.ga http://apple.com.br-\nsupport.id ... .web.app/onedrive-sign-in,0&rpsnv13&rver0&wpmbi-ssl&wreply-\nhttps-3a-2f-2fwww.api- ... http://deluxe03.php.xdomain.jp/8 http://deluxe03.php.\nxdomain.jp/c ...",
+                                                        "htmlSnippet": "Oct 26, 2019 <b>...</b> ... http://194433.com http://1dollaradz.com/tw1k3steps-splash-<b>page</b>-copy/ir-msg <br>\nhttp://2012.zzz.com.ua ... http://appkcheck-summary.ga http://<b>apple</b>.com.br-<br>\nsupport.id ... .web.app/onedrive-sign-in,0&amp;rpsnv13&amp;rver0&amp;wpmbi-ssl&amp;wreply-<br>\n<b>https</b>-<b>3a</b>-<b>2f</b>-<b>2fwww</b>.api- ... http://deluxe03.php.xdomain.jp/<b>8</b> http://deluxe03.php.<br>\nxdomain.jp/c&nbsp;...",
+                                                        "formattedUrl": "https://raw.githubusercontent.com/.../Phishing.../phishing-links-ACTIVE.txt",
+                                                        "htmlFormattedUrl": "<b>https</b>://raw.githubusercontent.com/.../Phishing.../phishing-links-ACTIVE.txt",
+                                                        "mime": "text/plain",
+                                                        "fileFormat": "text/plain"
+                                                    },
+                                                    {
+                                                        "kind": "customsearch#result",
+                                                        "title": "samsclass.info - urlscan.io",
+                                                        "htmlTitle": "samsclass.info - urlscan.io",
+                                                        "link": "https://urlscan.io/result/64640d1f-d057-4003-9d75-05255aeee243/",
+                                                        "displayLink": "urlscan.io",
+                                                        "snippet": "Jul 30, 2018 ... This website contacted 1 IPs in 1 countries across 1 domains to perform 1 HTTP \ntransactions. The main IP is 2400:cb00:2048:1::681c:101d, ...",
+                                                        "htmlSnippet": "Jul 30, 2018 <b>...</b> This <b>website</b> contacted 1 IPs in 1 countries across 1 domains to perform 1 HTTP <br>\ntransactions. The main IP is 2400:cb00:2048:1::681c:101d,&nbsp;...",
+                                                        "formattedUrl": "https://urlscan.io/result/64640d1f-d057-4003-9d75-05255aeee243/",
+                                                        "htmlFormattedUrl": "<b>https</b>://urlscan.io/result/64640d1f-d057-4003-9d75-05255aeee243/",
+                                                        "pagemap": {
+                                                            "cse_thumbnail": [
+                                                                {
+                                                                    "src": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTELbpmuGOCs1DCE7Q7-oI0LXxqXtwbXA0kt9tok-7xL2m4nxZorBEcKCbx",
+                                                                    "width": "260",
+                                                                    "height": "194"
+                                                                }
+                                                            ],
+                                                            "metatags": [
+                                                                {
+                                                                    "theme-color": "#2c3e50",
+                                                                    "viewport": "width=device-width, initial-scale=1.0",
+                                                                    "author": "urlscan.io"
+                                                                }
+                                                            ],
+                                                            "cse_image": [
+                                                                {
+                                                                    "src": "https://i.imgur.com/rGtgr.jpg"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "kind": "customsearch#result",
+                                                        "title": "Microsoft | Culture Nation Wiki | Fandom",
+                                                        "htmlTitle": "Microsoft | Culture Nation Wiki | Fandom",
+                                                        "link": "https://culturenation.fandom.com/wiki/Microsoft",
+                                                        "displayLink": "culturenation.fandom.com",
+                                                        "snippet": "Jan 24, 2017 ... Microsoft Corporation (Template:IPAc-en, abbreviated as MS) is an American ... \nAs of 2016, it is the world's largest software maker by revenue, and one of the ... \nwith its rivals Apple and Google in providing a modern smartphone operating \nsystem. ... Microsoft unveiled Windows 8, an operating system designed to power \nboth ...",
+                                                        "htmlSnippet": "Jan 24, 2017 <b>...</b> Microsoft Corporation (Template:IPAc-en, abbreviated as MS) is an American ... <br>\nAs of 2016, it is the world&#39;s largest software maker by revenue, and one of the ... <br>\nwith its rivals <b>Apple</b> and Google in providing a modern smartphone operating <br>\nsystem. ... Microsoft unveiled Windows <b>8</b>, an operating system designed to power <br>\nboth&nbsp;...",
+                                                        "cacheId": "cimhHZoSlwcJ",
+                                                        "formattedUrl": "https://culturenation.fandom.com/wiki/Microsoft",
+                                                        "htmlFormattedUrl": "<b>https</b>://culturenation.fandom.com/wiki/Microsoft",
+                                                        "pagemap": {
+                                                            "cse_thumbnail": [
+                                                                {
+                                                                    "src": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSp8OpZwu9aVsao3KEh_FIV3N5x66yMCVwCrn52Jp5m8iYJ_DmpIcf0SbSE",
+                                                                    "width": "200",
+                                                                    "height": "200"
+                                                                }
+                                                            ],
+                                                            "metatags": [
+                                                                {
+                                                                    "apple-itunes-app": "app-id=1230063803",
+                                                                    "og:image": "https://static.wikia.nocookie.net/culturenation/images/b/bc/Wiki.png/revision/latest/zoom-crop/width/200/height/200?cb=20100325211158",
+                                                                    "twitter:card": "summary",
+                                                                    "twitter:title": "Microsoft | Culture Nation Wiki | Fandom",
+                                                                    "og:type": "article",
+                                                                    "og:site_name": "Culture Nation Wiki",
+                                                                    "twitter:url": "https://culturenation.fandom.com/wiki/Microsoft",
+                                                                    "og:title": "Microsoft",
+                                                                    "og:description": "Template:Pp-semi Template:Pp-move-indef Template:Use American English Template:Use mdy dates Template:Infobox company Microsoft Corporation (Template:IPAc-en,12 abbreviated as MS) is an American multinational technology company with headquarters in Redmond, Washington. It develops, manufactures, licenses, supports and sells computer software, consumer electronics, personal computers, and services. Its best known software products are the Microsoft Windows line of operating systems, the Microsoft",
+                                                                    "fb:app_id": "112328095453510",
+                                                                    "twitter:site": "@getfandom",
+                                                                    "viewport": "width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0",
+                                                                    "twitter:description": "Microsoft | Culture Nation Wiki | Fandom",
+                                                                    "og:url": "https://culturenation.fandom.com/wiki/Microsoft"
+                                                                }
+                                                            ],
+                                                            "cse_image": [
+                                                                {
+                                                                    "src": "https://static.wikia.nocookie.net/culturenation/images/b/bc/Wiki.png/revision/latest/zoom-crop/width/200/height/200?cb=20100325211158"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "kind": "customsearch#result",
+                                                        "title": "adamcaudill.github.io/rss.xml at master · adamcaudill/adamcaudill ...",
+                                                        "htmlTitle": "adamcaudill.github.io/rss.xml at master · adamcaudill/adamcaudill ...",
+                                                        "link": "https://github.com/adamcaudill/adamcaudill.github.io/blob/master/rss.xml",
+                                                        "displayLink": "github.com",
+                                                        "snippet": "Sep 23, 2016 ... <script async src=\"https://adamcaudill.com///platform.twitter.com/widgets.js\" ... \ndisconnecting the separate physical sites, anything they could think of to limit the \nspread ... but people were reprogramming Apple keyboards to appear as other \ndevices ... For the NSA, a CALEA 2 style law would give them easy access to \nexpend ...",
+                                                        "htmlSnippet": "Sep 23, 2016 <b>...</b> &lt;script async src=&quot;<b>https</b>://adamcaudill.com///platform.twitter.com/widgets.js&quot; ... <br>\ndisconnecting the separate physical <b>sites</b>, anything they could think of to limit the <br>\nspread ... but people were reprogramming <b>Apple</b> keyboards to appear as other <br>\ndevices ... For the NSA, a CALEA <b>2</b> style law would give them easy access to <br>\nexpend&nbsp;...",
+                                                        "formattedUrl": "https://github.com/adamcaudill/adamcaudill.github.io/blob/master/rss.xml",
+                                                        "htmlFormattedUrl": "<b>https</b>://github.com/adamcaudill/adamcaudill.github.io/blob/master/rss.xml",
+                                                        "pagemap": {
+                                                            "cse_thumbnail": [
+                                                                {
+                                                                    "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTevSyHLeu1ffB9I0GvGgluGb2D8YN3MD7HXea2yc4grRlpNARyZpnViSFZ",
+                                                                    "width": "318",
+                                                                    "height": "159"
+                                                                }
+                                                            ],
+                                                            "softwaresourcecode": [
+                                                                {
+                                                                    "author": "adamcaudill",
+                                                                    "name": "adamcaudill.github.io",
+                                                                    "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><rss xmlns:dc=\"http://purl.org/dc/elements/1.1/\" version=\"2.0\"> <channel> <atom:link rel=\"hub\" href=\"http://pubsubhubbub.appspot.com\" xmlns:atom=\"http://www.w3..."
+                                                                }
+                                                            ],
+                                                            "metatags": [
+                                                                {
+                                                                    "apple-itunes-app": "app-id=1477376905",
+                                                                    "og:image": "https://opengraph.githubassets.com/4054768f4086042a0ddddff474d19ac0d0204a624fbc0167a1f92c21cdd37664/adamcaudill/adamcaudill.github.io",
+                                                                    "twitter:card": "summary_large_image",
+                                                                    "og:image:width": "1200",
+                                                                    "theme-color": "#1e2327",
+                                                                    "og:site_name": "GitHub",
+                                                                    "octolytics-event-url": "https://collector.githubapp.com/github-external/browser_event",
+                                                                    "hovercard-subject-tag": "repository:4009962",
+                                                                    "html-safe-nonce": "5cd8680f2c00b72371a60e48a0215b61c46cddcd29e96adfdb7dd06a7254de77",
+                                                                    "expected-hostname": "github.com",
+                                                                    "octolytics-app-id": "github",
+                                                                    "og:description": "Code for adamcaudill.com. Contribute to adamcaudill/adamcaudill.github.io development by creating an account on GitHub.",
+                                                                    "browser-errors-url": "https://api.github.com/_private/browser/errors",
+                                                                    "octolytics-dimension-user_login": "adamcaudill",
+                                                                    "hostname": "github.com",
+                                                                    "twitter:site": "@github",
+                                                                    "browser-stats-url": "https://api.github.com/_private/browser/stats",
+                                                                    "visitor-payload": "eyJyZWZlcnJlciI6IiIsInJlcXVlc3RfaWQiOiJCQjlDOjQ4QkE6NDkyRDk6MTIxRDM1OjYwRDEwOTZDIiwidmlzaXRvcl9pZCI6IjUxNDQ1MDgxOTA5MzU4MTI0NjEiLCJyZWdpb25fZWRnZSI6ImlhZCIsInJlZ2lvbl9yZW5kZXIiOiJpYWQifQ==",
+                                                                    "github-keyboard-shortcuts": "repository,source-code",
+                                                                    "octolytics-dimension-repository_id": "4009962",
+                                                                    "octolytics-dimension-repository_network_root_nwo": "adamcaudill/adamcaudill.github.io",
+                                                                    "enabled-features": "MARKETPLACE_PENDING_INSTALLATIONS,AUTOCOMPLETE_EMOJIS_IN_MARKDOWN_EDITOR",
+                                                                    "twitter:title": "adamcaudill/adamcaudill.github.io",
+                                                                    "og:image:alt": "Code for adamcaudill.com. Contribute to adamcaudill/adamcaudill.github.io development by creating an account on GitHub.",
+                                                                    "og:type": "object",
+                                                                    "optimizely-datafile": "{\"version\": \"4\", \"rollouts\": [], \"typedAudiences\": [], \"anonymizeIP\": true, \"projectId\": \"16737760170\", \"variables\": [], \"featureFlags\": [], \"experiments\": [{\"status\": \"Running\", \"audienceIds\": [], \"variations\": [{\"variables\": [], \"id\": \"20227754799\", \"key\": \"control\"}, {\"variables\": [], \"id\": \"20233267869\", \"key\": \"treatment\"}], \"id\": \"20194668672\", \"key\": \"recommended_plan_in_signup\", \"layerId\": \"20231804245\", \"trafficAllocation\": [{\"entityId\": \"20233267869\", \"endOfRange\": 2500}, {\"entityId\": \"\", \"endOfRange\": 5000}, {\"entityId\": \"20227754799\", \"endOfRange\": 7500}, {\"entityId\": \"\", \"endOfRange\": 10000}], \"forcedVariations\": {\"d0c8cbf56b61c99517936207d280de0c\": \"treatment\"}}, {\"status\": \"Running\", \"audienceIds\": [], \"variations\": [{\"variables\": [], \"id\": \"20233300304\", \"key\": \"launch_code_variation\"}, {\"variables\": [], \"id\": \"20227370325\", \"key\": \"control\"}], \"id\": \"20206000276\", \"key\": \"launch_code_verification\", \"layerId\": \"20233240262\", \"trafficAllocation\": [{\"entityId\": \"20233300304\", \"endOfRange\": 2500}",
+                                                                    "og:title": "adamcaudill/adamcaudill.github.io",
+                                                                    "og:image:height": "600",
+                                                                    "visitor-hmac": "02efa72aa288b6ed073ddc43654e5f343f6fabe828208185b5750173127bd72e",
+                                                                    "request-id": "BB9C:48BA:492D9:121D35:60D1096C",
+                                                                    "analytics-location": "/<user-name>/<repo-name>/blob/show",
+                                                                    "color-scheme": "light dark",
+                                                                    "octolytics-dimension-repository_is_fork": "false",
+                                                                    "go-import": "github.com/adamcaudill/adamcaudill.github.io git https://github.com/adamcaudill/adamcaudill.github.io.git",
+                                                                    "browser-optimizely-client-errors-url": "https://api.github.com/_private/browser/optimizely_client/errors",
+                                                                    "twitter:image:src": "https://opengraph.githubassets.com/4054768f4086042a0ddddff474d19ac0d0204a624fbc0167a1f92c21cdd37664/adamcaudill/adamcaudill.github.io",
+                                                                    "octolytics-dimension-user_id": "160984",
+                                                                    "octolytics-dimension-repository_public": "true",
+                                                                    "fb:app_id": "1401488693436528",
+                                                                    "octolytics-dimension-repository_network_root_id": "4009962",
+                                                                    "octolytics-dimension-repository_nwo": "adamcaudill/adamcaudill.github.io",
+                                                                    "viewport": "width=device-width",
+                                                                    "twitter:description": "Code for adamcaudill.com. Contribute to adamcaudill/adamcaudill.github.io development by creating an account on GitHub.",
+                                                                    "octolytics-host": "collector.githubapp.com",
+                                                                    "og:url": "https://github.com/adamcaudill/adamcaudill.github.io"
+                                                                }
+                                                            ],
+                                                            "cse_image": [
+                                                                {
+                                                                    "src": "https://opengraph.githubassets.com/4054768f4086042a0ddddff474d19ac0d0204a624fbc0167a1f92c21cdd37664/adamcaudill/adamcaudill.github.io"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

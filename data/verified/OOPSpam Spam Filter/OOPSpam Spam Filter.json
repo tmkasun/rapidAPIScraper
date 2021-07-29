@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_ec37d3c3-c293-4a0f-8ced-76d7f635527d",
+    "name": "OOPSpam Spam Filter",
+    "title": "OOPSpam Spam Filter",
+    "description": "A privacy-friendly, new generation, highly accurate anti-spam filter for contact forms, comment systems, blogs, live chat- the limit is your creativity! ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "oopspam-spam-filter",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-17T16:11:04.605Z",
+    "category": "Machine Learning",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/82/5de4264ae74b0b8f8f62b1669e6c1c/c0f13bab698de97c77c179a2e1ad075b.png",
+    "user": {
+        "id": 3760122,
+        "username": "oopspam",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_a6e27517-3e66-4f5a-9a4d-0b9ddc5ed3fa",
+        "tags": [
+            {
+                "id": "tag_1148ef45-115d-4a76-9593-7dc646b6564a",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_6080a46c-5ba3-4557-8e9a-4dd2995fb585",
+                "isGraphQL": false,
+                "route": "/v1/spamdetection",
+                "method": "POST",
+                "name": "Spam detection",
+                "description": "The main endpoint that returns detailed information about a given content.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

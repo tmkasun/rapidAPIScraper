@@ -1,0 +1,77 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_b50401fb-f757-4c2a-a84f-84b4de95341c",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_55fe8403-c8e1-4fd7-b0ab-260f02c12808",
+        "apiId": "api_bab762c9-6a93-450e-9cb9-fa99ebaa1d75"
+    },
+    "info": {
+        "title": "Easy Email Validation",
+        "description": "Use this API to quickly and effectively validate an email addresses. This API runs the following checks: valid email format, mx Record, and disposable email.",
+        "version": "v1",
+        "x-category": "Email",
+        "x-long-description": "Use this API to quickly and effectively validate an email addresses. This API runs the following checks: valid email format, mx Record, and disposable email.\n\nEmail Validation, E-mail Check Invalid or Disposable Domain, Email Verification,  Email Address Validation.",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/7cad6f30-de68-4aac-895e-9fc4fa1efafc.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://easy-email-validation.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/validate": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "example@gmail.com"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Validate Email",
+                "description": "Validate an email",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "disposable": false,
+                                            "domain": "gmail.com",
+                                            "email": "example@gmail.com",
+                                            "mxRecord": true,
+                                            "valid": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

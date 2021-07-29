@@ -1,0 +1,85 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_d04bfe9c-0486-4a92-ae0d-cb51a18a60e1",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_4ee4c671-bd2c-47e0-9091-91ac6c037804",
+        "apiId": "api_4940c4e5-0470-4136-8c20-bb247c5132c5"
+    },
+    "info": {
+        "title": "AI Art Maker",
+        "description": "Create AI art with image style transfer. Turn selfies, pet photos, and other images into personalized art. Web interface: https://hotpot.ai/personalize-art",
+        "version": "v1",
+        "x-category": "Video, Images",
+        "x-long-description": "Make AI art with image style transfer. Use AI to reimagine boring selfies, pet photos, and vacation pictures with different artistic styles. From Van Gogh to pixel art to Chinese paintings, mix and match disparate styles to generate captivating, customized images.\n\nOur machine learning model uses Neural Style Transfer to recreate images with predefined and user-defined styles.\n\nWeb interface: https://hotpot.ai/personalize-art",
+        "x-website": "https://hotpot.ai/personalize-art",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/5bb2c71f-61ca-45e4-9c4c-8286925cea26.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://ai-art-maker.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/art-remixer-api-bin": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://hotpot.ai/docs/api"
+                },
+                "operationId": "AI Art Personalizer",
+                "description": "Turn pictures into personalized art with AI. Invigorate boring selfies, pet photos, and vacation pictures by reimagining them with different artistic styles. From Van Gogh to pixel art to Chinese paintings, mix and match disparate styles to generate captivating, customized images.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {}
+                                }
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "focusContent": {
+                                        "type": "string",
+                                        "format": "boolean",
+                                        "example": "true"
+                                    },
+                                    "styleImage": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    },
+                                    "contentImage": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

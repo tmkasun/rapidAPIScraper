@@ -1,0 +1,389 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_e5be8cc6-0fc6-4ca9-aa4c-d716104390fb",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_59943796-a81f-4627-8dd7-0b51bdde0afa",
+        "apiId": "api_a512df92-6739-4f03-9145-3c4bffcda648"
+    },
+    "info": {
+        "title": "XF English Dictionary",
+        "description": "Provides definitions of English words and phrases plus usage examples, word forms, synonyms, antonyms, pronunciation data,  and word frequencies. Applies linguistic analysis to source text.",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "The XF English Dictionary contains over one million words and phrases (including many proper nouns, for example names of cities etc). By default, the API query returns word/phrase definitions, usage examples, word forms, synonyms, antonyms, pronunciations (both textual and audio), and learner-friendly word frequency data. \nYou can submit either a word or arbitrary text where the target word is selected. The API breaks text into sentences,  applies linguistic analysis, identifies possible root forms of the target word,  and returns a list of words, most relevant results at top of the list. For example, if you submit sentence\n\nRapidAPI is without a **doubt** the best API marketplace.\n\n where **doubt** is the target word, linguistic analysis helps us figure out that, in this context, **doubt** is most likely \n a noun. Consequently, NOUN **doubt** is added to the word list before VERB.  \nThe accuracy of linguistic analysis depends on context, but it is, on average, over 90%.\nNote that the response also contains phrases that the target word may be part of. \nThe XF English Dictionary often adds certain related/useful words to the response. These words may help language learners to better grasp meaning of the target word. For instance, if you submit a sentence like\n\nRapidAPI is **undoubtedly** the best API marketplace.\n\nthe API will (by default) return definitions for both **undoubtedly** and **doubt**. Related words can be excluded from \nresponse by setting parameter ’relatedWords’ to ’false’.\n\n\n\nIf a proper noun is not found in the dictionary, the API may return link(s) to Wikipedia articles.\n\nIf you like the concept but prefer a different dictionary, then XF English Dictionary API framework can still be used for data preprocessing so your application can take advantage of linguistic analysis, phrase shortlisting and related words. Contact us at info@xfd.plus for more information.\n\nFor more information and documentation please visit the dictionary website at https://www.xfd.plus/?src=rapidapi",
+        "x-website": "https://www.xfd.plus/?src=rapidapi",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ec842384-e05c-49d4-9845-7127f2c84de4.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://xf-english-dictionary1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/v1/dictionary": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "audioFileLinks",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include links to audio files in response. Default: true.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "https://xfenglishdictionary.docs.apiary.io/"
+                            },
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "pronunciations",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include pronunciations in response. Default: true.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "https://xfenglishdictionary.docs.apiary.io/"
+                            },
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "textAfterSelection",
+                        "in": "query",
+                        "required": false,
+                        "description": "Part of sentence (or multi-sentence text) after the target word (see parameter 'selection'). Can contain partial sentences. Max. length: 500 characters.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "https://xfenglishdictionary.docs.apiary.io/"
+                            },
+                            "type": "string",
+                            "default": "completed their project."
+                        }
+                    },
+                    {
+                        "name": "textBeforeSelection",
+                        "in": "query",
+                        "required": false,
+                        "description": "Part of sentence (or multi-sentence text) before the target word (see parameter 'selection'). Can contain partial sentences. Max. length: 500 characters.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "They"
+                        }
+                    },
+                    {
+                        "name": "synonyms",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include synonyms in response. Default: true.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "https://xfenglishdictionary.docs.apiary.io/"
+                            },
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "antonyms",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "relatedWords",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include related words in response. Default: true.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "https://xfenglishdictionary.docs.apiary.io/"
+                            },
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "selection",
+                        "in": "query",
+                        "required": true,
+                        "description": "Target word i.e the one to look up in the dictionary. Must not contain whitespace characters.\nMax length: 128 characters. If you want to submit entire sentence (or arbitrary text containing multiple sentences), use it alongside parameters textBeforeSelection and/or textAfterSelection.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "https://xfenglishdictionary.docs.apiary.io/"
+                            },
+                            "type": "string",
+                            "default": "successfully"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Dictionary",
+                "description": "Returns definitions of an English word (including its root forms) and/or phrases plus usage examples,  word forms, synonyms, antonyms, pronunciation data, and word frequencies. You can submit either a word, phrase or arbitrary text where the target word is selected.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "items": [
+                                                {
+                                                    "definitions": [
+                                                        {
+                                                            "definition": "In a successful manner; with success; without failing.",
+                                                            "examples": [
+                                                                "He <b>successfully</b> climbed the mountain.",
+                                                                "They <b>successfully</b> completed their project together.",
+                                                                "We <b>successfully</b> avoided any danger.",
+                                                                "You <b>successfully</b> configured the program to install updates."
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "inflectionalForms": [
+                                                        {
+                                                            "forms": [
+                                                                "more successfully"
+                                                            ],
+                                                            "type": "comparative"
+                                                        },
+                                                        {
+                                                            "forms": [
+                                                                "most successfully"
+                                                            ],
+                                                            "type": "superlative"
+                                                        }
+                                                    ],
+                                                    "partOfSpeech": "adverb",
+                                                    "synonyms": [
+                                                        "efficaciously, efficiently, favorably, satisfyingly, satisfactorily, adequately, agreeably, competently, capably, proficiently, properly"
+                                                    ],
+                                                    "word": "successfully"
+                                                },
+                                                {
+                                                    "definitions": [
+                                                        {
+                                                            "antonyms": [
+                                                                "failure"
+                                                            ],
+                                                            "definition": "The achievement of one's aim or goal.",
+                                                            "examples": [
+                                                                "His third attempt to pass the entrance exam was a <b>success</b>."
+                                                            ]
+                                                        },
+                                                        {
+                                                            "definition": "(<i>business</i>) Financial profitability.",
+                                                            "examples": [
+                                                                "Don't let <b>success</b> go to your head."
+                                                            ]
+                                                        },
+                                                        {
+                                                            "definition": "One who, or that which, achieves assumed goals.",
+                                                            "examples": [
+                                                                "Scholastically, he was a <b>success</b>.",
+                                                                "The new range of toys has been a resounding <b>success</b>."
+                                                            ]
+                                                        },
+                                                        {
+                                                            "definition": "The fact of getting or achieving wealth, respect or fame.",
+                                                            "examples": [
+                                                                "She is country music's most recent <b>success</b>."
+                                                            ]
+                                                        },
+                                                        {
+                                                            "definition": "(<i>obsolete</i>) Something which happens as a consequence; the outcome or result."
+                                                        }
+                                                    ],
+                                                    "inflectionalForms": [
+                                                        {
+                                                            "forms": [
+                                                                "successes"
+                                                            ],
+                                                            "type": "plural"
+                                                        }
+                                                    ],
+                                                    "partOfSpeech": "noun",
+                                                    "word": "success"
+                                                },
+                                                {
+                                                    "antonyms": [
+                                                        "unsuccessful",
+                                                        "failed"
+                                                    ],
+                                                    "definitions": [
+                                                        {
+                                                            "definition": "Resulting in success; assuring, or promoting, success; accomplishing what was proposed; having the desired effect",
+                                                            "examples": [
+                                                                "2006, Edwin Black, <i>\"Internal Combustion\"</i> — If <b>successful</b>, Edison and Ford-in 1914-would move society away from the ever more expensive and then universally known killing hazards of gasoline cars: [...] .",
+                                                                "2013, Oliver Burkeman, <i>\"The Guardian Weekly\"</i> — The dirty secret of the internet is that all this distraction and interruption is immensely profitable. Web companies like to boast about [...], or offering services that let you [...] \"share the things you love with the world\" and so on. But the real way to build a <b>successful</b> online business is to be better than your rivals at undermining people's control of their own attention.",
+                                                                "a <b>successful</b> use of medicine;  a <b>successful</b> experiment;  a <b>successful</b> enterprise"
+                                                            ],
+                                                            "synonyms": [
+                                                                "prosperous",
+                                                                "fortunate",
+                                                                "happy"
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "inflectionalForms": [
+                                                        {
+                                                            "forms": [
+                                                                "more successful"
+                                                            ],
+                                                            "type": "comparative"
+                                                        },
+                                                        {
+                                                            "forms": [
+                                                                "most successful"
+                                                            ],
+                                                            "type": "superlative"
+                                                        }
+                                                    ],
+                                                    "partOfSpeech": "adjective",
+                                                    "synonyms": [
+                                                        "efficacious, effective, fruitful, rewarding, accomplished, profitable",
+                                                        "See also: prosperous",
+                                                        "(<i>of requests</i>):  tithe (<i>obs.</i>)"
+                                                    ],
+                                                    "word": "successful"
+                                                }
+                                            ],
+                                            "pronunciations": [
+                                                {
+                                                    "entries": [
+                                                        {
+                                                            "audioFiles": [
+                                                                {
+                                                                    "label": "(US)",
+                                                                    "link": "37610_en-us-success.ogg"
+                                                                }
+                                                            ],
+                                                            "entry": "success",
+                                                            "textual": [
+                                                                {
+                                                                    "pronunciation": "(UK, US) IPA: /səkˈsɛs/"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "audioFiles": [
+                                                                {
+                                                                    "label": "(US)",
+                                                                    "link": "62700_en-us-successful.ogg"
+                                                                }
+                                                            ],
+                                                            "entry": "successful",
+                                                            "textual": [
+                                                                {
+                                                                    "pronunciation": "IPA: /səkˈsɛsfl̩/"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "audioFiles": [
+                                                                {
+                                                                    "label": "(US)",
+                                                                    "link": "88283_en-us-successfully.ogg"
+                                                                }
+                                                            ],
+                                                            "entry": "successfully",
+                                                            "textual": [
+                                                                {
+                                                                    "pronunciation": "IPA: /səkˈsɛsfəli/"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "sentence": "They successfully completed their project.",
+                                            "target": "successfully",
+                                            "wordFrequencies": [
+                                                {
+                                                    "frequencies": [
+                                                        {
+                                                            "frequencyBand": "0-5000",
+                                                            "partOfSpeech": "noun"
+                                                        }
+                                                    ],
+                                                    "word": "success"
+                                                },
+                                                {
+                                                    "frequencies": [
+                                                        {
+                                                            "frequencyBand": "0-5000",
+                                                            "partOfSpeech": "adjective"
+                                                        }
+                                                    ],
+                                                    "word": "successful"
+                                                },
+                                                {
+                                                    "frequencies": [
+                                                        {
+                                                            "frequencyBand": "0-5000",
+                                                            "partOfSpeech": "adverb"
+                                                        }
+                                                    ],
+                                                    "word": "successfully"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "selection": {
+                                        "type": "string"
+                                    },
+                                    "textAfterSelection": {
+                                        "type": "string"
+                                    },
+                                    "textBeforeSelection": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "examples": {
+                                "Example": {
+                                    "description": "Sentence: They successfully completed their project.",
+                                    "summary": "Example",
+                                    "value": {
+                                        "selection": "successfully",
+                                        "textAfterSelection": "completed their project.",
+                                        "textBeforeSelection": "They"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

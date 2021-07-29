@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_e60fe6da-8641-4cc9-9f80-65dff3e73540",
+    "name": "Sentiments",
+    "title": "Sentiments",
+    "description": "Our \"Sentiments\" API returns the sentiment score of any given text. Test our api for free and do not hesitate to reach us out for further information.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "sentiments1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-07T17:25:14.196Z",
+    "category": "Text Analysis",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0bb43279-9f45-4c93-9910-b0f2a84ddd13.png",
+    "user": {
+        "id": 4551023,
+        "username": "connexun-srl-connexun-srl-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_aec2b5ad-feff-4370-8b41-90376f7402d2",
+        "tags": [
+            {
+                "id": "tag_9d93f94c-e76f-4b33-9127-8737e5e39efc",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_cd5621b7-11bd-4b76-bd2d-2e15dfd2bbb8",
+                "isGraphQL": false,
+                "route": "/sentiment",
+                "method": "POST",
+                "name": "/sentiment",
+                "description": "This endpoint requires an input text in english language, and in response evaluates if the overall sentiment of the text is positive, negative, or neutral. This sentiment along with the score obtained is returned in response as JSON object. The main value which reflect sentiment of a text is score which could be below zero - mostly negative sentiment or above zero - mostly positive. We convert continuous score to three classes negative sentiment (score<=-0.58), neutral (-0.58<score<0.21), positive (>=0.21). Such division is subjective and could be used as it is for text classification by sentiments.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

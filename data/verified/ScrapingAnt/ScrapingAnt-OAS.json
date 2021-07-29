@@ -1,0 +1,182 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_30dfadbc-18ce-4852-a083-9ff89aa895c8",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_c33c33c9-97ed-4954-9f36-ff87e92d84d2",
+        "apiId": "api_fb87f77f-3892-4258-bfbb-2d212711f3c3"
+    },
+    "info": {
+        "title": "ScrapingAnt",
+        "description": "The easiest way to scrape Web sites. ScrapingAnt uses the latest Chrome browser and rotates proxies for you.",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "Web Scraping and Web Harvesting are challenging tasks. Many specialists have to handle Javascript rendering, headless browser update and maintenance, proxies diversity and rotation.\n\nScrapingAnt is a simple API that does all the above for you:\n🛠Latest Chrome render\n💻Run Javascript\n🕵️‍♀️Thousands of proxies over the World\n\nFor extended documentation, please, follow: https://scrapingant.com/documentation/",
+        "x-website": "https://scrapingant.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/0f680947-abdc-4a72-bd73-86730672303d.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://scrapingant.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "HTML scraping"
+        }
+    ],
+    "paths": {
+        "/get": {
+            "get": {
+                "tags": [
+                    "HTML scraping"
+                ],
+                "parameters": [
+                    {
+                        "name": "proxy_country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Proxy country.\nPlease, select one of the following:\n-        'AE'    United Arab Emirates (the)\n-        'BR'    Brasilia\n-        'CN'    China\n-        'DE'    Germany\n-        'ES'    Spain\n-        'FR'     France\n-        'GB'   United Kingdom (the)\n-        'HK'   Hong Kong\n-        'IN'    India\n-        'IT'    Italy\n-        'IL'     Israel\n-        'JP'   Japan\n-        'NL'   Netherlands (the)\n-        'RU'   Russia\n-        'SA'   Saudi Arabia\n-        'US'   USA ",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "wait_for_selector",
+                        "in": "query",
+                        "required": false,
+                        "description": "Valid CSS selector to wait while page load. ScrapingAnt will wait for this selector DOM element appearance and then return the result.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "return_text",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fetch this page and return text only or full HTML",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "response_format",
+                        "in": "query",
+                        "required": false,
+                        "description": "Defines the response format.\n*html* by default.\nWhen *json* used allows receiving a rich response with cookies and other useful information",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "cookies",
+                        "in": "query",
+                        "required": false,
+                        "description": "Send custom cookies to the page you want to scrape. We currently only handle name and value of custom cookies. If you want to set multiple cookies just separate cookies with ';'. Example: 'cookiename1=cookievalue1;cookiename2=cookievalue_2'",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "js_snippet",
+                        "in": "query",
+                        "required": false,
+                        "description": "A Base64 encoded JavaScript snippet that is run once the page is loaded.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "description": "The encoded URL you want to fetch.\nIMPORTANT NOTE: there is **NO** need to encode it while using from RapidAPI request builder",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "GET HTML scraping",
+                "description": "Fetch raw HTML from any website using GET request",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/post": {
+            "post": {
+                "tags": [
+                    "HTML scraping"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "POST HTML scraping",
+                "description": "Fetch raw HTML from any website using POST request without no data encoding",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "cookies": {
+                                        "type": "string"
+                                    },
+                                    "js_snippet": {
+                                        "type": "string"
+                                    },
+                                    "proxy_country": {
+                                        "type": "string"
+                                    },
+                                    "return_text": {
+                                        "type": "boolean"
+                                    },
+                                    "url": {
+                                        "format": "uri",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "examples": {
+                                "Basic parameters": {
+                                    "description": "Example with basic parameters",
+                                    "summary": "Basic parameters",
+                                    "value": {
+                                        "cookies": "cookie_name_1=cookie_value_1;cookie_name_2=cookie_value_2",
+                                        "return_text": false,
+                                        "url": "https://example.com"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

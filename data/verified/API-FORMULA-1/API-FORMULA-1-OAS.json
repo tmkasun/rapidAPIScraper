@@ -1,0 +1,777 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_8c824845-b8e7-4f25-92ab-8659c2dab51f",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_82153f4e-9ba4-4cc8-81db-4a480cbcb84b",
+        "apiId": "api_5bdfc3b0-7d3b-4a30-937f-935e799e4279"
+    },
+    "info": {
+        "title": "API-FORMULA-1",
+        "description": "All data about Formula 1, Circuits, Teams, Drivers, Rankings...",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "All data about Formula 1, Circuits, Teams, Drivers, Rankings. Documentation : https://api-sports.io/documentation/formula-1/v1",
+        "x-website": "www.api-football.com/sports",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/8bd255bb-d904-4373-815a-9cb04a885644.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://api-formula-1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Search"
+        },
+        {
+            "name": "Teams"
+        },
+        {
+            "name": "Races"
+        },
+        {
+            "name": "Rankings"
+        },
+        {
+            "name": "Drivers"
+        },
+        {
+            "name": "Competitions"
+        },
+        {
+            "name": "Circuits"
+        }
+    ],
+    "paths": {
+        "/races": {
+            "get": {
+                "tags": [
+                    "Races"
+                ],
+                "parameters": [
+                    {
+                        "name": "last",
+                        "in": "query",
+                        "required": false,
+                        "description": "The X last races",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "next",
+                        "in": "query",
+                        "required": false,
+                        "description": "The X next races",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "competition",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the competition",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the race",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "The type of the race",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "timezone",
+                        "in": "query",
+                        "required": false,
+                        "description": "A valid timezone",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "description": "The season of the race",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "2019"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "description": "A valid date",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "races",
+                "description": "Get the list of available races for a competition.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "errors": {
+                                            "type": "array"
+                                        },
+                                        "get": {
+                                            "type": "string"
+                                        },
+                                        "parameters": {
+                                            "properties": {
+                                                "competition": {
+                                                    "type": "string"
+                                                },
+                                                "season": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "response": {
+                                            "items": {
+                                                "properties": {
+                                                    "circuit": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer"
+                                                            },
+                                                            "image": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "competition": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer"
+                                                            },
+                                                            "location": {
+                                                                "properties": {
+                                                                    "city": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "country": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "date": {
+                                                        "type": "string"
+                                                    },
+                                                    "distance": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "laps": {
+                                                        "type": "object"
+                                                    },
+                                                    "season": {
+                                                        "type": "integer"
+                                                    },
+                                                    "status": {
+                                                        "type": "string"
+                                                    },
+                                                    "timezone": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "type": "string"
+                                                    },
+                                                    "weather": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "results": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "errors": [],
+                                            "get": "races",
+                                            "parameters": {
+                                                "competition": "1",
+                                                "season": "2019"
+                                            },
+                                            "response": [
+                                                {
+                                                    "circuit": {
+                                                        "id": 1,
+                                                        "image": "https://media.api-sports.io/formula-1/circuits/1.png",
+                                                        "name": "Albert Park"
+                                                    },
+                                                    "competition": {
+                                                        "id": 1,
+                                                        "location": {
+                                                            "city": "Melbourne",
+                                                            "country": "Australia"
+                                                        },
+                                                        "name": "Australia Grand Prix"
+                                                    },
+                                                    "date": "2019-03-17T08:10:00+00:00",
+                                                    "distance": "307.574 Kms",
+                                                    "id": 50,
+                                                    "laps": {
+                                                        "current": "58/58",
+                                                        "total": 58
+                                                    },
+                                                    "season": 2019,
+                                                    "status": "Completed",
+                                                    "timezone": "utc",
+                                                    "type": "Race",
+                                                    "weather": "Sunny"
+                                                },
+                                                {
+                                                    "circuit": {
+                                                        "id": 1,
+                                                        "image": "https://media.api-sports.io/formula-1/circuits/1.png",
+                                                        "name": "Albert Park"
+                                                    },
+                                                    "competition": {
+                                                        "id": 1,
+                                                        "location": {
+                                                            "city": "Melbourne",
+                                                            "country": "Australia"
+                                                        },
+                                                        "name": "Australia Grand Prix"
+                                                    },
+                                                    "date": "2019-03-16T09:40:00+00:00",
+                                                    "distance": "307.574 Kms",
+                                                    "id": 51,
+                                                    "laps": {
+                                                        "current": null,
+                                                        "total": 58
+                                                    },
+                                                    "season": 2019,
+                                                    "status": "Completed",
+                                                    "timezone": "utc",
+                                                    "type": "3rd Qualifying",
+                                                    "weather": "Sunny"
+                                                },
+                                                {
+                                                    "circuit": {
+                                                        "id": 1,
+                                                        "image": "https://media.api-sports.io/formula-1/circuits/1.png",
+                                                        "name": "Albert Park"
+                                                    },
+                                                    "competition": {
+                                                        "id": 1,
+                                                        "location": {
+                                                            "city": "Melbourne",
+                                                            "country": "Australia"
+                                                        },
+                                                        "name": "Australia Grand Prix"
+                                                    },
+                                                    "date": "2019-03-16T09:20:00+00:00",
+                                                    "distance": "307.574 Kms",
+                                                    "id": 52,
+                                                    "laps": {
+                                                        "current": null,
+                                                        "total": 58
+                                                    },
+                                                    "season": 2019,
+                                                    "status": "Completed",
+                                                    "timezone": "utc",
+                                                    "type": "2nd Qualifying",
+                                                    "weather": "Sunny"
+                                                },
+                                                {
+                                                    "circuit": {
+                                                        "id": 1,
+                                                        "image": "https://media.api-sports.io/formula-1/circuits/1.png",
+                                                        "name": "Albert Park"
+                                                    },
+                                                    "competition": {
+                                                        "id": 1,
+                                                        "location": {
+                                                            "city": "Melbourne",
+                                                            "country": "Australia"
+                                                        },
+                                                        "name": "Australia Grand Prix"
+                                                    },
+                                                    "date": "2019-03-16T09:00:00+00:00",
+                                                    "distance": "307.574 Kms",
+                                                    "id": 53,
+                                                    "laps": {
+                                                        "current": null,
+                                                        "total": 58
+                                                    },
+                                                    "season": 2019,
+                                                    "status": "Completed",
+                                                    "timezone": "utc",
+                                                    "type": "1st Qualifying",
+                                                    "weather": "Sunny"
+                                                },
+                                                {
+                                                    "circuit": {
+                                                        "id": 1,
+                                                        "image": "https://media.api-sports.io/formula-1/circuits/1.png",
+                                                        "name": "Albert Park"
+                                                    },
+                                                    "competition": {
+                                                        "id": 1,
+                                                        "location": {
+                                                            "city": "Melbourne",
+                                                            "country": "Australia"
+                                                        },
+                                                        "name": "Australia Grand Prix"
+                                                    },
+                                                    "date": "2019-03-16T06:00:00+00:00",
+                                                    "distance": "307.574 Kms",
+                                                    "id": 54,
+                                                    "laps": {
+                                                        "current": null,
+                                                        "total": 58
+                                                    },
+                                                    "season": 2019,
+                                                    "status": "Completed",
+                                                    "timezone": "utc",
+                                                    "type": "3rd Practice",
+                                                    "weather": "Sunny"
+                                                },
+                                                {
+                                                    "circuit": {
+                                                        "id": 1,
+                                                        "image": "https://media.api-sports.io/formula-1/circuits/1.png",
+                                                        "name": "Albert Park"
+                                                    },
+                                                    "competition": {
+                                                        "id": 1,
+                                                        "location": {
+                                                            "city": "Melbourne",
+                                                            "country": "Australia"
+                                                        },
+                                                        "name": "Australia Grand Prix"
+                                                    },
+                                                    "date": "2019-03-15T08:00:00+00:00",
+                                                    "distance": "307.574 Kms",
+                                                    "id": 55,
+                                                    "laps": {
+                                                        "current": null,
+                                                        "total": 58
+                                                    },
+                                                    "season": 2019,
+                                                    "status": "Completed",
+                                                    "timezone": "utc",
+                                                    "type": "2nd Practice",
+                                                    "weather": "Cloudy"
+                                                },
+                                                {
+                                                    "circuit": {
+                                                        "id": 1,
+                                                        "image": "https://media.api-sports.io/formula-1/circuits/1.png",
+                                                        "name": "Albert Park"
+                                                    },
+                                                    "competition": {
+                                                        "id": 1,
+                                                        "location": {
+                                                            "city": "Melbourne",
+                                                            "country": "Australia"
+                                                        },
+                                                        "name": "Australia Grand Prix"
+                                                    },
+                                                    "date": "2019-03-15T04:00:00+00:00",
+                                                    "distance": "307.574 Kms",
+                                                    "id": 56,
+                                                    "laps": {
+                                                        "current": null,
+                                                        "total": 58
+                                                    },
+                                                    "season": 2019,
+                                                    "status": "Completed",
+                                                    "timezone": "utc",
+                                                    "type": "1st Practice",
+                                                    "weather": "Cloudy"
+                                                }
+                                            ],
+                                            "results": 7
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/circuits": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Allow to search for a circuit name",
+                        "schema": {
+                            "type": "string",
+                            "example": "silver"
+                        }
+                    }
+                ],
+                "operationId": "search circuits",
+                "description": "Allow to search for a circuit name",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teams": {
+            "get": {
+                "tags": [
+                    "Teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Allow to search for a team name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the team",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "description": "The name of the team",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "teams",
+                "description": "Get the list of available competitions. The team id are unique in the API and teams keep it across all seasons",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/drivers": {
+            "get": {
+                "tags": [
+                    "Drivers"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Allow to search for a driver name",
+                        "schema": {
+                            "type": "string",
+                            "example": "lewi"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "description": "The name of the driver",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the driver",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "drivers",
+                "description": "Get the list of available drivers. The driver id are unique in the API and drivers keep it across all seasons",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/competitions": {
+            "get": {
+                "tags": [
+                    "Competitions"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "description": "The name of the city",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "description": "The name of the competition",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "The name of the country",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Allow to search for a competition name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the competition",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "competitions",
+                "description": "Get the list of available competitions. The competition id are unique in the API and competitions keep it across all seasons",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/rankings/teams": {
+            "get": {
+                "tags": [
+                    "Rankings"
+                ],
+                "parameters": [
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the team",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": true,
+                        "description": "The season",
+                        "schema": {
+                            "type": "number",
+                            "example": "2019"
+                        }
+                    }
+                ],
+                "operationId": "teams rankings",
+                "description": "Get the teams rankings for a season.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/rankings/races": {
+            "get": {
+                "tags": [
+                    "Rankings"
+                ],
+                "parameters": [
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the team",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "driver",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the driver",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "race",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the race",
+                        "schema": {
+                            "type": "number",
+                            "example": "50"
+                        }
+                    }
+                ],
+                "operationId": "races rankings",
+                "description": "Get the rankings for a race.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/rankings/drivers": {
+            "get": {
+                "tags": [
+                    "Rankings"
+                ],
+                "parameters": [
+                    {
+                        "name": "driver",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the driver",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the team",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": true,
+                        "description": "The season",
+                        "schema": {
+                            "type": "number",
+                            "example": "2019"
+                        }
+                    }
+                ],
+                "operationId": "drivers rankings",
+                "description": "Get the drivers rankings for a season.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/timezone": {
+            "get": {
+                "operationId": "timezone",
+                "description": "Get the list of available timezone to be used in the races endpoint.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/seasons": {
+            "get": {
+                "operationId": "seasons",
+                "description": "Get all seasons available.  All seasons are only 4-digit keys. All results can be used in other endpoints as filters.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

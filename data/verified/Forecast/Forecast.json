@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_a9051e40-fe79-4f52-9c44-1081a82ef929",
+    "name": "Forecast",
+    "title": "Forecast",
+    "description": "Get 16 days weather forecast data - worldwide - geographical coordinates...",
+    "visibility": "PUBLIC",
+    "slugifiedName": "forecast9",
+    "pricing": null,
+    "updatedAt": null,
+    "category": "Weather",
+    "thumbnail": null,
+    "user": {
+        "id": 4364704,
+        "username": "wettercom-wettercom-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_b40f426f-0934-4a9b-8bec-448160f7e002",
+        "tags": [
+            {
+                "id": "tag_d7aff334-4c11-4be5-a0ec-c3519a5b6cb9",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_e0f7c132-7e7c-4d26-8757-e304063d009e",
+                "isGraphQL": false,
+                "route": "/rapidapi/forecast/{locationName}/hourly/",
+                "method": "GET",
+                "name": "RapidApiGetHourlyForecastByLocationName",
+                "description": " ",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_a6484a38-5509-445e-b03c-9f6df1a73a24",
+                "isGraphQL": false,
+                "route": "/rapidapi/forecast/{locationName}/summary/",
+                "method": "GET",
+                "name": "RapidApiGetForecastSummaryByLocationName",
+                "description": "Get Forecast",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_34eb2374-1701-44d6-9ce6-92d7c03ec422",
+                "isGraphQL": false,
+                "route": "/status/",
+                "method": "GET",
+                "name": "GetStatus",
+                "description": "Check if the API is running.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

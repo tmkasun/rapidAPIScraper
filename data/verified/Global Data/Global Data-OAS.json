@@ -1,0 +1,93 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_20b5615e-18da-4055-9df0-7197a63c70e2",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_4a0314fd-f6ad-455e-8f1b-30a22d4ed14e",
+        "apiId": "api_6495ed3c-401e-4c0f-9acc-85a9fc6d953b"
+    },
+    "info": {
+        "title": "Global Data",
+        "description": "General API to be used for together with other APIs that based on various sports",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "",
+        "x-website": "https://www.broadage.com/developers/global-api/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/23969b66-2da5-4a26-925c-914240cbc474.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://global-data.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/status/list": {
+            "get": {
+                "externalDocs": {
+                    "description": "Global API Status List Documentation",
+                    "url": "https://www.broadage.com/developers/global-api/status-list/"
+                },
+                "operationId": "Status List",
+                "description": "Provides the list of the global statuses for the sports.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/sport/list": {
+            "get": {
+                "externalDocs": {
+                    "description": "Global API Sports List Documentation",
+                    "url": "https://www.broadage.com/developers/global-api/sports-list/"
+                },
+                "operationId": "Sports List",
+                "description": "Provides the list of the sports which are supported in the global coverage.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/round/list": {
+            "get": {
+                "externalDocs": {
+                    "description": "Global API Round List Documentation",
+                    "url": "https://www.broadage.com/developers/global-api/round-list/"
+                },
+                "operationId": "Round List",
+                "description": "Provides the list of the global rounds for the sports.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/country/list": {
+            "get": {
+                "externalDocs": {
+                    "description": "Global API Country List Documentation",
+                    "url": "https://www.broadage.com/developers/global-api/country-list/"
+                },
+                "operationId": "Country List",
+                "description": "Provides the list of the countries which belong to the tournaments.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

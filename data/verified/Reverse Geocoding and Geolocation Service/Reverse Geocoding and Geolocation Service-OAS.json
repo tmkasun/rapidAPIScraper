@@ -1,0 +1,197 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_e5a5dc56-b11d-4062-b142-fab99b7edea7",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5b6b499ee4b0aa2f76d1ff74",
+        "apiId": "5b6b499ee4b07e7b7f71e4ab"
+    },
+    "info": {
+        "title": "Reverse Geocoding and Geolocation Service",
+        "description": "Find nearest or largest city information or timezone for any given point location (latitude/longitude). The reverse geocode API back \"reverse\" codes any GPS location point into nearest or largest readable places with county, city, distance and population.",
+        "version": "v1",
+        "x-category": "Mapping",
+        "x-long-description": "Returns nearest or largest city and/or timezone info for any latitude/longitude geo coordinate within a defined range:  City Name, Population, Distance, Bearing (Degrees), Compass Direction (16-wind compass rose), Country, Time zone, GMT Offset",
+        "x-website": "https://www.noggle.online",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5b6b499ee4b0aa2f76d1ff74_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://geocodeapi.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/GetTimezone": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "40.63380384389354"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "-74.40753570369408"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "GetTimezone",
+                "description": "Finds the local timezone for any given geo-location point by lat and long and returns timezone information with Timezone name, Timezone id and current local time.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Country": {
+                                            "type": "string"
+                                        },
+                                        "CountryId": {
+                                            "type": "string"
+                                        },
+                                        "GMT_offset": {
+                                            "type": "integer"
+                                        },
+                                        "LocalTime_Now": {
+                                            "type": "string"
+                                        },
+                                        "TimeZoneId": {
+                                            "type": "string"
+                                        },
+                                        "TimeZoneName": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "Country": "United States of America ",
+                                            "CountryId": "US",
+                                            "GMT_offset": -5,
+                                            "LocalTime_Now": "2:48:57 PM",
+                                            "TimeZoneId": "America/New_York",
+                                            "TimeZoneName": "EST"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/GetLargestCities": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "range",
+                        "in": "query",
+                        "required": true,
+                        "description": "radial lookup range in meters (max 100.000)",
+                        "schema": {
+                            "type": "number",
+                            "example": "50000"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "longitude in decimal degrees (wgs84)",
+                        "schema": {
+                            "type": "number",
+                            "example": "9.98558"
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "latitude in decimal degrees (wgs84)",
+                        "schema": {
+                            "type": "number",
+                            "example": "53.55196"
+                        }
+                    }
+                ],
+                "operationId": "GetLargestCities",
+                "description": "Returns 5 largest cities within a given radial range with name, population, country and distance.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/GetNearestCities": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "range",
+                        "in": "query",
+                        "required": true,
+                        "description": "max radial range for lookup in meter (0=no range)",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "longitude in decimal degrees (wgs84)",
+                        "schema": {
+                            "type": "number",
+                            "example": "9.98558"
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "description": "latitude in decimal degrees (wgs84)",
+                        "schema": {
+                            "type": "number",
+                            "example": "53.55196"
+                        }
+                    }
+                ],
+                "operationId": "GetNearestCities",
+                "description": "Returns a readable place name as nearest 3 cities with population, country and distance based on given latitude/longitude pair.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

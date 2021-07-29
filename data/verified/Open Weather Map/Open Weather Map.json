@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa6041e4b00287471a2b5d",
+    "name": "Open Weather Map",
+    "title": "Open Weather Map",
+    "description": "Get weather and weather forecasts for multiple cities.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "open-weather-map",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-08-19T21:50:36.878Z",
+    "category": "Weather",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa6041e4b07e1f4ebec8b4_medium",
+    "user": {
+        "id": 1420399,
+        "username": "community",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa6041e4b07e1f4ebec8b4",
+        "tags": [
+            {
+                "id": "tag_72fbaadf-2854-4732-ad8b-c5a3ed6f3824",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "53aa6043e4b0a705fcc32c1d",
+                "isGraphQL": false,
+                "route": "/find",
+                "method": "GET",
+                "name": "Search Weather Data",
+                "description": "By city name. Input the city name or its part and get the list of the most proper cities in the world. Example - Lon or Lond or London. The more precise city name you put the more precise list you will get. To make it more precise put the city's name or its part, comma, the name of the county or 2-letter country code. You will get all proper cities in chosen county. The order is important - the first is city name than comma than county. Example - Lon, UK or Lon, GB or London, GB or Lon, England. By geographic coordinates.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_9efd93b5-a454-4619-9ff8-bd3465aeebe1",
+                "isGraphQL": false,
+                "route": "/onecall/timemachine",
+                "method": "GET",
+                "name": "Historical Weather Data",
+                "description": "To get access to historical weather data for the **5 previous days**\n\nlat, lon geographical coordinates (latitude, longitude)\ndt date from the 5 previous days (unix time, UTC time zone), e.g. dt=1586468027",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa6041e4b00287471a2b62",
+                "isGraphQL": false,
+                "route": "/weather",
+                "method": "GET",
+                "name": "Current Weather Data",
+                "description": "Using this kind of requests you can get weather data in any location on the earth. The current weather data are updated online based on data from more than 40,000 weather stations.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

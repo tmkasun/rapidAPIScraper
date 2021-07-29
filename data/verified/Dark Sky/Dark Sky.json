@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_f211cc86-8843-467f-9999-562d7b4c3bda",
+    "name": "Dark Sky",
+    "title": "Dark Sky",
+    "description": "The easiest, most advanced, weather API on the web.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "dark-sky",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-10-01T21:59:39.818Z",
+    "category": "Weather",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/70/6c66c0309a11e99af1bfd0f8162db7/f15efc85482994222ea77694e8b743c0.png",
+    "user": {
+        "id": 3702939,
+        "username": "darkskyapis",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_cddad5af-017d-47fc-9ef9-1212d89b6e22",
+        "tags": [
+            {
+                "id": "tag_d0892c68-94f0-4fc2-bac5-537e8d179a7b",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_988760f1-8430-4703-b392-b51126c5c9ae",
+                "isGraphQL": false,
+                "route": "/{latitude},{longitude},{time}",
+                "method": "GET",
+                "name": "Time Machine",
+                "description": "A Time Machine Request returns the observed (in the past) or forecasted (in the future) hour-by-hour weather and daily weather conditions for a particular date.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_644ad53b-36b5-43da-9ba7-3ee3ecc04ee8",
+                "isGraphQL": false,
+                "route": "/{latitude},{longitude}",
+                "method": "GET",
+                "name": "Forecast",
+                "description": "A Forecast Request returns the current weather conditions, a minute-by-minute forecast for the next hour (where available), an hour-by-hour forecast for the next 48 hours, and a day-by-day forecast for the next week.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

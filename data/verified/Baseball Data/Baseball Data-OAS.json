@@ -1,0 +1,309 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_5496e18a-a971-4500-b0ce-dc928be03033",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_1815516d-15d5-443c-851b-7d1a83ba4c0e",
+        "apiId": "api_57729e2a-c2ce-48e6-8764-39af5f43e507"
+    },
+    "info": {
+        "title": "Baseball Data",
+        "description": "Broadage Baseball API will give you wide range of data of world's top baseball leagues, including fixtures, standings, match lists and many more. Our Baseball Coverage includes the biggest baseball tournaments from all around the world with in-depth coverage, giving you the opportunity to present the best sports data to users located anywhere. <br>This is a limited version in RapidApi. <a href=\"https://www.broadage.com/signup/api/free?utm_source=rapidapi&utm_medium=click&utm_campaign=baseball_api\" target=”_blank”>Please, click here to start your Free Trial and try the endpoints with live data now!</a>",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Real time baseball data is served to you by Broadage Baseball API as it happens on the pitch. We provide daily baseball live scores, schedules and standings for both general and conference based results.\n\nMajor league tournaments from America, Japan and Mexico are just some of the tournaments in Broadage Baseball Coverage. The highly anticipated MLB is covered with in depth detail, with matches from pre season, regular season, playoffs and World Series.",
+        "x-website": "https://www.broadage.com/sports-data-api/baseball",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/6481a4b3-1295-4e74-b1e6-11058e985124.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://baseball-data.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Post-Match Data"
+        },
+        {
+            "name": "Live Data"
+        },
+        {
+            "name": "Pre-Match Data"
+        }
+    ],
+    "paths": {
+        "/tournament/teams": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "10"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Baseball API Tournament Teams Documentation",
+                    "url": "https://www.broadage.com/developers/baseball-api/tournament-teams/"
+                },
+                "operationId": "Tournament Teams",
+                "description": "List of teams participating in a specific tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/list": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "externalDocs": {
+                    "description": "Baseball API Tournament List Documentation",
+                    "url": "https://www.broadage.com/developers/baseball-api/tournament-list/"
+                },
+                "operationId": "Tournament List",
+                "description": "List of tournaments in your data coverage.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/scheduled": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the matches. The format is {dd/MM/yyyy}. Data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "02/11/2020"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Baseball API Match List: Scheduled Documentation",
+                    "url": "https://www.broadage.com/developers/baseball-api/match-list-scheduled/"
+                },
+                "operationId": "Daily Match List-Scheduled",
+                "description": "Daily match list including scheduled matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/results": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the matches. The format is {dd/MM/yyyy}. Data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "02/11/2020"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Baseball API Match List: Results Documentation",
+                    "url": "https://www.broadage.com/developers/baseball-api/match-list-results/"
+                },
+                "operationId": "Daily Match List-Results",
+                "description": "Daily match list including finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/live": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the matches. The format is {dd/MM/yyyy}. Data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "02/11/2020"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Baseball API Match List: Live Documentation",
+                    "url": "https://www.broadage.com/developers/baseball-api/match-list-live/"
+                },
+                "operationId": "Daily Match List-Live",
+                "description": "Daily match list including live matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the matches. The format is {dd/MM/yyyy}.  Data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "02/11/2020"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Baseball API Match List: All Documentation",
+                    "url": "https://www.broadage.com/developers/baseball-api/match-list-all/"
+                },
+                "operationId": "Daily Match List-All",
+                "description": "Daily match list including scheduled, live and finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/standings": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "9"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Baseball API Tournament Standings Documentation",
+                    "url": "https://www.broadage.com/developers/baseball-api/tournament-standings/"
+                },
+                "operationId": "Tournament Standings",
+                "description": "Team Rankings for a specific competition.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/info": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "10"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Baseball API Tournament Info Documentation",
+                    "url": "https://www.broadage.com/developers/baseball-api/tournament-info/"
+                },
+                "operationId": "Tournament Info",
+                "description": "Current season, stage structure(divisions,conferences etc.), country and many more information about a tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/fixture": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "10"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Baseball API Tournament Fixture Documentation",
+                    "url": "https://www.broadage.com/developers/baseball-api/tournament-fixture/"
+                },
+                "operationId": "Tournament Fixture",
+                "description": "Full match list with inning and final scores.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_74aad932-9b15-4e86-b60b-20d052221c7c",
+    "name": "Trip Purpose Prediction",
+    "title": "Trip Purpose Prediction",
+    "description": "Understand the reason for a trip with Amadeus AI APIs. The Trip Purpose Prediction API uses AI trained on Amadeus historical trip booking data to predict whether a given itinerary is for a business trip or a vacation. Provide travelers with a personalized experience by understanding their motivations. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "trip-purpose-prediction2",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-12T15:30:30.721Z",
+    "category": "Travel, Transportation",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b0d42d2d-7a59-4ea7-aaa2-b187d5e52356.png",
+    "user": {
+        "id": 4393545,
+        "username": "amadeus-for-developers-amadeus-for-developers-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_3db1198e-e525-4178-b33b-4c1aac70730a",
+        "tags": [
+            {
+                "id": "tag_5d6a180e-2733-41c4-b0c1-42d3d95010bc",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_cba7e694-b3ce-4282-b40b-42734a5c083d",
+                "isGraphQL": false,
+                "route": "/travel/predictions/trip-purpose",
+                "method": "GET",
+                "name": "getTripPurposePrediction",
+                "description": "Predict whether a trip is for business or leisure.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

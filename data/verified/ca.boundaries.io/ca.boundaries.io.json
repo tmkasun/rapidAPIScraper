@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "59f7d0fbe4b09ee1ff545b43",
+    "name": "ca.boundaries.io",
+    "title": "ca.boundaries.io",
+    "description": "CA Postal Code(ex. T6H, or A0A0A1 ), FSA and LDU, Boundaries API: A simple & very fast API that will allow you to integrate multiple GeoJson CA FSA and LDU level boundaries result into your apps and systems. This API is designed to be used programatically for optimal performance. When using the MashApe UI for queries expect significant latency issues on large result sets!",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ca-boundaries-io",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-01-03T16:58:44.945Z",
+    "category": "Mapping",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/1aeae0bd-5470-45c3-a7ec-08b94afa0cd3.png",
+    "user": {
+        "id": 1914277,
+        "username": "VanitySoft",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "59f7d0fce4b0c95e003b4bb9",
+        "tags": [
+            {
+                "id": "tag_a5c452af-2c74-4cca-b423-c3e47e449e51",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_2cdc0c02-e6a7-4eed-8e5a-14221eabbe0c",
+                "isGraphQL": false,
+                "route": "/rest/v1/public/boundary/ca/h3/location/boundary",
+                "method": "GET",
+                "name": "Query for Hexagon by Location and Resolution",
+                "description": "Query for Hexagon by Location and Resolution",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "59f7d289e4b016767595b8c6",
+                "isGraphQL": false,
+                "route": "/rest/v1/public/boundary/ca/ldu",
+                "method": "GET",
+                "name": "Query for LDU boundary",
+                "description": "Query by a LDU Postal Code",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_cf2fb867-c805-4fe8-a7b6-aaa7b9847aa4",
+                "isGraphQL": false,
+                "route": "/rest/v1/public/boundary/ca/h3/ldu/index/{h3ndex}",
+                "method": "GET",
+                "name": "Query for LDU Boundary by H3Index",
+                "description": "Query for Boundary by H3Index.\nQuery for a LDU boundary by H3 Index, if a LDU Postal Code does not exist within the H3 Index Hexagon, an empty FeatureCollection is returned.\n\n**H3Index resolution must be greater than 8.**",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

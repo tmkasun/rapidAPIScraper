@@ -1,0 +1,97 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_5fdc5789-620c-44da-9da2-1c8b7178de3e",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_02f5dc0f-2f8a-4573-9f9a-010387ac34c8",
+        "apiId": "api_993038c5-3db2-4ab2-a733-99ec65814ee3"
+    },
+    "info": {
+        "title": "SMS Pro Verify",
+        "description": "Verify new and existing customers, validate authentic phone numbers and add another layer of security.",
+        "version": "v1",
+        "x-category": "SMS",
+        "x-long-description": "",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/4fc5937c-71f2-4fcc-8524-ff63ca153fc8.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://sms-pro-verify.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/send": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Send OTP",
+                "description": "Send a generated one-time passcode to the input phone number.\n\n- Phone input must be in **E.164** format. \n- Brand can be any name under 20 characters long. \n- Domestic numbers only, international support coming soon.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "code": 48904
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "brand": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "Los Angeles Phone": {
+                                    "description": "",
+                                    "summary": "Los Angeles Phone",
+                                    "value": {
+                                        "phone": "+12139732376",
+                                        "brand": "company name"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

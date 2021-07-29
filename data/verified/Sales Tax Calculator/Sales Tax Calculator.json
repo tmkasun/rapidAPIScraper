@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_6521716b-400e-4e35-a303-2365b47bee06",
+    "name": "Sales Tax Calculator",
+    "title": "Sales Tax Calculator",
+    "description": "Sales tax rates with rooftop accuracy by street address location for applications, business processes, and workflows. This Automated Sales Tax API returns the full combined rate in real-time, which can be used for any billing, commerce, payment, or application/service transactions.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "sales-tax-calculator",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-26T13:57:30.302Z",
+    "category": "eCommerce",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/41e96a99-99d7-4d03-9a11-932fc6827b35.png",
+    "user": {
+        "id": 4812695,
+        "username": "TaxProDigital",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_bb28ce6d-7c34-4e18-b1c5-458392d2b2d2",
+        "tags": [
+            {
+                "id": "tag_6c1ffaeb-fd05-45cd-bedf-55586d900eff",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_c72ee8c5-3525-40fe-890b-54e413efc464",
+                "isGraphQL": false,
+                "route": "/rates",
+                "method": "POST",
+                "name": "Tax Rate by Street Address",
+                "description": "Retrieves tax rates applicable to a specific address. This endpoint accepts address inputs to deliver up-to-date, relevant local tax rates instantly.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

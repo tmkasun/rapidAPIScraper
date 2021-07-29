@@ -1,0 +1,69 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_58b327d3-5338-4b86-a93f-f4149510e88b",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_178b3e64-bec2-4f55-918c-9a1ad50fb422",
+        "apiId": "api_6486cdec-fa7a-472b-8e57-8b6acaac5194"
+    },
+    "info": {
+        "title": "Speaker Verification",
+        "description": "PresentID Speaker verification API checks whether two voices belong to the same  person or not. This capability is potentially useful in call centers. ",
+        "version": "v1",
+        "x-category": "Machine Learning",
+        "x-long-description": "PresentID Speaker verification API checks whether two voices belong to the same person or not. This capability is potentially useful in call centers. \n\n**Input:**\n-  Voice file\n-  Voice URL link\n-  Base64 Voice\n\n**Output:**\n-  Result index\n-  Result message\n\n**Ability & Potentials:**\n-  Accuracy over 90%.\n-  Less than 1 second processing time.\n-  No need for GPU.\n-  Language & text-independent.\n-  Easy integration with your app.\n-  Support IOS, Android, Windows, and Mac devices.\n-  Easy integration with your app.\n\n**Use Cases:**\n-  Call center\n\n**Rules & Restrictions:**\n-  Send data via Base64 or a voice URL or voice file.\n-  The voice must be between three seconds and one minute.\n-  The voices must not exceed 5 MB.\n-  Supported file types: WAV, MP3, M4A, FLAC, AAC, OGG.\n",
+        "x-website": "https://www.presentid.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/641234dd-e897-4653-8042-5cba113f17b0.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://speaker-verification1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/Verification": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Send voice with Base64",
+                "description": "Speaker verification API checks whether two voices belong to one person or not \n\nThe voice must be between three seconds and one minute\nThe voices must not exceed 5 MB\nSupported file types: wav, mp3, m4a, FLAC, aac, ogg",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "sound2Base64": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "sound1Base64": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

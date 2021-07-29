@@ -1,0 +1,548 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_2f36ff2c-4bbe-4e64-9b33-d6f9742ee43f",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_67d21fd5-5a6a-4075-9c54-a2f176aad402",
+        "apiId": "api_b1594c36-6a81-4545-ab56-56d347b870e1"
+    },
+    "info": {
+        "title": "Forum Scraper",
+        "description": "Simple forum scraper.",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "Retrieve posts from forums in a unified format. Scraping forums is a mess, leave that to me.\n\nThis API uses different endpoints for different forum software. Use a tool like https://www.wappalyzer.com/ to check which software a forum runs.\n\nThis API is a part of [Syften - live keyword notifications](https://syften.com).\n\nMissing forum? Missing endpoint? Contact developers at hello@syften.com",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0f95b6b7-c87a-4718-990d-0b6d904e4707.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://forum-scraper.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Hacker News",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Discourse",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "vBulletin3",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Xenforo 2.x",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Xenforo 1.x",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        }
+    ],
+    "paths": {
+        "/api/0.0/hackernews/get-post": {
+            "post": {
+                "tags": [
+                    "Hacker News"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "hackernews/get-post",
+                "description": "Get post by ID. Some posts may be hidden or deleted, and thus not available.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": "{\"response\":\"OK\",\"result\":{\"author\":\"jbverschoor\",\"title\":\"\",\"text\":\"But it works exactly like that.\\u003cp\\u003eI get the feeling people are bashing Apple don\\u0026#x27;t have any idea how things work. Also, nobody is ever complaining about Google\\u0026#x27;s 30%.\\u003cp\\u003eAs a consumer\\u0026#x2F;business, I get the added benefit of 1 party and tax ruling. And it\\u0026#x27;s easy to cancel my subscriptions\\u003cp\\u003eAs a developer, I get the benefit of not having to deal with all the different taxlaws. I don\\u0026#x27;t have to deal with fraud. And the checkout process is way easier, so higher conversion.\",\"url\":\"https://news.ycombinator.com/item?id=23549797\"}}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "post_id": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "example": "23549797"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/0.0/hackernews/get-max-post-id": {
+            "post": {
+                "tags": [
+                    "Hacker News"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "hackernews/get-max-post-id",
+                "description": "Get the ID of the latest item. IDs are sequential.\n\nThis is either a post or a comment.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": "{\"response\":\"OK\",\"result\":{\"max_post_id\":23549910}}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/0.0/discourse/get-post": {
+            "post": {
+                "tags": [
+                    "Discourse"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "discourse/get-post",
+                "description": "Get post by ID. Some posts may be hidden or deleted, and thus not available.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Successful response": {
+                                        "description": "",
+                                        "summary": "Successful response",
+                                        "value": "{\"response\":\"OK\",\"result\":{\"author\":\"MNest\",\"title\":\"XML to Ruby?\",\"text\":\"\\u003cp\\u003eIt’s tedious sometimes to work with language and need to write all the code for data models, I use this XML to Ruby converter may help \\u003ca href=\\\"https://jsonformatter.org/xml-to-ruby\\\" rel=\\\"nofollow noopener\\\"\\u003eXML to RUBY\\u003c/a\\u003e\\u003cbr\\u003e\\n(\\u003ca href=\\\"https://jsonformatter.org/xml-to-ruby\\\" rel=\\\"nofollow noopener\\\"\\u003ehttps://jsonformatter.org/xml-to-ruby\\u003c/a\\u003e) .\\u003cbr\\u003e\\nI hope this helps.\\u003c/p\\u003e\",\"url\":\"https://www.ruby-forum.com/t/120991/869163\"}}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "210": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Post not visible": {
+                                        "description": "",
+                                        "summary": "Post not visible",
+                                        "value": "{\"response\":\"Post not visible\"}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "https://www.ruby-forum.com"
+                                    },
+                                    "post_id": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "example": "869163"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/0.0/discourse/get-max-post-id": {
+            "post": {
+                "tags": [
+                    "Discourse"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "discourse/get-max-post-id",
+                "description": "Get the ID of the latest post. IDs are sequential.\n\nIt's possible that this endpoint will return the value \"0\". That happens if the 50 latest posts are hidden (private messages, private boards). In such a case please wait a few minutes for a public post to appear and try again.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Successful response": {
+                                        "description": "",
+                                        "summary": "Successful response",
+                                        "value": "{\"response\":\"OK\",\"result\":{\"max_post_id\":869163}}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "www.ruby-forum.com"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/0.0/xenforo2/get-post": {
+            "post": {
+                "tags": [
+                    "Xenforo 2.x"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "xenforo2/get-post",
+                "description": "Get post by ID. Some posts may be hidden or deleted, and thus not available.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Successful": {
+                                        "description": "",
+                                        "summary": "Successful",
+                                        "value": "{\"response\":\"OK\",\"result\":{\"author\":\"Brandon_R\",\"title\":\"Which addons would you require?\",\"text\":\"i don't think Xen is a vowel so its A Xen Fan.\",\"url\":\"https://xenforo.com/community/threads/which-addons-would-you-require.46/post-12345\"}}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "https://xenforo.com/community/"
+                                    },
+                                    "post_id": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "example": "12345"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/0.0/xenforo2/get-max-post-id": {
+            "post": {
+                "tags": [
+                    "Xenforo 2.x"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "xenforo2/get-max-post-id",
+                "description": "Get the ID of the latest post. IDs are sequential.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Successful Response": {
+                                        "description": "",
+                                        "summary": "Successful Response",
+                                        "value": "{\"response\":\"OK\",\"result\":{\"max_post_id\":1435339}}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "https://xenforo.com/community/"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/0.0/xenforo1/get-post": {
+            "post": {
+                "tags": [
+                    "Xenforo 1.x"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "xenforo1/get-post",
+                "description": "Get post by ID. Some posts may be hidden or deleted, and thus not available.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Successful response": {
+                                        "description": "",
+                                        "summary": "Successful response",
+                                        "value": "{\"response\":\"OK\",\"result\":{\"author\":\"Crony\",\"title\":\"Post Your Thoughts\",\"text\":\"zthelizardking said: Fluke. Lol nah I just enjoy busting on the dolphins cause one of my friends from back in the day was die hard Sent from my [illustrious_imagination] using Grasscity Forum mobile appClick to expand... Not much of a beer drinker myself, but I love me a a Blue Moon\",\"url\":\"https://forum.grasscity.com//posts/24987420\"}}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "https://forum.grasscity.com/"
+                                    },
+                                    "post_id": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "example": "24987420"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/0.0/xenforo1/get-max-post-id": {
+            "post": {
+                "tags": [
+                    "Xenforo 1.x"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "xenforo1/get-max-post-id",
+                "description": "Get the ID of the latest post. IDs are sequential.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Successful Response": {
+                                        "description": "",
+                                        "summary": "Successful Response",
+                                        "value": "{\"response\":\"OK\",\"result\":{\"max_post_id\":25306947}}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "https://forum.grasscity.com/"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/0.0/vbulletin3/get-post": {
+            "post": {
+                "tags": [
+                    "vBulletin3"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "vbulletin3/get-post",
+                "description": "Get post by ID. Some posts may be hidden or deleted, and thus not available.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Successful Response": {
+                                        "description": "",
+                                        "summary": "Successful Response",
+                                        "value": "{\"response\":\"OK\",\"result\":{\"author\":\"GAJ\",\"title\":\"1993 Honda Nighthawk 750 Moto for Sale\",\"text\":\"Price dropped to $1500 as is. Turns out $800 is what shops around here want to charge for pulling the carbs, replacing them and synching them.\",\"url\":\"https://bayarearidersforum.com/forums/showthread.php?p=10592210\"}}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "https://bayarearidersforum.com/forums"
+                                    },
+                                    "post_id": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "example": "10592210"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/0.0/vbulletin3/get-max-post-id": {
+            "post": {
+                "tags": [
+                    "vBulletin3"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "vbulletin3/get-max-post-id",
+                "description": "Get the ID of the latest post. IDs are sequential.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Successful Response": {
+                                        "description": "",
+                                        "summary": "Successful Response",
+                                        "value": "{\"response\":\"OK\",\"result\":{\"max_post_id\":10592210}}"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "https://bayarearidersforum.com/forums"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5b47481de4b0a5b0626ea635",
+    "name": "WHOIS v2",
+    "title": "WHOIS v2",
+    "description": "WHOIS API (v2) returns well-parsed WHOIS records with fields in XML and JSON formats for any IPv4, IPv6 address, domain name, or email.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "whois-v2",
+    "pricing": "FREE",
+    "updatedAt": "2021-02-15T12:50:58.970Z",
+    "category": "Database",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/5b47481de4b0f4ef751df3de_medium.png",
+    "user": {
+        "id": 1423059,
+        "username": "whoisapi",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5b47481de4b0f4ef751df3de",
+        "tags": [
+            {
+                "id": "tag_539d81b7-e886-469f-ac43-2a75ba00064c",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "5b474912e4b0f4ef751df3e1",
+                "isGraphQL": false,
+                "route": "/whoisserver/WhoisService",
+                "method": "GET",
+                "name": "WHOIS lookup v2",
+                "description": "WHOIS lookup in JSON or XML, ver. 2",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

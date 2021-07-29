@@ -1,0 +1,102 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_42cf004f-4aa3-4dcd-9c3a-aae1a9858b27",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_fd4ea15a-1e6d-415b-863a-29d6a75c3a3e",
+        "apiId": "api_e727af53-63cd-4fea-9399-81b4ba7ada27"
+    },
+    "info": {
+        "title": "TrueWay Matrix",
+        "description": "Calculate distances and durations between a set of origins and destinations.",
+        "version": "v1",
+        "x-category": "Mapping",
+        "x-long-description": "The API provides durations(in seconds) and distances(in meters) for a set of origins and destinations. The distances and times returned are based on the routes calculated by the TrueWay Directions API. Times are based on predictive or live traffic information, depending on the start time specified in the request. Distance matrices are used in several different types of applications. The most common applications include:\n- Solving the Traveling Salesman Problem (TSP).\n- Solving Vehicle Routing Problem (VRP).\n- Sorting search results by their actual travel distance or time.\n- Determine arrival times based on travel times.\n- Calculate the difference in commute times between locations.\n- Clustering data based on travel time and distances. \n",
+        "x-website": "https://truewayapi.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/72ba451c-93e9-4410-99be-661aa4f515a6_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://trueway-matrix.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/CalculateDrivingMatrix": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "avoid_ferries",
+                        "in": "query",
+                        "required": false,
+                        "description": "avoid ferries",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "avoid_tolls",
+                        "in": "query",
+                        "required": false,
+                        "description": "avoid toll roads",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "avoid_highways",
+                        "in": "query",
+                        "required": false,
+                        "description": "avoid highways",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "destinations",
+                        "in": "query",
+                        "required": false,
+                        "description": "List of destinations described as semicolon-delimited coordinate pairs with latitudes and longitudes. If not specified, an n x n matrix will be generated using the origins. Max: 25",
+                        "schema": {
+                            "type": "string",
+                            "example": "40.629041,-74.025606;40.630099,-73.993521;40.644895,-74.013818;40.627177,-73.980853"
+                        }
+                    },
+                    {
+                        "name": "start_time",
+                        "in": "query",
+                        "required": false,
+                        "description": "Time when travel is expected to start. You can specify the time as an integer in seconds since midnight, January 1, 1970 UTC or you can use \"now\" to specify the current time.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "origins",
+                        "in": "query",
+                        "required": true,
+                        "description": "List of origins described as semicolon-delimited coordinate pairs with latitudes and longitudes. Max: 25",
+                        "schema": {
+                            "type": "string",
+                            "example": "40.629041,-74.025606;40.630099,-73.993521;40.644895,-74.013818;40.627177,-73.980853"
+                        }
+                    }
+                ],
+                "operationId": "CalculateDrivingDistanceMatrix",
+                "description": "Calculate distances and durations between a set of origins and destinations.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

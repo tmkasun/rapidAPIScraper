@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_7ae93f98-0a38-4c69-baa9-6cc9ecc0211b",
+    "name": "Promity Face Detection",
+    "title": "Promity Face Detection",
+    "description": "API for face detection in images in real time",
+    "visibility": "PUBLIC",
+    "slugifiedName": "promity-face-detection",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-22T09:22:48.032Z",
+    "category": "Visual Recognition",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f2204292-5a87-4895-9f4c-3e9b0efc59cc.png",
+    "user": {
+        "id": 4912217,
+        "username": "promityai-promityai-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_85a89301-0025-4aca-bb90-71da6ac5ffcb",
+        "tags": [
+            {
+                "id": "tag_8146ca69-dac0-4a34-b39c-0babc14a34f0",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_6d3af90d-9e06-45a4-9f5d-3c292e7e8b8d",
+                "isGraphQL": false,
+                "route": "/face_detection/process_url",
+                "method": "POST",
+                "name": "Face Detection by URL",
+                "description": "Endpoint for face detection. Send us link to image, we return position of detected faces.\nCheck out our tutorials for example of usage in Python.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_064fa25f-dffc-49aa-b82e-a9665da175a5",
+                "isGraphQL": false,
+                "route": "/face_detection/process_file",
+                "method": "POST",
+                "name": "Face Detection by file",
+                "description": "Endpoint for face detection. Send us image, we return position of detected faces.\nCheck out our tutorials for example of usage in Python.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

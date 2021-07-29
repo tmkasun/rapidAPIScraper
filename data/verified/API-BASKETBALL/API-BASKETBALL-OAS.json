@@ -1,0 +1,660 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_ed935fff-bcbb-493d-b218-2fb39f513871",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_c43b5e9b-e4fc-41be-a579-236146ebc45a",
+        "apiId": "api_ed8496b9-674d-4c82-b02d-f620d3b79cae"
+    },
+    "info": {
+        "title": "API-BASKETBALL",
+        "description": "+190 Basketball Leagues & Cups with Livescore, Odds, Bookmakers, Statistics...",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "+190 Basketball Leagues & Cups with Livescore, Odds, Bookmakers, Statistics, Standings, Historical Data, Countries, Seasons. Documentation : https://api-sports.io/documentation/basketball/v1",
+        "x-website": "https://www.api-basketball.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/14/f5b39f8b2b47768f37d10acaf77442/7a61c9b1f0b85fcc7a6ea455d202ad35.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://api-basketball.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Search"
+        },
+        {
+            "name": "Statistics"
+        },
+        {
+            "name": "Teams"
+        },
+        {
+            "name": "Games"
+        },
+        {
+            "name": "Leagues"
+        },
+        {
+            "name": "Countries"
+        },
+        {
+            "name": "Seasons"
+        },
+        {
+            "name": "Standings"
+        },
+        {
+            "name": "Odds"
+        }
+    ],
+    "paths": {
+        "/standings/groups": {
+            "get": {
+                "tags": [
+                    "Standings"
+                ],
+                "parameters": [
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": true,
+                        "description": "Fails if field contains anything other than a valid season [YYYY] or [YYYY-YYYY]",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-2020"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": true,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number",
+                            "example": "12"
+                        }
+                    }
+                ],
+                "operationId": "groups",
+                "description": "Get all available groups for standings",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standings/stages": {
+            "get": {
+                "tags": [
+                    "Standings"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": true,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number",
+                            "example": "12"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": true,
+                        "description": "Fails if field contains anything other than a valid season [YYYY] or [YYYY-YYYY]",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-2020"
+                        }
+                    }
+                ],
+                "operationId": "stages",
+                "description": "Get all available stages for standings",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standings": {
+            "get": {
+                "tags": [
+                    "Standings"
+                ],
+                "parameters": [
+                    {
+                        "name": "stage",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "group",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": true,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number",
+                            "example": "12"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": true,
+                        "description": "Fails if field contains anything other than a valid season [YYYY] or [YYYY-YYYY]",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-2020"
+                        }
+                    }
+                ],
+                "operationId": "standings",
+                "description": "Get all available standings | Return a table of one or more rankings according to the league / cup",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teams": {
+            "get": {
+                "tags": [
+                    "Teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than alpha-numeric characters, numbers, dashes or space",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number",
+                            "example": "12"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than a valid season [YYYY] or [YYYY-YYYY]",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-2020"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "3 characters minimum | Fails if field has anything other than alphabetic characters",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "teams informations",
+                "description": "Get all available teams | The team {id} are unique in the API and teams keep it among all the leagues/cups in which they participate",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/leagues": {
+            "get": {
+                "tags": [
+                    "Leagues"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than alpha-numeric characters, numbers or space",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field is not within a predetermined list : [league,cup]",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than a valid season [YYYY] or [YYYY-YYYY]",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than alpha-numeric characters, numbers or space",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "description": "2 characters | Fails if field has anything other than alphabetic characters | Ex : FR, GB, IT...",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "3 characters minimum | Fails if field has anything other than alphabetic characters",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country_id",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "leagues",
+                "description": "Get all available leagues | The league {id} are unique in the API and leagues keep it across all seasons",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/countries": {
+            "get": {
+                "tags": [
+                    "Countries"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than alpha-numeric characters, numbers or space",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "description": "2 characters | Fails if field has anything other than alphabetic characters | Ex : FR, GB, IT...",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "3 characters minimum | Fails if field has anything other than alphabetic characters",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "countries",
+                "description": "Get all available countries | The {country} and {code} keys can be used in other endpoints as filters",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/bookmakers": {
+            "get": {
+                "tags": [
+                    "Odds"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "3 characters minimum | Fails if field has anything other than alphabetic characters",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "bookmakers",
+                "description": "get all available bookmakers | All bookmakers {id} can be used in endpoint [odds] as filters",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/bets": {
+            "get": {
+                "tags": [
+                    "Odds"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "3 characters minimum | Fails if field has anything other than alphabetic characters",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "bets",
+                "description": "get all available bets labels | All bets {id} can be used in endpoint [odds] as filters",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/odds": {
+            "get": {
+                "tags": [
+                    "Odds"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than a valid season [YYYY] or [YYYY-YYYY]",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "game",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number",
+                            "example": "1912"
+                        }
+                    },
+                    {
+                        "name": "bookmaker",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "bet",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "odds",
+                "description": "get all available odds",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/timezone": {
+            "get": {
+                "operationId": "timezone",
+                "description": "Get the list of available timezone to be used in the [games] endpoint",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/games": {
+            "get": {
+                "tags": [
+                    "Games"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field contains anything other than a valid season [YYYY] or [YYYY-YYYY]",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timezone",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field is not a result of the endpoint timezone",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "h2h",
+                        "in": "query",
+                        "required": true,
+                        "description": "Fails if field does not match the regular expression : [id-id]",
+                        "schema": {
+                            "type": "string",
+                            "example": "142-144"
+                        }
+                    }
+                ],
+                "operationId": "head 2 head",
+                "description": "Get all head to head between two teams",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/statistics": {
+            "get": {
+                "tags": [
+                    "Teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "description": "Fails if field does not contain a valid date : [YYYY-MM-DD]",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": true,
+                        "description": "Fails if field contains anything other than a valid season [YYYY] or [YYYY-YYYY]",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-2020"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": true,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number",
+                            "example": "12"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": true,
+                        "description": "Fails if field contains anything other than an integer",
+                        "schema": {
+                            "type": "number",
+                            "example": "133"
+                        }
+                    }
+                ],
+                "operationId": "teams statistics",
+                "description": "Get team statistics",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/seasons": {
+            "get": {
+                "tags": [
+                    "Seasons"
+                ],
+                "operationId": "seasons",
+                "description": "Get all available seasons | All {season} can be used in other endpoints as filters",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

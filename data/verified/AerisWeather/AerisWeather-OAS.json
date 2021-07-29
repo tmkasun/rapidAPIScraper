@@ -1,0 +1,770 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_28de7521-357b-4a1a-99aa-cf82cbb165c1",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_d418389a-1e10-46ed-b497-6b7ce8c5cd72",
+        "apiId": "api_e04c496f-62ec-4bb1-9768-3e092a978cba"
+    },
+    "info": {
+        "title": "AerisWeather",
+        "description": "An advanced weather API to power all of your business needs, from the basic to the most complex weather influenced solutions.",
+        "version": "v1",
+        "x-category": "Weather",
+        "x-long-description": "An advanced weather API to power all of your business needs, from the basic to the most complex weather influenced solutions.",
+        "x-website": "https://www.aerisweather.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/24c17b41-aa0c-479f-a6c8-00f62fb60c24_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://aerisweather1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Premium Access"
+        },
+        {
+            "name": "Basic Access"
+        }
+    ],
+    "paths": {
+        "/conditions/{loc}": {
+            "get": {
+                "tags": [
+                    "Premium Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass the specific (ex. 15:00) or relative (ex. +2hours) time to retrieve results between the specific `from` parameter and `to` parameter.",
+                        "schema": {
+                            "type": "string",
+                            "default": "13:00"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass the specific (ex. 15:00) or relative (ex. +2hours) time to retrieve results between the specific `from` parameter and `to` parameter.",
+                        "schema": {
+                            "type": "string",
+                            "default": "+5hours"
+                        }
+                    },
+                    {
+                        "name": "loc",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "barcelona,es"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://www.aerisweather.com/support/docs/api/reference/endpoints/conditions/"
+                },
+                "operationId": "Conditions",
+                "description": "Provides interpolated global current and historical weather conditions.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "error": null,
+                                            "response": [
+                                                {
+                                                    "loc": {
+                                                        "lat": 41.38879,
+                                                        "long": 2.15899
+                                                    },
+                                                    "periods": [
+                                                        {
+                                                            "cloudsCoded": "BK",
+                                                            "dateTimeISO": "2020-06-16T15:00:00+02:00",
+                                                            "dewpointC": 16.71,
+                                                            "dewpointF": 62.08,
+                                                            "feelslikeC": 19,
+                                                            "feelslikeF": 66.2,
+                                                            "humidity": 88,
+                                                            "icon": "mcloudy.png",
+                                                            "isDay": true,
+                                                            "precipIN": 0,
+                                                            "precipMM": 0,
+                                                            "pressureIN": 30.03,
+                                                            "pressureMB": 1017,
+                                                            "sky": 86,
+                                                            "snowCM": 0,
+                                                            "snowIN": 0,
+                                                            "solradWM2": 221,
+                                                            "tempC": 18.29,
+                                                            "tempF": 64.92,
+                                                            "timestamp": 1592312400,
+                                                            "uvi": 2,
+                                                            "visibilityKM": 41.47,
+                                                            "visibilityMI": 25.768,
+                                                            "weather": "Mostly Cloudy",
+                                                            "weatherCoded": "::BK",
+                                                            "weatherPrimary": "Mostly Cloudy",
+                                                            "weatherPrimaryCoded": "::BK",
+                                                            "windDir": "WSW",
+                                                            "windDirDEG": 246,
+                                                            "windGustKPH": 7.41,
+                                                            "windGustKTS": 4,
+                                                            "windGustMPH": 4.6,
+                                                            "windSpeedKPH": 7.41,
+                                                            "windSpeedKTS": 4,
+                                                            "windSpeedMPH": 4.6
+                                                        },
+                                                        {
+                                                            "cloudsCoded": "SC",
+                                                            "dateTimeISO": "2020-06-16T16:00:00+02:00",
+                                                            "dewpointC": 17.55,
+                                                            "dewpointF": 63.59,
+                                                            "feelslikeC": 20,
+                                                            "feelslikeF": 68,
+                                                            "humidity": 92,
+                                                            "icon": "pcloudy.png",
+                                                            "isDay": true,
+                                                            "precipIN": 0,
+                                                            "precipMM": 0,
+                                                            "pressureIN": 30.03,
+                                                            "pressureMB": 1017,
+                                                            "sky": 42,
+                                                            "snowCM": 0,
+                                                            "snowIN": 0,
+                                                            "solradWM2": 215,
+                                                            "tempC": 19.51,
+                                                            "tempF": 67.11,
+                                                            "timestamp": 1592316000,
+                                                            "uvi": 2,
+                                                            "visibilityKM": 22.457,
+                                                            "visibilityMI": 13.954,
+                                                            "weather": "Partly Cloudy",
+                                                            "weatherCoded": "::SC",
+                                                            "weatherPrimary": "Partly Cloudy",
+                                                            "weatherPrimaryCoded": "::SC",
+                                                            "windDir": "SW",
+                                                            "windDirDEG": 229,
+                                                            "windGustKPH": 9.26,
+                                                            "windGustKTS": 5,
+                                                            "windGustMPH": 5.75,
+                                                            "windSpeedKPH": 9.26,
+                                                            "windSpeedKTS": 5,
+                                                            "windSpeedMPH": 5.75
+                                                        },
+                                                        {
+                                                            "cloudsCoded": "OV",
+                                                            "dateTimeISO": "2020-06-16T17:00:00+02:00",
+                                                            "dewpointC": 16,
+                                                            "dewpointF": 60.8,
+                                                            "feelslikeC": 20,
+                                                            "feelslikeF": 68,
+                                                            "humidity": 74,
+                                                            "icon": "cloudy.png",
+                                                            "isDay": true,
+                                                            "precipIN": 0,
+                                                            "precipMM": 0,
+                                                            "pressureIN": 30,
+                                                            "pressureMB": 1016,
+                                                            "sky": 100,
+                                                            "snowCM": 0,
+                                                            "snowIN": 0,
+                                                            "solradWM2": 174,
+                                                            "tempC": 20,
+                                                            "tempF": 68,
+                                                            "timestamp": 1592319600,
+                                                            "uvi": 1,
+                                                            "visibilityKM": 24.135,
+                                                            "visibilityMI": 14.997,
+                                                            "weather": "Cloudy",
+                                                            "weatherCoded": "::OV",
+                                                            "weatherPrimary": "Cloudy",
+                                                            "weatherPrimaryCoded": "::OV",
+                                                            "windDir": "WSW",
+                                                            "windDirDEG": 238,
+                                                            "windGustKPH": 11.11,
+                                                            "windGustKTS": 6,
+                                                            "windGustMPH": 6.9,
+                                                            "windSpeedKPH": 11.11,
+                                                            "windSpeedKTS": 6,
+                                                            "windSpeedMPH": 6.9
+                                                        },
+                                                        {
+                                                            "cloudsCoded": "OV",
+                                                            "dateTimeISO": "2020-06-16T18:00:00+02:00",
+                                                            "dewpointC": 15,
+                                                            "dewpointF": 59,
+                                                            "feelslikeC": 20,
+                                                            "feelslikeF": 68,
+                                                            "humidity": 72,
+                                                            "icon": "cloudy.png",
+                                                            "isDay": true,
+                                                            "precipIN": 0,
+                                                            "precipMM": 0,
+                                                            "pressureIN": 29.97,
+                                                            "pressureMB": 1015,
+                                                            "sky": 97,
+                                                            "snowCM": 0,
+                                                            "snowIN": 0,
+                                                            "solradWM2": 173,
+                                                            "tempC": 20,
+                                                            "tempF": 68,
+                                                            "timestamp": 1592323200,
+                                                            "uvi": 2,
+                                                            "visibilityKM": 24.135,
+                                                            "visibilityMI": 14.997,
+                                                            "weather": "Cloudy",
+                                                            "weatherCoded": "::OV",
+                                                            "weatherPrimary": "Cloudy",
+                                                            "weatherPrimaryCoded": "::OV",
+                                                            "windDir": "WSW",
+                                                            "windDirDEG": 250,
+                                                            "windGustKPH": 12.96,
+                                                            "windGustKTS": 7,
+                                                            "windGustMPH": 8.06,
+                                                            "windSpeedKPH": 12.96,
+                                                            "windSpeedKTS": 7,
+                                                            "windSpeedMPH": 8.06
+                                                        },
+                                                        {
+                                                            "cloudsCoded": "FW",
+                                                            "dateTimeISO": "2020-06-16T19:00:00+02:00",
+                                                            "dewpointC": 15,
+                                                            "dewpointF": 59,
+                                                            "feelslikeC": 21,
+                                                            "feelslikeF": 69.8,
+                                                            "humidity": 69,
+                                                            "icon": "pcloudy.png",
+                                                            "isDay": true,
+                                                            "precipIN": 0,
+                                                            "precipMM": 0,
+                                                            "pressureIN": 29.97,
+                                                            "pressureMB": 1015,
+                                                            "sky": 26,
+                                                            "snowCM": 0,
+                                                            "snowIN": 0,
+                                                            "solradWM2": 382,
+                                                            "tempC": 21,
+                                                            "tempF": 69.8,
+                                                            "timestamp": 1592326800,
+                                                            "uvi": 1,
+                                                            "visibilityKM": 24.135,
+                                                            "visibilityMI": 14.997,
+                                                            "weather": "Mostly Sunny",
+                                                            "weatherCoded": "::FW",
+                                                            "weatherPrimary": "Mostly Sunny",
+                                                            "weatherPrimaryCoded": "::FW",
+                                                            "windDir": "W",
+                                                            "windDirDEG": 261,
+                                                            "windGustKPH": 9.26,
+                                                            "windGustKTS": 5,
+                                                            "windGustMPH": 5.75,
+                                                            "windSpeedKPH": 9.26,
+                                                            "windSpeedKTS": 5,
+                                                            "windSpeedMPH": 5.75
+                                                        }
+                                                    ],
+                                                    "place": {
+                                                        "country": "es",
+                                                        "name": "barcelona",
+                                                        "state": ""
+                                                    },
+                                                    "profile": {
+                                                        "elevFT": null,
+                                                        "elevM": null,
+                                                        "isDST": true,
+                                                        "tz": "Europe/Madrid",
+                                                        "tzname": "CEST",
+                                                        "tzoffset": 7200
+                                                    }
+                                                }
+                                            ],
+                                            "success": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/alerts/{location}": {
+            "get": {
+                "tags": [
+                    "Basic Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filter by specific alerts type. Example: warning, watch, tornado, flood, etc.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "path",
+                        "required": true,
+                        "description": "Provide a place to query. Examples include: [city,state], [lat,long], [city, country], [US / CA postal code], etc.",
+                        "schema": {
+                            "type": "string",
+                            "example": "jordan,mt"
+                        }
+                    }
+                ],
+                "operationId": "Alerts",
+                "description": "Mild to severe weather events issued to the public from the Canadian and US government.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/places/{location}": {
+            "get": {
+                "tags": [
+                    "Basic Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "location",
+                        "in": "path",
+                        "required": true,
+                        "description": "Provide a place to query. Examples include: [city,state], [lat,long], [city, country], [US / CA postal code], etc.",
+                        "schema": {
+                            "type": "string",
+                            "example": "sydney,au"
+                        }
+                    }
+                ],
+                "operationId": "Places",
+                "description": "Geographical information for a given location. Including elevation, population, region, country, continent, etc.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tropicalcyclones": {
+            "get": {
+                "tags": [
+                    "Premium Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of storms to be returned",
+                        "schema": {
+                            "type": "string",
+                            "example": "5"
+                        }
+                    }
+                ],
+                "operationId": "Tropical Cyclones",
+                "description": "Tropical Cyclone Data For the World",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/precip/summary/{location}": {
+            "get": {
+                "tags": [
+                    "Premium Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filter for a specific duration up to 72 hours. Examples include filter=24hr & filter=3hr.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Provide a from date / time or relative offset. For example from=2020-01-05 12:00:00 or from=-3days. Please note, this endpoint will only provide the last 5 days of data.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Provide a to date / time or relative offset. For example from=2020-01-10 18:00:00 or to=+2days. Please note, the offset is relative to the from parameter.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "path",
+                        "required": true,
+                        "description": "Provide a place to query. Examples include: [city,state], [lat,long], [city, country], [US / CA postal code], etc.",
+                        "schema": {
+                            "type": "string",
+                            "example": "seattle,wa"
+                        }
+                    }
+                ],
+                "operationId": "Precip Summary",
+                "description": "Provides precipitation over a period of time for any Continental US location in the last 5 days.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/lightning/{location}": {
+            "get": {
+                "tags": [
+                    "Premium Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of lightning strikes to be returned.",
+                        "schema": {
+                            "type": "number",
+                            "example": "10"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "description": "Type of lightning strikes. Example: all, cg (cloud to ground), and ic (intracloud).)",
+                        "schema": {
+                            "type": "string",
+                            "example": "all"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "1.76, -69.96"
+                        }
+                    }
+                ],
+                "operationId": "Lightning",
+                "description": "Retrieve all lightning strikes an area within the last 5 minutes",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/observations/summary/{location}": {
+            "get": {
+                "tags": [
+                    "Premium Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filter by the type of stations to be returned. Example: allstations, hasprecip, pws, etc.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Provide a from date in your query (YYYY-MM-DD).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": false,
+                        "description": "Change the default radius (50 miles) used to return the closest station. Example: 20miles, 100mi, 200km, etc.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Provide a to date in your query (YYYY-MM-DD)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "plimit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Limit the number of periods (days) returned in your results. Default is 1.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "path",
+                        "required": true,
+                        "description": "Provide a place to query. Examples include: [city,state], [lat,long], [city, country], [US / CA postal code], etc.",
+                        "schema": {
+                            "type": "string",
+                            "example": "buenos aires,ar"
+                        }
+                    }
+                ],
+                "operationId": "Daily Summaries",
+                "description": "Daily summaries based on previously recorded observations. Daily summaries can go back as far as 2011.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/airquality/{location}": {
+            "get": {
+                "tags": [
+                    "Premium Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filter by a specific pollutant. Example: pm10, pm2p5, o3.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "path",
+                        "required": true,
+                        "description": "Provide a place to query. Examples include: [city,state], [lat,long], [city, country], [US / CA postal code], etc.",
+                        "schema": {
+                            "type": "string",
+                            "example": "tokyo,jp"
+                        }
+                    }
+                ],
+                "operationId": "Air Quality",
+                "description": "Air Quality Index which provides pollutant data around the world.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/forecasts/{location}": {
+            "get": {
+                "tags": [
+                    "Basic Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Start date of your forecast period (YYYY-MM-DD).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "plimit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Limit the number of periods (intervals) returned in your forecast.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "description": "Provide a forecast interval (1hr, 4hr, daynight, mdnt2mdnt, etc.). Default is local 7am - 7pm \"day\" interval.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "End date of your forecast interval (YYYY-MM-DD).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "path",
+                        "required": true,
+                        "description": "Provide a place to query. Examples include: [city,state], [lat,long], [city, country], [US / CA postal code], etc.",
+                        "schema": {
+                            "type": "string",
+                            "example": "cairo,eg"
+                        }
+                    }
+                ],
+                "operationId": "Forecasts",
+                "description": "Future weather conditions around the globe. We support daily, hourly, and many other forecast intervals.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/observations/{location}": {
+            "get": {
+                "tags": [
+                    "Basic Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": false,
+                        "description": "Change the default radius (50 miles) used to return the closest station. Example: 20miles, 100mi, 200km, etc.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filter by the type of stations to be returned. Example: allstations, hasprecip, pws, etc.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "path",
+                        "required": true,
+                        "description": "Provide a place to query. Examples include: [city,state], [lat,long], [city, country], [US / CA postal code], etc.",
+                        "schema": {
+                            "type": "string",
+                            "example": "paris,fr"
+                        }
+                    }
+                ],
+                "operationId": "Current Conditions",
+                "description": "Current conditions based on the latest observations of the closest weather station.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/sunmoon/{location}": {
+            "get": {
+                "tags": [
+                    "Basic Access"
+                ],
+                "parameters": [
+                    {
+                        "name": "location",
+                        "in": "path",
+                        "required": true,
+                        "description": "Provide a place to query. Examples include: [city,state], [lat,long], [city, country], [US / CA postal code], etc.",
+                        "schema": {
+                            "type": "string",
+                            "example": "ankara,tr"
+                        }
+                    }
+                ],
+                "operationId": "Sun Moon",
+                "description": "Global Sun and Moon Information",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

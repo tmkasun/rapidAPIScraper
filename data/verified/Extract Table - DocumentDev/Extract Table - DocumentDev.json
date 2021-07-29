@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_ee5f5da4-b261-4ac1-ae2b-ec84b0677762",
+    "name": "Extract Table - DocumentDev",
+    "title": "Extract Table - DocumentDev",
+    "description": "Extract information from PDF Tables instantly. Using the power of Artificial Intelligence and NLP.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "extract-table-documentdev",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-27T05:01:35.770Z",
+    "category": "Text Analysis",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b6132d67-09bf-4cd9-a557-5cc592da3128.png",
+    "user": {
+        "id": 5273733,
+        "username": "documentdev",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_b091f2aa-fb94-4157-9fc5-5eb2d25fc904",
+        "tags": [
+            {
+                "id": "tag_51c07e35-c65c-487a-bb6a-be7d24453644",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_6bc29997-4238-4a14-b7e5-d086a787ca21",
+                "isGraphQL": false,
+                "route": "/extracttable",
+                "method": "POST",
+                "name": "ExtractTable",
+                "description": "This endpoint accepts a pdf file as a binary payload and returns a JSON containing all tables found within the PDF. By default only the first page is processed. If you would like to process multiple pages pass the \"Pages\" header to indicate how many.\n\nNotes:\n- The table should have unique keys for each row otherwise they will be overwritten in order as per JSON standard\n- Currently processes each page independently. Multi page tables will be supported soon.\n- Max PDF size is 10MB",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

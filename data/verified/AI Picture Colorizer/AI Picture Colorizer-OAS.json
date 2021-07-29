@@ -1,0 +1,69 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_cb8b435a-1621-4fa3-912a-831a95964207",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_d6362a20-4ccb-4de2-937d-9f1641843224",
+        "apiId": "api_78b0efef-9b11-4764-9832-a040cb6fefc4"
+    },
+    "info": {
+        "title": "AI Picture Colorizer",
+        "description": "Colorize black and white pictures with AI. Our picture colorizer is based on the latest machine learning research. Web interface: https://hotpot.ai/colorize-picture",
+        "version": "v1",
+        "x-category": "Video, Images",
+        "x-long-description": "Colorize pictures with AI, turning black and white photos to color in seconds. Reimagine the past by colorizing pictures of ancestors and historic figures. Our technology is currently based on a mixture of DeOldify and proprietary enhancements.\n\nWeb interface: https://hotpot.ai/colorize-picture",
+        "x-website": "https://hotpot.ai/colorize-picture",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/69d2b8c6-ec31-429b-8a51-274a51d808af.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://ai-picture-colorizer.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/colorize-api-bin-mjbcrab": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "AI Picture Colorizer",
+                "description": "Colorize pictures with AI, turning black and white photos to color in seconds. Reimagine the past by colorizing pictures of ancestors and historic figures. Our technology is currently based on a mixture of DeOldify and proprietary enhancements.\n\nWeb interface: https://hotpot.ai/colorize-picture",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "image": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    },
+                                    "renderFactor": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "example": "25"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

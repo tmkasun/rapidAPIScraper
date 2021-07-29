@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_0f09123a-eccd-447d-9dec-65625dff2363",
+    "name": "Hacker Noon",
+    "title": "Hacker Noon",
+    "description": "An unofficial API for Hacker Noon",
+    "visibility": "PUBLIC",
+    "slugifiedName": "hacker-noon",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-06-23T06:27:46.934Z",
+    "category": "News, Media",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/3f2c6ca1-cc02-4459-81ce-cefb4450ad5c.jpg",
+    "user": {
+        "id": 3561011,
+        "username": "akfaew",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_ccfb1f4e-f51d-4bb1-ac9c-049ecf9e3998",
+        "tags": [
+            {
+                "id": "tag_6c60e221-a2e0-499a-bc7f-a3cb3cf4c4fc",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_8d62950a-f326-4063-8c42-944e963376ec",
+                "isGraphQL": false,
+                "route": "/api/0.0/hackernoon/stories",
+                "method": "POST",
+                "name": "stories",
+                "description": "Get featured stories.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_3df70bea-bb4d-4141-b6f5-73c9aed68139",
+                "isGraphQL": false,
+                "route": "/api/0.0/hackernoon/user",
+                "method": "POST",
+                "name": "user",
+                "description": "Get stories written by user.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

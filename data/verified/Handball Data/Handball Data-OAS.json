@@ -1,0 +1,408 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_a98a3dad-b9f4-4021-ac1b-8158c20692c7",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_119a4240-0a31-427f-981e-abc995e008dc",
+        "apiId": "api_efd47e4c-ae36-4536-8d52-507b6bb92e4a"
+    },
+    "info": {
+        "title": "Handball Data",
+        "description": "Broadage Handball API will give you wide range of data of world's top handball leagues, including fixtures, standings, match lists and many more. Our Handball Coverage includes the biggest handball tournaments from all around the world with in-depth coverage, giving you the opportunity to present the best sports data to users located anywhere.<br>This is a limited version in RapidApi. <a href=\"https://www.broadage.com/signup/api/free?utm_source=rapidapi&utm_medium=click&utm_campaign=handball_api\" target=”_blank”>Please, click here to start your Free Trial and try the endpoints with live data now!</a>",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Broadage Handball API brings you a wide range of types of live data for Handball in fixtures, livescores and standings. Team or tournament, you are able to retrieve real time data for any perspective you need.\n\nBroadage Handball Coverage includes top national tournaments from Europe such as DKB Handball Bundesliga, Ligue Nationale de Handball and Liga ASOBAL. Highly rated international club tournaments like EHF Champions League, EHF Cup and national team competitions complete a worldwide coverage that can be found rarely for Handball.",
+        "x-website": "https://www.broadage.com/sports-data-api/handball",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/9916dc89-c604-4dbe-b479-58bd4f9deac9.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://handball-data.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "H2H Data",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Post-Match Data"
+        },
+        {
+            "name": "Live Data"
+        },
+        {
+            "name": "Pre-Match Data"
+        }
+    ],
+    "paths": {
+        "/h2h/match/statistics/result/goals": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Result Statistics: Goals Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/result-statistics-goals/"
+                },
+                "operationId": "Result Statistics: Goals",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Handbal Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/list/recent": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "63813"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Recent Match List Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/recent-match-list/"
+                },
+                "operationId": "Recent Match List",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Handball Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/teams": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "25"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Tournament Teams Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/tournament-teams/"
+                },
+                "operationId": "Tournament Teams",
+                "description": "List of teams participating in a specific tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/scheduled": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the match. The format is {dd/MM/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "28/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Match List: Scheduled Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/match-list-scheduled/"
+                },
+                "operationId": "Daily Match List-Scheduled",
+                "description": "Daily match list including scheduled matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the match. The format is {dd/MM/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "28/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Match List: All Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/match-list-all/"
+                },
+                "operationId": "Daily Match List-All",
+                "description": "Daily match list including scheduled, live and finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/results": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the match. The format is {dd/MM/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "28/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Match List: Results Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/match-list-results/"
+                },
+                "operationId": "Daily Match List-Results",
+                "description": "Daily match list including finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/team/statistics/seasonal/goals": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the team.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1488"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Seasonal Statistics: Goals Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/seasonal-statistics-goals/"
+                },
+                "operationId": "Seasonal Statistics: Goals",
+                "description": "Provides the goal statistics of the team in the tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/standings": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "25"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Tournament Standings Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/tournament-standings/"
+                },
+                "operationId": "Tournament Standings",
+                "description": "Team Rankings for a specific competition.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/list": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "externalDocs": {
+                    "description": "Handball API Tournament List Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/tournament-list/"
+                },
+                "operationId": "Tournament List",
+                "description": "List of tournaments in your data coverage.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/info": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "25"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Tournament Info Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/tournament-info/"
+                },
+                "operationId": "Tournament Info",
+                "description": "Current season, stage structure(divisions,conferences etc.), country and many more information about a tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/fixture": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "25"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Tournament Fixture Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/tournament-fixture/"
+                },
+                "operationId": "Tournament Fixture",
+                "description": "Full match list with period and final scores.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/team/schedule": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the team.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1488"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Handball API Team Schedule Documentation",
+                    "url": "https://www.broadage.com/developers/handball-api/team-schedule/"
+                },
+                "operationId": "Team Schedule",
+                "description": "Team fixtures by all the tournaments a team participates.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

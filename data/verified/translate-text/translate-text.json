@@ -1,0 +1,52 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_b3d6a2dd-9a96-42f2-ad2d-d744763c3600",
+    "name": "translate-text",
+    "title": "translate-text",
+    "description": "GraphQL API for Text Translation with AI",
+    "visibility": "PUBLIC",
+    "slugifiedName": "translate-text3",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-07-29T22:22:47.833Z",
+    "category": "Translation",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/21fcd701-4207-43f0-8dbd-fcb344d34b5c.png",
+    "user": {
+        "id": 4567762,
+        "username": "graphql-graphql-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_ed57e588-5eae-4eb5-ad2e-e94d344b70bf",
+        "tags": [
+            {
+                "id": "tag_4671f965-ecc1-4183-b398-adc27e2fa813",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_05a609b7-e07e-408b-a0b5-6b276c5478d5",
+                "type": "tag",
+                "value": "GraphQL",
+                "__typename": "APITag"
+            },
+            {
+                "id": "tag_6aaf1fed-bb80-416f-8086-f897df80a7c9",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_981d09d5-a408-4efb-b630-4f74aed3efb1",
+                "isGraphQL": true,
+                "route": "/",
+                "method": "POST",
+                "name": "graphQL",
+                "description": "USE THE CODE BELOW AS DEMO. (  RAPID API GRAPHQL DEMO ARE BUGGING )\n```\n{\n  translatePlainText(textToTranslate: \"how are you\", language: RU) {\n    translatedText\n    detectedLanguageCode\n  }  \n}\n```",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

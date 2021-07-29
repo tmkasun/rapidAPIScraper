@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_e727af53-63cd-4fea-9399-81b4ba7ada27",
+    "name": "TrueWay Matrix",
+    "title": "TrueWay Matrix",
+    "description": "Calculate distances and durations between a set of origins and destinations.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "trueway-matrix",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-06T05:18:01.315Z",
+    "category": "Mapping",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/72ba451c-93e9-4410-99be-661aa4f515a6_medium",
+    "user": {
+        "id": 4062149,
+        "username": "trueway",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_fd4ea15a-1e6d-415b-863a-29d6a75c3a3e",
+        "tags": [
+            {
+                "id": "tag_42cf004f-4aa3-4dcd-9c3a-aae1a9858b27",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_cc117e32-4610-4e1c-97d1-7cafc312b82b",
+                "isGraphQL": false,
+                "route": "/CalculateDrivingMatrix",
+                "method": "GET",
+                "name": "CalculateDrivingDistanceMatrix",
+                "description": "Calculate distances and durations between a set of origins and destinations.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

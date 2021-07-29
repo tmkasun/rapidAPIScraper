@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5c4b808ce4b08cf00f3fbd9c",
+    "name": "Validect - Email Verification",
+    "title": "Validect - Email Verification",
+    "description": "Email address validation API",
+    "visibility": "PUBLIC",
+    "slugifiedName": "validect-email-verification",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-23T13:11:50.363Z",
+    "category": "Email",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5c4b808ee4b062e1a150d6dc_medium",
+    "user": {
+        "id": 3787552,
+        "username": "srgl",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5c4b808ee4b062e1a150d6dc",
+        "tags": [
+            {
+                "id": "tag_083c1d11-e350-4fdf-b479-ae851a1f4d4f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_498bdbbb-b79b-439c-8d0e-03cc61ca0225",
+                "isGraphQL": false,
+                "route": "/v1/verify",
+                "method": "GET",
+                "name": "/v1/verify",
+                "description": "#### Verify email address\n*We do bill only valid or invalid verification statuses.*\nPass the email as a GET parameter. Response properties description:\n```json\n{\n\"status\": \"valid\", // verification status of the email\n\"reason\": \"accepted_email\", // the reason of the status\n\"email\": \"example@gmail.com\",  // normalized email address\n\"user\": \"example\",  // The part before at-sign\n\"domain\": \"gmail.com\", // The part after at-sign\n\"public\": true, // Is address belongs to a publicly accessible email provider\n\"disposable\": false,  // Is address belongs to a disposable email service\n\"role\": false // Is address role based (e.g. abuse, admin, no-reply etc.)\n}\n```\nPossible verification statuses:\n-  `valid` - email address has been accepted by the mail server (safe to send)\n- `invalid` - email address is invalid, various reasons possible, see below (do not send)\n- `accept_all` - mail server accepts any email address (not recommended to send)\n- `unknown` - unable to verify email address (not recommended to send)\n\nPossible status reasons:\n- `accepted_email` - email address has been accepted by the mail server\n- `rejected_email` - email address has been rejected by the mail server\n- `invalid_syntax` - syntax of the email address is invalid according to RFC\n- `invalid_domain` - domain name of the email address does not exist\n- `no_mx_record` - mx record for the domain does not exist\n- `invalid_mx_record` - mx record of the domain is invalid\n- `dns_error` - error occurred while performing dns resolving of the domain\n- `smtp_error` - error occurred while performing smtp validation",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

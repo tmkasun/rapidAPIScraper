@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5b6b499ee4b07e7b7f71e4ab",
+    "name": "Reverse Geocoding and Geolocation Service",
+    "title": "Reverse Geocoding and Geolocation Service",
+    "description": "Find nearest or largest city information or timezone for any given point location (latitude/longitude). The reverse geocode API back \"reverse\" codes any GPS location point into nearest or largest readable places with county, city, distance and population.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "reverse-geocoding-and-geolocation-service",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-01-16T20:48:05.445Z",
+    "category": "Mapping",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5b6b499ee4b0aa2f76d1ff74_medium",
+    "user": {
+        "id": 3398263,
+        "username": "Noggle",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5b6b499ee4b0aa2f76d1ff74",
+        "tags": [
+            {
+                "id": "tag_e5a5dc56-b11d-4062-b142-fab99b7edea7",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_38dd3cf2-ba12-4673-bc89-100c5b45e576",
+                "isGraphQL": false,
+                "route": "/GetTimezone",
+                "method": "GET",
+                "name": "GetTimezone",
+                "description": "Finds the local timezone for any given geo-location point by lat and long and returns timezone information with Timezone name, Timezone id and current local time.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5b6c91afe4b0aa2f76d203ad",
+                "isGraphQL": false,
+                "route": "/GetLargestCities",
+                "method": "GET",
+                "name": "GetLargestCities",
+                "description": "Returns 5 largest cities within a given radial range with name, population, country and distance.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5b6b4b8ae4b0aa2f76d1ff84",
+                "isGraphQL": false,
+                "route": "/GetNearestCities",
+                "method": "GET",
+                "name": "GetNearestCities",
+                "description": "Returns a readable place name as nearest 3 cities with population, country and distance based on given latitude/longitude pair.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

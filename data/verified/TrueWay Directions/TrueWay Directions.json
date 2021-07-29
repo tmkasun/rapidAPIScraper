@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_cdb725be-8d98-4883-a8d5-a7146154a03e",
+    "name": "TrueWay Directions",
+    "title": "TrueWay Directions",
+    "description": "Find the best route between two or more locations",
+    "visibility": "PUBLIC",
+    "slugifiedName": "trueway-directions2",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-30T09:13:42.927Z",
+    "category": "Mapping",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0c1e4383-f2e6-47e4-911c-b44aac6ec534_medium",
+    "user": {
+        "id": 4062149,
+        "username": "trueway",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_fc5e700f-f44b-41f5-922e-6b022391478f",
+        "tags": [
+            {
+                "id": "tag_9481ec5f-8516-49e1-aba3-e55e6174dac9",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_4d20b929-44d3-415f-9b24-9ba6598002ce",
+                "isGraphQL": false,
+                "route": "/FindDrivingRoute",
+                "method": "GET",
+                "name": "FindDrivingRoute",
+                "description": "Find the best route and get multiple stops driving directions",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_8e42a258-a716-4568-a09c-f5e4353b6d60",
+                "isGraphQL": false,
+                "route": "/FindDrivingPath",
+                "method": "GET",
+                "name": "FindDrivingPath",
+                "description": "Find the best route between an origin and a destination, passing through waypoints (if specified)",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

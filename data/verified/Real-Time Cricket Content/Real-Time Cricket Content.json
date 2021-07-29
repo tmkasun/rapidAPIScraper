@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_bd626fab-809c-4221-9eac-3a361b47a1b5",
+    "name": "Real-Time Cricket Content",
+    "title": "Real-Time Cricket Content",
+    "description": "Our \"Real-Time Cricket Content\" API returns present and historical information on cricket from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of cricket with our solution, or collect historical structured data on the most relevant past stories and events. Returns list of items which talk concerning cricket. Identified by its IAB code IAB17-9, this endpoint returns news items which contain topics such as cricket, cricketer, Cricket Leagues etc. Similar news topics are clustered together. Test our api for free and do not hesitate to reach us out for further information.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "real-time-cricket-content",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-07T17:23:10.242Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/6465414f-8002-47a4-8109-274372f9915f.jpg",
+    "user": {
+        "id": 4551023,
+        "username": "connexun-srl-connexun-srl-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_27486ee6-13df-4713-9106-67216fd17a08",
+        "tags": [
+            {
+                "id": "tag_08108870-6238-48ba-a319-bd6ca1c284fc",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_30c5e074-f660-46c2-a150-0291812aff86",
+                "isGraphQL": false,
+                "route": "/cricket",
+                "method": "GET",
+                "name": "/real-time_cricket_content",
+                "description": "The API returns real-time and historical content and information on cricket from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of cricket with our solution, or collect historical structured data on the most relevant past stories and events.\n\nReturns a list of items which discuss cricket. Identified by its IAB code IAB17-9, this endpoint returns news items which contain topics such as cricket, cricketer, Cricket Leagues etc. Similar news topics are clustered together.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

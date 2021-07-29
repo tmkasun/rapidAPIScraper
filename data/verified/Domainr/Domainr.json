@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa31dae4b07e1f4ebe997e",
+    "name": "Domainr",
+    "title": "Domainr",
+    "description": "Instant domain search.\r\n\r\nDocumentation available at https://domainr.com/docs/api",
+    "visibility": "PUBLIC",
+    "slugifiedName": "domainr",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-03-28T18:50:20.812Z",
+    "category": "Business",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa31dae4b0a9b1348d8be1_medium",
+    "user": {
+        "id": 2061473,
+        "username": "domainr",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa31dae4b0a9b1348d8be1",
+        "tags": [
+            {
+                "id": "tag_836532c4-ddad-48f4-b25e-09fb5399901a",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "555d2d96e4b03086522284db",
+                "isGraphQL": false,
+                "route": "/v2/search",
+                "method": "GET",
+                "name": "/v2/search",
+                "description": "Responds with search suggestions related to the query.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "555d2efbe4b03086522284de",
+                "isGraphQL": false,
+                "route": "/v2/status",
+                "method": "GET",
+                "name": "/v2/status",
+                "description": "Check domain availability.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "555d3049e4b03086522284e5",
+                "isGraphQL": false,
+                "route": "/v2/register",
+                "method": "GET",
+                "name": "/v2/register",
+                "description": "Responds with an HTTP redirect to a supporting registrar.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

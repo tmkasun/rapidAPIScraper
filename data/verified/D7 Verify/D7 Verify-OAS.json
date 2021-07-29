@@ -1,0 +1,156 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_f5a64032-2e7a-49a2-a3e9-1930132c67cf",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_bcf69453-1c6e-4288-88a0-57ef901fd64b",
+        "apiId": "api_577f688c-0d3b-40ca-b3e8-488828b55e47"
+    },
+    "info": {
+        "title": "D7 Verify",
+        "description": "Use D7 Verifier API for validation of Phone numbers",
+        "version": "v1",
+        "x-category": "SMS",
+        "x-long-description": "D7 Verifier is an OTP verification service provided by Direct7Networks. D7 provides reliable and cost-effective SMS services to businesses across all industries and aims to connect all countries and territories via direct connections.\n",
+        "x-website": "https://d7networks.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/11/7c60442d074157b228fef5b812e59e/83d2e01f91ff4297e1dfaf21e6d2bdd8.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://d7-verify.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Verify OTP"
+        },
+        {
+            "name": "Generate OTP"
+        }
+    ],
+    "paths": {
+        "/verify": {
+            "post": {
+                "tags": [
+                    "Verify OTP"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Verify OTP",
+                "description": "Verify user-entered OTP code. For successful verification \"200 OK\" response with \"status\" \" success\" and for a failure \"200 OK\" with \"status\" \"failed\" will be returned.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "status": "success"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/resend": {
+            "post": {
+                "tags": [
+                    "Generate OTP"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Re-Send OTP",
+                "description": "Resend OTP to the mobile number if it is not received. Previously generated otp_id is required to resend and the minimum delay between resending requests is 60 seconds.",
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "expiry": 900,
+                                            "otp_id": "348218b6-5eef-425b-9800-8a0b689e7279",
+                                            "resend_count": 1,
+                                            "status": "open"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/send": {
+            "post": {
+                "tags": [
+                    "Generate OTP"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Send OTP",
+                "description": "Generate and send OTP to Mobile number. An otp_id will be returned for successful submission and it is required for OTP Verification.",
+                "responses": {
+                    "201": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "expiry": 900,
+                                            "otp_id": "348218b6-5eef-425b-9800-8a0b689e7279",
+                                            "status": "open"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "header_auth": {
+                "name": "Authorization",
+                "type": "apiKey",
+                "in": "header",
+                "description": "{Token 972375nfegdmd82sjsdbdfs524} . ( You can get it from https://dashboard.d7networks.com/verification-api )"
+            }
+        }
+    },
+    "security": [
+        {
+            "header_auth": []
+        }
+    ]
+}

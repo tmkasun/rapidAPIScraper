@@ -1,0 +1,70 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5b3ab3f3e4b035818b6b6e8b",
+    "name": "Nexmo Number Insight",
+    "title": "Nexmo Number Insight",
+    "description": "The smart way to get real-time intelligence on numbers anywhere in the world and protect yourself from fraud and spam.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "nexmo-number-insight",
+    "pricing": "PAID",
+    "updatedAt": "2019-02-20T10:11:31.568Z",
+    "category": "Communication",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5b3ab3f4e4b04182618a86c4_medium",
+    "user": {
+        "id": 3554800,
+        "username": "nexmo",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5b3ab3f4e4b04182618a86c4",
+        "tags": [
+            {
+                "id": "tag_ea4dde3f-6298-4bcc-a246-a457b994e2d0",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            },
+            {
+                "id": "tag_6c4bd402-845b-45fa-bbdb-421694caee9d",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_0364d241-f423-4ff4-9e3e-e51de3cdc835",
+                "type": "tag",
+                "value": "Official",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "5b3bfcd9e4b0f4ef751dd16b",
+                "isGraphQL": false,
+                "route": "/advanced/json",
+                "method": "POST",
+                "name": "Number Insight Advanced",
+                "description": "The Number Insight Advanced API provides all the data from the Number Insight Standard API together with additional information on if the number is likely to be valid, ported, not in the US, or roaming.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5b3bfe4ee4b004833ec24a30",
+                "isGraphQL": false,
+                "route": "/standard/json",
+                "method": "POST",
+                "name": "Number Insight Standard",
+                "description": "You can use Nexmo's Number Insight Standard API to retrieve a user's landline or mobile number, including checking to see that it is registered to an operator. This can help you verify that a phone number is real and give you information on how to format the number.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5b3abf15e4b04182618a86ef",
+                "isGraphQL": false,
+                "route": "/basic/json",
+                "method": "POST",
+                "name": "Number Insight Basic",
+                "description": "You can use Nexmo's Number Insight Basic API to retrieve local and international representations of a phone number by doing semantic checks on the number you submit. This can help you normalise and consistently print numbers in your user interface and gives you information to help you decide if a phone number accept the phone number entered by your user, or ask them to check and correct it.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

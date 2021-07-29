@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_5dd0bdf2-3494-47d3-bef8-4f3670be797d",
+    "name": "Currency Converter",
+    "title": "Currency Converter",
+    "description": "Provides exchange rates based on the official banks data.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "currency-converter5",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-10-10T21:24:17.840Z",
+    "category": "Finance",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/4d/9cbc0035de11e982223f9668e6304d/a0bd224b220dc13a66193d8c4cfa8401.png",
+    "user": {
+        "id": 3631200,
+        "username": "natkapral",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_5f5e495f-a91e-4f38-b7c9-1358ffedf12f",
+        "tags": [
+            {
+                "id": "tag_34152df9-ae2e-4aa0-84ad-92aabc26ecf6",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_a4bcb4ce-c9c6-4c58-8ed5-20ccb34098d2",
+                "isGraphQL": false,
+                "route": "/currency/list",
+                "method": "GET",
+                "name": "Available Currencies",
+                "description": "List of available currencies",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_b9e8e79a-f2e2-4627-a297-811ce0441cc3",
+                "isGraphQL": false,
+                "route": "/currency/historical/{date}",
+                "method": "GET",
+                "name": "Historical Currency Data",
+                "description": "returns the rates on the specific date",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_b0d109c2-e479-4f70-be68-ab4dbe08cfcf",
+                "isGraphQL": false,
+                "route": "/currency/convert",
+                "method": "GET",
+                "name": "Currency Converter",
+                "description": "Converts from one currency to another",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

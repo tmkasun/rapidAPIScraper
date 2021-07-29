@@ -1,0 +1,64 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_25c6a36c-fc9b-4fb6-aa5c-2befadcbb714",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_eaaa1ee3-d3e7-4db2-86fa-88db36ffc000",
+        "apiId": "api_612ceb13-2bab-4377-8bd8-7fb3ff28711f"
+    },
+    "info": {
+        "title": "Speech Recognition French",
+        "description": "HiVoicy French ASR API can convert any French voice to the text.",
+        "version": "v1",
+        "x-category": "Machine Learning",
+        "x-long-description": "HiVoicy French ASR API can convert any French audio to text.You can try our speech recognition with your mobile voice recorder or uploading a file easily on our website.\n\nwww.HiVoicy.com\n\n-Supported file types: mp3, Ogg, Wav, m4a and WMA.\n-Max length can be 1 minute.\n\n- Accuracy > 92 %\n-Transcribe speech to text in real-time.\n-Running pre-bulit models,tailored for your use case\n -Noise robust\n  -Voice activity detection support (VAD)\n -API , SDK for Android, Windows, iOS and Linux\n  -The ability to integrate with mobile apps, cloud software, connected \n   devices and ultimately internet of things\n  -Available on your private cloud\n  -The ability to develop for the other languages\n\n\nASR-Speech-Voice-Sound-Recognition-French",
+        "x-website": "https://hivoicy.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/3306b733-8741-433f-9ab0-cbc8fa8b58fd.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://speech-recognition-french1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/api/asr": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "GetVoice",
+                "description": "French Speech Recognition can convert any french voice to text.\n\n-Supported file types: mp3, Ogg, Wav, m4a and WMA.\n-Max length can be 1 minute.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "Sound": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

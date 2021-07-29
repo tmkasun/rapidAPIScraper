@@ -1,0 +1,1005 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_189994a0-83d2-47e0-9fa2-9f4c620230b3",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_ede0f686-3578-4295-b97d-5e07d0390c7e",
+        "apiId": "api_602ba936-6fba-4d08-9323-3c8dd842f155"
+    },
+    "info": {
+        "title": "Promity Face Analyzer",
+        "description": "API for face attributes recognition in real time.",
+        "version": "v1",
+        "x-category": "Visual Recognition",
+        "x-long-description": "Promity's API is a multi-functional solution for retail, banking, administration or any other industry where computer vision solutions are needful.  Face Analyzer allows you to distinguish 40+ facial attributes such as appearance, glasses, makeup, mustache, beard from face pictures. ",
+        "x-website": "https://promity.com/what-we-do/ai/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/a25db421-d805-4607-a8c2-38fc1da5f8a5.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://promity-face-analyzer.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/face_attributes/process_url": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "img_url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "https://promity.com/wp-content/uploads/2021/05/image-0111a.jpg"
+                        }
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "application/json"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Face attributes by URL",
+                "description": "Endpoint for 37 face attributes detection. Send us link to image, we return  position of detected faces and found attributes.\nAttributes:\n1. 5oClockShadow\n2. ArchedEyebrows\n3. BagsUnderEyes\n4. Bald\n5. Bangs\n6. BigLips\n7. BigNose\n8. BlackHair\n9. BlondHair\n10. Blurry\n11. BrownHair\n12. BushyEyebrows\n13. Chubby\n14. DoubleChin\n15. Eyeglasses\n16. Goatee\n17. GrayHair\n18. HeavyMakeup\n19. HighCheekbones\n20. MouthSlightlyOpen\n21. Mustache\n22. NarrowEyes\n23. NoBeard\n24. OvalFace\n25. PaleSkin\n26. PointyNose\n27. RecedingHairline\n28. RosyCheeks\n29. Sideburns\n30. Smiling\n31. StraightHair\n32. WavyHair\n33. WearingEarrings\n34. WearingHat\n35. WearingLipstick\n36. WearingNecklace\n37. WearingNecktie\n\nExample in python:\n``` \n#!/usr/bin/python3\nimport cv2\nimport json\nimport requests\nimport numpy as np\n\nheaders = {\n    \"X-Rapidapi-Key\": \"XXX\",\n    \"Content-Type\": \"application/json\",\n}\n\nimg_address = \"https://lelum.pl/wp-content/uploads/2018/10/okulary2-1.jpg\"\nparams = {'img_url': img_address}\n\naddress = \"https://faceanalysis.p.rapidapi.com/face_attributes/process\"\n\nresponse = requests.get(address, headers=headers, params=params)\njson_dict = json.loads(response.text)\n\nresp_img = requests.get(img_address, stream=True)\narr = np.asarray(bytearray(resp_img.content), dtype=np.uint8)\nimg = cv2.imdecode(arr, -1)\n\nimg_height, img_width, _ = img.shape\n\nfont = cv2.FONT_HERSHEY_SIMPLEX\nbottomLeftCornerOfText = (10, 500)\nfontScale = 0.5\nfontColor = (0, 255, 0)\nlineType = 2\nGREEN = (0, 250, 0)\n\nlables_groups = {\n    'hair_color': [\"Black_Hair\",\n                   \"Blond_Hair\",\n                   \"Brown_Hair\",\n                   \"Bald\",\n                   \"Gray_Hair\"],\n    'hair_style': [\"Straight_Hair\",\n                   \"Wavy_Hair\",\n                   \"Bangs\"],\n    'additions': [\"Eyeglasses\",\n                  \"Heavy_Makeup\",\n                  \"Wearing_Earrings\",\n                  \"Wearing_Hat\",\n                  \"Wearing_Lipstick\",\n                  \"Wearing_Necklace\",\n                  \"Wearing_Necktie\"],\n    'face_attributes': [\"5_o_Clock_Shadow\",\n                        \"Arched_Eyebrows\",\n                        \"Attractive\",\n                        \"Bags_Under_Eyes\",\n                        \"Big_Lips\",\n                        \"Big_Nose\",\n                        \"Bushy_Eyebrows\",\n                        \"Chubby\",\n                        \"Double_Chin\",\n                        \"Goatee\",\n                        \"High_Cheekbones\",\n                        \"Mouth_Slightly_Open\",\n                        \"Mustache\",\n                        \"Narrow_Eyes\",\n                        \"No_Beard\",\n                        \"Oval_Face\",\n                        \"Pale_Skin\",\n                        \"Pointy_Nose\",\n                        \"Receding_Hairline\",\n                        \"Rosy_Cheeks\",\n                        \"Sideburns\",\n                        \"Smiling\"]\n}\n\n\ndef draw_labels(image, result, x, y):\n    predicted_labels = {\n        'hair_color': [],\n        'hair_style': [],\n        'additions': [],\n        'face_attributes': []\n\n    }\n    hair_color = \"\"\n    hair_style = \"\"\n    additions = \"\"\n    face_attributes = \"\"\n\n    for label, score in result.items():\n        if score > 0.2:\n            for group, labels in lables_groups.items():\n                if label in labels:\n                    predicted_labels[group].append((label, score))\n    if len(predicted_labels['hair_color']) > 0:\n        hair_color = predicted_labels['hair_color'][0][0]\n    if len(predicted_labels['hair_style']) > 0:\n        hair_style = predicted_labels['hair_style'][0][0]\n    if len(predicted_labels['additions']) > 0:\n        additions = predicted_labels['additions'][0][0]\n    if len(predicted_labels['face_attributes']) > 0:\n        face_attributes = predicted_labels['face_attributes'][0][0]\n\n    if hair_color != \"\" and hair_style != \"\" and face_attributes != \"\":\n        cv2.putText(image, \"Hair Color: \", (x, y), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, hair_color, (x, y + 15), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, \"Hair Style: \", (x, y + 30), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, hair_style, (x, y + 45), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, \"Additions: \", (x, y + 60), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, additions, (x, y + 75), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, \"Face attribute: \", (x, y + 90), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, face_attributes, (x, y + 105), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n\n\nfor det in json_dict['detections']:\n    crop = det['crop']\n    if crop['score'] < 0.8:\n        continue\n    x1 = int(crop['x1'] * img_width)\n    x2 = int(crop['x2'] * img_width)\n    y1 = int(crop['y1'] * img_height)\n    y2 = int(crop['y2'] * img_height)\n    img = cv2.rectangle(img, (x1, y1), (x2, y2), GREEN, 3)\n    draw_labels(img, det['face_attributes'], x2, y2)\ncv2.imwrite('test_out.png', img)\n```",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detections": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "crop": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "x1": {
+                                                                "type": "number"
+                                                            },
+                                                            "y1": {
+                                                                "type": "number"
+                                                            },
+                                                            "x2": {
+                                                                "type": "number"
+                                                            },
+                                                            "y2": {
+                                                                "type": "number"
+                                                            },
+                                                            "score": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    },
+                                                    "face_attributes": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "5_o_Clock_Shadow": {
+                                                                "type": "number"
+                                                            },
+                                                            "Arched_Eyebrows": {
+                                                                "type": "number"
+                                                            },
+                                                            "Bags_Under_Eyes": {
+                                                                "type": "number"
+                                                            },
+                                                            "Bald": {
+                                                                "type": "number"
+                                                            },
+                                                            "Bangs": {
+                                                                "type": "number"
+                                                            },
+                                                            "Big_Lips": {
+                                                                "type": "number"
+                                                            },
+                                                            "Big_Nose": {
+                                                                "type": "number"
+                                                            },
+                                                            "Black_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Blond_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Blurry": {
+                                                                "type": "number"
+                                                            },
+                                                            "Brown_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Bushy_Eyebrows": {
+                                                                "type": "number"
+                                                            },
+                                                            "Chubby": {
+                                                                "type": "number"
+                                                            },
+                                                            "Double_Chin": {
+                                                                "type": "number"
+                                                            },
+                                                            "Eyeglasses": {
+                                                                "type": "number"
+                                                            },
+                                                            "Goatee": {
+                                                                "type": "number"
+                                                            },
+                                                            "Gray_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Heavy_Makeup": {
+                                                                "type": "number"
+                                                            },
+                                                            "High_Cheekbones": {
+                                                                "type": "number"
+                                                            },
+                                                            "Mouth_Slightly_Open": {
+                                                                "type": "number"
+                                                            },
+                                                            "Mustache": {
+                                                                "type": "number"
+                                                            },
+                                                            "Narrow_Eyes": {
+                                                                "type": "number"
+                                                            },
+                                                            "No_Beard": {
+                                                                "type": "number"
+                                                            },
+                                                            "Oval_Face": {
+                                                                "type": "number"
+                                                            },
+                                                            "Pale_Skin": {
+                                                                "type": "number"
+                                                            },
+                                                            "Pointy_Nose": {
+                                                                "type": "number"
+                                                            },
+                                                            "Receding_Hairline": {
+                                                                "type": "number"
+                                                            },
+                                                            "Rosy_Cheeks": {
+                                                                "type": "number"
+                                                            },
+                                                            "Sideburns": {
+                                                                "type": "number"
+                                                            },
+                                                            "Smiling": {
+                                                                "type": "number"
+                                                            },
+                                                            "Straight_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wavy_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wearing_Earrings": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wearing_Hat": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wearing_Lipstick": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wearing_Necklace": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wearing_Necktie": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "New Example": {
+                                        "description": "",
+                                        "summary": "New Example",
+                                        "value": {
+                                            "detections": [
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.49029475450515747,
+                                                        "y1": 0.5199255347251892,
+                                                        "x2": 0.5589765906333923,
+                                                        "y2": 0.38276559114456177,
+                                                        "score": 0.9992923736572266
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.0033807754516601562,
+                                                        "Arched_Eyebrows": 0.6523846983909607,
+                                                        "Bags_Under_Eyes": 0.06260901689529419,
+                                                        "Bald": 0.00015866756439208984,
+                                                        "Bangs": 0.0004988908767700195,
+                                                        "Big_Lips": 0.46972233057022095,
+                                                        "Big_Nose": 0.20520448684692383,
+                                                        "Black_Hair": 0.8480334877967834,
+                                                        "Blond_Hair": 0.00041931867599487305,
+                                                        "Blurry": 0.0018697381019592285,
+                                                        "Brown_Hair": 0.02771317958831787,
+                                                        "Bushy_Eyebrows": 0.6154510974884033,
+                                                        "Chubby": 0.010709702968597412,
+                                                        "Double_Chin": 0.0017970800399780273,
+                                                        "Eyeglasses": 0.000059485435485839844,
+                                                        "Goatee": 0.0003294944763183594,
+                                                        "Gray_Hair": 0.0002383589744567871,
+                                                        "Heavy_Makeup": 0.7432979345321655,
+                                                        "High_Cheekbones": 0.41306841373443604,
+                                                        "Mouth_Slightly_Open": 0.3338569402694702,
+                                                        "Mustache": 0.0006635785102844238,
+                                                        "Narrow_Eyes": 0.0026941299438476562,
+                                                        "No_Beard": 0.9966176152229309,
+                                                        "Oval_Face": 0.48766058683395386,
+                                                        "Pale_Skin": 0.011443793773651123,
+                                                        "Pointy_Nose": 0.19023829698562622,
+                                                        "Receding_Hairline": 0.17074233293533325,
+                                                        "Rosy_Cheeks": 0.007944881916046143,
+                                                        "Sideburns": 0.00016427040100097656,
+                                                        "Smiling": 0.04978233575820923,
+                                                        "Straight_Hair": 0.3618937134742737,
+                                                        "Wavy_Hair": 0.11995244026184082,
+                                                        "Wearing_Earrings": 0.2863706946372986,
+                                                        "Wearing_Hat": 0.0005103349685668945,
+                                                        "Wearing_Lipstick": 0.9241288900375366,
+                                                        "Wearing_Necklace": 0.11849397420883179,
+                                                        "Wearing_Necktie": 0.002608776092529297
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.11643223464488983,
+                                                        "y1": 0.5169875025749207,
+                                                        "x2": 0.18099753558635712,
+                                                        "y2": 0.39529597759246826,
+                                                        "score": 0.998594343662262
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.4783772826194763,
+                                                        "Arched_Eyebrows": 0.0026949644088745117,
+                                                        "Bags_Under_Eyes": 0.0055081844329833984,
+                                                        "Bald": 0.0012974739074707031,
+                                                        "Bangs": 0.00020390748977661133,
+                                                        "Big_Lips": 0.09669381380081177,
+                                                        "Big_Nose": 0.41839951276779175,
+                                                        "Black_Hair": 0.7756519913673401,
+                                                        "Blond_Hair": 0.00007653236389160156,
+                                                        "Blurry": 0.015776097774505615,
+                                                        "Brown_Hair": 0.006871223449707031,
+                                                        "Bushy_Eyebrows": 0.03076845407485962,
+                                                        "Chubby": 0.2114485502243042,
+                                                        "Double_Chin": 0.026575863361358643,
+                                                        "Eyeglasses": 0.9970738887786865,
+                                                        "Goatee": 0.7406303882598877,
+                                                        "Gray_Hair": 0.0005168914794921875,
+                                                        "Heavy_Makeup": 0.00020450353622436523,
+                                                        "High_Cheekbones": 0.007410287857055664,
+                                                        "Mouth_Slightly_Open": 0.0033063888549804688,
+                                                        "Mustache": 0.22650420665740967,
+                                                        "Narrow_Eyes": 0.0006677508354187012,
+                                                        "No_Beard": 0.012466907501220703,
+                                                        "Oval_Face": 0.28902316093444824,
+                                                        "Pale_Skin": 0.0021890997886657715,
+                                                        "Pointy_Nose": 0.04920470714569092,
+                                                        "Receding_Hairline": 0.03254735469818115,
+                                                        "Rosy_Cheeks": 0.00008082389831542969,
+                                                        "Sideburns": 0.7402874827384949,
+                                                        "Smiling": 0.005087792873382568,
+                                                        "Straight_Hair": 0.12538468837738037,
+                                                        "Wavy_Hair": 0.031195402145385742,
+                                                        "Wearing_Earrings": 0.009391546249389648,
+                                                        "Wearing_Hat": 0.025971829891204834,
+                                                        "Wearing_Lipstick": 0.0001831650733947754,
+                                                        "Wearing_Necklace": 0.020366907119750977,
+                                                        "Wearing_Necktie": 0.049375295639038086
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.8563294410705566,
+                                                        "y1": 0.24784332513809204,
+                                                        "x2": 0.917901873588562,
+                                                        "y2": 0.12237813323736191,
+                                                        "score": 0.9980091452598572
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.026406049728393555,
+                                                        "Arched_Eyebrows": 0.06418144702911377,
+                                                        "Bags_Under_Eyes": 0.0324862003326416,
+                                                        "Bald": 0.0008143782615661621,
+                                                        "Bangs": 0.0043059587478637695,
+                                                        "Big_Lips": 0.13235318660736084,
+                                                        "Big_Nose": 0.027426958084106445,
+                                                        "Black_Hair": 0.416038453578949,
+                                                        "Blond_Hair": 0.002441883087158203,
+                                                        "Blurry": 0.18827885389328003,
+                                                        "Brown_Hair": 0.0589335560798645,
+                                                        "Bushy_Eyebrows": 0.14714723825454712,
+                                                        "Chubby": 0.0046694278717041016,
+                                                        "Double_Chin": 0.000491023063659668,
+                                                        "Eyeglasses": 0.0006031990051269531,
+                                                        "Goatee": 0.000809013843536377,
+                                                        "Gray_Hair": 0.0009137392044067383,
+                                                        "Heavy_Makeup": 0.04021644592285156,
+                                                        "High_Cheekbones": 0.09650534391403198,
+                                                        "Mouth_Slightly_Open": 0.02082359790802002,
+                                                        "Mustache": 0.0004164576530456543,
+                                                        "Narrow_Eyes": 0.11933594942092896,
+                                                        "No_Beard": 0.9676465392112732,
+                                                        "Oval_Face": 0.08476752042770386,
+                                                        "Pale_Skin": 0.005221724510192871,
+                                                        "Pointy_Nose": 0.24394941329956055,
+                                                        "Receding_Hairline": 0.04621082544326782,
+                                                        "Rosy_Cheeks": 0.0003959536552429199,
+                                                        "Sideburns": 0.0006353259086608887,
+                                                        "Smiling": 0.05366635322570801,
+                                                        "Straight_Hair": 0.2938315272331238,
+                                                        "Wavy_Hair": 0.06062304973602295,
+                                                        "Wearing_Earrings": 0.10126733779907227,
+                                                        "Wearing_Hat": 0.008882522583007812,
+                                                        "Wearing_Lipstick": 0.062162160873413086,
+                                                        "Wearing_Necklace": 0.05087757110595703,
+                                                        "Wearing_Necktie": 0.0016099214553833008
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.1482899785041809,
+                                                        "y1": 0.3003842234611511,
+                                                        "x2": 0.20176897943019867,
+                                                        "y2": 0.20043990015983582,
+                                                        "score": 0.9973342418670654
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.002223193645477295,
+                                                        "Arched_Eyebrows": 0.5551888942718506,
+                                                        "Bags_Under_Eyes": 0.0973706841468811,
+                                                        "Bald": 0.0018916130065917969,
+                                                        "Bangs": 0.0016689896583557129,
+                                                        "Big_Lips": 0.5728008151054382,
+                                                        "Big_Nose": 0.4318663477897644,
+                                                        "Black_Hair": 0.8697225451469421,
+                                                        "Blond_Hair": 0.0014287233352661133,
+                                                        "Blurry": 0.2538343071937561,
+                                                        "Brown_Hair": 0.016486823558807373,
+                                                        "Bushy_Eyebrows": 0.11726069450378418,
+                                                        "Chubby": 0.17737436294555664,
+                                                        "Double_Chin": 0.018965959548950195,
+                                                        "Eyeglasses": 0.0011423826217651367,
+                                                        "Goatee": 0.0014848113059997559,
+                                                        "Gray_Hair": 0.003780066967010498,
+                                                        "Heavy_Makeup": 0.31793898344039917,
+                                                        "High_Cheekbones": 0.6456920504570007,
+                                                        "Mouth_Slightly_Open": 0.026174724102020264,
+                                                        "Mustache": 0.0011916160583496094,
+                                                        "Narrow_Eyes": 0.026064932346343994,
+                                                        "No_Beard": 0.991249680519104,
+                                                        "Oval_Face": 0.4695139527320862,
+                                                        "Pale_Skin": 0.0023702383041381836,
+                                                        "Pointy_Nose": 0.019641757011413574,
+                                                        "Receding_Hairline": 0.562024712562561,
+                                                        "Rosy_Cheeks": 0.0009366869926452637,
+                                                        "Sideburns": 0.0005769729614257812,
+                                                        "Smiling": 0.24746394157409668,
+                                                        "Straight_Hair": 0.20105421543121338,
+                                                        "Wavy_Hair": 0.191042959690094,
+                                                        "Wearing_Earrings": 0.11770123243331909,
+                                                        "Wearing_Hat": 0.0010772347450256348,
+                                                        "Wearing_Lipstick": 0.3437168002128601,
+                                                        "Wearing_Necklace": 0.17911195755004883,
+                                                        "Wearing_Necktie": 0.003053724765777588
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.598613440990448,
+                                                        "y1": 0.3124071955680847,
+                                                        "x2": 0.6528789401054382,
+                                                        "y2": 0.20392271876335144,
+                                                        "score": 0.9954931735992432
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.43164223432540894,
+                                                        "Arched_Eyebrows": 0.04593759775161743,
+                                                        "Bags_Under_Eyes": 0.1155276894569397,
+                                                        "Bald": 0.002039194107055664,
+                                                        "Bangs": 0.00033164024353027344,
+                                                        "Big_Lips": 0.427021324634552,
+                                                        "Big_Nose": 0.4581531882286072,
+                                                        "Black_Hair": 0.8316968083381653,
+                                                        "Blond_Hair": 0.0001327991485595703,
+                                                        "Blurry": 0.0076073408126831055,
+                                                        "Brown_Hair": 0.004207491874694824,
+                                                        "Bushy_Eyebrows": 0.6520978808403015,
+                                                        "Chubby": 0.03009963035583496,
+                                                        "Double_Chin": 0.00112229585647583,
+                                                        "Eyeglasses": 0.0006874799728393555,
+                                                        "Goatee": 0.7168800830841064,
+                                                        "Gray_Hair": 0.0003358125686645508,
+                                                        "Heavy_Makeup": 0.001804649829864502,
+                                                        "High_Cheekbones": 0.10844027996063232,
+                                                        "Mouth_Slightly_Open": 0.041704773902893066,
+                                                        "Mustache": 0.3584980368614197,
+                                                        "Narrow_Eyes": 0.0002899765968322754,
+                                                        "No_Beard": 0.03281146287918091,
+                                                        "Oval_Face": 0.3122618794441223,
+                                                        "Pale_Skin": 0.0028390884399414062,
+                                                        "Pointy_Nose": 0.1330745816230774,
+                                                        "Receding_Hairline": 0.03787124156951904,
+                                                        "Rosy_Cheeks": 0.0000749826431274414,
+                                                        "Sideburns": 0.4114578366279602,
+                                                        "Smiling": 0.05902582406997681,
+                                                        "Straight_Hair": 0.06540197134017944,
+                                                        "Wavy_Hair": 0.026425302028656006,
+                                                        "Wearing_Earrings": 0.013295292854309082,
+                                                        "Wearing_Hat": 0.002998173236846924,
+                                                        "Wearing_Lipstick": 0.0026647448539733887,
+                                                        "Wearing_Necklace": 0.014777183532714844,
+                                                        "Wearing_Necktie": 0.036495745182037354
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.7280519604682922,
+                                                        "y1": 0.5563205480575562,
+                                                        "x2": 0.7874197959899902,
+                                                        "y2": 0.4102036952972412,
+                                                        "score": 0.7963487505912781
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.06483954191207886,
+                                                        "Arched_Eyebrows": 0.0771452784538269,
+                                                        "Bags_Under_Eyes": 0.04970818758010864,
+                                                        "Bald": 0.008043646812438965,
+                                                        "Bangs": 0.22988605499267578,
+                                                        "Big_Lips": 0.1731889843940735,
+                                                        "Big_Nose": 0.04358267784118652,
+                                                        "Black_Hair": 0.15494811534881592,
+                                                        "Blond_Hair": 0.06538987159729004,
+                                                        "Blurry": 0.603233814239502,
+                                                        "Brown_Hair": 0.06926524639129639,
+                                                        "Bushy_Eyebrows": 0.05596745014190674,
+                                                        "Chubby": 0.037819087505340576,
+                                                        "Double_Chin": 0.015224993228912354,
+                                                        "Eyeglasses": 0.04305213689804077,
+                                                        "Goatee": 0.04102730751037598,
+                                                        "Gray_Hair": 0.016600310802459717,
+                                                        "Heavy_Makeup": 0.14791768789291382,
+                                                        "High_Cheekbones": 0.11605870723724365,
+                                                        "Mouth_Slightly_Open": 0.2990493178367615,
+                                                        "Mustache": 0.034632861614227295,
+                                                        "Narrow_Eyes": 0.238006591796875,
+                                                        "No_Beard": 0.7656897902488708,
+                                                        "Oval_Face": 0.09571939706802368,
+                                                        "Pale_Skin": 0.05472177267074585,
+                                                        "Pointy_Nose": 0.21774250268936157,
+                                                        "Receding_Hairline": 0.03085792064666748,
+                                                        "Rosy_Cheeks": 0.005300998687744141,
+                                                        "Sideburns": 0.027603626251220703,
+                                                        "Smiling": 0.1310054063796997,
+                                                        "Straight_Hair": 0.24255460500717163,
+                                                        "Wavy_Hair": 0.28268110752105713,
+                                                        "Wearing_Earrings": 0.09371757507324219,
+                                                        "Wearing_Hat": 0.05485522747039795,
+                                                        "Wearing_Lipstick": 0.19329553842544556,
+                                                        "Wearing_Necklace": 0.14297163486480713,
+                                                        "Wearing_Necktie": 0.022640526294708252
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {},
+                    "description": ""
+                }
+            }
+        },
+        "/face_attributes/process_file": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Face attributes by file",
+                "description": "Endpoint for 40 face attributes detection. Send us link to image, we return  position of detected faces and found attributes.\nAttributes:\n1. 5oClockShadow\n2. ArchedEyebrows\n3. BagsUnderEyes\n4. Bald\n5. Bangs\n6. BigLips\n7. BigNose\n8. BlackHair\n9. BlondHair\n10. Blurry\n11. BrownHair\n12. BushyEyebrows\n13. Chubby\n14. DoubleChin\n15. Eyeglasses\n16. Goatee\n17. GrayHair\n18. HeavyMakeup\n19. HighCheekbones\n20. MouthSlightlyOpen\n21. Mustache\n22. NarrowEyes\n23. NoBeard\n24. OvalFace\n25. PaleSkin\n26. PointyNose\n27. RecedingHairline\n28. RosyCheeks\n29. Sideburns\n30. Smiling\n31. StraightHair\n32. WavyHair\n33. WearingEarrings\n34. WearingHat\n35. WearingLipstick\n36. WearingNecklace\n37. WearingNecktie\n\nPython example:\n```\n#!/usr/bin/python3\nimport cv2\nimport json\nimport requests\n\n\nimg_path = 'test_image.jpg'\n\nurl = \"https://faceanalysis.p.rapidapi.com/face_attributes/process\"\n\nfiles = {'image_file': open(img_path, 'rb')}\n\nheaders = {\n    \"x-rapidapi-key\": \"XXX\",\n    'x-rapidapi-host': \"faceanalysis.p.rapidapi.com\",\n}\n\nresponse = requests.post(url, files=files, headers=headers)\njson_dict = json.loads(response.text)\n\nimg = cv2.imread(img_path)\nimg_height, img_width, _ = img.shape\n\n\nfont = cv2.FONT_HERSHEY_SIMPLEX\nbottomLeftCornerOfText = (10, 500)\nfontScale = 0.5\nfontColor = (0, 255, 0)\nlineType = 2\nGREEN = (0, 250, 0)\n\nlables_groups = {\n    'hair_color': [\"Black_Hair\",\n                   \"Blond_Hair\",\n                   \"Brown_Hair\",\n                   \"Bald\",\n                   \"Gray_Hair\"],\n    'hair_style': [\"Straight_Hair\",\n                   \"Wavy_Hair\",\n                   \"Bangs\"],\n    'additions': [\"Eyeglasses\",\n                  \"Heavy_Makeup\",\n                  \"Wearing_Earrings\",\n                  \"Wearing_Hat\",\n                  \"Wearing_Lipstick\",\n                  \"Wearing_Necklace\",\n                  \"Wearing_Necktie\"],\n    'face_attributes': [\"5_o_Clock_Shadow\",\n                        \"Arched_Eyebrows\",\n                        \"Attractive\",\n                        \"Bags_Under_Eyes\",\n                        \"Big_Lips\",\n                        \"Big_Nose\",\n                        \"Bushy_Eyebrows\",\n                        \"Chubby\",\n                        \"Double_Chin\",\n                        \"Goatee\",\n                        \"High_Cheekbones\",\n                        \"Mouth_Slightly_Open\",\n                        \"Mustache\",\n                        \"Narrow_Eyes\",\n                        \"No_Beard\",\n                        \"Oval_Face\",\n                        \"Pale_Skin\",\n                        \"Pointy_Nose\",\n                        \"Receding_Hairline\",\n                        \"Rosy_Cheeks\",\n                        \"Sideburns\",\n                        \"Smiling\"]\n\n}\n\n\ndef draw_labels(image, result, x, y):\n    predicted_labels = {\n        'hair_color': [],\n        'hair_style': [],\n        'additions': [],\n        'face_attributes': []\n\n    }\n    hair_color = \"\"\n    hair_style = \"\"\n    additions = \"\"\n    face_attributes = \"\"\n\n    for label, score in result.items():\n        if score > 0.2:\n            for group, labels in lables_groups.items():\n                if label in labels:\n                    predicted_labels[group].append((label, score))\n    if len(predicted_labels['hair_color']) > 0:\n        hair_color = predicted_labels['hair_color'][0][0]\n    if len(predicted_labels['hair_style']) > 0:\n        hair_style = predicted_labels['hair_style'][0][0]\n    if len(predicted_labels['additions']) > 0:\n        additions = predicted_labels['additions'][0][0]\n    if len(predicted_labels['face_attributes']) > 0:\n        face_attributes = predicted_labels['face_attributes'][0][0]\n\n    if hair_color != \"\" and hair_style != \"\" and face_attributes != \"\":\n        cv2.putText(image, \"Hair Color: \", (x, y), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, hair_color, (x, y + 15), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, \"Hair Style: \", (x, y + 30), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, hair_style, (x, y + 45), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, \"Additions: \", (x, y + 60), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, additions, (x, y + 75), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, \"Face attribute: \", (x, y + 90), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, face_attributes, (x, y + 105), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n\n\nfor det in json_dict['detections']:\n    print(det)\n    crop = det['crop']\n    if crop['score'] < 0.8:\n        continue\n    x1 = int(crop['x1'] * img_width)\n    x2 = int(crop['x2'] * img_width)\n    y1 = int(crop['y1'] * img_height)\n    y2 = int(crop['y2'] * img_height)\n    img = cv2.rectangle(img, (x1, y1), (x2, y2), GREEN, 3)\n    draw_labels(img, det['face_attributes'], x2, y2)\ncv2.imwrite('face_attributes_endpoint.png', img)\n```",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detections": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "crop": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "x1": {
+                                                                "type": "number"
+                                                            },
+                                                            "y1": {
+                                                                "type": "number"
+                                                            },
+                                                            "x2": {
+                                                                "type": "number"
+                                                            },
+                                                            "y2": {
+                                                                "type": "number"
+                                                            },
+                                                            "score": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    },
+                                                    "face_attributes": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "5_o_Clock_Shadow": {
+                                                                "type": "number"
+                                                            },
+                                                            "Arched_Eyebrows": {
+                                                                "type": "number"
+                                                            },
+                                                            "Bags_Under_Eyes": {
+                                                                "type": "number"
+                                                            },
+                                                            "Bald": {
+                                                                "type": "number"
+                                                            },
+                                                            "Bangs": {
+                                                                "type": "number"
+                                                            },
+                                                            "Big_Lips": {
+                                                                "type": "number"
+                                                            },
+                                                            "Big_Nose": {
+                                                                "type": "number"
+                                                            },
+                                                            "Black_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Blond_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Blurry": {
+                                                                "type": "number"
+                                                            },
+                                                            "Brown_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Bushy_Eyebrows": {
+                                                                "type": "number"
+                                                            },
+                                                            "Chubby": {
+                                                                "type": "number"
+                                                            },
+                                                            "Double_Chin": {
+                                                                "type": "number"
+                                                            },
+                                                            "Eyeglasses": {
+                                                                "type": "number"
+                                                            },
+                                                            "Goatee": {
+                                                                "type": "number"
+                                                            },
+                                                            "Gray_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Heavy_Makeup": {
+                                                                "type": "number"
+                                                            },
+                                                            "High_Cheekbones": {
+                                                                "type": "number"
+                                                            },
+                                                            "Mouth_Slightly_Open": {
+                                                                "type": "number"
+                                                            },
+                                                            "Mustache": {
+                                                                "type": "number"
+                                                            },
+                                                            "Narrow_Eyes": {
+                                                                "type": "number"
+                                                            },
+                                                            "No_Beard": {
+                                                                "type": "number"
+                                                            },
+                                                            "Oval_Face": {
+                                                                "type": "number"
+                                                            },
+                                                            "Pale_Skin": {
+                                                                "type": "number"
+                                                            },
+                                                            "Pointy_Nose": {
+                                                                "type": "number"
+                                                            },
+                                                            "Receding_Hairline": {
+                                                                "type": "number"
+                                                            },
+                                                            "Rosy_Cheeks": {
+                                                                "type": "number"
+                                                            },
+                                                            "Sideburns": {
+                                                                "type": "number"
+                                                            },
+                                                            "Smiling": {
+                                                                "type": "number"
+                                                            },
+                                                            "Straight_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wavy_Hair": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wearing_Earrings": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wearing_Hat": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wearing_Lipstick": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wearing_Necklace": {
+                                                                "type": "number"
+                                                            },
+                                                            "Wearing_Necktie": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "New Example": {
+                                        "description": "",
+                                        "summary": "New Example",
+                                        "value": {
+                                            "detections": [
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.49029475450515747,
+                                                        "y1": 0.5199255347251892,
+                                                        "x2": 0.5589765906333923,
+                                                        "y2": 0.38276559114456177,
+                                                        "score": 0.9992923736572266
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.0033807754516601562,
+                                                        "Arched_Eyebrows": 0.6523846983909607,
+                                                        "Bags_Under_Eyes": 0.06260901689529419,
+                                                        "Bald": 0.00015866756439208984,
+                                                        "Bangs": 0.0004988908767700195,
+                                                        "Big_Lips": 0.46972233057022095,
+                                                        "Big_Nose": 0.20520448684692383,
+                                                        "Black_Hair": 0.8480334877967834,
+                                                        "Blond_Hair": 0.00041931867599487305,
+                                                        "Blurry": 0.0018697381019592285,
+                                                        "Brown_Hair": 0.02771317958831787,
+                                                        "Bushy_Eyebrows": 0.6154510974884033,
+                                                        "Chubby": 0.010709702968597412,
+                                                        "Double_Chin": 0.0017970800399780273,
+                                                        "Eyeglasses": 0.000059485435485839844,
+                                                        "Goatee": 0.0003294944763183594,
+                                                        "Gray_Hair": 0.0002383589744567871,
+                                                        "Heavy_Makeup": 0.7432979345321655,
+                                                        "High_Cheekbones": 0.41306841373443604,
+                                                        "Mouth_Slightly_Open": 0.3338569402694702,
+                                                        "Mustache": 0.0006635785102844238,
+                                                        "Narrow_Eyes": 0.0026941299438476562,
+                                                        "No_Beard": 0.9966176152229309,
+                                                        "Oval_Face": 0.48766058683395386,
+                                                        "Pale_Skin": 0.011443793773651123,
+                                                        "Pointy_Nose": 0.19023829698562622,
+                                                        "Receding_Hairline": 0.17074233293533325,
+                                                        "Rosy_Cheeks": 0.007944881916046143,
+                                                        "Sideburns": 0.00016427040100097656,
+                                                        "Smiling": 0.04978233575820923,
+                                                        "Straight_Hair": 0.3618937134742737,
+                                                        "Wavy_Hair": 0.11995244026184082,
+                                                        "Wearing_Earrings": 0.2863706946372986,
+                                                        "Wearing_Hat": 0.0005103349685668945,
+                                                        "Wearing_Lipstick": 0.9241288900375366,
+                                                        "Wearing_Necklace": 0.11849397420883179,
+                                                        "Wearing_Necktie": 0.002608776092529297
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.11643223464488983,
+                                                        "y1": 0.5169875025749207,
+                                                        "x2": 0.18099753558635712,
+                                                        "y2": 0.39529597759246826,
+                                                        "score": 0.998594343662262
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.4783772826194763,
+                                                        "Arched_Eyebrows": 0.0026949644088745117,
+                                                        "Bags_Under_Eyes": 0.0055081844329833984,
+                                                        "Bald": 0.0012974739074707031,
+                                                        "Bangs": 0.00020390748977661133,
+                                                        "Big_Lips": 0.09669381380081177,
+                                                        "Big_Nose": 0.41839951276779175,
+                                                        "Black_Hair": 0.7756519913673401,
+                                                        "Blond_Hair": 0.00007653236389160156,
+                                                        "Blurry": 0.015776097774505615,
+                                                        "Brown_Hair": 0.006871223449707031,
+                                                        "Bushy_Eyebrows": 0.03076845407485962,
+                                                        "Chubby": 0.2114485502243042,
+                                                        "Double_Chin": 0.026575863361358643,
+                                                        "Eyeglasses": 0.9970738887786865,
+                                                        "Goatee": 0.7406303882598877,
+                                                        "Gray_Hair": 0.0005168914794921875,
+                                                        "Heavy_Makeup": 0.00020450353622436523,
+                                                        "High_Cheekbones": 0.007410287857055664,
+                                                        "Mouth_Slightly_Open": 0.0033063888549804688,
+                                                        "Mustache": 0.22650420665740967,
+                                                        "Narrow_Eyes": 0.0006677508354187012,
+                                                        "No_Beard": 0.012466907501220703,
+                                                        "Oval_Face": 0.28902316093444824,
+                                                        "Pale_Skin": 0.0021890997886657715,
+                                                        "Pointy_Nose": 0.04920470714569092,
+                                                        "Receding_Hairline": 0.03254735469818115,
+                                                        "Rosy_Cheeks": 0.00008082389831542969,
+                                                        "Sideburns": 0.7402874827384949,
+                                                        "Smiling": 0.005087792873382568,
+                                                        "Straight_Hair": 0.12538468837738037,
+                                                        "Wavy_Hair": 0.031195402145385742,
+                                                        "Wearing_Earrings": 0.009391546249389648,
+                                                        "Wearing_Hat": 0.025971829891204834,
+                                                        "Wearing_Lipstick": 0.0001831650733947754,
+                                                        "Wearing_Necklace": 0.020366907119750977,
+                                                        "Wearing_Necktie": 0.049375295639038086
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.8563294410705566,
+                                                        "y1": 0.24784332513809204,
+                                                        "x2": 0.917901873588562,
+                                                        "y2": 0.12237813323736191,
+                                                        "score": 0.9980091452598572
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.026406049728393555,
+                                                        "Arched_Eyebrows": 0.06418144702911377,
+                                                        "Bags_Under_Eyes": 0.0324862003326416,
+                                                        "Bald": 0.0008143782615661621,
+                                                        "Bangs": 0.0043059587478637695,
+                                                        "Big_Lips": 0.13235318660736084,
+                                                        "Big_Nose": 0.027426958084106445,
+                                                        "Black_Hair": 0.416038453578949,
+                                                        "Blond_Hair": 0.002441883087158203,
+                                                        "Blurry": 0.18827885389328003,
+                                                        "Brown_Hair": 0.0589335560798645,
+                                                        "Bushy_Eyebrows": 0.14714723825454712,
+                                                        "Chubby": 0.0046694278717041016,
+                                                        "Double_Chin": 0.000491023063659668,
+                                                        "Eyeglasses": 0.0006031990051269531,
+                                                        "Goatee": 0.000809013843536377,
+                                                        "Gray_Hair": 0.0009137392044067383,
+                                                        "Heavy_Makeup": 0.04021644592285156,
+                                                        "High_Cheekbones": 0.09650534391403198,
+                                                        "Mouth_Slightly_Open": 0.02082359790802002,
+                                                        "Mustache": 0.0004164576530456543,
+                                                        "Narrow_Eyes": 0.11933594942092896,
+                                                        "No_Beard": 0.9676465392112732,
+                                                        "Oval_Face": 0.08476752042770386,
+                                                        "Pale_Skin": 0.005221724510192871,
+                                                        "Pointy_Nose": 0.24394941329956055,
+                                                        "Receding_Hairline": 0.04621082544326782,
+                                                        "Rosy_Cheeks": 0.0003959536552429199,
+                                                        "Sideburns": 0.0006353259086608887,
+                                                        "Smiling": 0.05366635322570801,
+                                                        "Straight_Hair": 0.2938315272331238,
+                                                        "Wavy_Hair": 0.06062304973602295,
+                                                        "Wearing_Earrings": 0.10126733779907227,
+                                                        "Wearing_Hat": 0.008882522583007812,
+                                                        "Wearing_Lipstick": 0.062162160873413086,
+                                                        "Wearing_Necklace": 0.05087757110595703,
+                                                        "Wearing_Necktie": 0.0016099214553833008
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.1482899785041809,
+                                                        "y1": 0.3003842234611511,
+                                                        "x2": 0.20176897943019867,
+                                                        "y2": 0.20043990015983582,
+                                                        "score": 0.9973342418670654
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.002223193645477295,
+                                                        "Arched_Eyebrows": 0.5551888942718506,
+                                                        "Bags_Under_Eyes": 0.0973706841468811,
+                                                        "Bald": 0.0018916130065917969,
+                                                        "Bangs": 0.0016689896583557129,
+                                                        "Big_Lips": 0.5728008151054382,
+                                                        "Big_Nose": 0.4318663477897644,
+                                                        "Black_Hair": 0.8697225451469421,
+                                                        "Blond_Hair": 0.0014287233352661133,
+                                                        "Blurry": 0.2538343071937561,
+                                                        "Brown_Hair": 0.016486823558807373,
+                                                        "Bushy_Eyebrows": 0.11726069450378418,
+                                                        "Chubby": 0.17737436294555664,
+                                                        "Double_Chin": 0.018965959548950195,
+                                                        "Eyeglasses": 0.0011423826217651367,
+                                                        "Goatee": 0.0014848113059997559,
+                                                        "Gray_Hair": 0.003780066967010498,
+                                                        "Heavy_Makeup": 0.31793898344039917,
+                                                        "High_Cheekbones": 0.6456920504570007,
+                                                        "Mouth_Slightly_Open": 0.026174724102020264,
+                                                        "Mustache": 0.0011916160583496094,
+                                                        "Narrow_Eyes": 0.026064932346343994,
+                                                        "No_Beard": 0.991249680519104,
+                                                        "Oval_Face": 0.4695139527320862,
+                                                        "Pale_Skin": 0.0023702383041381836,
+                                                        "Pointy_Nose": 0.019641757011413574,
+                                                        "Receding_Hairline": 0.562024712562561,
+                                                        "Rosy_Cheeks": 0.0009366869926452637,
+                                                        "Sideburns": 0.0005769729614257812,
+                                                        "Smiling": 0.24746394157409668,
+                                                        "Straight_Hair": 0.20105421543121338,
+                                                        "Wavy_Hair": 0.191042959690094,
+                                                        "Wearing_Earrings": 0.11770123243331909,
+                                                        "Wearing_Hat": 0.0010772347450256348,
+                                                        "Wearing_Lipstick": 0.3437168002128601,
+                                                        "Wearing_Necklace": 0.17911195755004883,
+                                                        "Wearing_Necktie": 0.003053724765777588
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.598613440990448,
+                                                        "y1": 0.3124071955680847,
+                                                        "x2": 0.6528789401054382,
+                                                        "y2": 0.20392271876335144,
+                                                        "score": 0.9954931735992432
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.43164223432540894,
+                                                        "Arched_Eyebrows": 0.04593759775161743,
+                                                        "Bags_Under_Eyes": 0.1155276894569397,
+                                                        "Bald": 0.002039194107055664,
+                                                        "Bangs": 0.00033164024353027344,
+                                                        "Big_Lips": 0.427021324634552,
+                                                        "Big_Nose": 0.4581531882286072,
+                                                        "Black_Hair": 0.8316968083381653,
+                                                        "Blond_Hair": 0.0001327991485595703,
+                                                        "Blurry": 0.0076073408126831055,
+                                                        "Brown_Hair": 0.004207491874694824,
+                                                        "Bushy_Eyebrows": 0.6520978808403015,
+                                                        "Chubby": 0.03009963035583496,
+                                                        "Double_Chin": 0.00112229585647583,
+                                                        "Eyeglasses": 0.0006874799728393555,
+                                                        "Goatee": 0.7168800830841064,
+                                                        "Gray_Hair": 0.0003358125686645508,
+                                                        "Heavy_Makeup": 0.001804649829864502,
+                                                        "High_Cheekbones": 0.10844027996063232,
+                                                        "Mouth_Slightly_Open": 0.041704773902893066,
+                                                        "Mustache": 0.3584980368614197,
+                                                        "Narrow_Eyes": 0.0002899765968322754,
+                                                        "No_Beard": 0.03281146287918091,
+                                                        "Oval_Face": 0.3122618794441223,
+                                                        "Pale_Skin": 0.0028390884399414062,
+                                                        "Pointy_Nose": 0.1330745816230774,
+                                                        "Receding_Hairline": 0.03787124156951904,
+                                                        "Rosy_Cheeks": 0.0000749826431274414,
+                                                        "Sideburns": 0.4114578366279602,
+                                                        "Smiling": 0.05902582406997681,
+                                                        "Straight_Hair": 0.06540197134017944,
+                                                        "Wavy_Hair": 0.026425302028656006,
+                                                        "Wearing_Earrings": 0.013295292854309082,
+                                                        "Wearing_Hat": 0.002998173236846924,
+                                                        "Wearing_Lipstick": 0.0026647448539733887,
+                                                        "Wearing_Necklace": 0.014777183532714844,
+                                                        "Wearing_Necktie": 0.036495745182037354
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.7280519604682922,
+                                                        "y1": 0.5563205480575562,
+                                                        "x2": 0.7874197959899902,
+                                                        "y2": 0.4102036952972412,
+                                                        "score": 0.7963487505912781
+                                                    },
+                                                    "face_attributes": {
+                                                        "5_o_Clock_Shadow": 0.06483954191207886,
+                                                        "Arched_Eyebrows": 0.0771452784538269,
+                                                        "Bags_Under_Eyes": 0.04970818758010864,
+                                                        "Bald": 0.008043646812438965,
+                                                        "Bangs": 0.22988605499267578,
+                                                        "Big_Lips": 0.1731889843940735,
+                                                        "Big_Nose": 0.04358267784118652,
+                                                        "Black_Hair": 0.15494811534881592,
+                                                        "Blond_Hair": 0.06538987159729004,
+                                                        "Blurry": 0.603233814239502,
+                                                        "Brown_Hair": 0.06926524639129639,
+                                                        "Bushy_Eyebrows": 0.05596745014190674,
+                                                        "Chubby": 0.037819087505340576,
+                                                        "Double_Chin": 0.015224993228912354,
+                                                        "Eyeglasses": 0.04305213689804077,
+                                                        "Goatee": 0.04102730751037598,
+                                                        "Gray_Hair": 0.016600310802459717,
+                                                        "Heavy_Makeup": 0.14791768789291382,
+                                                        "High_Cheekbones": 0.11605870723724365,
+                                                        "Mouth_Slightly_Open": 0.2990493178367615,
+                                                        "Mustache": 0.034632861614227295,
+                                                        "Narrow_Eyes": 0.238006591796875,
+                                                        "No_Beard": 0.7656897902488708,
+                                                        "Oval_Face": 0.09571939706802368,
+                                                        "Pale_Skin": 0.05472177267074585,
+                                                        "Pointy_Nose": 0.21774250268936157,
+                                                        "Receding_Hairline": 0.03085792064666748,
+                                                        "Rosy_Cheeks": 0.005300998687744141,
+                                                        "Sideburns": 0.027603626251220703,
+                                                        "Smiling": 0.1310054063796997,
+                                                        "Straight_Hair": 0.24255460500717163,
+                                                        "Wavy_Hair": 0.28268110752105713,
+                                                        "Wearing_Earrings": 0.09371757507324219,
+                                                        "Wearing_Hat": 0.05485522747039795,
+                                                        "Wearing_Lipstick": 0.19329553842544556,
+                                                        "Wearing_Necklace": 0.14297163486480713,
+                                                        "Wearing_Necktie": 0.022640526294708252
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "image_file": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

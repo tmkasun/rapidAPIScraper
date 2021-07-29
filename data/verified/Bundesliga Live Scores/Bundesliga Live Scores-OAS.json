@@ -1,0 +1,868 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_441888ee-b65a-4c18-90ea-6e2c1893685c",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "55e3150be4b0fd0fcdcd15b9",
+        "apiId": "55e3150be4b0fd0fcdcd15b8"
+    },
+    "info": {
+        "title": "Bundesliga Live Scores",
+        "description": "Bundesliga Live Scores API allows to retrieve historical data as well as current season results, scorers, lineups, substitutes, events, statistics, odds and much more all with live updates, for the top professional German football league. And more features are coming...",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Bundesliga Live Scores API allows to retrieve historical data as well as current season results, scorers, lineups, substitutes, events, statistics, odds and much more all with live updates, for the top professional German football league. And more features are coming...",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/55e3150be4b0fd0fcdcd15b9_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://heisenbug-bundesliga-live-scores-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Bundesliga"
+        },
+        {
+            "name": "Bundesliga Live (NO MORE SUPPORTED)"
+        },
+        {
+            "name": "Betting"
+        }
+    ],
+    "paths": {
+        "/api/bundesliga/match/events": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns data for a playing match (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Schalke 04"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Hannover 96"
+                        }
+                    }
+                ],
+                "operationId": "Match events",
+                "description": "Return the events for a match (yellow and red cards, substitutions, shots on post and formations module)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/table/betting": {
+            "get": {
+                "tags": [
+                    "Betting"
+                ],
+                "parameters": [
+                    {
+                        "name": "fromdate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only matches fromdate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Together with team parameter, let you to select only games where team has played home, away or all (default)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "over",
+                        "in": "query",
+                        "required": false,
+                        "description": "Over values limit, mandatory for underover bet",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "Team name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "query",
+                        "required": false,
+                        "description": "Let you to select only first half (FH) result, second half (SH) or full time (FT) default",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "todate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only matches todate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "when",
+                        "in": "query",
+                        "required": false,
+                        "description": "Let you to select only games with win, loss, draw or all (default)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "handicap",
+                        "in": "query",
+                        "required": false,
+                        "description": "Handicap values (only for 1x2 bet)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "bet",
+                        "in": "query",
+                        "required": true,
+                        "description": "Type of data required, result, totalgoals,underover,1x2,goalnogoal",
+                        "schema": {
+                            "type": "string",
+                            "example": "1x2"
+                        }
+                    }
+                ],
+                "operationId": "Bet Stats",
+                "description": "Returns aggregate data about results, goal-nogoal, underover, 1x2 and totalgoals to support your bet activities",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/scorers": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns data for a playing match (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Schalke 04"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Hannover 96"
+                        }
+                    }
+                ],
+                "operationId": "Match scorers",
+                "description": "Return who scored and how for a match",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/formations": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns data for a playing match (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Hannover 96"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Schalke 04"
+                        }
+                    }
+                ],
+                "operationId": "Lineups and substitutes for a game",
+                "description": "Return lineups, substitutes and coaches for a game after a while the game is finished.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/match/stats": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns data for a playing match (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Hannover 96"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Schalke 04"
+                        }
+                    }
+                ],
+                "operationId": "Match statistics",
+                "description": "Return statistics for a match after a while it is finished.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/odds": {
+            "get": {
+                "tags": [
+                    "Betting"
+                ],
+                "parameters": [
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team",
+                        "schema": {
+                            "type": "string",
+                            "example": "FC Cologne"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Hannover 96"
+                        }
+                    },
+                    {
+                        "name": "odd",
+                        "in": "query",
+                        "required": true,
+                        "description": "Odd name",
+                        "schema": {
+                            "type": "string",
+                            "example": "1x2-FT"
+                        }
+                    },
+                    {
+                        "name": "bookmaker",
+                        "in": "query",
+                        "required": true,
+                        "description": "Bookmaker name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Bet365"
+                        }
+                    }
+                ],
+                "operationId": "Odd quotas",
+                "description": "Returns quotas for an odd a match and a bookmaker",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/match/missing": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Hannover 96"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Hertha Berlin"
+                        }
+                    }
+                ],
+                "operationId": "Missing players for a match",
+                "description": "Return missing players for a match",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns all matches for the date (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns matches and results with live updates (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns all matches with team1",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns all matches with team2",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "description": "Season code (default 2016-17)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "matchday",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return all the game results for the match day specified",
+                        "schema": {
+                            "type": "string",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "operationId": "Season matches results",
+                "description": "Return season matches results",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/players": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": true,
+                        "description": "Team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Schalke 04"
+                        }
+                    }
+                ],
+                "operationId": "League Players",
+                "description": "Returns all player for a team",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/table/scorers": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to specify the first match number to use to compute the result (default 1)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to specify the last match number to consider to compute the result (default last match number played registered on system)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to restrict the table compute on home or away games (default all)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "player",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to get goals number only for the player name specified",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "Team name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "how",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return only goals scored according the how parameter. Its value can be: left, right, head or any, that is the default.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fromdate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Compute the table only with matches played fromdate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "todate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Compute the table only with matches played todate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page result to return. Default is 1 that are results from 1 to 5 (max. value is 20).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Top Scorers",
+                "description": "Returns top scorers for the league",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/playerdetails": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "honours",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return only the honours for the player (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "player",
+                        "in": "query",
+                        "required": true,
+                        "description": "Player name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Julian Draxler"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": true,
+                        "description": "Team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Shalke 04"
+                        }
+                    }
+                ],
+                "operationId": "Player details",
+                "description": "Returns all data about a player. Available only with ULTRA and MEGA plans!",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/table": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to specify the first match number to use to compute the table (default 1)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to specify the last match number to consider to compute the table (default last match number played registered on system)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "fromdate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Compute the table only with matches played fromdate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "todate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Compute the table only with matches played todate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "query",
+                        "required": false,
+                        "description": "Let to compute the table considering only the first half (FH) or the second time (SH) results. Default is full time (FT).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "description": "Season code (default 2016-17)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to restrict the table compute on home or away games (default all)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "League Table",
+                "description": "Return current league table",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/listbookmakers": {
+            "get": {
+                "tags": [
+                    "Betting"
+                ],
+                "parameters": [
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Hannover 96"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team",
+                        "schema": {
+                            "type": "string",
+                            "example": "FC Cologne"
+                        }
+                    }
+                ],
+                "operationId": "Bookmakers List",
+                "description": "Returns the list of the available bookmakers for a match",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/match/player": {
+            "get": {
+                "tags": [
+                    "Bundesliga"
+                ],
+                "parameters": [
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns data for a playing match (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Schalke 04"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Hannover 96"
+                        }
+                    },
+                    {
+                        "name": "player",
+                        "in": "query",
+                        "required": true,
+                        "description": "Player name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Klaas-Jan Huntelaar"
+                        }
+                    }
+                ],
+                "operationId": "Player stats for a match",
+                "description": "Return the player's statistics for a match",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/bundesliga/listodds": {
+            "get": {
+                "tags": [
+                    "Betting"
+                ],
+                "parameters": [
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team",
+                        "schema": {
+                            "type": "string",
+                            "example": "FC Cologne"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Hannover 96"
+                        }
+                    },
+                    {
+                        "name": "bookmaker",
+                        "in": "query",
+                        "required": true,
+                        "description": "Bookmaker name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Bet365"
+                        }
+                    }
+                ],
+                "operationId": "Odds List",
+                "description": "Returns the available odds for a match and a bookmaker",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

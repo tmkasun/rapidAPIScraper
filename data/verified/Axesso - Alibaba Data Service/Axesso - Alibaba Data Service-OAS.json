@@ -1,0 +1,105 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_fb182b29-e70d-40d1-93a1-a87c2b93ba4e",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_be46be30-21de-4e68-b368-628476fda399",
+        "apiId": "api_94d7a024-e6e1-4af7-87dd-c7085f5dba47"
+    },
+    "info": {
+        "title": "Axesso - Alibaba Data Service",
+        "description": "API to fetch information from Alibaba.com",
+        "version": "v1",
+        "x-category": "eCommerce",
+        "x-long-description": "",
+        "x-website": "https://axesso.de",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/49759fd1-dc0b-4e56-a286-a0d8f27e2476.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://axesso-alibaba-data-service.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/alb/alibaba-lookup-product": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "https://www.alibaba.com/product-detail/High-Quality-Wireless-Controller-V4-0_62283552682.html"
+                        }
+                    }
+                ],
+                "operationId": "lookupProduct",
+                "description": "Lookup product details based on url",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/alb/alibaba-search-by-keyword": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "best_match"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": true,
+                        "description": "valid parameter is upc or text",
+                        "schema": {
+                            "type": "string",
+                            "example": "text"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Playstation 4"
+                        }
+                    }
+                ],
+                "operationId": "searchByKeyword",
+                "description": "Executes a keyword search",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

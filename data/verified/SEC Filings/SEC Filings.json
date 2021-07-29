@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5913f99be4b0bb743077948f",
+    "name": "SEC Filings",
+    "title": "SEC Filings",
+    "description": "A collection of methods that returns various financial data for a requested company including SEC Filings, balance sheets, financial ratios , company look-up utilities and more.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "sec-filings",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-12-04T06:25:03.334Z",
+    "category": "Finance",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/7526acbb-1994-45f1-bbd1-664beee4d00c.png",
+    "user": {
+        "id": 3456054,
+        "username": "last10k",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5913f99be4b014aff34d0e50",
+        "tags": [
+            {
+                "id": "tag_22e3ad25-3c62-40aa-abce-5d993867650c",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "598e3f47e4b0b28ab0e62136",
+                "isGraphQL": false,
+                "route": "/v1/company/operations",
+                "method": "GET",
+                "name": "Operations",
+                "description": "Returns a company's most recent statement of operations showing how they balance costs with revenue",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5920a313e4b0bba971feb74b",
+                "isGraphQL": false,
+                "route": "/v1/company/income",
+                "method": "GET",
+                "name": "Income",
+                "description": "Returns a company's most recent income statement detailing what they earn for providing their goods and services OR a statement of loss explaining where lost income occurred",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "598e3d13e4b028109d40d743",
+                "isGraphQL": false,
+                "route": "/v1/company/cashflows",
+                "method": "GET",
+                "name": "Cash Flows",
+                "description": "Returns a company's most recent cash flow statement showing the amount of cash used and generated",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

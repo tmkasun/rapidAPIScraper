@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_3dcdd6cb-1965-4f22-8229-bad1988265d2",
+    "name": "Scraper's Proxy",
+    "title": "Scraper's Proxy",
+    "description": "Simple HTTP proxy API made for scrapers.  Scrape anonymously without having to worry about restrictions, blocks or captchas. Our goal is to provide you with faster response times and higher success rates.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "scrapers-proxy2",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-08-31T02:38:44.477Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b9206274-6b93-45df-8575-e7788d9c8990.png",
+    "user": {
+        "id": 4455294,
+        "username": "scapers-proxy-scapers-proxy-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_08992612-8e18-4f8d-933f-bdf9677c4f03",
+        "tags": [
+            {
+                "id": "tag_0bd749d3-9742-4385-8dac-4b20ed25924e",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_09c865a5-6606-4658-aa97-d00649ae051d",
+                "isGraphQL": false,
+                "route": "/parser",
+                "method": "GET",
+                "name": "Parser GET",
+                "description": "Automatically parses html into an easily processable json format",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_2409d335-64b9-42d6-88de-0dd06fe1de5b",
+                "isGraphQL": false,
+                "route": "/standard",
+                "method": "POST",
+                "name": "Standard POST",
+                "description": "Basic proxy POST request\nNote: Misuse of this endpoint to cause harm to other websites (e.g. spam, denial of service, etc.) will result in suspension service to your account",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_211819d2-2707-48e9-8886-c5c105127328",
+                "isGraphQL": false,
+                "route": "/standard",
+                "method": "GET",
+                "name": "Standard GET",
+                "description": "Basic proxy GET request",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

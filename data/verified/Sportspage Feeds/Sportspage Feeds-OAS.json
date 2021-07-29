@@ -1,0 +1,237 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_8c6c341b-fdd9-4d73-b4aa-1eb5c214763e",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_29921b31-ea34-474f-a07a-92c05b38790b",
+        "apiId": "api_7d2c6b35-760c-475a-9252-6fcdcb41cbe9"
+    },
+    "info": {
+        "title": "Sportspage Feeds",
+        "description": "Real-time scores, schedules, and betting odds for US leagues.  Unbeatable value.  Documentation: https://sportspagefeeds.com/documentation",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Get detailed team and schedule data, real-time scores, betting odds, and standings for NFL, NBA, MLB, NHL, and college football and basketball. Other sports APIs charge hundreds or even thousands per month. Sportspage Feeds is your choice for affordable sports data.\n\nDocumentation: https://sportspagefeeds.com/documentation\n\nLooking for historical data?  Send us a message and let us know your needs.",
+        "x-website": "https://sportspagefeeds.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/78/17cad031a911e9af09b5794b271614/168ff1ee535dc9621e11a4f4757e17a3.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://sportspage-feeds.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "API"
+        }
+    ],
+    "paths": {
+        "/odds": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "An odds type of one of the following: \\\"spread\\\", \\\"moneyline\\\", \\\"total\\\", or \\\"any\\\"",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "gameId",
+                        "in": "query",
+                        "required": true,
+                        "description": "A unique game identifier",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Odds",
+                "description": "Returns the odds history for a game by type.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teams": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "conference",
+                        "in": "query",
+                        "required": false,
+                        "description": "A conference within the specified league",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "division",
+                        "in": "query",
+                        "required": false,
+                        "description": "A division within the specified conference",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": true,
+                        "description": "A valid league code (i.e., NFL, NBA, MLB, NHL, NCAAF, or NCAAB)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Teams",
+                "description": "Returns a list of teams within a specified league, conference, or division.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/gameById": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "gameId",
+                        "in": "query",
+                        "required": true,
+                        "description": "A unique game identifier",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Game By ID",
+                "description": "Returns a specific game based on its ID.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/conferences": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": true,
+                        "description": "A valid league code (i.e., NFL, NBA, MLB, NHL, NCAAF, or NCAAB)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Conferences",
+                "description": "Returns a list of conferences and divisions within the specified league. Use this endpoint to obtain conference and division names to be used as parameters for other requests.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/games": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "division",
+                        "in": "query",
+                        "required": false,
+                        "description": "A division within the specified conference",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "A team participating in one or more games",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "description": "One or two (comma-separated) YYYY-MM-DD- or ISO-formatted dates",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "conference",
+                        "in": "query",
+                        "required": false,
+                        "description": "A conference within the specified league",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": false,
+                        "description": "The number of game results to skip, which is required to access results beyond the first 100",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": false,
+                        "description": "A valid league code (i.e., NFL, NBA, MLB, NHL, NCAAF, or NCAAB)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": false,
+                        "description": "A valid status of one of the following: \\\"scheduled\\\", \\\"in progress\\\", \\\"final\\\", \\\"canceled\\\", or \\\"delayed\\\"",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "odds",
+                        "in": "query",
+                        "required": false,
+                        "description": "A comma-separated filter to select games with one or more of the following odds types: \\\"spread\\\", \\\"moneyline\\\", \\\"total\\\", or \\\"any\\\"",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Games",
+                "description": "Returns a list of games.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

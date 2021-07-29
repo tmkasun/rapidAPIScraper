@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_4940c4e5-0470-4136-8c20-bb247c5132c5",
+    "name": "AI Art Maker",
+    "title": "AI Art Maker",
+    "description": "Create AI art with image style transfer. Turn selfies, pet photos, and other images into personalized art. Web interface: https://hotpot.ai/personalize-art",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ai-art-maker",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-12-30T02:05:29.027Z",
+    "category": "Video, Images",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/5bb2c71f-61ca-45e4-9c4c-8286925cea26.jpg",
+    "user": {
+        "id": 4827930,
+        "username": "hotpot-ai-hotpot",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4ee4c671-bd2c-47e0-9091-91ac6c037804",
+        "tags": [
+            {
+                "id": "tag_d04bfe9c-0486-4a92-ae0d-cb51a18a60e1",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_7f1b4592-cf46-4581-8955-073e282e413e",
+                "isGraphQL": false,
+                "route": "/art-remixer-api-bin",
+                "method": "POST",
+                "name": "AI Art Personalizer",
+                "description": "Turn pictures into personalized art with AI. Invigorate boring selfies, pet photos, and vacation pictures by reimagining them with different artistic styles. From Van Gogh to pixel art to Chinese paintings, mix and match disparate styles to generate captivating, customized images.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

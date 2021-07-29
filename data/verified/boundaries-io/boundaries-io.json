@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5558a1a3e4b095ed24ae355a",
+    "name": "boundaries-io",
+    "title": "boundaries-io",
+    "description": "US Zipcode, County, City, and State Boundaries API:\r\n\r\nA simple & very fast API that will allow you to integrate multiple GeoJson US boundaries results into your apps and systems.\r\n\r\nThis API is designed to be used programatically for optimal performance.  When using the MashApe UI for queries expect significant latency issues on large result sets!",
+    "visibility": "PUBLIC",
+    "slugifiedName": "boundaries-io-1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-09T21:08:45.445Z",
+    "category": "Mapping",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/1d1b6c0d-994a-4a29-805d-1b9ae26ad575.png",
+    "user": {
+        "id": 1914277,
+        "username": "VanitySoft",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5558a1a3e4b0df756678f538",
+        "tags": [
+            {
+                "id": "tag_570b8623-1422-4f95-b902-b12ac6ddf92e",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_ef74855f-da68-43d1-9272-a5392b1c5930",
+                "isGraphQL": false,
+                "route": "/rest/v1/public/boundary/zipcode",
+                "method": "POST",
+                "name": "Query for up to 1000 zipcodes",
+                "description": "Query for up to 1000 zipcodes using a JSON ARRAY as the request body. Please test programmatically  not via this User interface.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_2f54b948-08b0-4ce0-83bb-397cbd4f6208",
+                "isGraphQL": false,
+                "route": "/reaperfire/rest/v1/public/boundary/territories/{stateName}",
+                "method": "GET",
+                "name": "Query for State or Territories",
+                "description": "Query for any of the 57 state and territories by abbreviation.\n\nList of  abbreviation:\n[https://secure.ssa.gov/poms.nsf/lnx/0901501010](url)",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_c879fcec-a043-4952-9bc6-823c60858761",
+                "isGraphQL": false,
+                "route": "/rest/v1/public/boundary/unitedstates",
+                "method": "GET",
+                "name": "United States Outline",
+                "description": "Outline of the United States",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_0614817d-1cb7-4e72-b988-518b98d66562",
+    "name": "CIS Automotive",
+    "title": "CIS Automotive",
+    "description": "Uncover the secrets of your automotive market. We provide detailed realtime automotive market data across the US for major car brands and models. Our VinDecode endpoint is now available.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "cis-automotive",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-01-02T00:22:26.751Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/e7e464e0-5415-4d00-a3d2-af2f7624a582.png",
+    "user": {
+        "id": 4254547,
+        "username": "competitive-intelligence-solutions-llc-competitive-intelligence-solutions-llc-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_72273a93-6486-43c2-b7e0-67527a71ba96",
+        "tags": [
+            {
+                "id": "tag_3058835d-ea57-480e-a3f9-908eedc63c9d",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_0e2fa570-68f6-4620-a480-b25347829d16",
+                "isGraphQL": false,
+                "route": "/listingsByRegion",
+                "method": "GET",
+                "name": "listingsByRegion",
+                "description": "Returns a dealer's listings over up to the last 45 days by dealer ID. The ID can be found by calling the /getDealers endpoint. Listing keys are: vin, askPrice, msrp, isNew, firstSeen, lastSeen, modelName, brandName. Results are paginated in chunks of up to 20 vehicles. Prices are in the dealer's local currency (generally USD).",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_fe64ae84-e9b2-4d82-bb9f-7809daecb49b",
+                "isGraphQL": false,
+                "route": "/listings",
+                "method": "GET",
+                "name": "listings",
+                "description": "Returns a dealer's listings over the last 45 days. Listing keys are: vin, askPrice, msrp, isNew, firstSeen, lastSeen, modelName, brandName. Results are paginated in chunks of up to 20 vehicles. Prices are in the dealer's local currency (generally USD).",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_37af2ea7-3525-42e0-9f70-b4975de0b56b",
+                "isGraphQL": false,
+                "route": "/getDealersByRegion",
+                "method": "GET",
+                "name": "getDealersByRegion",
+                "description": "Premium. Dealership information in a given region. Returns name, address, state, zipCode, and IDs. Results are paginated with up to 30 results per page.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

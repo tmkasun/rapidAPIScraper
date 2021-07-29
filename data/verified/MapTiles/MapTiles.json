@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_d71d0e64-d246-4301-9312-772be60b0ba6",
+    "name": "MapTiles",
+    "title": "MapTiles",
+    "description": "Map Tiles for interactive online maps based on data by OpenStreetMap contributors with labels in English, French or Spanish. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "maptiles",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-01T11:14:30.170Z",
+    "category": "Mapping",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/9a/d65eadacd54e4283c5a96feb83f6b7/577fa415de5090c59946959e2c4ffa9e.png",
+    "user": {
+        "id": 4034729,
+        "username": "MapTilesApi",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_2bae5afa-2a5b-49b6-bf76-1a77ec37187b",
+        "tags": [
+            {
+                "id": "tag_0991da1b-37ca-4eff-afd6-24b64ae23c9f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_2076d777-c0c7-4935-8a42-aa5b76443928",
+                "isGraphQL": false,
+                "route": "/local/osm/v1/{z}/{x}/{y}.png",
+                "method": "GET",
+                "name": "getStandardMapTile",
+                "description": "Standard tiles with labels in local language for a place (untranslated and untransliterated) as known from OpenStreetMap",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_c0dab7c5-aa3e-463c-991c-508a589e058d",
+                "isGraphQL": false,
+                "route": "/en/map/v1/{z}/{x}/{y}.png",
+                "method": "GET",
+                "name": "getMapTilewithEnglishLabels",
+                "description": "Raster Map Tiles with English Labels",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_a511ac98-f95a-43c7-a518-19fe9d5071b6",
+                "isGraphQL": false,
+                "route": "/fr/map/v1/{z}/{x}/{y}.png",
+                "method": "GET",
+                "name": "getMapTilewithFrenchLabels",
+                "description": "Raster Map Tiles with French Labels",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_e04c496f-62ec-4bb1-9768-3e092a978cba",
+    "name": "AerisWeather",
+    "title": "AerisWeather",
+    "description": "An advanced weather API to power all of your business needs, from the basic to the most complex weather influenced solutions.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "aerisweather1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-06-10T14:40:20.952Z",
+    "category": "Weather",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/24c17b41-aa0c-479f-a6c8-00f62fb60c24_medium",
+    "user": {
+        "id": 4233371,
+        "username": "aerisweather-aerisweather",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_d418389a-1e10-46ed-b497-6b7ce8c5cd72",
+        "tags": [
+            {
+                "id": "tag_28de7521-357b-4a1a-99aa-cf82cbb165c1",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_f78d6fb0-02f4-44aa-a4a1-f6af3b2f87ce",
+                "isGraphQL": false,
+                "route": "/conditions/{loc}",
+                "method": "GET",
+                "name": "Conditions",
+                "description": "Provides interpolated global current and historical weather conditions.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_445687ef-741e-42f1-8816-8a2009bcc9e7",
+                "isGraphQL": false,
+                "route": "/alerts/{location}",
+                "method": "GET",
+                "name": "Alerts",
+                "description": "Mild to severe weather events issued to the public from the Canadian and US government.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_a5845068-762e-4424-be3f-6fc5ca1f9859",
+                "isGraphQL": false,
+                "route": "/places/{location}",
+                "method": "GET",
+                "name": "Places",
+                "description": "Geographical information for a given location. Including elevation, population, region, country, continent, etc.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

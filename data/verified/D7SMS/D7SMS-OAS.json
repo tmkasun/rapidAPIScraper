@@ -1,0 +1,155 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_6c8ad0c1-289e-4966-b474-cd99674912d6",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_60580174-ed08-4beb-863a-12f344a6edd0",
+        "apiId": "api_4b1a2551-9995-4dbe-95f9-ecdc606a0b08"
+    },
+    "info": {
+        "title": "D7SMS",
+        "description": "Quickly integrate Direct7 SMS Gateway and reach your customers over D7's own connectivity to global mobile network. ",
+        "version": "v1",
+        "x-category": "SMS",
+        "x-long-description": "D7 SMS allows you to reach your customers via SMS over D7's own connectivity to global mobile networks. D7 provides reliable and cost-effective SMS services to businesses across all industries and aims to connect all countries and territories via direct connections.",
+        "x-website": "https://d7networks.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/8811a641-6e36-40f4-95b1-2a30c2921e3f.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://d7sms.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Balance"
+        },
+        {
+            "name": "SMS"
+        }
+    ],
+    "paths": {
+        "/secure/send": {
+            "post": {
+                "tags": [
+                    "SMS"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Send SMS",
+                "description": "Send SMS to a destination number.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": "Success \"6665b7f6-2bf6-4929-8865-0881fb449c48"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/secure/sendbatch": {
+            "post": {
+                "tags": [
+                    "SMS"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Send Bulk SMS",
+                "description": "Send multiple messages to one or more destination addresses.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": {
+                                                "batchId": "f413e8c4-fbc4-4afa-937c-efa0110c8151",
+                                                "messageCount": 2
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/secure/balance": {
+            "get": {
+                "tags": [
+                    "Balance"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "balance",
+                "description": "Get user account balance and quota allocated.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": {
+                                                "balance": "198.0000",
+                                                "sms_count": "ND"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "basic_auth": {
+                "type": "http",
+                "description": ""
+            }
+        }
+    },
+    "security": [
+        {
+            "basic_auth": []
+        }
+    ]
+}

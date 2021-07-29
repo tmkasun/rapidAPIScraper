@@ -1,0 +1,388 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_592ecd1c-4f4d-4700-8367-e10990c1ba26",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_1e3b6af4-62dc-44bb-aa20-84c9562b0c36",
+        "apiId": "api_e7a54ce9-ed7e-45f8-87a7-942e297b6420"
+    },
+    "info": {
+        "title": "ScrapingMonkey",
+        "description": "ScrapingMonkey is a RESTful web automation API.",
+        "version": "V2",
+        "x-category": "Data",
+        "x-long-description": "SM is meant to be general purpose, so you can exploit it according to your needs. Do not worry about setups, dependencies, etc.. you just need simple POST requests.\nThis tool is mainly built for data scientists, students and web-app testers, I hope to make you save some precious time!\nResults are returned in a well structured JSON.  Run automation tasks or simply scrape elements by id, class, selector, etc. \n\nAPI is new and I am open to suggestions!",
+        "x-website": "https://onipot.altervista.org/wp-content/sm/index.html",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b9435886-930c-4818-8f16-0e148dd808d7.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://scrapingmonkey.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/byId": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/byId",
+                "description": "Get element(s) in the web page by ID.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "selector": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {
+                                        "url": "https://masc-it.github.io/ScrapingMonkey/#/",
+                                        "selector": "api-endpoints"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/getPageHtml": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://masc-it.github.io/ScrapingMonkey/#/?id=getpagehtml"
+                },
+                "operationId": "/getPageHtml",
+                "description": "Get html source code. The response will contain either statically and dynamically generated dom elements.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {
+                                        "url": "https://masc-it.github.io/ScrapingMonkey/#/"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/byCssSelector": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/byCss",
+                "description": "Get elements using a css selector.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "selector": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {
+                                        "url": "https://masc-it.github.io/ScrapingMonkey/#/",
+                                        "selector": "h1#api-endpoints"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/byTag": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/byTag",
+                "description": "Get elements via TAG name.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "selector": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {
+                                        "url": "https://masc-it.github.io/ScrapingMonkey/#/",
+                                        "selector": "h1"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/run": {
+            "post": {
+                "externalDocs": {
+                    "description": "Detailed explanation with a practical python example.",
+                    "url": "https://masc-it.github.io/ScrapingMonkey/#/?id=run"
+                },
+                "operationId": "/run",
+                "description": "Run a web scraping task.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "pipeline": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {
+                                        "url": "https://stackoverflow.com/questions/58787864/changing-primary-palette-color-when-using-kivymd-has-no-effect-on-buttons",
+                                        "pipeline": [
+                                            {
+                                                "name": "last activity",
+                                                "operation": "XPATH",
+                                                "selector": "//a[contains(@href, 'lastact')]"
+                                            },
+                                            {
+                                                "name": "action1",
+                                                "operation": "RUN_SCRIPT",
+                                                "selector": "//a[contains(., 'An issue filtering related models')]",
+                                                "data": "arguments[0].scrollIntoView()"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/byLinkText": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/byLinkText",
+                "description": "Get links by their complete or partial text.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "selector": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {
+                                        "url": "https://masc-it.github.io/ScrapingMonkey/#/",
+                                        "selector": "contact"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/byClass": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/byClass",
+                "description": "Get elements using a class name.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "selector": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {
+                                        "url": "https://masc-it.github.io/ScrapingMonkey/#/",
+                                        "selector": "section-link"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/byXPath": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/byXPath",
+                "description": "Get elements using an xpath selector.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "selector": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "New Example": {
+                                    "description": "",
+                                    "summary": "New Example",
+                                    "value": {
+                                        "url": "https://masc-it.github.io/ScrapingMonkey/#/",
+                                        "selector": "//h1[@id='api-endpoints']"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

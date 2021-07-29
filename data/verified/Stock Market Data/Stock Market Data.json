@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_074b7637-e400-4a77-8a53-2db99ec5f893",
+    "name": "Stock Market Data",
+    "title": "Stock Market Data",
+    "description": "Comprehensive stock market data sourced from Yahoo Finance and a variety of other sources in one clean package.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "stock-market-data",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-17T00:15:31.496Z",
+    "category": "Financial",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/2f0b5108-4bf5-4b48-a24a-28c000d7747c.png",
+    "user": {
+        "id": 5029954,
+        "username": "lattice-data-lattice-data-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_c800d04b-f736-4612-a369-c7003d11bd5f",
+        "tags": [
+            {
+                "id": "tag_62c375de-060d-4626-ad9f-ef55a05bdcdd",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_ccc78f54-d794-495e-8d80-93cd37c3eb08",
+                "isGraphQL": false,
+                "route": "/market/index/s-and-p-one-hundred",
+                "method": "GET",
+                "name": "S&P 100",
+                "description": "A list of all stocks in the S&P 100 index. See https://en.wikipedia.org/wiki/S%26P_100 for details.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_6a3d5f94-9e7c-428a-a7a1-fa3bbd2252c4",
+                "isGraphQL": false,
+                "route": "/market/index/s-and-p-four-hundred",
+                "method": "GET",
+                "name": "S&P 400",
+                "description": "A list of all stocks in the S&P 500 index. See https://en.wikipedia.org/wiki/S%26P_400 for details.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_8642c594-8ec2-404f-97e0-051f07780c31",
+                "isGraphQL": false,
+                "route": "/buzz/wsb/historical-stats",
+                "method": "GET",
+                "name": "Historical Statistics",
+                "description": "Fetch day-wise mention data of the ticker on r/WallStreetBets",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

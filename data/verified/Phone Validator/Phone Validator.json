@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_a8585c1f-74d8-4ab6-bc59-1aeb682c0605",
+    "name": "Phone Validator",
+    "title": "Phone Validator",
+    "description": "Phone Validator API -- Phone Number Linetype Lookup",
+    "visibility": "PUBLIC",
+    "slugifiedName": "phone-validator",
+    "pricing": "FREE",
+    "updatedAt": "2021-07-23T15:46:28.022Z",
+    "category": "Communication",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ee582641a3a554032f795816ed0b6a7d.jpg",
+    "user": {
+        "id": 3753234,
+        "username": "phonevalidator",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4baeef9d-f9e9-4f3b-8359-2655c84b94f5",
+        "tags": [
+            {
+                "id": "tag_d890eb9b-6027-4d73-ae80-4fb48887f370",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_1ff8f0c2-43b1-4e3a-9849-fea0a0e038f4",
+                "isGraphQL": false,
+                "route": "/api/v1/PhoneBasic/{phoneNumber}",
+                "method": "GET",
+                "name": "GetPhoneBasic",
+                "description": "Provide a North American phone number (with or without a leading \"1\") and determine if it is a cell phone, landline, VOIP, toll-free or Unknown. Datapoints returned are linetype, phone company and location (City/State).",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

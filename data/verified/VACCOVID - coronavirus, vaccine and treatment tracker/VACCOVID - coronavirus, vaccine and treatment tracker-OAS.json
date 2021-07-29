@@ -1,0 +1,751 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_fe4fdb7c-19f3-4725-96fe-aab5e2ccd590",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_e74e21c9-a331-4b9d-af7e-53b7e4e73392",
+        "apiId": "api_4edabb12-cf24-4091-ab1f-f0a36341e772"
+    },
+    "info": {
+        "title": "VACCOVID - coronavirus, vaccine and treatment tracker",
+        "description": "VACCOVID.LIVE is a comprehensive up-to-date Vaccine tracker, COVID-19 tracker and Treatment tracker website which has been landed to inform people throughout the planet about the present novel coronavirus (COVID-19) pandemic. In VACCOVID you can also find the most relevant and up-to-date news about covid-19. https://vaccovid.live/",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "VACCOVID.LIVE is a comprehensive up-to-date Vaccine tracker, COVID-19 tracker and Treatment tracker website which has been landed to inform people throughout the planet about the present novel coronavirus (COVID-19) pandemic. We accomplished this duty by providing the latest reliable data from several APIs. In VACCOVID you can also find the most relevant and up-to-date news about covid-19. We have tried to gather and illustrate the latest statistical data known about covid-19 in tangible tables using evidence based and professional conceptual frameworks.\nhttps://vaccovid.live/",
+        "x-website": "https://vaccovid.live/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d45eeebc-1efb-4549-9c1b-4f75d71f2414.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "News",
+            "description": "get all covid-19, vaccine and health news",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Vaccine and Treatments APIs",
+            "description": "find and call all vaccine and treatment APIs",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "covid-19 APIs",
+            "description": "find and call all covid-19 related APIs.",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        }
+    ],
+    "paths": {
+        "/api/vaccines/get-vaccines/{trimedCategory}/{trimedName}": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "parameters": [
+                    {
+                        "name": "trimedCategory",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "rna-based-vaccine"
+                        }
+                    },
+                    {
+                        "name": "trimedName",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "biontech-pfizer-fosun-pharma-rentschler-biopharma"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get specific vaccine data",
+                "description": "get the data for a specific vaccine.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/news/get-vaccine-news/{page}": {
+            "get": {
+                "tags": [
+                    "News"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "0"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all vaccine news",
+                "description": "get all vaccine news from more than 20 well-founded broadcasting services including: WHO, CNN, BBC, FOX-news, TIME, MNT(Medical-News-Today), Bloomberg, ABC-news, CBS-news, CBC-news, NBC-news, USA Today, New Scientist, National Geographic, Google news, News24, Next Big Future, The Times of India, The Wall Street Journal, The Washington Post, and Axios.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/news/get-health-news/{page}": {
+            "get": {
+                "tags": [
+                    "News"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "1"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all health news",
+                "description": "get all health news from more than 20 well-founded broadcasting services including: WHO, CNN, BBC, FOX-news, TIME, MNT(Medical-News-Today), Bloomberg, ABC-news, CBS-news, CBC-news, NBC-news, USA Today, New Scientist, National Geographic, Google news, News24, Next Big Future, The Times of India, The Wall Street Journal, The Washington Post, and Axios.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/news/get-coronavirus-news/{page}": {
+            "get": {
+                "tags": [
+                    "News"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "0"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all coronavirus news",
+                "description": "get all coronavirus news from more than 20 well-founded broadcasting services including: WHO, CNN, BBC, FOX-news, TIME, MNT(Medical-News-Today), Bloomberg, ABC-news, CBS-news, CBC-news, NBC-news, USA Today, New Scientist, National Geographic, Google news, News24, Next Big Future, The Times of India, The Wall Street Journal, The Washington Post, and Axios.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-all-vaccines-pre-clinical": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get Pre-Clinical vaccines",
+                "description": "get the information of Pre-Clinical vaccines. Including: Researcher, category, phase, nextSteps, description, funder, FDAApproved, lastUpdated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-all-vaccines-phase-iv": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Phase-IV vaccines",
+                "description": "get the information of Phase-IV vaccines. Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-all-treatment-pre-clinical": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get Pre-Clinical treatments",
+                "description": "get the information of Pre-Clinical treatments. Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-all-vaccines-phase-iii": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get Phase-III vaccines",
+                "description": "get the information of Phase-III vaccines. Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-all-vaccines-phase-ii": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get Phase-II vaccines",
+                "description": "get the information of Phase-II vaccines. Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-all-vaccines-phase-i": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get Phase-I vaccines",
+                "description": "get the information of Phase-I vaccines. Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-fda-approved-vaccines": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get FDA-Approved vaccines",
+                "description": "get the information of vaccines which have gotten the FDA approval, Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-all-fda-approved-treatment": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get FDA-Approved treatments",
+                "description": "get the information of FDA-Approved treatments. Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-all-treatment-clinical": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get Clinical treatments",
+                "description": "get the information of Clinical treatments. Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-vaccines/{category}": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "Replicating viral vector"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all vaccines for specific category",
+                "description": "get the information of all vaccines for specific category, by providing category name. Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-all-vaccines": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all vaccines",
+                "description": "get the information of all vaccines. The following information is available about each vaccine:\n\n    The clinical stage\n    The description of vaccine product\n    Following steps that the company should take for getting into the next phase\n    FDA approval in order to show that which vaccine has the eligibility to get into the market for public use\n    The Last time that the producing company revealed their results\n    Specific links to the results of each vaccine progress",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-everything": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all trimed names, categories and kinds",
+                "description": "get all trimed names, categories and kinds\ntrimedName,\ntrimedCategory,\ntreatmentVsVaccine",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-treatments/{category}": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "rna-based-treatments"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all treatments for specific category",
+                "description": "get the information of all treatments for specific category, by providing category name. Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/vaccines/get-all-treatment": {
+            "get": {
+                "tags": [
+                    "Vaccine and Treatments APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all treatments data",
+                "description": "get the information of all treatments. Including: Researcher, category, phase, next-Steps, description, funder, FDA-Approved, last-Updated.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/covid-ovid-data/sixmonth/{iso}": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "parameters": [
+                    {
+                        "name": "iso",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "USA"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get the covid-19 stats for the past six months of one country",
+                "description": "get the covid-19 stats for the past six months of one specific country by providing ISO code.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/covid-ovid-data/": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get the covid-19 stats for the past six months of all countries.",
+                "description": "get the covid-19 stats for the past six months of all countries. you can use another API for searching for specific country.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/api-covid-data/reports/{iso}": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "parameters": [
+                    {
+                        "name": "iso",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "CAN"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get stats for all states of a specific country",
+                "description": "get all covid-19 stats for all states of a specific country, by providing ISO code of that country. there are 23 countries that their state stats are available, Including:\nUnited States of America, Canada, India, Australia, Brazil, Japan, Germany, France, United Kingdom, Netherlands, Italy, China, Chile, Colombia, Denmark, Mexico, Peru, Pakistan, Russia, Spain, Sweden, and Ukraine.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/australia": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all Australian and Oceanian counties",
+                "description": "get all Australian  and Oceanian counties covid-19 data",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/southamerica": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all Southern American countries",
+                "description": "get all Southern American countries covid-19 data",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/northamerica": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all Northern American countries",
+                "description": "get all Northern American countries covid-19 data",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/europe": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all European countries",
+                "description": "get all European countries covid-19 data",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/africa": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all African countries",
+                "description": "get all African countries covid-19 data",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/asia": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all Asian countries",
+                "description": "get all Asian countries covid-19 data.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/country-report-iso-based/{countryname}/{iso}": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "parameters": [
+                    {
+                        "name": "countryname",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "Canada"
+                        }
+                    },
+                    {
+                        "name": "iso",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "can"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get specific country covid-19 data",
+                "description": "get specific country covid-19 data by providing the name of country and its ISO code. you can find the list of countries and their ISO code with another API.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/countries-name-ordered": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get the list of countries and their iso code",
+                "description": "call this API for getting the list of countries and their ISO code. (Three Letter Symbol)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/countries": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get just counties covid-19 data",
+                "description": "call this API to get all information for every countries except world and total data.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/world": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get world Data",
+                "description": "call this API to get all information for coviid-19 World data, such as Total cases, New cases, Total deaths, New deaths, Total Recovered, New recovered, Total Tests, New Tests, Active Cases, Serious_Critical, Infection_Risk, Case_Fatality_Rate, Test_Percentage, Recovery_Proportion, Population and more…",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/npm-covid-data/": {
+            "get": {
+                "tags": [
+                    "covid-19 APIs"
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "get all covid-19 countries statistical data",
+                "description": "call this API to get all information for every countries. such as Total cases, New cases, Total deaths, New deaths, Total Recovered, New recovered, Total Tests, New Tests, Active Cases, Serious_Critical, Infection_Risk, Case_Fatality_Rate, Test_Percentage, Recovery_Proportion, Population and more…",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

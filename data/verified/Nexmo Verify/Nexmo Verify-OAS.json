@@ -1,0 +1,99 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_502024f6-80fb-4bb4-a251-840f648a67cb",
+            "value": "✓"
+        },
+        {
+            "name": "tag_336c7397-c5e2-4e26-9c14-23dc3439d294",
+            "value": "Official"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5b42b71de4b0a5b0626e97ae",
+        "apiId": "5b42b71ce4b004833ec25b01"
+    },
+    "info": {
+        "title": "Nexmo Verify",
+        "description": "Protect your users and your business with all-in-one, economical verification.",
+        "version": "v1",
+        "x-category": "SMS",
+        "x-long-description": "",
+        "x-website": "https://www.nexmo.com/products/verify",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5b42b71de4b0a5b0626e97ae_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://nexmo-nexmo-sms-verify-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/send-verification-code": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "brand",
+                        "in": "query",
+                        "required": true,
+                        "description": "The name of the company or App you are using Verify for. This 18 character alphanumeric string is used in the body of Verify message. For example: \"Your brand PIN is ..\".",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "phoneNumber",
+                        "in": "query",
+                        "required": true,
+                        "description": "The mobile or landline phone number to verify. Unless you are setting country explicitly, this number must be in E.164  format. For example, 447700900000",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Send Verification Code",
+                "description": "You use Verify API to Verify that a phone number is valid, reachable, and accessible by your user. You can customise the message used during verification.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/check-verification-code": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "request_id",
+                        "in": "query",
+                        "required": true,
+                        "description": "The identifier of the Verify request to check. This is the request_id you received in the Send Verification Code response",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": true,
+                        "description": "The PIN given by your user.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Check verification code",
+                "description": "Check a verification code that a user has provided. Use the request_id that was received when the verification code was sent with the Send Verification Code.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

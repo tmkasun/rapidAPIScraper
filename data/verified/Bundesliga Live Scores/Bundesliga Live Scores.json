@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "55e3150be4b0fd0fcdcd15b8",
+    "name": "Bundesliga Live Scores",
+    "title": "Bundesliga Live Scores",
+    "description": "Bundesliga Live Scores API allows to retrieve historical data as well as current season results, scorers, lineups, substitutes, events, statistics, odds and much more all with live updates, for the top professional German football league. And more features are coming...",
+    "visibility": "PUBLIC",
+    "slugifiedName": "bundesliga-live-scores",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-09-13T05:41:14.757Z",
+    "category": "Sports",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/55e3150be4b0fd0fcdcd15b9_medium",
+    "user": {
+        "id": 2431262,
+        "username": "heisenbug",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "55e3150be4b0fd0fcdcd15b9",
+        "tags": [
+            {
+                "id": "tag_441888ee-b65a-4c18-90ea-6e2c1893685c",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "56ac8dcae4b0678b47bedddd",
+                "isGraphQL": false,
+                "route": "/api/bundesliga/match/events",
+                "method": "GET",
+                "name": "Match events",
+                "description": "Return the events for a match (yellow and red cards, substitutions, shots on post and formations module)",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "58a96328e4b0a29ec14ca7e8",
+                "isGraphQL": false,
+                "route": "/api/bundesliga/table/betting",
+                "method": "GET",
+                "name": "Bet Stats",
+                "description": "Returns aggregate data about results, goal-nogoal, underover, 1x2 and totalgoals to support your bet activities",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5662bc22e4b07889eb96c73a",
+                "isGraphQL": false,
+                "route": "/api/bundesliga/scorers",
+                "method": "GET",
+                "name": "Match scorers",
+                "description": "Return who scored and how for a match",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

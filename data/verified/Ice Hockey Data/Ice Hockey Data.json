@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_7604ed0d-e664-4bcd-8674-2668da18eb98",
+    "name": "Ice Hockey Data",
+    "title": "Ice Hockey Data",
+    "description": "Broadage Ice Hockey API will give you wide range of data of world's top ice hockey leagues, including fixtures, standings, match lists and many more. Our Ice Hockey Coverage includes the biggest ice hockey tournaments from all around the world with in-depth coverage, giving you the opportunity to present the best sports data to users located anywhere.<br>This is a limited version in RapidApi. <a href=\"https://www.broadage.com/signup/api/free?utm_source=rapidapi&utm_medium=click&utm_campaign=icehockey_api\" target=”_blank”>Please, click here to start your Free Trial and try the endpoints with live data now!</a>",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ice-hockey-data",
+    "pricing": "FREE",
+    "updatedAt": "2021-01-28T14:59:34.581Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/6c6e0a43-9766-4b84-a414-45f23cc03000.png",
+    "user": {
+        "id": 3943606,
+        "username": "BroadageSports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_bd6da1b3-1f79-4e2f-9b40-8a52c12141e9",
+        "tags": [
+            {
+                "id": "tag_c53cb19e-900a-4c3a-bd29-b5cde7ad1c66",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_0c49cc5d-c9da-41ca-90e8-7880c5a49daf",
+                "isGraphQL": false,
+                "route": "/tournament/fixture",
+                "method": "GET",
+                "name": "Tournament Fixture",
+                "description": "Full match list with period and final scores.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_c517441f-1b6d-4049-803d-fec487819e77",
+                "isGraphQL": false,
+                "route": "/tournament/list",
+                "method": "GET",
+                "name": "Tournament List",
+                "description": "List of tournaments in your data coverage.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_70af523b-ee0a-48fc-b1dd-9cf9724f9abf",
+                "isGraphQL": false,
+                "route": "/h2h/match/list/recent",
+                "method": "GET",
+                "name": "Recent Match List",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Ice Hockey Match List or Fixture endpoints.**",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5582a3f0e4b09ec98bb318f6",
+    "name": "webcams.travel",
+    "title": "webcams.travel",
+    "description": "The World's Largest Landscape Webcam API ***** Get webcams by categories, country, region or just nearby your location ***** Get timelapse slideshows for every webcam ***** Get an uncluttered webcam layer for your map",
+    "visibility": "PUBLIC",
+    "slugifiedName": "webcams-travel",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-11-02T09:44:41.510Z",
+    "category": "Travel",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5582a3f0e4b09ec98bb318f6_large",
+    "user": {
+        "id": 2837353,
+        "username": "webcams.travel",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5582a3f0e4b0b94e3b825bd5",
+        "tags": [
+            {
+                "id": "tag_57c3a3ab-f5a5-4e6d-8bcd-228754ae5841",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "565c66afe4b0beaa7de9799b",
+                "isGraphQL": false,
+                "route": "/webcams/list/webcam={webcamid}",
+                "method": "GET",
+                "name": "/webcams/list/webcam={webcamid}[,{webcamid}[,...]]",
+                "description": "This is a modifier. Returns a list of webcams according to the listed {webcamid}s. Multiple {webcamid}s must be separated by comma. Required: at least one {webcamid}.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "567281d1e4b06abf0064f9be",
+                "isGraphQL": false,
+                "route": "/webcams/list/property={property}",
+                "method": "GET",
+                "name": "/webcams/list/property={property}[,{property}[,...]]",
+                "description": "This is a modifier. Returns a list of webcams according to the listed {property}. Multiple {property} must be separated by comma. Required: at least one {property}. Possible values are \"editors\" (featured from the editors), \"hd\" (high resolution webcams), and \"live\" (webcams with a live stream).",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5582bd4de4b09ec98bb31948",
+                "isGraphQL": false,
+                "route": "/webcams/map/{ne_lat},{ne_lng},{sw_lat},{sw_lng},{zoom}",
+                "method": "GET",
+                "name": "/webcams/map/{ne_lat},{ne_lng},{sw_lat},{sw_lng},{zoom}",
+                "description": "Returns a list of webcams optimized for displaying on a map for a given bounding box and {zoom} level. The value for the zoom level is compatible with the Google Maps zoom level.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

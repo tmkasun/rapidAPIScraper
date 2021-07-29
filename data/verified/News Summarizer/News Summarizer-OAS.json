@@ -1,0 +1,80 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_7c56ac75-0663-48c5-ba3d-f817cf97330f",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_e868b8f1-0b95-4ce4-9128-4dfb5d4b6ab9",
+        "apiId": "api_421348da-c681-4ef1-82e0-adb13dee1002"
+    },
+    "info": {
+        "title": "News Summarizer",
+        "description": "Extract quick highlights from news articles using state of the art text summarizer.",
+        "version": "v1",
+        "x-category": "Text Analysis",
+        "x-long-description": "Get abstractive and extractive summaries of news articles using a state of the art deep neural network based AI model.\nMost summarizers simply provide the first 2-3 lines as the summary of a news article. This can be limiting in many cases. Our model is specifically trained to extract key sentences and abstract out longer sentences and condense them into a crisp summary.\nOur summarizer works best for articles in English, but we encourage you to try other languages too. Please reach out to us on services@idealmix.in if you have any queries or want to seek a custom quote.",
+        "x-website": "www.idealmix.in",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/8ce83508-c6dc-415b-b8b8-19d9b31508d0.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://news-summarizer.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/summarize": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "Content-type",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "News Summarizer",
+                "description": "Get abstractive and extractive summaries of news articles by providing the raw text of the article or a web URL of the article.\n\nParameters:\n`input_link`: URL of the article.\n`input_text`: Raw text of the article.\n\nUse one of the above two parameters. If both are provided, only `input_text` will be picked.\n\nGuidance:\nIt is advised to use `input_text` parameter as opposed to `input_link` if all your articles come from a small set of source websites. In such a case, you can write a parser for your articles which is custom-tailored to the structure of your articles and hence no extra phrases are captured during the parsing of the text.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "summary": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Summary": {
+                                        "description": "",
+                                        "summary": "Summary",
+                                        "value": {
+                                            "summary": "Andy Murray beat Dominic Thiem 3-6 6-4, 6-1 in the Miami Open quarter-finals. The world No 4 will face Tomas Berdych or Juan Monaco in the last four. Murray believes Aljaz Bedene's arrival in the top 100 is a 'positive' thing for British tennis. The 27-year-old believes his fellow British players should use the assimilation of the world number 83, originally from Slovenia, as motivation to better themselves. Murray described Bedene as a 'good player with a very good serve'. The British No 1 is set to marry fiancee Kim Sears next week."
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,145 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_5a4e1918-7ac8-4854-aa5f-9e532d4d2887",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_a7c42bbd-b238-499e-8056-9bea37f40a6b",
+        "apiId": "api_598b1d99-75ea-404e-88ad-833b52c47293"
+    },
+    "info": {
+        "title": "Bouncer Email Verification",
+        "description": "Email Verification and Email Validation by Bouncer",
+        "version": "v1",
+        "x-category": "Email",
+        "x-long-description": "Easy to integrate, powerful and robust Email Verification API.\nBouncer Email Verification API is powerful, robust, affordable and ultrafast, so CEOs and Developers love it!",
+        "x-website": "https://www.usebouncer.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/4f6efa8d3da225415638eceb30852836.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://bouncer-email-verification.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/v1/email/verify": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "timeout",
+                        "in": "query",
+                        "required": false,
+                        "description": "timeout for verification (max:30, default: 10)",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "type": "number",
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "description": "email",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "undefined"
+                },
+                "operationId": "VerifyEmail",
+                "description": "Verifies single email in real-time synchronous manner.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "account": {
+                                            "properties": {
+                                                "disabled": {
+                                                    "type": "string"
+                                                },
+                                                "fullMailbox": {
+                                                    "type": "string"
+                                                },
+                                                "role": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "domain": {
+                                            "properties": {
+                                                "acceptAll": {
+                                                    "type": "string"
+                                                },
+                                                "disposable": {
+                                                    "type": "string"
+                                                },
+                                                "free": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "reason": {
+                                            "type": "string"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "account": {
+                                                "disabled": "no",
+                                                "fullMailbox": "no",
+                                                "role": "yes"
+                                            },
+                                            "domain": {
+                                                "acceptAll": "no",
+                                                "disposable": "no",
+                                                "free": "no",
+                                                "name": "usebouncer.com"
+                                            },
+                                            "email": "support@usebouncer.com",
+                                            "reason": "accepted_email",
+                                            "status": "deliverable"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

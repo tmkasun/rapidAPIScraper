@@ -1,0 +1,1902 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_853bbf57-92a2-437b-a03a-880309f4512b",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_7bcf8dc5-4697-43b7-b621-d4789d490986",
+        "apiId": "api_e1050e6d-e11c-4084-b1af-ec41f1111c44"
+    },
+    "info": {
+        "title": "SPENDiD",
+        "description": "Demographically validated spending behavior models, automated user budget creation, and alternative metrics for cash-flow or budget health scoring. SPENDiD brings an addictively sticky user-experience component to any consumer facing financial wellness, digital banking, or other PFM platform. ",
+        "version": "v1",
+        "x-category": "Finance",
+        "x-long-description": "SPENDiD is a REST API that uses proprietary demographic/peer modeling to help developers offer their application end-user with addictively simple automated budget creation and refinement, cash-flow health scoring, secondary lending metrics, and marketing data insights by connecting to one or all three of SPENDiD's easy to use end-points.  \n\nOur API platform helps you build powerful cutting edge FinTech apps in radically less time - which of course means lower cost and earlier revenue for you and your firm. SPENDiD offers the first of its kind off-the-shelf functionality to generate household/consumer demographic models, personalized budgets, plus financial health and secondary lending scores. Plus, SPENDiD can offer valuable marketing data by helping highlight the end-user's spending behaviors which may indicate opportunities for focused outreach by marketers, lenders, advisors, etc...\n\nPERSONALIZED SPENDING BEHAVIOR INSIGHTS\nSPENDiD has harnessed the powerful application of properly sourced “crowd-wisdom” theory and relative spending behavior. Truly personalized marketing to a consumer's \"hot-buttons\" is now easier than ever. \n\nSIMPLE PEER-GUIDED BUDGETING\nYou can now bring the customer or employee a giant step closer to autonomous finance using simple, peer guided budget creation and refinement. Powered by a simple Q&A process flow, there actually is a short-cut to financial success!\n\nUSEFUL SPENDiD SCORING METRICS\nSPENDiD offers a unique and addictive scoring metric indicating to the end-user or SPENDiD client the relative strength of the User's cash flow health. These scores can be presented in numeric terms, or in a traditional A-F grading scale, or both. \n\nYou'll find comprehensive guides on our developer site at https://docs.spendid.io/ and documentation to help you start working with our services quickly, as well as support if you ever need it.\n\nPlease be sure to also visit our landing site at https://www.spendid.io/",
+        "x-website": "https://www.spendid.io/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/79461257-cb4f-4ff7-be92-b369b798c77d.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://spendid.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "demographics"
+        },
+        {
+            "name": "scores"
+        },
+        {
+            "name": "budgets"
+        }
+    ],
+    "paths": {
+        "/budgets/generate": {
+            "post": {
+                "tags": [
+                    "budgets"
+                ],
+                "summary": "Generate a Budget",
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "post-budgeting-generate",
+                "description": "Generate an annual budget based off a demographic profile and partial budget.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "model": {
+                                            "description": "An object containing values for all tracked tracked spending categories.",
+                                            "properties": {
+                                                "alcoholic_beverages": {
+                                                    "type": "number"
+                                                },
+                                                "cash_contributions": {
+                                                    "type": "number"
+                                                },
+                                                "cellular_phone_service": {
+                                                    "type": "number"
+                                                },
+                                                "clothing_items_and_services": {
+                                                    "type": "number"
+                                                },
+                                                "education": {
+                                                    "type": "number"
+                                                },
+                                                "electricity": {
+                                                    "type": "number"
+                                                },
+                                                "fees_and_admissions": {
+                                                    "type": "number"
+                                                },
+                                                "food_home": {
+                                                    "type": "number"
+                                                },
+                                                "food_out": {
+                                                    "type": "number"
+                                                },
+                                                "furniture_and_appliances": {
+                                                    "type": "number"
+                                                },
+                                                "gasoline": {
+                                                    "type": "number"
+                                                },
+                                                "health_insurance": {
+                                                    "type": "number"
+                                                },
+                                                "heating_fuels_other": {
+                                                    "type": "number"
+                                                },
+                                                "home_maintenance_and_repairs": {
+                                                    "type": "number"
+                                                },
+                                                "household_operations": {
+                                                    "type": "number"
+                                                },
+                                                "housekeeping_supplies": {
+                                                    "type": "number"
+                                                },
+                                                "life_and_personal_insurance": {
+                                                    "type": "number"
+                                                },
+                                                "media_hardware_and_services": {
+                                                    "type": "number"
+                                                },
+                                                "medical_services": {
+                                                    "type": "number"
+                                                },
+                                                "medical_supplies": {
+                                                    "type": "number"
+                                                },
+                                                "miscellaneous": {
+                                                    "type": "number"
+                                                },
+                                                "mortgage_and_rent": {
+                                                    "type": "number"
+                                                },
+                                                "natural_gas": {
+                                                    "type": "number"
+                                                },
+                                                "other_debt_payments": {
+                                                    "type": "number"
+                                                },
+                                                "other_lodging": {
+                                                    "type": "number"
+                                                },
+                                                "personal_care": {
+                                                    "type": "number"
+                                                },
+                                                "pets": {
+                                                    "type": "number"
+                                                },
+                                                "prescription_drugs": {
+                                                    "type": "number"
+                                                },
+                                                "public_and_other_transportation": {
+                                                    "type": "number"
+                                                },
+                                                "reading": {
+                                                    "type": "number"
+                                                },
+                                                "residential_phone_service": {
+                                                    "type": "number"
+                                                },
+                                                "savings": {
+                                                    "type": "number"
+                                                },
+                                                "tobacco_and_smoking": {
+                                                    "type": "number"
+                                                },
+                                                "toys_and_hobbies": {
+                                                    "type": "number"
+                                                },
+                                                "vehicle_insurance": {
+                                                    "type": "number"
+                                                },
+                                                "vehicle_maintenance_and_repairs": {
+                                                    "type": "number"
+                                                },
+                                                "vehicle_purchase_and_lease": {
+                                                    "type": "number"
+                                                },
+                                                "water_and_public_services": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "required": [
+                                                "mortgage_and_rent",
+                                                "life_and_personal_insurance",
+                                                "cash_contributions",
+                                                "miscellaneous",
+                                                "tobacco_and_smoking",
+                                                "education",
+                                                "reading",
+                                                "personal_care",
+                                                "toys_and_hobbies",
+                                                "pets",
+                                                "media_hardware_and_services",
+                                                "fees_and_admissions",
+                                                "medical_supplies",
+                                                "prescription_drugs",
+                                                "medical_services",
+                                                "health_insurance",
+                                                "public_and_other_transportation",
+                                                "vehicle_insurance",
+                                                "vehicle_maintenance_and_repairs",
+                                                "gasoline",
+                                                "vehicle_purchase_and_lease",
+                                                "clothing_items_and_services",
+                                                "furniture_and_appliances",
+                                                "housekeeping_supplies",
+                                                "household_operations",
+                                                "water_and_public_services",
+                                                "cellular_phone_service",
+                                                "residential_phone_service",
+                                                "heating_fuels_other",
+                                                "electricity",
+                                                "natural_gas",
+                                                "other_lodging",
+                                                "home_maintenance_and_repairs",
+                                                "alcoholic_beverages",
+                                                "food_out",
+                                                "food_home",
+                                                "savings",
+                                                "other_debt_payments"
+                                            ],
+                                            "title": "budget-full",
+                                            "type": "object"
+                                        },
+                                        "transformed": {
+                                            "type": [
+                                                "object",
+                                                "null"
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "budget": {
+                                                "alcoholic_beverages": 499,
+                                                "cash_contributions": 1213,
+                                                "cellular_phone_service": 1049,
+                                                "clothing_items_and_services": 1326,
+                                                "education": 0,
+                                                "electricity": 1304,
+                                                "fees_and_admissions": 389,
+                                                "food_home": 3582,
+                                                "food_out": 2579,
+                                                "furniture_and_appliances": 1614,
+                                                "gasoline": 1822,
+                                                "health_insurance": 0,
+                                                "heating_fuels_other": 90,
+                                                "home_maintenance_and_repairs": 1032,
+                                                "household_operations": 894,
+                                                "housekeeping_supplies": 498,
+                                                "life_and_personal_insurance": 254,
+                                                "media_hardware_and_services": 910,
+                                                "medical_services": 746,
+                                                "medical_supplies": 158,
+                                                "miscellaneous": 883,
+                                                "mortgage_and_rent": 9600,
+                                                "natural_gas": 346,
+                                                "other_debt_payments": 0,
+                                                "other_lodging": 514,
+                                                "personal_care": 598,
+                                                "pets": 526,
+                                                "prescription_drugs": 0,
+                                                "public_and_other_transportation": 526,
+                                                "reading": 83,
+                                                "residential_phone_service": 180,
+                                                "savings": 2400,
+                                                "tobacco_and_smoking": 0,
+                                                "toys_and_hobbies": 163,
+                                                "vehicle_insurance": 991,
+                                                "vehicle_maintenance_and_repairs": 739,
+                                                "vehicle_purchase_and_lease": 3000,
+                                                "water_and_public_services": 498
+                                            }
+                                        }
+                                    },
+                                    "Example_2": {
+                                        "description": "",
+                                        "summary": "Example_2",
+                                        "value": {
+                                            "budget": {
+                                                "alcoholic_beverages": 505,
+                                                "cash_contributions": 1228,
+                                                "cellular_phone_service": 1061,
+                                                "clothing_items_and_services": 1342,
+                                                "education": 686,
+                                                "electricity": 1319,
+                                                "fees_and_admissions": 393,
+                                                "food_home": 3625,
+                                                "food_out": 2610,
+                                                "furniture_and_appliances": 1634,
+                                                "gasoline": 1843,
+                                                "health_insurance": 2810,
+                                                "heating_fuels_other": 91,
+                                                "home_maintenance_and_repairs": 1044,
+                                                "household_operations": 904,
+                                                "housekeeping_supplies": 504,
+                                                "life_and_personal_insurance": 257,
+                                                "media_hardware_and_services": 920,
+                                                "medical_services": 755,
+                                                "medical_supplies": 160,
+                                                "miscellaneous": 893,
+                                                "mortgage_and_rent": 6553,
+                                                "natural_gas": 350,
+                                                "other_debt_payments": 0,
+                                                "other_lodging": 520,
+                                                "personal_care": 606,
+                                                "pets": 533,
+                                                "prescription_drugs": 443,
+                                                "public_and_other_transportation": 533,
+                                                "reading": 84,
+                                                "residential_phone_service": 182,
+                                                "savings": 0,
+                                                "tobacco_and_smoking": 333,
+                                                "toys_and_hobbies": 165,
+                                                "vehicle_insurance": 1002,
+                                                "vehicle_maintenance_and_repairs": 748,
+                                                "vehicle_purchase_and_lease": 3865,
+                                                "water_and_public_services": 504
+                                            },
+                                            "transformed": {
+                                                "Cell Phone": 1061,
+                                                "Charitable Giving": 1228,
+                                                "Clothing & Jewelry": 1342,
+                                                "Debt": 0,
+                                                "Dining Out": 2610,
+                                                "Education": 686,
+                                                "Entertainment & Travel": 3036,
+                                                "Gasoline": 1843,
+                                                "Groceries": 3625,
+                                                "Health Insurance": 2810,
+                                                "Household Expenses": 4086,
+                                                "Medical Services & Supplies": 915,
+                                                "Miscellaneous": 1567,
+                                                "Mortage/Rent": 6553,
+                                                "Personal Care": 606,
+                                                "Prescriptions": 443,
+                                                "Public Transportation": 533,
+                                                "Savings": 0,
+                                                "Utilities": 2446,
+                                                "Vehicle Insurance": 1002,
+                                                "Vehicle Maintenance": 748,
+                                                "Vehicle Payment": 3865
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "budget": {
+                                        "description": "An object containing values for some tracked tracked spending categories.",
+                                        "properties": {
+                                            "alcoholic_beverages": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "cash_contributions": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "cellular_phone_service": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "clothing_items_and_services": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "education": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "electricity": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "fees_and_admissions": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "food_home": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "food_out": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "furniture_and_appliances": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "gasoline": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "health_insurance": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "heating_fuels_other": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "home_maintenance_and_repairs": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "household_operations": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "housekeeping_supplies": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "life_and_personal_insurance": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "media_hardware_and_services": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "medical_services": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "medical_supplies": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "miscellaneous": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "mortgage_and_rent": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "natural_gas": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "other_debt_payments": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "other_lodging": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "personal_care": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "pets": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "prescription_drugs": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "public_and_other_transportation": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "reading": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "residential_phone_service": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "savings": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "tobacco_and_smoking": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "toys_and_hobbies": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "vehicle_insurance": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "vehicle_maintenance_and_repairs": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "vehicle_purchase_and_lease": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "water_and_public_services": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            }
+                                        },
+                                        "title": "budget-partial",
+                                        "type": "object"
+                                    },
+                                    "demographics": {
+                                        "description": "Profile object containing simple demographic inputs describing an abstract person.",
+                                        "properties": {
+                                            "age": {
+                                                "description": "Head of household age",
+                                                "format": "int32",
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer"
+                                            },
+                                            "gross_annual_income": {
+                                                "description": "Income before taxes",
+                                                "format": "double",
+                                                "maximum": 1.7976931348623157e+308,
+                                                "minimum": -1.7976931348623157e+308,
+                                                "type": "number"
+                                            },
+                                            "household_members": {
+                                                "description": "Count of family members",
+                                                "format": "int32",
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer"
+                                            },
+                                            "is_homeowner": {
+                                                "type": "boolean"
+                                            },
+                                            "net_annual_income": {
+                                                "description": "Income after taxes",
+                                                "format": "double",
+                                                "maximum": 1.7976931348623157e+308,
+                                                "minimum": -1.7976931348623157e+308,
+                                                "type": "number"
+                                            },
+                                            "zip": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "zip",
+                                            "household_members",
+                                            "age",
+                                            "net_annual_income",
+                                            "gross_annual_income"
+                                        ],
+                                        "title": "demographics",
+                                        "type": "object"
+                                    },
+                                    "grouped_inputs": {
+                                        "items": {
+                                            "description": "An input allowing a single value to be mapped across multiple internal tracked categories.",
+                                            "properties": {
+                                                "items": {
+                                                    "enum": [
+                                                        "savings",
+                                                        "other_debt_payments",
+                                                        "mortgage_and_rent",
+                                                        "vehicle_purchase_and_lease",
+                                                        "life_and_personal_insurance",
+                                                        "cash_contributions",
+                                                        "miscellaneous",
+                                                        "tobacco_and_smoking",
+                                                        "education",
+                                                        "reading",
+                                                        "personal_care",
+                                                        "toys_and_hobbies",
+                                                        "pets",
+                                                        "media_hardware_and_services",
+                                                        "fees_and_admissions",
+                                                        "medical_supplies",
+                                                        "prescription_drugs",
+                                                        "medical_services",
+                                                        "health_insurance",
+                                                        "public_and_other_transportation",
+                                                        "vehicle_insurance",
+                                                        "vehicle_maintenance_and_repairs",
+                                                        "gasoline",
+                                                        "clothing_items_and_services",
+                                                        "furniture_and_appliances",
+                                                        "housekeeping_supplies",
+                                                        "household_operations",
+                                                        "water_and_public_services",
+                                                        "cellular_phone_service",
+                                                        "residential_phone_service",
+                                                        "heating_fuels_other",
+                                                        "electricity",
+                                                        "natural_gas",
+                                                        "other_lodging",
+                                                        "home_maintenance_and_repairs",
+                                                        "alcoholic_beverages",
+                                                        "food_out",
+                                                        "food_home"
+                                                    ],
+                                                    "items": {
+                                                        "enum": [
+                                                            "savings",
+                                                            "other_debt_payments",
+                                                            "mortgage_and_rent",
+                                                            "vehicle_purchase_and_lease",
+                                                            "life_and_personal_insurance",
+                                                            "cash_contributions",
+                                                            "miscellaneous",
+                                                            "tobacco_and_smoking",
+                                                            "education",
+                                                            "reading",
+                                                            "personal_care",
+                                                            "toys_and_hobbies",
+                                                            "pets",
+                                                            "media_hardware_and_services",
+                                                            "fees_and_admissions",
+                                                            "medical_supplies",
+                                                            "prescription_drugs",
+                                                            "medical_services",
+                                                            "health_insurance",
+                                                            "public_and_other_transportation",
+                                                            "vehicle_insurance",
+                                                            "vehicle_maintenance_and_repairs",
+                                                            "gasoline",
+                                                            "clothing_items_and_services",
+                                                            "furniture_and_appliances",
+                                                            "housekeeping_supplies",
+                                                            "household_operations",
+                                                            "water_and_public_services",
+                                                            "cellular_phone_service",
+                                                            "residential_phone_service",
+                                                            "heating_fuels_other",
+                                                            "electricity",
+                                                            "natural_gas",
+                                                            "other_lodging",
+                                                            "home_maintenance_and_repairs",
+                                                            "alcoholic_beverages",
+                                                            "food_out",
+                                                            "food_home"
+                                                        ],
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "value": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "required": [
+                                                "items",
+                                                "value"
+                                            ],
+                                            "title": "grouped-input",
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "output_transformer": {
+                                        "description": "An object containing information for aliases and aggregating internal tracking categories to specific outputs.",
+                                        "properties": {
+                                            "alcoholic_beverages": {
+                                                "type": "string"
+                                            },
+                                            "cash_contributions": {
+                                                "type": "string"
+                                            },
+                                            "cellular_phone_service": {
+                                                "type": "string"
+                                            },
+                                            "clothing_items_and_services": {
+                                                "type": "string"
+                                            },
+                                            "education": {
+                                                "type": "string"
+                                            },
+                                            "electricity": {
+                                                "type": "string"
+                                            },
+                                            "fees_and_admissions": {
+                                                "type": "string"
+                                            },
+                                            "food_home": {
+                                                "type": "string"
+                                            },
+                                            "food_out": {
+                                                "type": "string"
+                                            },
+                                            "furniture_and_appliances": {
+                                                "type": "string"
+                                            },
+                                            "gasoline": {
+                                                "type": "string"
+                                            },
+                                            "health_insurance": {
+                                                "type": "string"
+                                            },
+                                            "heating_fuels_other": {
+                                                "type": "string"
+                                            },
+                                            "home_maintenance_and_repairs": {
+                                                "type": "string"
+                                            },
+                                            "household_operations": {
+                                                "type": "string"
+                                            },
+                                            "housekeeping_supplies": {
+                                                "type": "string"
+                                            },
+                                            "life_and_personal_insurance": {
+                                                "type": "string"
+                                            },
+                                            "media_hardware_and_services": {
+                                                "type": "string"
+                                            },
+                                            "medical_services": {
+                                                "type": "string"
+                                            },
+                                            "medical_supplies": {
+                                                "type": "string"
+                                            },
+                                            "miscellaneous": {
+                                                "type": "string"
+                                            },
+                                            "mortgage_and_rent": {
+                                                "type": "string"
+                                            },
+                                            "natural_gas": {
+                                                "type": "string"
+                                            },
+                                            "other_debt_payments": {
+                                                "type": "string"
+                                            },
+                                            "other_lodging": {
+                                                "type": "string"
+                                            },
+                                            "personal_care": {
+                                                "type": "string"
+                                            },
+                                            "pets": {
+                                                "type": "string"
+                                            },
+                                            "prescription_drugs": {
+                                                "type": "string"
+                                            },
+                                            "public_and_other_transportation": {
+                                                "type": "string"
+                                            },
+                                            "reading": {
+                                                "type": "string"
+                                            },
+                                            "residential_phone_service": {
+                                                "type": "string"
+                                            },
+                                            "savings": {
+                                                "type": "string"
+                                            },
+                                            "tobacco_and_smoking": {
+                                                "type": "string"
+                                            },
+                                            "toys_and_hobbies": {
+                                                "type": "string"
+                                            },
+                                            "vehicle_insurance": {
+                                                "type": "string"
+                                            },
+                                            "vehicle_maintenance_and_repairs": {
+                                                "type": "string"
+                                            },
+                                            "vehicle_purchase_and_lease": {
+                                                "type": "string"
+                                            },
+                                            "water_and_public_services": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "other_debt_payments",
+                                            "savings",
+                                            "food_home",
+                                            "food_out",
+                                            "alcoholic_beverages",
+                                            "home_maintenance_and_repairs",
+                                            "other_lodging",
+                                            "natural_gas",
+                                            "electricity",
+                                            "heating_fuels_other",
+                                            "residential_phone_service",
+                                            "cellular_phone_service",
+                                            "water_and_public_services",
+                                            "household_operations",
+                                            "housekeeping_supplies",
+                                            "furniture_and_appliances",
+                                            "clothing_items_and_services",
+                                            "vehicle_purchase_and_lease",
+                                            "gasoline",
+                                            "vehicle_maintenance_and_repairs",
+                                            "vehicle_insurance",
+                                            "public_and_other_transportation",
+                                            "health_insurance",
+                                            "medical_services",
+                                            "prescription_drugs",
+                                            "medical_supplies",
+                                            "fees_and_admissions",
+                                            "media_hardware_and_services",
+                                            "pets",
+                                            "toys_and_hobbies",
+                                            "personal_care",
+                                            "reading",
+                                            "education",
+                                            "tobacco_and_smoking",
+                                            "miscellaneous",
+                                            "cash_contributions",
+                                            "life_and_personal_insurance",
+                                            "mortgage_and_rent"
+                                        ],
+                                        "title": "transformer",
+                                        "type": "object"
+                                    }
+                                },
+                                "required": [
+                                    "demographics"
+                                ],
+                                "type": "object"
+                            },
+                            "examples": {
+                                "Example_1": {
+                                    "description": "",
+                                    "summary": "Example_1",
+                                    "value": {
+                                        "budget": {
+                                            "education": 0,
+                                            "health_insurance": 0,
+                                            "mortgage_and_rent": 9600,
+                                            "prescription_drugs": 0,
+                                            "savings": 2400,
+                                            "tobacco_and_smoking": 0,
+                                            "vehicle_purchase_and_lease": 3000
+                                        },
+                                        "demographics": {
+                                            "age": 25,
+                                            "gross_annual_income": 50000,
+                                            "household_members": 1,
+                                            "is_homeowner": false,
+                                            "net_annual_income": 41004,
+                                            "zip": "35210"
+                                        }
+                                    }
+                                },
+                                "Example_2": {
+                                    "description": "",
+                                    "summary": "Example_2",
+                                    "value": {
+                                        "budget": {
+                                            "education": 0,
+                                            "health_insurance": 0,
+                                            "mortgage_and_rent": 9600,
+                                            "prescription_drugs": 0,
+                                            "savings": 2400,
+                                            "tobacco_and_smoking": 0,
+                                            "vehicle_purchase_and_lease": 3000
+                                        },
+                                        "demographics": {
+                                            "age": 25,
+                                            "gross_annual_income": 50000,
+                                            "household_members": 1,
+                                            "is_homeowner": false,
+                                            "net_annual_income": 41004,
+                                            "zip": "35210"
+                                        },
+                                        "output_transformer": {
+                                            "alcoholic_beverages": "Entertainment & Travel",
+                                            "cash_contributions": "Charitable Giving",
+                                            "cellular_phone_service": "Cell Phone",
+                                            "clothing_items_and_services": "Clothing & Jewelry",
+                                            "education": "Education",
+                                            "electricity": "Utilities",
+                                            "fees_and_admissions": "Entertainment & Travel",
+                                            "food_home": "Groceries",
+                                            "food_out": "Dining Out",
+                                            "furniture_and_appliances": "Household Expenses",
+                                            "gasoline": "Gasoline",
+                                            "health_insurance": "Health Insurance",
+                                            "heating_fuels_other": "Utilities",
+                                            "home_maintenance_and_repairs": "Household Expenses",
+                                            "household_operations": "Household Expenses",
+                                            "housekeeping_supplies": "Household Expenses",
+                                            "life_and_personal_insurance": "Miscellaneous",
+                                            "media_hardware_and_services": "Entertainment & Travel",
+                                            "medical_services": "Medical Services & Supplies",
+                                            "medical_supplies": "Medical Services & Supplies",
+                                            "miscellaneous": "Miscellaneous",
+                                            "mortgage_and_rent": "Mortage/Rent",
+                                            "natural_gas": "Utilities",
+                                            "other_debt_payments": "Debt",
+                                            "other_lodging": "Entertainment & Travel",
+                                            "personal_care": "Personal Care",
+                                            "pets": "Entertainment & Travel",
+                                            "prescription_drugs": "Prescriptions",
+                                            "public_and_other_transportation": "Public Transportation",
+                                            "reading": "Miscellaneous",
+                                            "residential_phone_service": "Utilities",
+                                            "savings": "Savings",
+                                            "tobacco_and_smoking": "Miscellaneous",
+                                            "toys_and_hobbies": "Entertainment & Travel",
+                                            "vehicle_insurance": "Vehicle Insurance",
+                                            "vehicle_maintenance_and_repairs": "Vehicle Maintenance",
+                                            "vehicle_purchase_and_lease": "Vehicle Payment",
+                                            "water_and_public_services": "Utilities"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/demographics/models/generate": {
+            "post": {
+                "tags": [
+                    "demographics"
+                ],
+                "summary": "Generate a behavioral model",
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "post-demographics-model-generate",
+                "description": "Generate an annual budget based off a demographic profile and partial budget.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "model": {
+                                            "description": "An object containing values for all tracked tracked spending categories.",
+                                            "properties": {
+                                                "alcoholic_beverages": {
+                                                    "type": "number"
+                                                },
+                                                "cash_contributions": {
+                                                    "type": "number"
+                                                },
+                                                "cellular_phone_service": {
+                                                    "type": "number"
+                                                },
+                                                "clothing_items_and_services": {
+                                                    "type": "number"
+                                                },
+                                                "education": {
+                                                    "type": "number"
+                                                },
+                                                "electricity": {
+                                                    "type": "number"
+                                                },
+                                                "fees_and_admissions": {
+                                                    "type": "number"
+                                                },
+                                                "food_home": {
+                                                    "type": "number"
+                                                },
+                                                "food_out": {
+                                                    "type": "number"
+                                                },
+                                                "furniture_and_appliances": {
+                                                    "type": "number"
+                                                },
+                                                "gasoline": {
+                                                    "type": "number"
+                                                },
+                                                "health_insurance": {
+                                                    "type": "number"
+                                                },
+                                                "heating_fuels_other": {
+                                                    "type": "number"
+                                                },
+                                                "home_maintenance_and_repairs": {
+                                                    "type": "number"
+                                                },
+                                                "household_operations": {
+                                                    "type": "number"
+                                                },
+                                                "housekeeping_supplies": {
+                                                    "type": "number"
+                                                },
+                                                "life_and_personal_insurance": {
+                                                    "type": "number"
+                                                },
+                                                "media_hardware_and_services": {
+                                                    "type": "number"
+                                                },
+                                                "medical_services": {
+                                                    "type": "number"
+                                                },
+                                                "medical_supplies": {
+                                                    "type": "number"
+                                                },
+                                                "miscellaneous": {
+                                                    "type": "number"
+                                                },
+                                                "mortgage_and_rent": {
+                                                    "type": "number"
+                                                },
+                                                "natural_gas": {
+                                                    "type": "number"
+                                                },
+                                                "other_debt_payments": {
+                                                    "type": "number"
+                                                },
+                                                "other_lodging": {
+                                                    "type": "number"
+                                                },
+                                                "personal_care": {
+                                                    "type": "number"
+                                                },
+                                                "pets": {
+                                                    "type": "number"
+                                                },
+                                                "prescription_drugs": {
+                                                    "type": "number"
+                                                },
+                                                "public_and_other_transportation": {
+                                                    "type": "number"
+                                                },
+                                                "reading": {
+                                                    "type": "number"
+                                                },
+                                                "residential_phone_service": {
+                                                    "type": "number"
+                                                },
+                                                "savings": {
+                                                    "type": "number"
+                                                },
+                                                "tobacco_and_smoking": {
+                                                    "type": "number"
+                                                },
+                                                "toys_and_hobbies": {
+                                                    "type": "number"
+                                                },
+                                                "vehicle_insurance": {
+                                                    "type": "number"
+                                                },
+                                                "vehicle_maintenance_and_repairs": {
+                                                    "type": "number"
+                                                },
+                                                "vehicle_purchase_and_lease": {
+                                                    "type": "number"
+                                                },
+                                                "water_and_public_services": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "required": [
+                                                "mortgage_and_rent",
+                                                "life_and_personal_insurance",
+                                                "cash_contributions",
+                                                "miscellaneous",
+                                                "tobacco_and_smoking",
+                                                "education",
+                                                "reading",
+                                                "personal_care",
+                                                "toys_and_hobbies",
+                                                "pets",
+                                                "media_hardware_and_services",
+                                                "fees_and_admissions",
+                                                "medical_supplies",
+                                                "prescription_drugs",
+                                                "medical_services",
+                                                "health_insurance",
+                                                "public_and_other_transportation",
+                                                "vehicle_insurance",
+                                                "vehicle_maintenance_and_repairs",
+                                                "gasoline",
+                                                "vehicle_purchase_and_lease",
+                                                "clothing_items_and_services",
+                                                "furniture_and_appliances",
+                                                "housekeeping_supplies",
+                                                "household_operations",
+                                                "water_and_public_services",
+                                                "cellular_phone_service",
+                                                "residential_phone_service",
+                                                "heating_fuels_other",
+                                                "electricity",
+                                                "natural_gas",
+                                                "other_lodging",
+                                                "home_maintenance_and_repairs",
+                                                "alcoholic_beverages",
+                                                "food_out",
+                                                "food_home",
+                                                "savings",
+                                                "other_debt_payments"
+                                            ],
+                                            "title": "budget-full",
+                                            "type": "object"
+                                        },
+                                        "transformed": {
+                                            "type": [
+                                                "object",
+                                                "null"
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "alcoholic_beverages": 495,
+                                            "cash_contributions": 1204,
+                                            "cellular_phone_service": 1041,
+                                            "clothing_items_and_services": 1317,
+                                            "education": 673,
+                                            "electricity": 1294,
+                                            "fees_and_admissions": 386,
+                                            "food_home": 3556,
+                                            "food_out": 2560,
+                                            "furniture_and_appliances": 1603,
+                                            "gasoline": 1808,
+                                            "health_insurance": 2756,
+                                            "heating_fuels_other": 90,
+                                            "home_maintenance_and_repairs": 1024,
+                                            "household_operations": 887,
+                                            "housekeeping_supplies": 495,
+                                            "life_and_personal_insurance": 252,
+                                            "media_hardware_and_services": 903,
+                                            "medical_services": 740,
+                                            "medical_supplies": 157,
+                                            "miscellaneous": 876,
+                                            "mortgage_and_rent": 6000,
+                                            "natural_gas": 343,
+                                            "other_debt_payments": 0,
+                                            "other_lodging": 510,
+                                            "personal_care": 594,
+                                            "pets": 522,
+                                            "prescription_drugs": 435,
+                                            "public_and_other_transportation": 523,
+                                            "reading": 83,
+                                            "residential_phone_service": 178,
+                                            "savings": 2000,
+                                            "tobacco_and_smoking": 326,
+                                            "toys_and_hobbies": 162,
+                                            "vehicle_insurance": 983,
+                                            "vehicle_maintenance_and_repairs": 734,
+                                            "vehicle_purchase_and_lease": 3000,
+                                            "water_and_public_services": 494
+                                        }
+                                    },
+                                    "Example_2": {
+                                        "description": "",
+                                        "summary": "Example_2",
+                                        "value": {
+                                            "budget": {
+                                                "alcoholic_beverages": 505,
+                                                "cash_contributions": 1228,
+                                                "cellular_phone_service": 1061,
+                                                "clothing_items_and_services": 1342,
+                                                "education": 686,
+                                                "electricity": 1319,
+                                                "fees_and_admissions": 393,
+                                                "food_home": 3625,
+                                                "food_out": 2610,
+                                                "furniture_and_appliances": 1634,
+                                                "gasoline": 1843,
+                                                "health_insurance": 2810,
+                                                "heating_fuels_other": 91,
+                                                "home_maintenance_and_repairs": 1044,
+                                                "household_operations": 904,
+                                                "housekeeping_supplies": 504,
+                                                "life_and_personal_insurance": 257,
+                                                "media_hardware_and_services": 920,
+                                                "medical_services": 755,
+                                                "medical_supplies": 160,
+                                                "miscellaneous": 893,
+                                                "mortgage_and_rent": 6553,
+                                                "natural_gas": 350,
+                                                "other_debt_payments": 0,
+                                                "other_lodging": 520,
+                                                "personal_care": 606,
+                                                "pets": 533,
+                                                "prescription_drugs": 443,
+                                                "public_and_other_transportation": 533,
+                                                "reading": 84,
+                                                "residential_phone_service": 182,
+                                                "savings": 0,
+                                                "tobacco_and_smoking": 333,
+                                                "toys_and_hobbies": 165,
+                                                "vehicle_insurance": 1002,
+                                                "vehicle_maintenance_and_repairs": 748,
+                                                "vehicle_purchase_and_lease": 3865,
+                                                "water_and_public_services": 504
+                                            },
+                                            "transformed": {
+                                                "Cell Phone": 1061,
+                                                "Charitable Giving": 1228,
+                                                "Clothing & Jewelry": 1342,
+                                                "Debt": 0,
+                                                "Dining Out": 2610,
+                                                "Education": 686,
+                                                "Entertainment & Travel": 3036,
+                                                "Gasoline": 1843,
+                                                "Groceries": 3625,
+                                                "Health Insurance": 2810,
+                                                "Household Expenses": 4086,
+                                                "Medical Services & Supplies": 915,
+                                                "Miscellaneous": 1567,
+                                                "Mortage/Rent": 6553,
+                                                "Personal Care": 606,
+                                                "Prescriptions": 443,
+                                                "Public Transportation": 533,
+                                                "Savings": 0,
+                                                "Utilities": 2446,
+                                                "Vehicle Insurance": 1002,
+                                                "Vehicle Maintenance": 748,
+                                                "Vehicle Payment": 3865
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "demographics": {
+                                        "properties": {
+                                            "age": {
+                                                "type": "integer"
+                                            },
+                                            "gross_annual_income": {
+                                                "type": "integer"
+                                            },
+                                            "household_members": {
+                                                "type": "integer"
+                                            },
+                                            "is_homeowner": {
+                                                "type": "boolean"
+                                            },
+                                            "net_annual_income": {
+                                                "type": "integer"
+                                            },
+                                            "zip": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "zip",
+                                            "household_members",
+                                            "age",
+                                            "net_annual_income",
+                                            "gross_annual_income"
+                                        ],
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "examples": {
+                                "Example_1": {
+                                    "description": "",
+                                    "summary": "Example_1",
+                                    "value": {
+                                        "demographics": {
+                                            "age": 35,
+                                            "gross_annual_income": 100000,
+                                            "household_members": 2,
+                                            "is_homeowner": false,
+                                            "net_annual_income": 85000,
+                                            "zip": "35244"
+                                        }
+                                    }
+                                },
+                                "Example_2": {
+                                    "description": "",
+                                    "summary": "Example_2",
+                                    "value": {
+                                        "demographics": {
+                                            "age": 25,
+                                            "gross_annual_income": 50000,
+                                            "household_members": 1,
+                                            "is_homeowner": false,
+                                            "net_annual_income": 41004,
+                                            "zip": "35210"
+                                        },
+                                        "transformer": {
+                                            "alcoholic_beverages": "Entertainment & Travel",
+                                            "cash_contributions": "Charitable Giving",
+                                            "cellular_phone_service": "Cell Phone",
+                                            "clothing_items_and_services": "Clothing & Jewelry",
+                                            "education": "Education",
+                                            "electricity": "Utilities",
+                                            "fees_and_admissions": "Entertainment & Travel",
+                                            "food_home": "Groceries",
+                                            "food_out": "Dining Out",
+                                            "furniture_and_appliances": "Household Expenses",
+                                            "gasoline": "Gasoline",
+                                            "health_insurance": "Health Insurance",
+                                            "heating_fuels_other": "Utilities",
+                                            "home_maintenance_and_repairs": "Household Expenses",
+                                            "household_operations": "Household Expenses",
+                                            "housekeeping_supplies": "Household Expenses",
+                                            "life_and_personal_insurance": "Miscellaneous",
+                                            "media_hardware_and_services": "Entertainment & Travel",
+                                            "medical_services": "Medical Services & Supplies",
+                                            "medical_supplies": "Medical Services & Supplies",
+                                            "miscellaneous": "Miscellaneous",
+                                            "mortgage_and_rent": "Mortage/Rent",
+                                            "natural_gas": "Utilities",
+                                            "other_debt_payments": "Debt",
+                                            "other_lodging": "Entertainment & Travel",
+                                            "personal_care": "Personal Care",
+                                            "pets": "Entertainment & Travel",
+                                            "prescription_drugs": "Prescriptions",
+                                            "public_and_other_transportation": "Public Transportation",
+                                            "reading": "Miscellaneous",
+                                            "residential_phone_service": "Utilities",
+                                            "savings": "Savings",
+                                            "tobacco_and_smoking": "Miscellaneous",
+                                            "toys_and_hobbies": "Entertainment & Travel",
+                                            "vehicle_insurance": "Vehicle Insurance",
+                                            "vehicle_maintenance_and_repairs": "Vehicle Maintenance",
+                                            "vehicle_purchase_and_lease": "Vehicle Payment",
+                                            "water_and_public_services": "Utilities"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/scores/generate": {
+            "post": {
+                "tags": [
+                    "scores"
+                ],
+                "summary": "Score a Budget",
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "post-scores-generate",
+                "description": "Generates several scores based on demographic and partial budget inputs.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "breakeven": {
+                                            "type": "number"
+                                        },
+                                        "lending": {
+                                            "type": "number"
+                                        },
+                                        "saving": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "breakeven": 8.46,
+                                            "lending": 2.44,
+                                            "saving": 3.58
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "budget": {
+                                        "description": "An object containing values for some tracked tracked spending categories, requiring housing and vehicle values.",
+                                        "properties": {
+                                            "alcoholic_beverages": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "cash_contributions": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "cellular_phone_service": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "clothing_items_and_services": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "education": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "electricity": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "fees_and_admissions": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "food_home": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "food_out": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "furniture_and_appliances": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "gasoline": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "health_insurance": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "heating_fuels_other": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "home_maintenance_and_repairs": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "household_operations": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "housekeeping_supplies": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "life_and_personal_insurance": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "media_hardware_and_services": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "medical_services": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "medical_supplies": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "miscellaneous": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "mortgage_and_rent": {
+                                                "type": "number"
+                                            },
+                                            "natural_gas": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "other_debt_payments": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "other_lodging": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "personal_care": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "pets": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "prescription_drugs": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "public_and_other_transportation": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "reading": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "residential_phone_service": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "savings": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "tobacco_and_smoking": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "toys_and_hobbies": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "vehicle_insurance": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "vehicle_maintenance_and_repairs": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            },
+                                            "vehicle_purchase_and_lease": {
+                                                "type": "number"
+                                            },
+                                            "water_and_public_services": {
+                                                "type": [
+                                                    "number",
+                                                    "null"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "mortgage_and_rent",
+                                            "vehicle_purchase_and_lease"
+                                        ],
+                                        "title": "budget-to-score",
+                                        "type": "object"
+                                    },
+                                    "demographics": {
+                                        "description": "Profile object containing simple demographic inputs describing an abstract person.",
+                                        "properties": {
+                                            "age": {
+                                                "description": "Head of household age",
+                                                "format": "int32",
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer"
+                                            },
+                                            "gross_annual_income": {
+                                                "description": "Income before taxes",
+                                                "format": "double",
+                                                "maximum": 1.7976931348623157e+308,
+                                                "minimum": -1.7976931348623157e+308,
+                                                "type": "number"
+                                            },
+                                            "household_members": {
+                                                "description": "Count of family members",
+                                                "format": "int32",
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer"
+                                            },
+                                            "is_homeowner": {
+                                                "type": "boolean"
+                                            },
+                                            "net_annual_income": {
+                                                "description": "Income after taxes",
+                                                "format": "double",
+                                                "maximum": 1.7976931348623157e+308,
+                                                "minimum": -1.7976931348623157e+308,
+                                                "type": "number"
+                                            },
+                                            "zip": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "zip",
+                                            "household_members",
+                                            "age",
+                                            "net_annual_income",
+                                            "gross_annual_income"
+                                        ],
+                                        "title": "demographics",
+                                        "type": "object"
+                                    },
+                                    "grouped_inputs": {
+                                        "items": {
+                                            "description": "An input allowing a single value to be mapped across multiple internal tracked categories.",
+                                            "properties": {
+                                                "items": {
+                                                    "enum": [
+                                                        "savings",
+                                                        "other_debt_payments",
+                                                        "mortgage_and_rent",
+                                                        "vehicle_purchase_and_lease",
+                                                        "life_and_personal_insurance",
+                                                        "cash_contributions",
+                                                        "miscellaneous",
+                                                        "tobacco_and_smoking",
+                                                        "education",
+                                                        "reading",
+                                                        "personal_care",
+                                                        "toys_and_hobbies",
+                                                        "pets",
+                                                        "media_hardware_and_services",
+                                                        "fees_and_admissions",
+                                                        "medical_supplies",
+                                                        "prescription_drugs",
+                                                        "medical_services",
+                                                        "health_insurance",
+                                                        "public_and_other_transportation",
+                                                        "vehicle_insurance",
+                                                        "vehicle_maintenance_and_repairs",
+                                                        "gasoline",
+                                                        "clothing_items_and_services",
+                                                        "furniture_and_appliances",
+                                                        "housekeeping_supplies",
+                                                        "household_operations",
+                                                        "water_and_public_services",
+                                                        "cellular_phone_service",
+                                                        "residential_phone_service",
+                                                        "heating_fuels_other",
+                                                        "electricity",
+                                                        "natural_gas",
+                                                        "other_lodging",
+                                                        "home_maintenance_and_repairs",
+                                                        "alcoholic_beverages",
+                                                        "food_out",
+                                                        "food_home"
+                                                    ],
+                                                    "items": {
+                                                        "enum": [
+                                                            "savings",
+                                                            "other_debt_payments",
+                                                            "mortgage_and_rent",
+                                                            "vehicle_purchase_and_lease",
+                                                            "life_and_personal_insurance",
+                                                            "cash_contributions",
+                                                            "miscellaneous",
+                                                            "tobacco_and_smoking",
+                                                            "education",
+                                                            "reading",
+                                                            "personal_care",
+                                                            "toys_and_hobbies",
+                                                            "pets",
+                                                            "media_hardware_and_services",
+                                                            "fees_and_admissions",
+                                                            "medical_supplies",
+                                                            "prescription_drugs",
+                                                            "medical_services",
+                                                            "health_insurance",
+                                                            "public_and_other_transportation",
+                                                            "vehicle_insurance",
+                                                            "vehicle_maintenance_and_repairs",
+                                                            "gasoline",
+                                                            "clothing_items_and_services",
+                                                            "furniture_and_appliances",
+                                                            "housekeeping_supplies",
+                                                            "household_operations",
+                                                            "water_and_public_services",
+                                                            "cellular_phone_service",
+                                                            "residential_phone_service",
+                                                            "heating_fuels_other",
+                                                            "electricity",
+                                                            "natural_gas",
+                                                            "other_lodging",
+                                                            "home_maintenance_and_repairs",
+                                                            "alcoholic_beverages",
+                                                            "food_out",
+                                                            "food_home"
+                                                        ],
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "value": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "required": [
+                                                "items",
+                                                "value"
+                                            ],
+                                            "title": "grouped-input",
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "required": [
+                                    "demographics",
+                                    "budget"
+                                ],
+                                "type": "object"
+                            },
+                            "examples": {
+                                "Example_1": {
+                                    "description": "",
+                                    "summary": "Example_1",
+                                    "value": {
+                                        "budget": {
+                                            "education": 0,
+                                            "health_insurance": 0,
+                                            "mortgage_and_rent": 9600,
+                                            "prescription_drugs": 0,
+                                            "savings": 2400,
+                                            "tobacco_and_smoking": 0,
+                                            "vehicle_purchase_and_lease": 3000
+                                        },
+                                        "demographics": {
+                                            "age": 25,
+                                            "gross_annual_income": 50000,
+                                            "household_members": 1,
+                                            "is_homeowner": false,
+                                            "net_annual_income": 41004,
+                                            "zip": "35210"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

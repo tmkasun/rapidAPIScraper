@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_755be0b6-2462-4e2c-8641-c12c848a4cd8",
+    "name": "FaceAnalysis",
+    "title": "FaceAnalysis",
+    "description": "Use our API for face detection, facial emotions, age and gender.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "faceanalysis",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-27T10:26:11.527Z",
+    "category": "Visual Recognition",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b10f0244-2202-4063-84b7-a9e01acac00b.png",
+    "user": {
+        "id": 4912217,
+        "username": "promityai-promityai-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_721b2a54-31a4-4065-a45a-2c4596a33202",
+        "tags": [
+            {
+                "id": "tag_1254d585-3453-4217-bddc-e9e6c69aeca3",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_613681ac-2b20-457d-8f23-edbad8eb1089",
+                "isGraphQL": false,
+                "route": "/face_detection/process_url",
+                "method": "POST",
+                "name": "Face Detection by URL",
+                "description": "Endpoint for face detection. Send us link to image, we return  position of detected faces.\nCheck out our tutorials for example of usage in Python.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_951cc5ed-6df1-4f3c-b267-a55113ff2ba7",
+                "isGraphQL": false,
+                "route": "/age_gender/process_url",
+                "method": "POST",
+                "name": "Age and gender by URL",
+                "description": "Endpoint for age and gender prediction. Send us link to image, we return  position of detected faces and predicted age and gender.\nCheck out our tutorials for example of usage in Python.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_4de0f82d-6635-4e12-8fef-1f8d555c4378",
+                "isGraphQL": false,
+                "route": "/face_attributes/process_url",
+                "method": "POST",
+                "name": "Face attributes by URL",
+                "description": "Endpoint for 37 face attributes detection. Send us link to image, we return  position of detected faces and found attributes.\nAttributes:\n1. 5oClockShadow\n2. ArchedEyebrows\n3. BagsUnderEyes\n4. Bald\n5. Bangs\n6. BigLips\n7. BigNose\n8. BlackHair\n9. BlondHair\n10. Blurry\n11. BrownHair\n12. BushyEyebrows\n13. Chubby\n14. DoubleChin\n15. Eyeglasses\n16. Goatee\n17. GrayHair\n18. HeavyMakeup\n19. HighCheekbones\n20. MouthSlightlyOpen\n21. Mustache\n22. NarrowEyes\n23. NoBeard\n24. OvalFace\n25. PaleSkin\n26. PointyNose\n27. RecedingHairline\n28. RosyCheeks\n29. Sideburns\n30. Smiling\n31. StraightHair\n32. WavyHair\n33. WearingEarrings\n34. WearingHat\n35. WearingLipstick\n36. WearingNecklace\n37. WearingNecktie\n\nExample in python:\n``` \n#!/usr/bin/python3\nimport cv2\nimport json\nimport requests\nimport numpy as np\n\nheaders = {\n    \"X-Rapidapi-Key\": \"XXX\",\n    \"Content-Type\": \"application/json\",\n}\n\nimg_address = \"https://lelum.pl/wp-content/uploads/2018/10/okulary2-1.jpg\"\nparams = {'img_url': img_address}\n\naddress = \"https://faceanalysis.p.rapidapi.com/face_attributes/process\"\n\nresponse = requests.get(address, headers=headers, params=params)\njson_dict = json.loads(response.text)\n\nresp_img = requests.get(img_address, stream=True)\narr = np.asarray(bytearray(resp_img.content), dtype=np.uint8)\nimg = cv2.imdecode(arr, -1)\n\nimg_height, img_width, _ = img.shape\n\nfont = cv2.FONT_HERSHEY_SIMPLEX\nbottomLeftCornerOfText = (10, 500)\nfontScale = 0.5\nfontColor = (0, 255, 0)\nlineType = 2\nGREEN = (0, 250, 0)\n\nlables_groups = {\n    'hair_color': [\"Black_Hair\",\n                   \"Blond_Hair\",\n                   \"Brown_Hair\",\n                   \"Bald\",\n                   \"Gray_Hair\"],\n    'hair_style': [\"Straight_Hair\",\n                   \"Wavy_Hair\",\n                   \"Bangs\"],\n    'additions': [\"Eyeglasses\",\n                  \"Heavy_Makeup\",\n                  \"Wearing_Earrings\",\n                  \"Wearing_Hat\",\n                  \"Wearing_Lipstick\",\n                  \"Wearing_Necklace\",\n                  \"Wearing_Necktie\"],\n    'face_attributes': [\"5_o_Clock_Shadow\",\n                        \"Arched_Eyebrows\",\n                        \"Attractive\",\n                        \"Bags_Under_Eyes\",\n                        \"Big_Lips\",\n                        \"Big_Nose\",\n                        \"Bushy_Eyebrows\",\n                        \"Chubby\",\n                        \"Double_Chin\",\n                        \"Goatee\",\n                        \"High_Cheekbones\",\n                        \"Mouth_Slightly_Open\",\n                        \"Mustache\",\n                        \"Narrow_Eyes\",\n                        \"No_Beard\",\n                        \"Oval_Face\",\n                        \"Pale_Skin\",\n                        \"Pointy_Nose\",\n                        \"Receding_Hairline\",\n                        \"Rosy_Cheeks\",\n                        \"Sideburns\",\n                        \"Smiling\"]\n}\n\n\ndef draw_labels(image, result, x, y):\n    predicted_labels = {\n        'hair_color': [],\n        'hair_style': [],\n        'additions': [],\n        'face_attributes': []\n\n    }\n    hair_color = \"\"\n    hair_style = \"\"\n    additions = \"\"\n    face_attributes = \"\"\n\n    for label, score in result.items():\n        if score > 0.2:\n            for group, labels in lables_groups.items():\n                if label in labels:\n                    predicted_labels[group].append((label, score))\n    if len(predicted_labels['hair_color']) > 0:\n        hair_color = predicted_labels['hair_color'][0][0]\n    if len(predicted_labels['hair_style']) > 0:\n        hair_style = predicted_labels['hair_style'][0][0]\n    if len(predicted_labels['additions']) > 0:\n        additions = predicted_labels['additions'][0][0]\n    if len(predicted_labels['face_attributes']) > 0:\n        face_attributes = predicted_labels['face_attributes'][0][0]\n\n    if hair_color != \"\" and hair_style != \"\" and face_attributes != \"\":\n        cv2.putText(image, \"Hair Color: \", (x, y), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, hair_color, (x, y + 15), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, \"Hair Style: \", (x, y + 30), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, hair_style, (x, y + 45), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, \"Additions: \", (x, y + 60), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, additions, (x, y + 75), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, \"Face attribute: \", (x, y + 90), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n        cv2.putText(image, face_attributes, (x, y + 105), cv2.FONT_HERSHEY_PLAIN, 1, GREEN, 1)\n\n\nfor det in json_dict['detections']:\n    crop = det['crop']\n    if crop['score'] < 0.8:\n        continue\n    x1 = int(crop['x1'] * img_width)\n    x2 = int(crop['x2'] * img_width)\n    y1 = int(crop['y1'] * img_height)\n    y2 = int(crop['y2'] * img_height)\n    img = cv2.rectangle(img, (x1, y1), (x2, y2), GREEN, 3)\n    draw_labels(img, det['face_attributes'], x2, y2)\ncv2.imwrite('test_out.png', img)\n```",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

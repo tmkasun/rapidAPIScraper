@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_3aa87f54-528d-4b25-99db-d11da640013f",
+    "name": "Spott",
+    "title": "Spott",
+    "description": "Search cities, countries and administrative divisions by name, autocompletion or IP.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "spott",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-18T13:35:44.842Z",
+    "category": "Location",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b5/255b7b1d2b401d80a2c1fc5902d2bb/c27e47132cb92ecd310202eb090fd7ea.png",
+    "user": {
+        "id": 3934790,
+        "username": "Spott",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_5cf140be-e9b0-4280-8741-d226b3d4a510",
+        "tags": [
+            {
+                "id": "tag_76e67d99-90dd-46e7-87ef-4ed70c47660e",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_5bb028e7-a299-4a13-95e1-e341ccf8ec73",
+                "isGraphQL": false,
+                "route": "/places/geoname-id/{geonameId}",
+                "method": "GET",
+                "name": "Get place by Geoname ID",
+                "description": "Returns a single Place identified by a Geoname ID.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_8cdd2d26-4a89-4ec7-8f7a-9f1ed43daabc",
+                "isGraphQL": false,
+                "route": "/places/{id}",
+                "method": "GET",
+                "name": "Get place by ID",
+                "description": "Returns a single Place identified by an ID.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_7bb41d45-e231-41f9-82a0-5513bd4863e6",
+                "isGraphQL": false,
+                "route": "/places/ip/me",
+                "method": "GET",
+                "name": "Get place by my IP",
+                "description": "Returns the place related to the IP where the request was performed. Returns \"Not Found\" error when no place is related to the IP.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

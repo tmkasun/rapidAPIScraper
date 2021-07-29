@@ -1,0 +1,60 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_4776ffb8-7206-463d-86b3-e3a0b70466cb",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "55902d65e4b0308652230fdd",
+        "apiId": "55902d65e4b0b94e3b827ceb"
+    },
+    "info": {
+        "title": "E-mail Check Invalid or Disposable Domain",
+        "description": "Easily check if a certain e-mail address is valid. Is it a valid domain? Is the e-mail a temporary/disposable e-mail? That's a common indicator of spamming/trolling, so now there's an API for you so you can easily block it!",
+        "version": "v1",
+        "x-category": "Commerce",
+        "x-long-description": "Easily check if a certain e-mail address is valid. Is it a valid domain? Is the e-mail a temporary/disposable e-mail? That's a common indicator of spamming/trolling, so now there's an API for you so you can easily block it!",
+        "x-website": "https://check-mail.org/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/39/77fdce860140838e3b86a9a1891901/6a018071084846f83d4915fa30e5fcff.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://mailcheck.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "domain",
+                        "in": "query",
+                        "required": true,
+                        "description": "Full e-mail, or domain to check if valid or temporary/disposable. You can enter an e-mail address, and it will be converted to a domain, but entering just the domain is recommended for user privacy reasons.",
+                        "schema": {
+                            "type": "string",
+                            "example": "mailinator.com"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "mailcheck",
+                "description": "Check if e-mail domain is valid, or a disposable/temporary address. Invalid domains (typos, non-responding mailserver, etc) will return \"valid: false\", \"block: true\". Disposable e-mail domains will return \"valid: true\" (since it's a valid domain), but \"block: true\" and \"disposable: true\".",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

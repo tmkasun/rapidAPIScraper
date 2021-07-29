@@ -1,0 +1,301 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_d890eb9b-6027-4d73-ae80-4fb48887f370",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_4baeef9d-f9e9-4f3b-8359-2655c84b94f5",
+        "apiId": "api_a8585c1f-74d8-4ab6-bc59-1aeb682c0605"
+    },
+    "info": {
+        "title": "Phone Validator",
+        "description": "Phone Validator API -- Phone Number Linetype Lookup",
+        "version": "v1",
+        "x-category": "Communication",
+        "x-long-description": "Determine the linetype of any North American  phone number with the official API of PhoneValidator.com.  Provide a phone number (with or without a leading \"1\") and determine if it is a cell phone, landline, VOIP, toll-free or Unknown. Datapoints returned are linetype, phone company and location (City/State). If the area code/prefix of a phone number is not recognized as \"in-service\" its linetype will be shown as \"Unknown\" and this could be an indicator of a fake phone number such as 3100001234.  (All datapoints are based on the original assignment of the phone number at the time of issuance but we update legacy phone company names to their current name when known. For example, Nextel becomes Sprint.)  ",
+        "x-website": "https://www.phonevalidator.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ee582641a3a554032f795816ed0b6a7d.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://phone-validator.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Users"
+        },
+        {
+            "name": "PhoneBasic"
+        }
+    ],
+    "paths": {
+        "/api/v1/PhoneBasic/{phoneNumber}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "phoneNumber",
+                        "in": "path",
+                        "required": true,
+                        "description": "Any North American phone number, 10 or 11 digits (with or without leading \"1\"). Examples: 2025551234 or 12025551234.",
+                        "schema": {
+                            "description": "",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "GetPhoneBasic",
+                "description": "Provide a North American phone number (with or without a leading \"1\") and determine if it is a cell phone, landline, VOIP, toll-free or Unknown. Datapoints returned are linetype, phone company and location (City/State).",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "Company": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "LineType": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "Location": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "PhoneNumber": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "ReportDate": {
+                                            "format": "date-time",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example Response": {
+                                        "description": "",
+                                        "summary": "Example Response",
+                                        "value": {
+                                            "Company": "string",
+                                            "LineType": "string",
+                                            "Location": "string",
+                                            "PhoneNumber": "string",
+                                            "ReportDate": "2020-06-23T05:02:52.313Z"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "additionalProperties": {
+                                        "additionalProperties": false,
+                                        "type": "object"
+                                    },
+                                    "properties": {
+                                        "detail": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "instance": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "status": {
+                                            "format": "int32",
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": [
+                                                "integer",
+                                                "null"
+                                            ]
+                                        },
+                                        "title": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "detail": "",
+                                            "instance": "",
+                                            "status": "",
+                                            "title": ""
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "403": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "additionalProperties": {
+                                        "additionalProperties": false,
+                                        "type": "object"
+                                    },
+                                    "properties": {
+                                        "detail": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "instance": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "status": {
+                                            "format": "int32",
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": [
+                                                "integer",
+                                                "null"
+                                            ]
+                                        },
+                                        "title": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "detail": "",
+                                            "instance": "",
+                                            "status": "",
+                                            "title": ""
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "additionalProperties": {
+                                        "additionalProperties": false,
+                                        "type": "object"
+                                    },
+                                    "properties": {
+                                        "detail": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "instance": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "status": {
+                                            "format": "int32",
+                                            "maximum": 2147483647,
+                                            "minimum": -2147483648,
+                                            "type": [
+                                                "integer",
+                                                "null"
+                                            ]
+                                        },
+                                        "title": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "detail": "",
+                                            "instance": "",
+                                            "status": "",
+                                            "title": ""
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

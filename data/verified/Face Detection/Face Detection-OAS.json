@@ -1,0 +1,277 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_926bbff1-3bfd-4fb6-a9a6-63c817f0feb3",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_470255d7-b778-40cb-bd1c-5b666277e6e4",
+        "apiId": "api_859601e0-9a4c-4fb6-b633-370e58ea21ea"
+    },
+    "info": {
+        "title": "Face Detection",
+        "description": "PresentID Face detection API can detect the face(s) in your image and retrieve some features such as Age, Gender, Landmarks, etc.",
+        "version": "v1",
+        "x-category": "Visual Recognition",
+        "x-long-description": "PresentID Face detection API can detect the face(s) in your image and retrieve some features such as Age, Gender, Landmarks, etc.\n\n**Input:**\n- Image file\n- Image URL link\n- Base64 image\n\n**Output:**\n- Rectangle\n- Age\n- Gender\n- Face landmarks\n- Blur\n- Rotate Angel\n\n**Ability & Potentials:**\n- Recall rate at 100 FP on FDDB: 87.3\n- Detect faces and get back the attributes such as rectangle, Gender, age.\n- Detect all small and large faces.\n- High-precision detection of size; pitch, roll, yaw, and 14-point key landmarks.\n- Low resource and impressive high performance.\n- Robust detection of faces with rotation, glasses, etc.\n- Support IOS, Android, Windows, and Mac devices.\n- Detect faces from video.\n- The smallest faces are detected (50px * 50px).\n- Easy integration with your app.\n\n**Use Cases:**\n- Attendance systems\n- Dating websites\n- Digital banking \n- Visitor identification\n- Expedited service\n- Access management\n- Public safety\n- Fraud prevention\n- Know your customer\n\n**Rules & Restrictions:**\n- Send data via Base64 or an image URL or an image file.\n- Image size should not exceed 8 MB.\n- Also, the images should not be larger than 5000 pixels and smaller than 50 pixels.\n",
+        "x-website": "https://presentid.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/caf65833-9a0d-41d0-8f61-62f0450744f9.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://face-detection11.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/FaceDetection": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Send image by image file",
+                "description": "Detect face(s) in your image and retrieve some features such as Age, Gender, Land Marks and etc.\n\n*Image size should not exceed 8 MB*\n*Also, the images must not be larger than 5000 pixels and smaller than 50 pixels*",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "items": {
+                                                "properties": {
+                                                    "age": {
+                                                        "properties": {
+                                                            "maxAge": {
+                                                                "type": "integer"
+                                                            },
+                                                            "minAge": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "blur": {
+                                                        "properties": {
+                                                            "level": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": "number"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "faceID": {
+                                                        "type": "string"
+                                                    },
+                                                    "faceLandMarks": {
+                                                        "items": {
+                                                            "properties": {
+                                                                "title": {
+                                                                    "type": "string"
+                                                                },
+                                                                "x": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "y": {
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "gender": {
+                                                        "properties": {
+                                                            "index": {
+                                                                "type": "integer"
+                                                            },
+                                                            "title": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "rectangle": {
+                                                        "properties": {
+                                                            "lb": {
+                                                                "properties": {
+                                                                    "x": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "y": {
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "lt": {
+                                                                "properties": {
+                                                                    "x": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "y": {
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rb": {
+                                                                "properties": {
+                                                                    "x": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "y": {
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "rt": {
+                                                                "properties": {
+                                                                    "x": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "y": {
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "rotateAngel": {
+                                                        "type": "integer"
+                                                    },
+                                                    "status": {
+                                                        "type": "integer"
+                                                    },
+                                                    "statusMessage": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "hasError": {
+                                            "type": "boolean"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer"
+                                        },
+                                        "statusMessage": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "FaceDetectionResponse": {
+                                        "description": "",
+                                        "summary": "FaceDetectionResponse",
+                                        "value": {
+                                            "data": [
+                                                {
+                                                    "age": {
+                                                        "maxAge": 46,
+                                                        "minAge": 41
+                                                    },
+                                                    "blur": {
+                                                        "level": "medium",
+                                                        "value": 0.18274683425000002
+                                                    },
+                                                    "faceID": "62fbc589-8709-40e2-967c-42989ee1082f",
+                                                    "faceLandMarks": [
+                                                        {
+                                                            "title": "CenterRightEye",
+                                                            "x": 282,
+                                                            "y": 193
+                                                        },
+                                                        {
+                                                            "title": "CenterLeftEye",
+                                                            "x": 285,
+                                                            "y": 218
+                                                        },
+                                                        {
+                                                            "title": "NoseTip",
+                                                            "x": 293,
+                                                            "y": 242
+                                                        },
+                                                        {
+                                                            "title": "LipsRightCorner",
+                                                            "x": 313,
+                                                            "y": 258
+                                                        },
+                                                        {
+                                                            "title": "LipsLeftCorner",
+                                                            "x": 338,
+                                                            "y": 263
+                                                        }
+                                                    ],
+                                                    "gender": {
+                                                        "index": 1,
+                                                        "title": "Male"
+                                                    },
+                                                    "rectangle": {
+                                                        "lb": {
+                                                            "x": 381,
+                                                            "y": 251
+                                                        },
+                                                        "lt": {
+                                                            "x": 381,
+                                                            "y": 146
+                                                        },
+                                                        "rb": {
+                                                            "x": 276,
+                                                            "y": 251
+                                                        },
+                                                        "rt": {
+                                                            "x": 276,
+                                                            "y": 146
+                                                        }
+                                                    },
+                                                    "rotateAngel": 0,
+                                                    "status": 200,
+                                                    "statusMessage": "OK"
+                                                }
+                                            ],
+                                            "hasError": false,
+                                            "statusCode": 200,
+                                            "statusMessage": "OK"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "photo": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

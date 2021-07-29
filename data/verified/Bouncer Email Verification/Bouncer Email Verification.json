@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_598b1d99-75ea-404e-88ad-833b52c47293",
+    "name": "Bouncer Email Verification",
+    "title": "Bouncer Email Verification",
+    "description": "Email Verification and Email Validation by Bouncer",
+    "visibility": "PUBLIC",
+    "slugifiedName": "bouncer-email-verification",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-10-12T14:20:07.174Z",
+    "category": "Email",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/4f6efa8d3da225415638eceb30852836.png",
+    "user": {
+        "id": 3936457,
+        "username": "BouncerAdmin",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_a7c42bbd-b238-499e-8056-9bea37f40a6b",
+        "tags": [
+            {
+                "id": "tag_5a4e1918-7ac8-4854-aa5f-9e532d4d2887",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_0b4ed545-19cf-4a76-bb24-fb0138e44aeb",
+                "isGraphQL": false,
+                "route": "/v1/email/verify",
+                "method": "GET",
+                "name": "VerifyEmail",
+                "description": "Verifies single email in real-time synchronous manner.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

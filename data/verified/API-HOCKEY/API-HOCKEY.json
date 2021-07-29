@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_a76852c3-60b5-4525-afeb-6bb263c2b856",
+    "name": "API-HOCKEY",
+    "title": "API-HOCKEY",
+    "description": "Hockey Leagues & Cups with Livescore, Odds, Bookmakers, Statistics, Standings, Historical Data...",
+    "visibility": "PUBLIC",
+    "slugifiedName": "api-hockey",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-07T21:51:34.795Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b4c85f7a-a6fd-4df7-aba4-1e96ae357c5a.png",
+    "user": {
+        "id": 3553584,
+        "username": "api-sports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_3aae99ab-28e2-45b8-b708-4065568d111e",
+        "tags": [
+            {
+                "id": "tag_b8eeb3af-0212-41cf-88ae-eae62cb998a3",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_6faf26cc-9792-49ce-82fd-0e07f1e5f3ab",
+                "isGraphQL": false,
+                "route": "/odds/",
+                "method": "GET",
+                "name": "Odds",
+                "description": "Get odds from games or leagues.\n\nWe provide pre-match odds between 1 and 7 days before the game.\n\nWe keep a 7-day history (The availability of odds may vary according to the leagues, seasons, games and bookmakers)\n\n> Odds are updated once a day",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_8bea218b-355e-4950-8fe2-386f787a4f07",
+                "isGraphQL": false,
+                "route": "/teams/",
+                "method": "GET",
+                "name": "Search Teams",
+                "description": "Search Teams",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_34f37a6f-3763-4a69-8c85-92204fc4c7e4",
+                "isGraphQL": false,
+                "route": "/teams/",
+                "method": "GET",
+                "name": "Teams Details",
+                "description": "Get data about teams.\n\nThe team id are unique in the API and teams keep it among all the leagues/cups in which they participate.\n\n> This endpoint requires at least one parameter.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,172 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_d0892c68-94f0-4fc2-bac5-537e8d179a7b",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_cddad5af-017d-47fc-9ef9-1212d89b6e22",
+        "apiId": "api_f211cc86-8843-467f-9999-562d7b4c3bda"
+    },
+    "info": {
+        "title": "Dark Sky",
+        "description": "The easiest, most advanced, weather API on the web.",
+        "version": "v1",
+        "x-category": "Weather",
+        "x-long-description": "Weather Conditions:\n-Forecasts and current conditions\n-Global coverage\n-Historical data\n-Severe weather alerts",
+        "x-website": "https://darksky.net/forecast/37.7801,-122.3925/us12/en",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/70/6c66c0309a11e99af1bfd0f8162db7/f15efc85482994222ea77694e8b743c0.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://dark-sky.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/{latitude},{longitude},{time}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "units",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return weather conditions in the requested units. [units] should be one of the following:  auto: automatically select units based on geographic location ca: same as si, except that windSpeed is in kilometers per hour uk2: same as si, except that nearestStormDistance and visibility are in miles and windSpeed is in miles per hour us: Imperial units (the default) si: SI units",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "exclude",
+                        "in": "query",
+                        "required": false,
+                        "description": "Exclude some number of data blocks from the API response. This is useful for reducing latency and saving cache space. The value blocks should be a comma-delimeted list (without spaces) of any of the following:  currently, minutely, hourly, daily, alerts, flags",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.) Use 2-letter language code (full list in API Details). en is default.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "path",
+                        "required": true,
+                        "description": "The latitude of a location (in decimal degrees). Positive is north, negative is south.",
+                        "schema": {
+                            "type": "string",
+                            "example": "37.774929"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "path",
+                        "required": true,
+                        "description": "The longitude of a location (in decimal degrees). Positive is east, negative is west.",
+                        "schema": {
+                            "type": "string",
+                            "example": "-122.419418"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "path",
+                        "required": true,
+                        "description": "Either be a UNIX time (that is, seconds since midnight GMT on 1 Jan 1970) or a string formatted as follows: [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS][timezone]. timezone should either be omitted (to refer to local time for the location being requested), Z (referring to GMT time), or +[HH][MM] or -[HH][MM] for an offset from GMT in hours and minutes. The timezone is only used for determining the time of the request; the response will always be relative to the local time zone.",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-02-20"
+                        }
+                    }
+                ],
+                "operationId": "Time Machine",
+                "description": "A Time Machine Request returns the observed (in the past) or forecasted (in the future) hour-by-hour weather and daily weather conditions for a particular date.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/{latitude},{longitude}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return summary properties in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set both parameters appropriately.) language should be 2-letter language code. English is default",
+                        "schema": {
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    {
+                        "name": "extend",
+                        "in": "query",
+                        "required": false,
+                        "description": "When extend=hourly, return hour-by-hour data for the next 168 hours, instead of the next 48. When using this option, we strongly recommend enabling HTTP compression.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "units",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return weather conditions in the requested units. [units] should be one of the following:  auto: automatically select units based on geographic location ca: same as si, except that windSpeed and windGust are in kilometers per hour uk2: same as si, except that nearestStormDistance and visibility are in miles, and windSpeed and windGust in miles per hour us: Imperial units (the default) si: SI units",
+                        "schema": {
+                            "type": "string",
+                            "example": "auto"
+                        }
+                    },
+                    {
+                        "name": "exclude",
+                        "in": "query",
+                        "required": false,
+                        "description": "Exclude some number of data blocks from the API response. This is useful for reducing latency and saving cache space. The value blocks should be a comma-delimeted list (without spaces) of any of the following:  currently, minutely, hourly, daily, alerts, flags",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "path",
+                        "required": true,
+                        "description": "The longitude of a location (in decimal degrees). Positive is east, negative is west.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "path",
+                        "required": true,
+                        "description": "The latitude of a location (in decimal degrees). Positive is north, negative is south.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Forecast",
+                "description": "A Forecast Request returns the current weather conditions, a minute-by-minute forecast for the next hour (where available), an hour-by-hour forecast for the next 48 hours, and a day-by-day forecast for the next week.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

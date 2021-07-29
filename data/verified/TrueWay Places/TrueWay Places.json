@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_fbfed0c5-e977-452c-b309-00057b12523a",
+    "name": "TrueWay Places",
+    "title": "TrueWay Places",
+    "description": "Search for places. Provides detailed information for over 100 million places and points of interest.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "trueway-places",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-17T11:23:17.428Z",
+    "category": "Mapping",
+    "thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/0ea15831-44c1-4901-8faf-dba894bf7770.png",
+    "user": {
+        "id": 4062149,
+        "username": "trueway",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_6e78caed-6878-4ffb-bf6b-ff946b713e7f",
+        "tags": [
+            {
+                "id": "tag_c09a75ef-f0ed-48f3-8ecb-4b3ee3910a36",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_56deb615-ff9a-4f73-81fe-1d660bdfe9fc",
+                "isGraphQL": false,
+                "route": "/FindPlacesNearby",
+                "method": "GET",
+                "name": "FindPlacesNearby",
+                "description": "Search for nearby places",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_3e1407e3-998a-4561-98da-c11041f3df66",
+                "isGraphQL": false,
+                "route": "/FindPlaceByText",
+                "method": "GET",
+                "name": "FindPlaceByText",
+                "description": "Search for places by text string",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

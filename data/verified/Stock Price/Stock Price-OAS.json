@@ -1,0 +1,168 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_a09e6231-f82b-4dc6-97e6-8ff86d2ea579",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_fb5cf7a5-b492-47e0-a04d-689f6f283e9e",
+        "apiId": "api_fbd3b676-0132-4de0-9995-d2b51de0fffd"
+    },
+    "info": {
+        "title": "Stock Price",
+        "description": "Get the latest stock market quote price data.",
+        "version": "v1",
+        "x-category": "Financial",
+        "x-long-description": "",
+        "x-website": "https://fridaystock.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d1775a4f-ee2f-4850-b3e8-52f2949a959c.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://stock-price4.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/price/{symbol}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "symbol",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "TSLA"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Get Stock Quote Price",
+                "description": "Enter the stock symbol ticker and get the price returned in response.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Change": {
+                                            "type": "number"
+                                        },
+                                        "ChangePercent": {
+                                            "type": "number"
+                                        },
+                                        "IsActive": {
+                                            "type": "boolean"
+                                        },
+                                        "IsRegularTradingSession": {
+                                            "type": "boolean"
+                                        },
+                                        "Price": {
+                                            "type": "integer"
+                                        },
+                                        "currency": {
+                                            "type": "string"
+                                        },
+                                        "exchangeDataDelayedBy": {
+                                            "type": "integer"
+                                        },
+                                        "fullExchangeName": {
+                                            "type": "string"
+                                        },
+                                        "marketState": {
+                                            "type": "string"
+                                        },
+                                        "postMarketChange": {
+                                            "type": "number"
+                                        },
+                                        "postMarketChangePercent": {
+                                            "type": "number"
+                                        },
+                                        "postMarketPrice": {
+                                            "type": "number"
+                                        },
+                                        "preMarketChange": {
+                                            "type": "integer"
+                                        },
+                                        "preMarketChangePercent": {
+                                            "type": "integer"
+                                        },
+                                        "preMarketPrice": {
+                                            "type": "integer"
+                                        },
+                                        "regularMarketChange": {
+                                            "type": "number"
+                                        },
+                                        "regularMarketChangePercent": {
+                                            "type": "number"
+                                        },
+                                        "regularMarketDayRange": {
+                                            "type": "string"
+                                        },
+                                        "regularMarketOpen": {
+                                            "type": "integer"
+                                        },
+                                        "regularMarketPreviousClose": {
+                                            "type": "number"
+                                        },
+                                        "regularMarketPrice": {
+                                            "type": "integer"
+                                        },
+                                        "shortName": {
+                                            "type": "string"
+                                        },
+                                        "symbol": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "Change": 18.46997,
+                                            "ChangePercent": 0.557579,
+                                            "IsActive": false,
+                                            "IsRegularTradingSession": false,
+                                            "Price": 3331,
+                                            "currency": "USD",
+                                            "exchangeDataDelayedBy": 0,
+                                            "fullExchangeName": "NasdaqGS",
+                                            "marketState": "PREPRE",
+                                            "postMarketChange": -8.77002,
+                                            "postMarketChangePercent": -0.2632849,
+                                            "postMarketPrice": 3322.23,
+                                            "preMarketChange": 0,
+                                            "preMarketChangePercent": 0,
+                                            "preMarketPrice": 0,
+                                            "regularMarketChange": 18.46997,
+                                            "regularMarketChangePercent": 0.557579,
+                                            "regularMarketDayRange": "3277.75 - 3347.0",
+                                            "regularMarketOpen": 3330,
+                                            "regularMarketPreviousClose": 3312.53,
+                                            "regularMarketPrice": 3331,
+                                            "shortName": "Amazon.com, Inc.",
+                                            "symbol": "AMZN"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

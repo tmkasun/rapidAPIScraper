@@ -1,0 +1,1266 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_b786c0f3-f033-490e-95eb-319e424a8415",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_dd5e93f2-ca44-4b06-b2e1-fc85b9f07f39",
+        "apiId": "api_a8b56c17-8067-4b96-9362-c7a944564543"
+    },
+    "info": {
+        "title": "Soccer Data",
+        "description": "Broadage Soccer API brings a wide range of data for Soccer in fixtures, livescores, standings and many more. Team, tournament or match, retrieve real time data for any perspective you need. Our Soccer Coverage includes 350+ tournaments from all around the world with in-depth coverage, giving the chance to present the best sports data from users located anywhere. <br>This is a limited version in RapidApi. <a href=\"https://www.broadage.com/signup/api/free?utm_source=rapidapi&utm_medium=click&utm_campaign=soccer_api\" target=”_blank”>Please, click here to start your Free Trial and try the endpoints with live data now!</a>",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Live Soccer Data for every aspect and perspective. Broadage Soccer API brings you a wide range of types of data for Soccer in fixtures, livescores, standings, missing players and many more. Team, tournament or match, you are able to retrieve real time data for any perspective you need.\n\nFrom English Premier League to MLS, our Soccer Coverage includes 350+ tournaments from all around the world. Not just the domestic leagues, major International tournaments such as Champions League to World Cup and Copa Libertadores are covered with in-depth coverage, giving you the opportunity to present the best sports data from users located anywhere.",
+        "x-website": "https://www.broadage.com/sports-data-api/soccer",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f6c5d3f9-797e-44ea-8e85-3f299f59cf40.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://soccer-data.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "H2H Data",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Post-Match Data"
+        },
+        {
+            "name": "Live Data"
+        },
+        {
+            "name": "Pre-Match Data"
+        }
+    ],
+    "paths": {
+        "/h2h/match/statistics/market/goals": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452254"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Market Statistics: Goals Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/market-statistics-goals/"
+                },
+                "operationId": "Market Statistics: Goals",
+                "description": "Provides the market goals statistics which are “Both Teams to Score”, “Under/Over” and also “Total Goals” for both two teams against the other teams in the tournament.\n\nP.S.\nFull data is available at Market Statistics: Goals endpoint but can not be shown in mock response.\n\nThe data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/list/recent": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452254"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Recent Match List Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/recent-match-list/"
+                },
+                "operationId": "Recent Match List",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\nThe data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.\n\nP.S.\nFull data is available at Recent Match List endpoint but can not be shown in mock response.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/goal-analysis/goal-minutes/seasonal": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452254"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Seasonal Goal Analysis: Goal Minutes Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/seasonal-goal-analysis-goal-minutes/"
+                },
+                "operationId": "Seasonal Goal Analysis: Goal Minutes",
+                "description": "Provides the goals statistics of the teams against to the other teams(in tournament) in the minutes intervals(0-10, 11-20, 21-30...etc.)\n\nThe data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/goal-analysis/goal-conceded-minutes/seasonal": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452254"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Seasonal Goal Analysis: Goal Conceded Minutes Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/seasonal-goal-analysis-goal-conceded-minutes/"
+                },
+                "operationId": "Seasonal Goal Analysis: Goal Conceded Minutes",
+                "description": "Provides the goal conceded goal statistics of the teams against to other teams in the tournament in the minutes intervals(0-10, 11-20, 21-30...etc.)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/goal-analysis/scoring-first-between": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452254"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Goal Analysis: Scoring First in Between Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/goal-analysis-scoring-first-in-between/"
+                },
+                "operationId": "Goal Analysis: Scoring First in Between",
+                "description": "Provides the scoring first goal statistics of the teams between in the minutes intervals(0-10, 11-20, 21-30...etc.)\n\nThe data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/referee": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452254"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Referee Statistics Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/referee-statistics/"
+                },
+                "operationId": "Referee Statistics",
+                "description": "Provides the information about referee and his/her statistics.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/tournament/standings/both-teams-to-score": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Market Tables: Both Teams to Score Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/market-tables-both-teams-to-score/"
+                },
+                "operationId": "Market Tables: Both Teams to Score",
+                "description": "Provides both team to score statistics of the teams in the tournament, ordered by the tournament standings.\n\nP.S.\nFull data is available at Market Tables: Both Teams to Score endpoint but can not be shown in mock response.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/tournament/standings/total-goals": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Market Tables: Total Goals Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/market-tables-total-goals/"
+                },
+                "operationId": "Market Tables: Total Goals",
+                "description": "Provides total goals statistics of the teams in the tournament, ordered by the tournament standings.\n\nP.S.\nFull data is available at Market Tables: Total Goals endpoint but can not be shown in mock response.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/tournament/standings/under-over": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Market Tables: Under/Over Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/market-tables-under-over/"
+                },
+                "operationId": "Market Tables: Under/Over",
+                "description": "Provides under/over statistics of the teams in the tournament, ordered by the tournament standings.\n\nP.S.\nFull data is available at Market Tables: Under/Over endpoint but can not be shown in mock response.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/team/statistics/market/seasonal/goals": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the team.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "803"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Seasonal Market Statistics Goals Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/seasonal-market-statistics-goals"
+                },
+                "operationId": "Seasonal Market Statistics: Goals",
+                "description": "Provides under/over, both team to score and also total goals statistics of the team in the tournament.\n\nP.S.\nFull data is available at Seasonal Market Statistics: Goals endpoint but can not be shown in mock response.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/event/all": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452172"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Match Events All Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/match-events-all/"
+                },
+                "operationId": "Match Events-All",
+                "description": "All of the events occuring in a match.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/event/basic": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452172"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Match Event Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/match-events-basic/"
+                },
+                "operationId": "Match Events",
+                "description": "Goals, yellow cards, red cards and substitutions in a match.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/leaderboard/assist": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Assist Leaderboard Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/leaderboard-assists/"
+                },
+                "operationId": "Assist Leaderboard",
+                "description": "Provides assist leaderboard data of the tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/team/squad/stats": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the tournament. Tournament id is optional for club teams. However, it is required  for National Teams.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "teamId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the team.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "803"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://www.broadage.com/developers/soccer-api/team-squad-statistics/"
+                },
+                "operationId": "Team Squad with Stats",
+                "description": "List of players in a team with their respective stats.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/missing-players-list": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "Date of the matches. The format is \t{dd/MM/yyyy}.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "14/04/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer Missing Players List Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/missing-players-list/"
+                },
+                "operationId": "Missing Player List",
+                "description": "List of injured and suspended players for the matches in a specific date.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today +- 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/fixture": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://www.broadage.com/developers/soccer-api/tournament-fixture/"
+                },
+                "operationId": "Tournament Fixture",
+                "description": "Full match list with half time and final scores, with additional info for each match such as referee and stadium.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/teams": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://www.broadage.com/developers/soccer-api/tournament-teams/"
+                },
+                "operationId": "Tournament Teams",
+                "description": "List of teams participating in a specific tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/list": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "externalDocs": {
+                    "description": "Soccer Tournament List Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/tournament-list/"
+                },
+                "operationId": "Tournament List",
+                "description": "Provides list of tournaments.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/commentary": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1487647"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer Match Commentary Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/match-commentary/"
+                },
+                "operationId": "Match Commentary",
+                "description": "Live event based commentary with texts and events.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/goal-analysis/scoring-first/seasonal": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1456548"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Seasonal Goal Analysis: Scoring First Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/seasonal-goal-analysis-scoring-first/"
+                },
+                "operationId": "Seasonal Goal Analysis: Scoring First",
+                "description": "Provides the scoring first goal statistics of the teams against to other teams in tournaments in the minutes intervals(0-10, 11-20, 21-30...etc.)\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/results": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "Date of the match. The format is {dd/MM/yyyy}.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "29/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Match List: Results Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/match-list-results/"
+                },
+                "operationId": "Daily Match List-Results",
+                "description": "Daily match list including finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/live": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "Date of the match. The format is {dd/MM/yyyy}.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "29/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Match List: Live Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/match-list-live/"
+                },
+                "operationId": "Daily Match List-Live",
+                "description": "Daily match list including live matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "Date of the match. The format is {dd/MM/yyyy}. ",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "29/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Match List: All Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/match-list-all/"
+                },
+                "operationId": "Daily Match List-All",
+                "description": "Daily match list including scheduled, live and finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/summary": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1456548"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Match Summary Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/match-summary/"
+                },
+                "operationId": "Match Summary",
+                "description": "Match scores, match status, team names, stadium, referee and weather forecast.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/lineup": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452172"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Match Lineup Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/match-lineup/"
+                },
+                "operationId": "Match Lineup",
+                "description": "Team lineups, formations and head coaches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/statistics": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1456548"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Match Statistics Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/match-statistics/"
+                },
+                "operationId": "Match Statistics",
+                "description": "Live in match team statistics for each team in a match.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/scheduled": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "Date of the match. The format is {dd/MM/yyyy}.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "29/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Match List: Scheduled Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/match-list-scheduled/"
+                },
+                "operationId": "Daily Match List-Scheduled",
+                "description": "Daily match list including scheduled matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/leaderboard/goal": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Goal Leaderboard Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/leaderboard-goals/"
+                },
+                "operationId": "Goal Leaderboard",
+                "description": "Top scorers of the competition supported with player stats.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/streaks/seasonal": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452254"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Team Streaks Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/team-streaks/"
+                },
+                "operationId": "Team Streaks",
+                "description": "Provides the streaks(winning, draw, losing...etc.) of both two teams in tournament.\n\nThe data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/goal-analysis/goal-minutes-between": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452254"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Goal Analysis: Goal Minutes in Between Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/goal-analysis-goal-minutes-in-between/"
+                },
+                "operationId": "Goal Analysis: Goal Minutes in Between",
+                "description": "Provides the goals statistics of the teams between in the minutes intervals(0-10, 11-20, 21-30...etc.)\n\nThe data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/statistics/result/goals": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452254"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Result Statistics Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/result-statistics/"
+                },
+                "operationId": "Result Statistics",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\nThe data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/match/goal-analysis/conceding-first/seasonal": {
+            "get": {
+                "tags": [
+                    "H2H Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1452254"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Seasonal Goal Analysis: Conceding First Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/seasonal-goal-analysis-conceding-first/"
+                },
+                "operationId": "Seasonal Goal Analysis: Conceding First",
+                "description": "Provides the conceding first goal statistics of the teams against to other teams in the tournament in the minutes intervals(0-10, 11-20, 21-30...etc.)\n\nThe data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Soccer Match List or Fixture endpoints.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/h2h/team/statistics/seasonal/goals": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the team.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "803"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Seasonal Statistics: Goals Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/seasonal-statistics-goals/"
+                },
+                "operationId": "Seasonal Statistics: Goals",
+                "description": "Provides the goal statistics of the team in the tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/standings": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Tournament Standings Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/tournament-standings/"
+                },
+                "operationId": "Tournament Standings",
+                "description": "Team Rankings for a specific competition.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/leaderboard/red": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://www.broadage.com/developers/soccer-api/leaderboard-red-cards/"
+                },
+                "operationId": "Red Card Leaderboard",
+                "description": "List of players shown most red cards of the competition supported with player stats.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/team/schedule": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the team.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "803"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer Team Schedule Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/team-schedule/"
+                },
+                "operationId": "Team Schedule",
+                "description": "Team fixtures by all the tournaments a team participates.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/team/squad": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": false,
+                        "description": "The id of the tournament. Tournament id is optional for club teams. However, it is required for national teams.\n",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "teamId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the team.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "803"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer Team Squad Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/team-squad/"
+                },
+                "operationId": "Team Squad",
+                "description": "List of players in a team.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/info": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Soccer API Tournament Info Documentation",
+                    "url": "https://www.broadage.com/developers/soccer-api/tournament-info/"
+                },
+                "operationId": "Tournament Info",
+                "description": "Current season, stage structure(groups,knockout stages etc.), country and many more information about a tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/leaderboard/yellow": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "14"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://www.broadage.com/developers/soccer-api/leaderboard-yellow-cards/"
+                },
+                "operationId": "Yellow Card Leaderboard",
+                "description": "List of players shown most yellow cards of the competition supported with player stats.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

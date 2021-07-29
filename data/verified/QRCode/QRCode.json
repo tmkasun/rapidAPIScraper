@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_656631bd-6847-4a50-9522-a47ff8cc0c08",
+    "name": "QRCode",
+    "title": "QRCode",
+    "description": "Customisable QR Codes. Support for styles, images and more! Bare metal engine gives it incredible speed.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "qrcode3",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-08-17T21:01:50.700Z",
+    "category": "Tools",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/09/58916842c845c7915cf94558d93dd6/879bf4e011cfa6fea093526e0ad023ae.png",
+    "user": {
+        "id": 3722315,
+        "username": "kubasaw",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4686ba1b-1077-4b67-ac55-50e98da372ac",
+        "tags": [
+            {
+                "id": "tag_934340e9-24a2-46fc-bc4f-a7370ea7e676",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_d69f237f-9b59-4018-83c7-edbc59a8121a",
+                "isGraphQL": false,
+                "route": "/generateQR",
+                "method": "GET",
+                "name": "QR Code",
+                "description": "Generates and returns QR Code. See more in Docs.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_11eb1497-c605-43bd-b638-a9b7c1d29364",
+                "isGraphQL": false,
+                "route": "/generateQRwithLogo",
+                "method": "POST",
+                "name": "QR Code with Custom Image",
+                "description": "Generates and returns QR Code with custom image supplied in multipart request. See more in Docs.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_bc2e6168-2616-49b0-97fb-a649b1a16438",
+                "isGraphQL": false,
+                "route": "/uploadLogo",
+                "method": "POST",
+                "name": "Upload image",
+                "description": "Upload image for future usage as embeded QR Code element. See more in Docs.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

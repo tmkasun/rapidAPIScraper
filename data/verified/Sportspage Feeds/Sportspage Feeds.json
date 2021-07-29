@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_7d2c6b35-760c-475a-9252-6fcdcb41cbe9",
+    "name": "Sportspage Feeds",
+    "title": "Sportspage Feeds",
+    "description": "Real-time scores, schedules, and betting odds for US leagues.  Unbeatable value.  Documentation: https://sportspagefeeds.com/documentation",
+    "visibility": "PUBLIC",
+    "slugifiedName": "sportspage-feeds",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-07-29T14:04:04.719Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/78/17cad031a911e9af09b5794b271614/168ff1ee535dc9621e11a4f4757e17a3.png",
+    "user": {
+        "id": 3703701,
+        "username": "SportspageFeeds",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_29921b31-ea34-474f-a07a-92c05b38790b",
+        "tags": [
+            {
+                "id": "tag_8c6c341b-fdd9-4d73-b4aa-1eb5c214763e",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_fddfda64-a129-4850-aae5-1df9868f5a75",
+                "isGraphQL": false,
+                "route": "/odds",
+                "method": "GET",
+                "name": "Odds",
+                "description": "Returns the odds history for a game by type.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_e63dd90e-266c-4db2-ab0b-0ee2e1c7c06a",
+                "isGraphQL": false,
+                "route": "/teams",
+                "method": "GET",
+                "name": "Teams",
+                "description": "Returns a list of teams within a specified league, conference, or division.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_31bce5dd-b2f3-4625-82c1-f8521da269b5",
+                "isGraphQL": false,
+                "route": "/gameById",
+                "method": "GET",
+                "name": "Game By ID",
+                "description": "Returns a specific game based on its ID.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

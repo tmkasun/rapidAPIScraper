@@ -1,0 +1,465 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_83c7e640-804b-45cf-ac57-986faeaa9e25",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_4f9e73ce-07ad-4fa7-b597-91517d558010",
+        "apiId": "api_c37c1272-4eb4-40c5-a5fc-835046232ff6"
+    },
+    "info": {
+        "title": "Promity Facial Emotion",
+        "description": "API for recognizing facial emotions in images in real time.",
+        "version": "v1",
+        "x-category": "Visual Recognition",
+        "x-long-description": "Recognize facial emotions in images in real time. This endpoint recognize 7 emotions: angry, disgust, fear, happy, sad, surprise, neutral",
+        "x-website": "https://promity.com/what-we-do/ai/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f40ec879-04cc-489a-a873-7e3587713f69.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://promity-facial-emotion.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/emotions/process_file": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Emotions by file",
+                "description": "This endpoint recognize 7 emotions:\n1. angry\n2. disgust\n3. fear\n4. happy\n5. sad\n6. surprise\n7. neutral\nCheck out our tutorials for example of usage in Python.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detections": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "crop": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "x1": {
+                                                                "type": "number"
+                                                            },
+                                                            "y1": {
+                                                                "type": "number"
+                                                            },
+                                                            "x2": {
+                                                                "type": "number"
+                                                            },
+                                                            "y2": {
+                                                                "type": "number"
+                                                            },
+                                                            "score": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    },
+                                                    "emotions": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "angry": {
+                                                                "type": "number"
+                                                            },
+                                                            "disgust": {
+                                                                "type": "number"
+                                                            },
+                                                            "fear": {
+                                                                "type": "number"
+                                                            },
+                                                            "happy": {
+                                                                "type": "number"
+                                                            },
+                                                            "sad": {
+                                                                "type": "number"
+                                                            },
+                                                            "surprise": {
+                                                                "type": "number"
+                                                            },
+                                                            "neutral": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "New Example": {
+                                        "description": "",
+                                        "summary": "New Example",
+                                        "value": {
+                                            "detections": [
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.49029475450515747,
+                                                        "y1": 0.5199255347251892,
+                                                        "x2": 0.5589765906333923,
+                                                        "y2": 0.38276559114456177,
+                                                        "score": 0.9992923736572266
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.01486795861274004,
+                                                        "disgust": 0.00005832673923578113,
+                                                        "fear": 0.04769697040319443,
+                                                        "happy": 0.007116216700524092,
+                                                        "sad": 0.041543327271938324,
+                                                        "surprise": 0.05854588747024536,
+                                                        "neutral": 0.8301714062690735
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.11643223464488983,
+                                                        "y1": 0.5169875025749207,
+                                                        "x2": 0.1809975504875183,
+                                                        "y2": 0.39529597759246826,
+                                                        "score": 0.998594343662262
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.04906865209341049,
+                                                        "disgust": 0.00010269907943438739,
+                                                        "fear": 0.006792327389121056,
+                                                        "happy": 0.00701629463583231,
+                                                        "sad": 0.0014710179530084133,
+                                                        "surprise": 0.010464858263731003,
+                                                        "neutral": 0.9250841736793518
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.8563294410705566,
+                                                        "y1": 0.24784332513809204,
+                                                        "x2": 0.917901873588562,
+                                                        "y2": 0.1223781406879425,
+                                                        "score": 0.9980091452598572
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.07673224806785583,
+                                                        "disgust": 0.0034004771150648594,
+                                                        "fear": 0.0696248933672905,
+                                                        "happy": 0.3008084297180176,
+                                                        "sad": 0.4222947955131531,
+                                                        "surprise": 0.00031910650432109833,
+                                                        "neutral": 0.12682004272937775
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.1482899785041809,
+                                                        "y1": 0.3003842234611511,
+                                                        "x2": 0.20176897943019867,
+                                                        "y2": 0.20043990015983582,
+                                                        "score": 0.9973342418670654
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.018076175823807716,
+                                                        "disgust": 0.000002274739927088376,
+                                                        "fear": 0.01710568182170391,
+                                                        "happy": 0.13184937834739685,
+                                                        "sad": 0.003582003293558955,
+                                                        "surprise": 0.015439125709235668,
+                                                        "neutral": 0.8139452934265137
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.598613440990448,
+                                                        "y1": 0.3124071955680847,
+                                                        "x2": 0.6528789401054382,
+                                                        "y2": 0.20392271876335144,
+                                                        "score": 0.9954931735992432
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.012377092614769936,
+                                                        "disgust": 0.000005150173819856718,
+                                                        "fear": 0.04596496745944023,
+                                                        "happy": 0.0037105451337993145,
+                                                        "sad": 0.1039978489279747,
+                                                        "surprise": 0.00806606374680996,
+                                                        "neutral": 0.8258783221244812
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.7280519008636475,
+                                                        "y1": 0.5563205480575562,
+                                                        "x2": 0.7874197363853455,
+                                                        "y2": 0.4102036952972412,
+                                                        "score": 0.7963489294052124
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.24640542268753052,
+                                                        "disgust": 0.07081300020217896,
+                                                        "fear": 0.05385291948914528,
+                                                        "happy": 0.03003399632871151,
+                                                        "sad": 0.2724117636680603,
+                                                        "surprise": 0.00690825330093503,
+                                                        "neutral": 0.31957465410232544
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "image_file": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/emotions/process_url": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "img_url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "https://promity.com/wp-content/uploads/2021/05/image-0111a.jpg"
+                        }
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "application/json"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Emotions by URL",
+                "description": "This endpoint recognize 7 emotions:\n1. angry\n2. disgust\n3. fear\n4. happy\n5. sad\n6. surprise\n7. neutral\nCheck out our tutorials for example of usage in Python.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detections": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "crop": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "x1": {
+                                                                "type": "number"
+                                                            },
+                                                            "y1": {
+                                                                "type": "number"
+                                                            },
+                                                            "x2": {
+                                                                "type": "number"
+                                                            },
+                                                            "y2": {
+                                                                "type": "number"
+                                                            },
+                                                            "score": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    },
+                                                    "emotions": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "angry": {
+                                                                "type": "number"
+                                                            },
+                                                            "disgust": {
+                                                                "type": "number"
+                                                            },
+                                                            "fear": {
+                                                                "type": "number"
+                                                            },
+                                                            "happy": {
+                                                                "type": "number"
+                                                            },
+                                                            "sad": {
+                                                                "type": "number"
+                                                            },
+                                                            "surprise": {
+                                                                "type": "number"
+                                                            },
+                                                            "neutral": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "New Example": {
+                                        "description": "",
+                                        "summary": "New Example",
+                                        "value": {
+                                            "detections": [
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.49029475450515747,
+                                                        "y1": 0.5199255347251892,
+                                                        "x2": 0.5589765906333923,
+                                                        "y2": 0.38276559114456177,
+                                                        "score": 0.9992923736572266
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.01486795861274004,
+                                                        "disgust": 0.00005832673923578113,
+                                                        "fear": 0.04769697040319443,
+                                                        "happy": 0.007116216700524092,
+                                                        "sad": 0.041543327271938324,
+                                                        "surprise": 0.05854588747024536,
+                                                        "neutral": 0.8301714062690735
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.11643223464488983,
+                                                        "y1": 0.5169875025749207,
+                                                        "x2": 0.1809975504875183,
+                                                        "y2": 0.39529597759246826,
+                                                        "score": 0.998594343662262
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.04906865209341049,
+                                                        "disgust": 0.00010269907943438739,
+                                                        "fear": 0.006792327389121056,
+                                                        "happy": 0.00701629463583231,
+                                                        "sad": 0.0014710179530084133,
+                                                        "surprise": 0.010464858263731003,
+                                                        "neutral": 0.9250841736793518
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.8563294410705566,
+                                                        "y1": 0.24784332513809204,
+                                                        "x2": 0.917901873588562,
+                                                        "y2": 0.1223781406879425,
+                                                        "score": 0.9980091452598572
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.07673224806785583,
+                                                        "disgust": 0.0034004771150648594,
+                                                        "fear": 0.0696248933672905,
+                                                        "happy": 0.3008084297180176,
+                                                        "sad": 0.4222947955131531,
+                                                        "surprise": 0.00031910650432109833,
+                                                        "neutral": 0.12682004272937775
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.1482899785041809,
+                                                        "y1": 0.3003842234611511,
+                                                        "x2": 0.20176897943019867,
+                                                        "y2": 0.20043990015983582,
+                                                        "score": 0.9973342418670654
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.018076175823807716,
+                                                        "disgust": 0.000002274739927088376,
+                                                        "fear": 0.01710568182170391,
+                                                        "happy": 0.13184937834739685,
+                                                        "sad": 0.003582003293558955,
+                                                        "surprise": 0.015439125709235668,
+                                                        "neutral": 0.8139452934265137
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.598613440990448,
+                                                        "y1": 0.3124071955680847,
+                                                        "x2": 0.6528789401054382,
+                                                        "y2": 0.20392271876335144,
+                                                        "score": 0.9954931735992432
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.012377092614769936,
+                                                        "disgust": 0.000005150173819856718,
+                                                        "fear": 0.04596496745944023,
+                                                        "happy": 0.0037105451337993145,
+                                                        "sad": 0.1039978489279747,
+                                                        "surprise": 0.00806606374680996,
+                                                        "neutral": 0.8258783221244812
+                                                    }
+                                                },
+                                                {
+                                                    "crop": {
+                                                        "x1": 0.7280519008636475,
+                                                        "y1": 0.5563205480575562,
+                                                        "x2": 0.7874197363853455,
+                                                        "y2": 0.4102036952972412,
+                                                        "score": 0.7963489294052124
+                                                    },
+                                                    "emotions": {
+                                                        "angry": 0.24640542268753052,
+                                                        "disgust": 0.07081300020217896,
+                                                        "fear": 0.05385291948914528,
+                                                        "happy": 0.03003399632871151,
+                                                        "sad": 0.2724117636680603,
+                                                        "surprise": 0.00690825330093503,
+                                                        "neutral": 0.31957465410232544
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {},
+                    "description": ""
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_73ab404c-0251-4153-b18e-470d6b6f1642",
+    "name": "QR-code and Barcode Scanner",
+    "title": "QR-code and Barcode Scanner",
+    "description": "PresentID QR-Code & Barcode scanner API can scan both QR code and barcode.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "qr-code-and-barcode-scanner",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-24T10:02:05.590Z",
+    "category": "Machine Learning",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/c64fa1b3-abff-44f0-a8c4-bf6405bc0173.png",
+    "user": {
+        "id": 4565546,
+        "username": "PresentID",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4353641f-b8f5-45b9-8782-e5dc9340e418",
+        "tags": [
+            {
+                "id": "tag_04de061c-556e-40b9-9bce-ba37f4600ca0",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_155bb830-1f57-478b-b154-ad866db39419",
+                "isGraphQL": false,
+                "route": "/ScanCode",
+                "method": "POST",
+                "name": "Base64",
+                "description": "•\tSend data via Base64 or an image URL or an image file.\n•\tImage size should not exceed 8 MB.\n•\tAlso, the images should not be larger than 5000 pixels and smaller than 50 pixels.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_57305cf8-2e51-4e23-9536-13340f3afc43",
+                "isGraphQL": false,
+                "route": "/ScanCode",
+                "method": "POST",
+                "name": "LinkFile",
+                "description": "•\tSend data via Base64 or an image URL or an image file.\n•\tImage size should not exceed 8 MB.\n•\tAlso, the images should not be larger than 5000 pixels and smaller than 50 pixels.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_08c7c4d3-8867-41ba-a5f1-7ea6d9b4ceff",
+                "isGraphQL": false,
+                "route": "/ScanCode",
+                "method": "POST",
+                "name": "FileUpload",
+                "description": "•\tSend data via Base64 or an image URL or an image file.\n•\tImage size should not exceed 8 MB.\n•\tAlso, the images should not be larger than 5000 pixels and smaller than 50 pixels.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

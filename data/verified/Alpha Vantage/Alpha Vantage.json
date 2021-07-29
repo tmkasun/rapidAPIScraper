@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_a4a526e4-212a-4882-b549-866692025a9b",
+    "name": "Alpha Vantage",
+    "title": "Alpha Vantage",
+    "description": "The simplest and most effective way to receive stock, ETF, forex, technical indicators, and cryptocurrency data.  Constantly ranked as a leading API provider for ease of use, accuracy, and price. [See the documentation](https://www.alphavantage.co/documentation/) and [read more](https://medium.com/@patrick.collins_58673/stock-api-landscape-5c6e054ee631) on the market data industry.  [Start now for free](https://www.alphavantage.co/support/#api-key).",
+    "visibility": "PUBLIC",
+    "slugifiedName": "alpha-vantage",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-01-01T15:42:53.143Z",
+    "category": "Finance",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/74/d5c7ab835e4a178722ee8cb91ed833/0abef396391b84d1a32362e389a8309b.png",
+    "user": {
+        "id": 4092067,
+        "username": "alphavantage",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_b7e8d413-bb1d-4072-88eb-b67d52a2f492",
+        "tags": [
+            {
+                "id": "tag_9ccf8bb4-074e-4681-96d8-0455868a69c9",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_6c7fbae1-9d64-402f-ae04-59a7baf83c75",
+                "isGraphQL": false,
+                "route": "/query",
+                "method": "GET",
+                "name": "TIME_SERIES_MONTHLY",
+                "description": "This API returns monthly time series (last trading day of each month, monthly open, monthly high, monthly low, monthly close, monthly volume) of the global equity specified, covering 20+ years of historical data.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_55220bb2-8a64-4cde-89e1-87ec00947f57",
+                "isGraphQL": false,
+                "route": "/query",
+                "method": "GET",
+                "name": "TIME_SERIES_INTRADAY",
+                "description": "This API returns intraday time series (timestamp, open, high, low, close, volume) of the equity specified.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_6d514147-c965-4ab7-bad1-929b8bf302c0",
+                "isGraphQL": false,
+                "route": "/query",
+                "method": "GET",
+                "name": "Quote Endpoint",
+                "description": "A lightweight alternative to the time series APIs, this service returns the price and volume information for a security of your choice.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

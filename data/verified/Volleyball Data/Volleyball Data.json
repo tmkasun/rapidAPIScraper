@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_55d94f62-cfe0-4f4c-b4b3-cf63e2e723ab",
+    "name": "Volleyball Data",
+    "title": "Volleyball Data",
+    "description": "Broadage Volleyball API will give you wide range of data of world's top volleyball leagues, including fixtures, standings, match lists and many more. Our Volleyball Coverage includes the biggest volleyball tournaments from all around the world with in-depth coverage, giving you the opportunity to present the best sports data to users located anywhere.<br>This is a limited version in RapidApi. <a href=\"https://www.broadage.com/signup/api/free?utm_source=rapidapi&utm_medium=click&utm_campaign=volleyball_api\" target=”_blank”>Please, click here to start your Free Trial and try the endpoints with live data now!</a>",
+    "visibility": "PUBLIC",
+    "slugifiedName": "volleyball-data",
+    "pricing": "FREE",
+    "updatedAt": "2021-01-28T14:59:12.400Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/30788955-0500-4229-afae-28c35e0cbcd1.png",
+    "user": {
+        "id": 3943606,
+        "username": "BroadageSports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_70557b30-5229-47a3-91b8-69d66b019d5b",
+        "tags": [
+            {
+                "id": "tag_028e9479-c32d-4b5b-8984-a4a47152b40f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_7fd70f84-b4da-4607-be3e-3d50772c3177",
+                "isGraphQL": false,
+                "route": "/tournament/fixture",
+                "method": "GET",
+                "name": "Tournament Fixture",
+                "description": "Full match list with period and final scores.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_ac8fe3d5-e89f-4272-acd2-805334b86ad7",
+                "isGraphQL": false,
+                "route": "/tournament/list",
+                "method": "GET",
+                "name": "Tournament List",
+                "description": "List of tournaments in your data coverage.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_54cd0b9c-c776-41b1-8d14-559b31cac9bc",
+                "isGraphQL": false,
+                "route": "/h2h/match/statistics/result/points",
+                "method": "GET",
+                "name": "Result Statistics: Points",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Volleyball Match List or Fixture endpoints.**",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

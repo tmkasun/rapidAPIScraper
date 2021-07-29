@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5b3e61a1e4b0d23f1ee78ad5",
+    "name": "API-FOOTBALL",
+    "title": "API-FOOTBALL",
+    "description": "+850 football leagues & cups. Livescore (15s), odds, events, line-ups, coachs, players, top scorers, standings, statistics, transfers, predictions. Documentation : https://www.api-football.com/documentation-v3. Widgets : https://www.api-football.com/widgets",
+    "visibility": "PUBLIC",
+    "slugifiedName": "api-football",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-16T09:45:18.625Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d6/bad4e75b994d49897a95a6e7b6363b/5e91326f658012bfeb00102fe790edcd.png",
+    "user": {
+        "id": 3553584,
+        "username": "api-sports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5b3e61a1e4b0a5b0626e8bec",
+        "tags": [
+            {
+                "id": "tag_6a34c6da-24eb-4d0f-a5de-b793dc78c515",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_07b19fb5-cae4-4bc7-8099-74606e8c575c",
+                "isGraphQL": false,
+                "route": "/v3/players/squads",
+                "method": "GET",
+                "name": "V3 - Players Squads",
+                "description": "Return the current squad of a team when the `team` parameter is used. When the `player` parameter is used the endpoint returns the set of teams associated with the player.\n\n> The response format is the same regardless of the parameter sent.\n\n**This endpoint requires at least one parameter.**\n\n**Update Frequency** : This endpoint is updated several times a week.\n**Recommended Calls** : 1 call per week.\n\n**Use Cases**\nGet all players from one {team}\n`https://api-football-v1.p.rapidapi.com/v3/players/squads?team=33`\n\nGet all teams from one {player}\n`https://api-football-v1.p.rapidapi.com/v3/players/squads?player=276`",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_fe2d5718-6a64-4844-a8a2-1327d482c8aa",
+                "isGraphQL": false,
+                "route": "/v3/teams/seasons",
+                "method": "GET",
+                "name": "V3 - Teams seasons",
+                "description": "Get the list of seasons available for a team.\n\n**This endpoint requires at least one parameter.**\n**Update Frequency** : This endpoint is updated several times a week.\n**Recommended Calls** : 1 call per day.\n\n**Use Cases**\nGet all seasons available for a team from one team {id}\n`https://api-football-v1.p.rapidapi.com/v3/teams/seasons?team=33`",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_e5f7188a-c9c3-45d7-aabc-a7367f45319c",
+                "isGraphQL": false,
+                "route": "/v3/players/seasons",
+                "method": "GET",
+                "name": "V3 - Players Seasons by player id",
+                "description": "Get all available seasons for players statistics filtered by a player {id}.\n\n**Update Frequency** : This endpoint is updated every day.\n**Recommended Calls** : 1 call per day.\n\n**Use Cases**\nGet all seasons available for a player {id}\n`https://api-football-v1.p.rapidapi.com/v3/players/seasons?player=276`",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

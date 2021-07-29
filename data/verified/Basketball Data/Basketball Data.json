@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_f7fd3da9-e636-44c4-b5bb-4e858e0aa878",
+    "name": "Basketball Data",
+    "title": "Basketball Data",
+    "description": "Broadage Basketball API can deliver any type of data for a basketball match, tournament or team; including livescores, play-by-play, boxscore, match statistics & many more. Our Basketball Coverage includes 100+ tournaments from all around the world with in-depth coverage, giving you the opportunity to present the best sports data to users located anywhere.  <br>This is a limited version in RapidApi. <a href=\"https://www.broadage.com/signup/api/free?utm_source=rapidapi&utm_medium=click&utm_campaign=soccer_api\" target=”_blank”>Please, click here to start your Free Trial and try the endpoints with live data now!</a>",
+    "visibility": "PUBLIC",
+    "slugifiedName": "basketball-data",
+    "pricing": "FREE",
+    "updatedAt": "2021-01-28T15:00:14.443Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/aa57d4bf-22d6-4f9a-b9c8-242b969e8039.png",
+    "user": {
+        "id": 3943606,
+        "username": "BroadageSports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_140bee22-5069-4cd4-a803-38c98567d0c2",
+        "tags": [
+            {
+                "id": "tag_544c8d73-dc9a-414d-9b4d-e740c2afe874",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_5471d082-279f-42fa-83ff-0e11fe3feb61",
+                "isGraphQL": false,
+                "route": "/h2h/match/list/recent",
+                "method": "GET",
+                "name": "Recent Match List",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Basketball Match List or Fixture endpoints.**",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_0d3e9ab9-36fc-4659-87a2-e61cfb96bb0b",
+                "isGraphQL": false,
+                "route": "/h2h/match/statistics/result/points",
+                "method": "GET",
+                "name": "Result Statistics",
+                "description": "Provides the result list of the last 20 matches between the two teams in overall, with home and away filters.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Basketball Match List or Fixture endpoints.**",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_0a5c8eae-04ff-489e-95a1-bfc03f890169",
+                "isGraphQL": false,
+                "route": "/tournament/info",
+                "method": "GET",
+                "name": "Tournament Info",
+                "description": "Current season, stage structure(divisions,conferences etc.), country and many more information about a tournament.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

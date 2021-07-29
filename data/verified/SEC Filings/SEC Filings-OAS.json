@@ -1,0 +1,1101 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_22e3ad25-3c62-40aa-abce-5d993867650c",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5913f99be4b014aff34d0e50",
+        "apiId": "5913f99be4b0bb743077948f"
+    },
+    "info": {
+        "title": "SEC Filings",
+        "description": "A collection of methods that returns various financial data for a requested company including SEC Filings, balance sheets, financial ratios , company look-up utilities and more.",
+        "version": "v1",
+        "x-category": "Finance",
+        "x-long-description": "A collection of methods that returns various financial data for a requested company including SEC Filings, balance sheets, financial ratios , company look-up utilities and more.",
+        "x-website": "https://Last10K.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/7526acbb-1994-45f1-bbd1-664beee4d00c.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://last10k-company-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Version 1"
+        }
+    ],
+    "paths": {
+        "/v1/company/operations": {
+            "get": {
+                "tags": [
+                    "Version 1"
+                ],
+                "parameters": [
+                    {
+                        "name": "formType",
+                        "in": "query",
+                        "required": false,
+                        "description": "10-K = Annual Report (default) | 10-Q = Quarterly Report",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "10-k"
+                        }
+                    },
+                    {
+                        "name": "filingOrder",
+                        "in": "query",
+                        "required": false,
+                        "description": "Retrieve an older financial statement by specifying number of filings to go back. For example, to retrieve the second to most recent filing, specify a filingOrder value of 1. By default, the most recent filing is returned (filingOrder = 0)",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "0"
+                        }
+                    },
+                    {
+                        "name": "ticker",
+                        "in": "query",
+                        "required": true,
+                        "description": "Publicly traded company's stock symbol",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "amzn"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Operations",
+                "description": "Returns a company's most recent statement of operations showing how they balance costs with revenue",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "attributes": {
+                                                    "properties": {
+                                                        "company": {
+                                                            "properties": {
+                                                                "cik": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "ticker": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "count": {
+                                                            "type": "integer"
+                                                        },
+                                                        "filing": {
+                                                            "properties": {
+                                                                "accessionNumber": {
+                                                                    "type": "string"
+                                                                },
+                                                                "filingCount": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "filingDate": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "period": {
+                                                                    "type": "string"
+                                                                },
+                                                                "source": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "result": {
+                                                            "properties": {
+                                                                "CostOfGoodsAndServicesSold": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "CostsAndExpenses": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "EarningsPerShareBasic": {
+                                                                    "type": "number"
+                                                                },
+                                                                "EarningsPerShareDiluted": {
+                                                                    "type": "number"
+                                                                },
+                                                                "GeneralAndAdministrativeExpense": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncomeLossFromEquityMethodInvestments": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncomeTaxExpenseBenefit": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "InterestExpense": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "InvestmentIncomeInterest": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "MarketingExpense": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "NetIncomeLoss": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "NonoperatingIncomeExpense": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OperatingIncomeLoss": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OtherCostAndExpenseOperating": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OtherNonoperatingIncomeExpense": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "RevenueFromContractWithCustomerExcludingAssessedTax": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "WeightedAverageNumberOfDilutedSharesOutstanding": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "WeightedAverageNumberOfSharesOutstandingBasic": {
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "status": {
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "copyright": {
+                                                    "type": "string"
+                                                },
+                                                "terms": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": {
+                                                "attributes": {
+                                                    "company": {
+                                                        "cik": "1018724",
+                                                        "name": "AMAZON COM INC",
+                                                        "ticker": "amzn"
+                                                    },
+                                                    "count": 19,
+                                                    "filing": {
+                                                        "accessionNumber": "0001018724-20-000004",
+                                                        "filingCount": 0,
+                                                        "filingDate": "2020-01-31T00:00:00",
+                                                        "name": "Consolidated Statements Of Operations",
+                                                        "period": "2019-12-31T00:00:00",
+                                                        "source": "10-K"
+                                                    },
+                                                    "result": {
+                                                        "CostOfGoodsAndServicesSold": 165536000000,
+                                                        "CostsAndExpenses": 265981000000,
+                                                        "EarningsPerShareBasic": 23.46,
+                                                        "EarningsPerShareDiluted": 23.01,
+                                                        "GeneralAndAdministrativeExpense": 5203000000,
+                                                        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments": 13976000000,
+                                                        "IncomeLossFromEquityMethodInvestments": -14000000,
+                                                        "IncomeTaxExpenseBenefit": -2374000000,
+                                                        "InterestExpense": -1600000000,
+                                                        "InvestmentIncomeInterest": 832000000,
+                                                        "MarketingExpense": 18878000000,
+                                                        "NetIncomeLoss": 11588000000,
+                                                        "NonoperatingIncomeExpense": -565000000,
+                                                        "OperatingIncomeLoss": 14541000000,
+                                                        "OtherCostAndExpenseOperating": 201000000,
+                                                        "OtherNonoperatingIncomeExpense": 203000000,
+                                                        "RevenueFromContractWithCustomerExcludingAssessedTax": 280522000000,
+                                                        "WeightedAverageNumberOfDilutedSharesOutstanding": 504000000,
+                                                        "WeightedAverageNumberOfSharesOutstandingBasic": 494000000
+                                                    },
+                                                    "status": 0
+                                                },
+                                                "id": "970506dc-2d4e-4b8e-85f3-b4cee30773d4",
+                                                "type": "statement"
+                                            },
+                                            "meta": {
+                                                "copyright": "Copyright 2020 Last10K.com All Rights Reserverd",
+                                                "terms": "https://dev.last10k.com/terms"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/company/income": {
+            "get": {
+                "tags": [
+                    "Version 1"
+                ],
+                "parameters": [
+                    {
+                        "name": "filingorder",
+                        "in": "query",
+                        "required": false,
+                        "description": "Retrieve an older financial statement by specifying number of filings to go back. For example, to retrieve the 10-K filed last year, specify a filingOrder value of 1. By default, the most recent filing is returned (filingOrder = 0)",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "0"
+                        }
+                    },
+                    {
+                        "name": "formType",
+                        "in": "query",
+                        "required": false,
+                        "description": "10K = Annual Report (default) | 10-Q = Quarterly Report",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "10-k"
+                        }
+                    },
+                    {
+                        "name": "ticker",
+                        "in": "query",
+                        "required": true,
+                        "description": "Publicly traded company's stock symbol",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "googl"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Income",
+                "description": "Returns a company's most recent income statement detailing what they earn for providing their goods and services OR a statement of loss explaining where lost income occurred",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "attributes": {
+                                                    "properties": {
+                                                        "company": {
+                                                            "properties": {
+                                                                "cik": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "ticker": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "count": {
+                                                            "type": "integer"
+                                                        },
+                                                        "filing": {
+                                                            "properties": {
+                                                                "accessionNumber": {
+                                                                    "type": "string"
+                                                                },
+                                                                "filingCount": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "filingDate": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "period": {
+                                                                    "type": "string"
+                                                                },
+                                                                "source": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "result": {
+                                                            "properties": {
+                                                                "CostOfRevenue": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "CostsAndExpenses": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "EarningsPerShareBasic": {
+                                                                    "type": "number"
+                                                                },
+                                                                "EarningsPerShareDiluted": {
+                                                                    "type": "number"
+                                                                },
+                                                                "GeneralAndAdministrativeExpense": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncomeTaxExpenseBenefit": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "LossContingencyLossInPeriod": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "NetIncomeLoss": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "NonoperatingIncomeExpense": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OperatingIncomeLoss": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ResearchAndDevelopmentExpense": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "RevenueFromContractWithCustomerExcludingAssessedTax": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "SellingAndMarketingExpense": {
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "status": {
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "copyright": {
+                                                    "type": "string"
+                                                },
+                                                "terms": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": {
+                                                "attributes": {
+                                                    "company": {
+                                                        "cik": "1652044",
+                                                        "name": "Alphabet Inc.",
+                                                        "ticker": "googl"
+                                                    },
+                                                    "count": 14,
+                                                    "filing": {
+                                                        "accessionNumber": "0001652044-20-000008",
+                                                        "filingCount": 0,
+                                                        "filingDate": "2020-02-04T00:00:00",
+                                                        "name": "Consolidated Statements Of Income",
+                                                        "period": "2019-12-31T00:00:00",
+                                                        "source": "10-K"
+                                                    },
+                                                    "result": {
+                                                        "CostOfRevenue": 71896000000,
+                                                        "CostsAndExpenses": 127626000000,
+                                                        "EarningsPerShareBasic": 49.59,
+                                                        "EarningsPerShareDiluted": 49.16,
+                                                        "GeneralAndAdministrativeExpense": 9551000000,
+                                                        "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments": 39625000000,
+                                                        "IncomeTaxExpenseBenefit": 5282000000,
+                                                        "LossContingencyLossInPeriod": 1697000000,
+                                                        "NetIncomeLoss": 34343000000,
+                                                        "NonoperatingIncomeExpense": 5394000000,
+                                                        "OperatingIncomeLoss": 34231000000,
+                                                        "ResearchAndDevelopmentExpense": 26018000000,
+                                                        "RevenueFromContractWithCustomerExcludingAssessedTax": 161857000000,
+                                                        "SellingAndMarketingExpense": 18464000000
+                                                    },
+                                                    "status": 0
+                                                },
+                                                "id": "bc258598-f480-4e9d-be85-3beba2a09c4e",
+                                                "type": "statement"
+                                            },
+                                            "meta": {
+                                                "copyright": "Copyright 2020 Last10K.com All Rights Reserverd",
+                                                "terms": "https://dev.last10k.com/terms"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/company/cashflows": {
+            "get": {
+                "tags": [
+                    "Version 1"
+                ],
+                "parameters": [
+                    {
+                        "name": "formType",
+                        "in": "query",
+                        "required": false,
+                        "description": "10-K = Annual Report (default) | 10-Q = Quarterly Report",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "10-k"
+                        }
+                    },
+                    {
+                        "name": "filingOrder",
+                        "in": "query",
+                        "required": false,
+                        "description": "Retrieve an older financial statement by specifying number of filings to go back. For example, to retrieve the second to most recent filing, specify a filingOrder value of 1. By default, the most recent filing is returned (filingOrder = 0)",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "0"
+                        }
+                    },
+                    {
+                        "name": "ticker",
+                        "in": "query",
+                        "required": true,
+                        "description": "Publicly traded company's stock symbol",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "fb"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Cash Flows",
+                "description": "Returns a company's most recent cash flow statement showing the amount of cash used and generated",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "attributes": {
+                                                    "properties": {
+                                                        "company": {
+                                                            "properties": {
+                                                                "cik": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "ticker": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "count": {
+                                                            "type": "integer"
+                                                        },
+                                                        "filing": {
+                                                            "properties": {
+                                                                "accessionNumber": {
+                                                                    "type": "string"
+                                                                },
+                                                                "filingCount": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "filingDate": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "period": {
+                                                                    "type": "string"
+                                                                },
+                                                                "source": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "result": {
+                                                            "properties": {
+                                                                "CapitalExpendituresIncurredButNotYetPaid": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "DeferredIncomeTaxExpenseBenefit": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "DepreciationDepletionAndAmortization": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "FinanceLeasePrincipalPayments": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncomeTaxesPaidNet": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncreaseDecreaseInAccountsPayableTrade": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncreaseDecreaseInAccountsReceivable": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncreaseDecreaseInAccruedLiabilities": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncreaseDecreaseInContractWithCustomerLiability": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncreaseDecreaseInOtherAccountsPayable": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncreaseDecreaseInOtherNoncurrentLiabilities": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncreaseDecreaseInOtherOperatingAssets": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "IncreaseDecreaseInPrepaidDeferredExpenseAndOtherAssets": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "NetCashProvidedByUsedInFinancingActivities": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "NetCashProvidedByUsedInInvestingActivities": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "NetCashProvidedByUsedInOperatingActivities": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "NetIncomeLoss": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OtherNoncashIncomeExpense": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "PaymentsForProceedsFromOtherInvestingActivities": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "PaymentsForRepurchaseOfCommonStock": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "PaymentsRelatedToTaxWithholdingForShareBasedCompensation": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "PaymentsToAcquireMarketableSecurities": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "PaymentsToAcquirePropertyPlantAndEquipment": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ProceedsFromPaymentsForOtherFinancingActivities": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ProceedsFromRepaymentsOfBankOverdrafts": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ProceedsFromSaleOfAvailableForSaleSecuritiesDebt": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ShareBasedCompensation": {
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "status": {
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "copyright": {
+                                                    "type": "string"
+                                                },
+                                                "terms": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": {
+                                                "attributes": {
+                                                    "company": {
+                                                        "cik": "1326801",
+                                                        "name": "Facebook Inc",
+                                                        "ticker": "fb"
+                                                    },
+                                                    "count": 31,
+                                                    "filing": {
+                                                        "accessionNumber": "0001326801-20-000013",
+                                                        "filingCount": 0,
+                                                        "filingDate": "2020-01-30T00:00:00",
+                                                        "name": "Consolidated Statements Of Cash Flows",
+                                                        "period": "2019-12-31T00:00:00",
+                                                        "source": "10-K"
+                                                    },
+                                                    "result": {
+                                                        "CapitalExpendituresIncurredButNotYetPaid": 1887000000,
+                                                        "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents": 10124000000,
+                                                        "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect": 9155000000,
+                                                        "DeferredIncomeTaxExpenseBenefit": -37000000,
+                                                        "DepreciationDepletionAndAmortization": 5741000000,
+                                                        "EffectOfExchangeRateOnCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents": 4000000,
+                                                        "FinanceLeasePrincipalPayments": -552000000,
+                                                        "IncomeTaxesPaidNet": 5182000000,
+                                                        "IncreaseDecreaseInAccountsPayableTrade": 113000000,
+                                                        "IncreaseDecreaseInAccountsReceivable": -1961000000,
+                                                        "IncreaseDecreaseInAccruedLiabilities": 7300000000,
+                                                        "IncreaseDecreaseInContractWithCustomerLiability": 123000000,
+                                                        "IncreaseDecreaseInOtherAccountsPayable": 348000000,
+                                                        "IncreaseDecreaseInOtherNoncurrentLiabilities": 1239000000,
+                                                        "IncreaseDecreaseInOtherOperatingAssets": 41000000,
+                                                        "IncreaseDecreaseInPrepaidDeferredExpenseAndOtherAssets": 47000000,
+                                                        "NetCashProvidedByUsedInFinancingActivities": -7299000000,
+                                                        "NetCashProvidedByUsedInInvestingActivities": -19864000000,
+                                                        "NetCashProvidedByUsedInOperatingActivities": 36314000000,
+                                                        "NetIncomeLoss": 18485000000,
+                                                        "OtherNoncashIncomeExpense": 39000000,
+                                                        "PaymentsForProceedsFromOtherInvestingActivities": -61000000,
+                                                        "PaymentsForRepurchaseOfCommonStock": -4202000000,
+                                                        "PaymentsRelatedToTaxWithholdingForShareBasedCompensation": -2337000000,
+                                                        "PaymentsToAcquireMarketableSecurities": -23910000000,
+                                                        "PaymentsToAcquirePropertyPlantAndEquipment": -15102000000,
+                                                        "ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities": 10152000000,
+                                                        "ProceedsFromPaymentsForOtherFinancingActivities": 15000000,
+                                                        "ProceedsFromRepaymentsOfBankOverdrafts": -223000000,
+                                                        "ProceedsFromSaleOfAvailableForSaleSecuritiesDebt": 9565000000,
+                                                        "ShareBasedCompensation": 4836000000
+                                                    },
+                                                    "status": 0
+                                                },
+                                                "id": "f176b7c4-6da2-49b6-8bd4-487c8edb3487",
+                                                "type": "statement"
+                                            },
+                                            "meta": {
+                                                "copyright": "Copyright 2020 Last10K.com All Rights Reserverd",
+                                                "terms": "https://dev.last10k.com/terms"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/company/balancesheet": {
+            "get": {
+                "tags": [
+                    "Version 1"
+                ],
+                "parameters": [
+                    {
+                        "name": "filingorder",
+                        "in": "query",
+                        "required": false,
+                        "description": "Retrieve an older financial statement by specifying number of filings to go back. For example, to retrieve the second to most recent filing, specify a filingOrder value of 1. By default, the most recent filing is returned (filingOrder = 0)",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "0"
+                        }
+                    },
+                    {
+                        "name": "formtype",
+                        "in": "query",
+                        "required": false,
+                        "description": "10-K = Annual Report (default) | 10-Q = Quarterly Report",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "10-k"
+                        }
+                    },
+                    {
+                        "name": "ticker",
+                        "in": "query",
+                        "required": true,
+                        "description": "Publicly traded company's stock symbol",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "msft"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Balance Sheet",
+                "description": "Returns a company's most recent balance sheet summarizing their liabilities, assets and shareholders' equity",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "attributes": {
+                                                    "properties": {
+                                                        "company": {
+                                                            "properties": {
+                                                                "cik": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "ticker": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "count": {
+                                                            "type": "integer"
+                                                        },
+                                                        "filing": {
+                                                            "properties": {
+                                                                "accessionNumber": {
+                                                                    "type": "string"
+                                                                },
+                                                                "filingCount": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "filingDate": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "period": {
+                                                                    "type": "string"
+                                                                },
+                                                                "source": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "result": {
+                                                            "properties": {
+                                                                "AccountsPayableCurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "AccountsReceivableNetCurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "AccruedIncomeTaxesCurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "AccruedIncomeTaxesNoncurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "AccumulatedOtherComprehensiveIncomeLossNetOfTax": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "Assets": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "AssetsCurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "CashAndCashEquivalentsAtCarryingValue": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "CashCashEquivalentsAndShortTermInvestments": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "CommonStocksIncludingAdditionalPaidInCapital": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ContractWithCustomerLiabilityCurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ContractWithCustomerLiabilityNoncurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "DeferredIncomeTaxLiabilitiesNet": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "EmployeeRelatedLiabilitiesCurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "FiniteLivedIntangibleAssetsNet": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "Goodwill": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "InventoryNet": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "Liabilities": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "LiabilitiesAndStockholdersEquity": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "LiabilitiesCurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "LongTermDebtCurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "LongTermDebtNoncurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "LongTermInvestments": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OperatingLeaseLiabilityNoncurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OperatingLeaseRightOfUseAsset": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OtherAssetsCurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OtherAssetsNoncurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OtherLiabilitiesCurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "OtherLiabilitiesNoncurrent": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "PropertyPlantAndEquipmentNet": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "RetainedEarningsAccumulatedDeficit": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "ShortTermInvestments": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "StockholdersEquity": {
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "status": {
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "properties": {
+                                                "copyright": {
+                                                    "type": "string"
+                                                },
+                                                "terms": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": {
+                                                "attributes": {
+                                                    "company": {
+                                                        "cik": "789019",
+                                                        "name": "MICROSOFT CORP",
+                                                        "ticker": "msft"
+                                                    },
+                                                    "count": 33,
+                                                    "filing": {
+                                                        "accessionNumber": "0001564590-20-034944",
+                                                        "filingCount": 0,
+                                                        "filingDate": "2020-07-31T00:00:00",
+                                                        "name": "Balance Sheets",
+                                                        "period": "2020-06-30T00:00:00",
+                                                        "source": "10-K"
+                                                    },
+                                                    "result": {
+                                                        "AccountsPayableCurrent": 12530000000,
+                                                        "AccountsReceivableNetCurrent": 32011000000,
+                                                        "AccruedIncomeTaxesCurrent": 2130000000,
+                                                        "AccruedIncomeTaxesNoncurrent": 29432000000,
+                                                        "AccumulatedOtherComprehensiveIncomeLossNetOfTax": 3186000000,
+                                                        "Assets": 301311000000,
+                                                        "AssetsCurrent": 181915000000,
+                                                        "CashAndCashEquivalentsAtCarryingValue": 13576000000,
+                                                        "CashCashEquivalentsAndShortTermInvestments": 136527000000,
+                                                        "CommonStocksIncludingAdditionalPaidInCapital": 80552000000,
+                                                        "ContractWithCustomerLiabilityCurrent": 36000000000,
+                                                        "ContractWithCustomerLiabilityNoncurrent": 3180000000,
+                                                        "DeferredIncomeTaxLiabilitiesNet": 204000000,
+                                                        "EmployeeRelatedLiabilitiesCurrent": 7874000000,
+                                                        "FiniteLivedIntangibleAssetsNet": 7038000000,
+                                                        "Goodwill": 43351000000,
+                                                        "InventoryNet": 1895000000,
+                                                        "Liabilities": 183007000000,
+                                                        "LiabilitiesAndStockholdersEquity": 301311000000,
+                                                        "LiabilitiesCurrent": 72310000000,
+                                                        "LongTermDebtCurrent": 3749000000,
+                                                        "LongTermDebtNoncurrent": 59578000000,
+                                                        "LongTermInvestments": 2965000000,
+                                                        "OperatingLeaseLiabilityNoncurrent": 7671000000,
+                                                        "OperatingLeaseRightOfUseAsset": 8753000000,
+                                                        "OtherAssetsCurrent": 11482000000,
+                                                        "OtherAssetsNoncurrent": 13138000000,
+                                                        "OtherLiabilitiesCurrent": 10027000000,
+                                                        "OtherLiabilitiesNoncurrent": 10632000000,
+                                                        "PropertyPlantAndEquipmentNet": 44151000000,
+                                                        "RetainedEarningsAccumulatedDeficit": 34566000000,
+                                                        "ShortTermInvestments": 122951000000,
+                                                        "StockholdersEquity": 118304000000
+                                                    },
+                                                    "status": 0
+                                                },
+                                                "id": "16eedea7-625f-4e9d-80cd-654d46b7b4d5",
+                                                "type": "statement"
+                                            },
+                                            "meta": {
+                                                "copyright": "Copyright 2020 Last10K.com All Rights Reserverd",
+                                                "terms": "https://dev.last10k.com/terms"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

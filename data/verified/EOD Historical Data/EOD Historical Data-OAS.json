@@ -1,0 +1,128 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_7bbfc84e-8379-450a-a8cb-dc8322ea4444",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_2ce8e55b-d9e8-496e-92e0-a0e0e25a24da",
+        "apiId": "api_99a60ded-f406-499d-9428-36669908ed9a"
+    },
+    "info": {
+        "title": "EOD Historical Data",
+        "description": "We provide more than 20 YEARS of FUNDAMENTAL data, TECHNICAL, and DAILY historical stock prices for stocks, ETFs, Mutual Funds, and Bonds all around the world.",
+        "version": "v1",
+        "x-category": "Finance",
+        "x-long-description": "For fundamentals, we support US and non-US exchanges.\n\nMajor US and non-US symbols supported from 1980x, more than 30 years of the data. The same for large-cap companies on non-US markets. Symbols from major US exchanges (around 7000 symbols in total from NYSE, NASDAQ, and ARCA) 10 years both for yearly and quarterly. For minor companies, we have danta for the last 7 years and the previous 24 quarters.\n\nAnd the data is continually growing.",
+        "x-website": "https://eodhistoricaldata.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/fff2a5b6-1667-4bbc-8f6d-0584827ff94c.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://eod-historical-data.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/fundamentals/{ticker}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "ticker",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "AAPL.US"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Fundamental Data: Stocks, ETFs, Mutual Funds, Indices",
+                    "url": "https://eodhistoricaldata.com/knowledgebase/stock-etfs-fundamental-data-feeds/"
+                },
+                "operationId": "Fundamental Data API",
+                "description": "Provides an access to fundamental data for Stocks, ETFs, Mutual Funds, and Indices for 60+ exchanges all around the world.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "AAPL Fundamentals": {
+                                        "description": "Example of output for Fundamentals API. Please note, that there is the only section is available in this example: General. Meanwhile, we provide comprehensive information including historical financial reports, EPS, and other data.",
+                                        "summary": "AAPL Fundamentals",
+                                        "value": {
+                                            "Address": "One Apple Park Way, Cupertino, CA, United States, 95014",
+                                            "CIK": "0000320193",
+                                            "CUSIP": "037833100",
+                                            "Code": "AAPL",
+                                            "CountryISO": "US",
+                                            "CountryName": "USA",
+                                            "CurrencyCode": "USD",
+                                            "CurrencyName": "US Dollar",
+                                            "CurrencySymbol": "$",
+                                            "Description": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. It also sells various related services. The company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose tablets; and wearables, home, and accessories comprising AirPods, Apple TV, Apple Watch, Beats products, HomePod, iPod touch, and other Apple-branded and third-party accessories. It also provides digital content stores and streaming services; AppleCare support services; and iCloud, a cloud service, which stores music, photos, contacts, calendars, mail, documents, and others. In addition, the company offers various service, such as Apple Arcade, a game subscription service; Apple Card, a co-branded credit card; Apple News+, a subscription news and magazine service; and Apple Pay, a cashless payment service, as well as licenses its intellectual property, and provides other related services. The company serves consumers, and small and mid-sized businesses; and the education, enterprise, and government markets. It sells and delivers third-party applications for its products through the App Store, Mac App Store, and Watch App Store. The company also sells its products through its retail and online stores, and direct sales force; and third-party cellular network carriers, wholesalers, retailers, and resellers. Apple Inc. has a collaboration with Google to develop COVID-19 tracking system for Android and iOS devices. Apple Inc. was founded in 1977 and is headquartered in Cupertino, California.",
+                                            "EmployerIdNumber": "94-2404110",
+                                            "Exchange": "NASDAQ",
+                                            "FiscalYearEnd": "September",
+                                            "FullTimeEmployees": 137000,
+                                            "GicGroup": "Technology Hardware & Equipment",
+                                            "GicIndustry": "Technology Hardware, Storage & Peripherals",
+                                            "GicSector": "Information Technology",
+                                            "GicSubIndustry": "Technology Hardware, Storage & Peripherals",
+                                            "IPODate": "1980-12-12",
+                                            "ISIN": "US0378331005",
+                                            "Industry": "Consumer Electronics",
+                                            "InternationalDomestic": "International/Domestic",
+                                            "LogoURL": "/img/logos/US/aapl.png",
+                                            "Name": "Apple Inc",
+                                            "Officers": {
+                                                "0": {
+                                                    "Name": "Mr. Timothy D. Cook",
+                                                    "Title": "CEO & Director",
+                                                    "YearBorn": "1961"
+                                                },
+                                                "1": {
+                                                    "Name": "Mr. Luca  Maestri",
+                                                    "Title": "CFO & Sr. VP",
+                                                    "YearBorn": "1964"
+                                                },
+                                                "2": {
+                                                    "Name": "Mr. Jeffrey E. Williams",
+                                                    "Title": "Chief Operating Officer",
+                                                    "YearBorn": "1964"
+                                                },
+                                                "3": {
+                                                    "Name": "Ms. Katherine L. Adams",
+                                                    "Title": "Sr. VP, Gen. Counsel & Sec.",
+                                                    "YearBorn": "1964"
+                                                },
+                                                "4": {
+                                                    "Name": "Ms. Deirdre  O'Brien",
+                                                    "Title": "Sr. VP of People & Retail",
+                                                    "YearBorn": "1967"
+                                                }
+                                            },
+                                            "Phone": "408-996-1010",
+                                            "Sector": "Technology",
+                                            "Type": "Common Stock",
+                                            "UpdatedAt": "2020-06-03",
+                                            "WebURL": "http://www.apple.com"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

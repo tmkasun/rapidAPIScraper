@@ -1,0 +1,72 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_540c3651-db5b-4832-b3c4-863d393029c1",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_ec8c5606-1d79-45b9-a03b-64ac186046c2",
+        "apiId": "api_a7505994-edff-414f-bdff-c455f77e5d49"
+    },
+    "info": {
+        "title": "ZeroBounce ",
+        "description": "Email Validation Service. Use ZeroBounce's email validation API to increase your email marketing ROI! Remove invalid email addresses from your list using our unique email verification scrubbing system to prevent email bounces.",
+        "version": "v1",
+        "x-category": "Email",
+        "x-long-description": "Use ZeroBounce's email validation API to increase your email marketing ROI!\n\nRemove invalid email addresses from your list using our unique email verification scrubbing system to prevent email bounces.\n\nOur API will protect your reputation by reducing your bounce rate, remove bad emails to improve overall inbox delivery metrics and we have a  98% accuracy guarantee.\n\n",
+        "x-website": "https://www.zerobounce.net/members/register/?rep-id=199",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/9b/0422502ef711e9b18e0daa95140cca/4d2b317e8f91a5edacd124f7b5a30b7d.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://zerobounce1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Validate Email"
+        }
+    ],
+    "paths": {
+        "/v2/validate": {
+            "get": {
+                "tags": [
+                    "Validate Email"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "description": "The email address you want to validate",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ip_address",
+                        "in": "query",
+                        "required": true,
+                        "description": "The IP Address the email signed up from (Can be blank, but parameter required)",
+                        "schema": {
+                            "type": "string",
+                            "example": "replace_the_IP_address_the_email_signed_up_from"
+                        }
+                    }
+                ],
+                "operationId": "Validate",
+                "description": "Validates Email",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

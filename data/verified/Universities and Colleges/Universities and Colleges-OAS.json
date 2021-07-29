@@ -1,0 +1,187 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_e0b1a8b6-06a1-4c17-994b-13d41ee65374",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_535692a6-5ca4-482e-86a9-6cb3b6772db1",
+        "apiId": "api_29ccf87f-9db5-4ed0-8811-05253c13d241"
+    },
+    "info": {
+        "title": "Universities and Colleges",
+        "description": "Retrieve information about the world's universities & colleges.",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "Retrieve information about the world's universities & colleges.\n\nDetails for US-based College's & Universities include: School Colors, Type of School [Private, Public], Athletic Program/School Nickname, Mascot, Address, City, State, State Code, Zip, Website",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f95d470d-b06c-4fff-bb66-6315a9cb6b9b.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://universities-and-colleges.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/universities-by-id": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "1015"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "University Details by Id",
+                "description": "Retrieve a single university by ID. Automatically includes any available University details (University details cost $0.01 if additional details like school colors, mascot, website, address, and more are present in response).",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/universities": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Default is 0.",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "20"
+                        }
+                    },
+                    {
+                        "name": "countryCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Ex/ US",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "US"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Default is 10. Max page size 50.",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "includeUniversityDetails",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include additional university details such as school colors, mascot, website, address, and more. Including details costs $0.01. Default value is false.",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filter results by searching / autocompleting the name value.",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Universities",
+                "description": "Retrieve a list of universities",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": [
+                                            {
+                                                "countryCode": "US",
+                                                "id": 1133,
+                                                "name": "California Institute of Integral Studies"
+                                            },
+                                            {
+                                                "countryCode": "US",
+                                                "id": 1134,
+                                                "name": "California Institute of Technology"
+                                            },
+                                            {
+                                                "countryCode": "US",
+                                                "id": 1135,
+                                                "name": "California Institute of the Arts"
+                                            },
+                                            {
+                                                "countryCode": "US",
+                                                "id": 1136,
+                                                "name": "California Lutheran University"
+                                            },
+                                            {
+                                                "countryCode": "US",
+                                                "id": 1137,
+                                                "name": "California Polytechnic State University, San Luis Obispo"
+                                            },
+                                            {
+                                                "countryCode": "US",
+                                                "id": 1138,
+                                                "name": "California State Polytechnic University, Pomona"
+                                            },
+                                            {
+                                                "countryCode": "US",
+                                                "id": 1139,
+                                                "name": "California State University Channel Islands"
+                                            },
+                                            {
+                                                "countryCode": "US",
+                                                "id": 1140,
+                                                "name": "California State University Maritime Academy"
+                                            },
+                                            {
+                                                "countryCode": "US",
+                                                "id": 1141,
+                                                "name": "California State University San Marcos"
+                                            },
+                                            {
+                                                "countryCode": "US",
+                                                "id": 1142,
+                                                "name": "California State University, Bakersfield"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

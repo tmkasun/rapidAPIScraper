@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_81fdf1e8-5dcf-48a7-a3ec-efb56f1a13b6",
+    "name": "Real-Time Basketball Content",
+    "title": "Real-Time Basketball Content",
+    "description": "Our \"Real-Time Basketball Content\" API returns present and historical content on basketball from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of basketball with our solution, or collect historical structured data on the most relevant past stories and events. \n\nReturns list of news which talks about basketball. Identified by IAB code IAB17-26, the endpoint returns news items which contain topics such as basketball, NBA, WNBA etc. Similar news topics are clustered together.  \n\nTest our api for free and do not hesitate to reach us out for further information.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "real-time-basketball-content",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-07T17:22:25.025Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/ee09762a-08a7-4a53-8ada-dc09fb20fa44.jpg",
+    "user": {
+        "id": 4551023,
+        "username": "connexun-srl-connexun-srl-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_10dc30c4-671e-4dce-8122-333d0ed5701d",
+        "tags": [
+            {
+                "id": "tag_fd3cec05-f8d5-4edc-a0e5-79157abc31bc",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_98a05d32-4c7a-4787-b03f-e19c11015c56",
+                "isGraphQL": false,
+                "route": "/basketball",
+                "method": "GET",
+                "name": "/real-time_basketball_content",
+                "description": "The API returns real-time and historical content and information on basketball from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of basketball with our solution, or collect historical structured data on the most relevant past stories and events.\n\nReturns list of news concerning basketball. Identified by IAB code IAB17-26, the endpoint returns news items which contains topics such as basketball, NBA, WNBA etc. Similar news topics are clustered together.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

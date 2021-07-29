@@ -1,0 +1,56 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_fb3ce9d5-9de2-4b5d-84c7-8aaa842aa49d",
+            "value": "GraphQL"
+        },
+        {
+            "name": "tag_d2f66517-9f18-4be8-905e-dfbea29f8c39",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_eb07bc91-7252-41c8-8b4f-0534d490ef9d",
+        "apiId": "api_d739fad6-c9f2-4647-a45d-c090836f92f9"
+    },
+    "info": {
+        "title": "GeoDB Cities GraphQL",
+        "description": "Get global city, region, and country data. ",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "Get global city, region, and country data. Filter cities by name prefix, country, location, time-zone, and even minimum population (currently over 275,000 cities and counties). Display results in multiple languages. Sort by name, country code, elevation, and population - or any combination of these. Get distances between cities. Get all country regions. Get all cities in a given region. Data is periodically refreshed from GeoNames and WikiData. Backed by cloud-based load-balanced infrastructure for resiliency and performance! If you'd like to host the service internally, contact us for details through the dev portal site. Data licensed under Creative Commons, http://creativecommons.org/licenses/by/3.0. For more information check out our website at http://geodb-cities-api.wirefreethought.com",
+        "x-website": "http://geodb-cities-api.wirefreethought.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/c1a2acc1-92c4-4d8d-967c-51eefadd3525.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://geodb-cities-graphql.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/": {
+            "post": {
+                "operationId": "graphQL",
+                "description": "graphQL endpoint",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_94d7a024-e6e1-4af7-87dd-c7085f5dba47",
+    "name": "Axesso - Alibaba Data Service",
+    "title": "Axesso - Alibaba Data Service",
+    "description": "API to fetch information from Alibaba.com",
+    "visibility": "PUBLIC",
+    "slugifiedName": "axesso-alibaba-data-service",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-06-07T07:01:56.549Z",
+    "category": "eCommerce",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/49759fd1-dc0b-4e56-a286-a0d8f27e2476.png",
+    "user": {
+        "id": 3609990,
+        "username": "axesso",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_be46be30-21de-4e68-b368-628476fda399",
+        "tags": [
+            {
+                "id": "tag_fb182b29-e70d-40d1-93a1-a87c2b93ba4e",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_65490a5e-b053-4d39-a9c9-2a9733645fae",
+                "isGraphQL": false,
+                "route": "/alb/alibaba-lookup-product",
+                "method": "GET",
+                "name": "lookupProduct",
+                "description": "Lookup product details based on url",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_ee6cc691-5c7b-4c24-8dfc-7ce1d446cb6b",
+                "isGraphQL": false,
+                "route": "/alb/alibaba-search-by-keyword",
+                "method": "GET",
+                "name": "searchByKeyword",
+                "description": "Executes a keyword search",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

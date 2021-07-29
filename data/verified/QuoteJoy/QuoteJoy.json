@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_7067a039-5c6d-46e6-a4a3-3fc3cd3f7e25",
+    "name": "QuoteJoy",
+    "title": "QuoteJoy",
+    "description": "A massive database of inspirational quotes to brighten your day!",
+    "visibility": "PUBLIC",
+    "slugifiedName": "quotejoy",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-02-10T01:13:23.178Z",
+    "category": "Text Analysis",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/fd4dfe96-ec03-4de9-bda8-c52351f151df.png",
+    "user": {
+        "id": 5029954,
+        "username": "lattice-data-lattice-data-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_39e41587-a58a-4633-9f55-08d6f3ac9387",
+        "tags": [
+            {
+                "id": "tag_3aed1ca2-423b-4d37-a137-50af80931463",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_9d16d2cc-33e3-45a8-bdad-a643e867ec68",
+                "isGraphQL": false,
+                "route": "/list-sources",
+                "method": "GET",
+                "name": "List Sources",
+                "description": "List all quote sources in the database.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_1805fbc7-0caf-4e0a-a222-4b3abe0174ce",
+                "isGraphQL": false,
+                "route": "/list-quotes",
+                "method": "GET",
+                "name": "List Quotes",
+                "description": "List all quotes in the database, one page at a time.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_d9250e61-8b57-49db-acbd-ee325c7c2828",
+                "isGraphQL": false,
+                "route": "/random",
+                "method": "GET",
+                "name": "Random Quote",
+                "description": "Get a random quote from our database!",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

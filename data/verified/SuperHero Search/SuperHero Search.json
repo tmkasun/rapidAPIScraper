@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_20b7df6b-594a-47cf-b48a-f8f64a44f4d1",
+    "name": "SuperHero Search",
+    "title": "SuperHero Search",
+    "description": "An API to get information about superheroes.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "superhero-search",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-29T12:05:41.144Z",
+    "category": "Search",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/db/6bb6c380224b469901248bc686af0a/b7967d23aaaa36ff10a58270ee4bca50.png",
+    "user": {
+        "id": 3891785,
+        "username": "jakash1997",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_dc450607-e2d0-4b50-9f7d-b363f0da7510",
+        "tags": [
+            {
+                "id": "tag_127e7603-4131-4847-b7db-1d10078edbf9",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_df97f22a-b6c2-43f2-995b-6a48c4754375",
+                "isGraphQL": false,
+                "route": "/api/",
+                "method": "GET",
+                "name": "Search",
+                "description": "This endpoint searches through our superhero database",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_0b96ca73-3901-48cf-a017-705d2fb1b833",
+                "isGraphQL": false,
+                "route": "/api/villains",
+                "method": "GET",
+                "name": "Villains",
+                "description": "Return 20 random Villains",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_e090c830-485e-4b27-9eb1-c0f482031d3e",
+                "isGraphQL": false,
+                "route": "/api/heroes",
+                "method": "GET",
+                "name": "Heroes",
+                "description": "Return a list of 20 random heroes",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_ac4b327c-4707-47d1-bfc2-4635dea3393c",
+    "name": "Promity Age and Gender Recognition",
+    "title": "Promity Age and Gender Recognition",
+    "description": "API for age and gender recognition",
+    "visibility": "PUBLIC",
+    "slugifiedName": "promity-age-and-gender-recognition",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-22T09:22:12.725Z",
+    "category": "Visual Recognition",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/abf05188-33a1-4dd6-be6d-8f9dac55c984.png",
+    "user": {
+        "id": 4912217,
+        "username": "promityai-promityai-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_7a258577-9372-4b16-8358-c8ba62afee6b",
+        "tags": [
+            {
+                "id": "tag_73c8f895-dfec-47e6-9954-e4daca3eafeb",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_925570e0-7f54-4ccd-90cc-dfa6270e3256",
+                "isGraphQL": false,
+                "route": "/age_gender/process_file",
+                "method": "POST",
+                "name": "Age and gender by file",
+                "description": "Endpoint for age and gender prediction. Send us image, we return position of detected faces and predicted age and gender.\nCheck out our tutorials for example of usage in Python.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_e18c9bb2-251e-4188-afd1-d3bfd609b9ee",
+                "isGraphQL": false,
+                "route": "/age_gender/process_url",
+                "method": "POST",
+                "name": "Age and gender by URL",
+                "description": "Endpoint for age and gender prediction. Send us link to image, we return  position of detected faces and predicted age and gender.\nCheck out our tutorials for example of usage in Python.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_4bcb8dfb-64f6-43df-93ba-bc66e31db1a1",
+    "name": "Voice Gender Recognition",
+    "title": "Voice Gender Recognition",
+    "description": "PresentID Voice gender recognition API can recognize the gender of the speaker.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "voice-gender-recognition",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-20T16:31:21.300Z",
+    "category": "Machine Learning",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0dad3bad-45f3-47e5-b3f8-82db3be63693.png",
+    "user": {
+        "id": 4565546,
+        "username": "PresentID",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_ff87bf90-778c-4bc8-8518-489e6ef6e329",
+        "tags": [
+            {
+                "id": "tag_bd79bc24-31cd-4c06-9b75-9c7470c7a370",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_c7437900-6d43-4dc1-826f-07fc2c277e96",
+                "isGraphQL": false,
+                "route": "/api/gender",
+                "method": "POST",
+                "name": "Send voice with voice file",
+                "description": "Voice gender recognition API can recognize the gender of the speaker.\n\n*The voice file size must not exceed 5 MB*\n*Also, the voice lenght must be between 3 socunds and  1 minute*",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_389df941-ff5f-4ba5-b102-679960ea3f4b",
+                "isGraphQL": false,
+                "route": "/api/gender",
+                "method": "POST",
+                "name": "Send voice with Base64",
+                "description": "Voice gender recognition API can recognize the gender of the speaker.\n\n*The voice file size must not exceed 5 MB*\n*Also, the voice lenght must be between 3 socunds and  1 minute*",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_4411040f-36eb-411f-a023-23ed41e0f414",
+                "isGraphQL": false,
+                "route": "/api/gender",
+                "method": "POST",
+                "name": "Send voice with voice URL",
+                "description": "Voice gender recognition API can recognize the gender of the speaker.\n\n*The voice file size must not exceed 5 MB*\n*Also, the voice lenght must be between 3 socunds and  1 minute*",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

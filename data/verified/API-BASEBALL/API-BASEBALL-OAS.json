@@ -1,0 +1,601 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_c191bc83-7a8c-45c8-bdba-ad10b8b6840c",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_34a44c9b-1b10-41d3-9ad4-de6f84f548a1",
+        "apiId": "api_c4e8a26e-0ecb-43bf-ba99-25d6e7d7e35a"
+    },
+    "info": {
+        "title": "API-BASEBALL",
+        "description": "Baseball Leagues & Cups with Livescore, Odds, Bookmakers, Statistics, Standings, Historical Data...",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Baseball Leagues & Cups with Livescore, Odds, Bookmakers, Statistics, Standings, Historical Data, Countries, Seasons. Documentation : https://api-sports.io/documentation/baseball/v1",
+        "x-website": "www.api-football.com/sports",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/4751d3dc-9c81-4e39-a60b-0b454746761c_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://api-baseball.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Search"
+        },
+        {
+            "name": "Standings"
+        },
+        {
+            "name": "Seasons"
+        },
+        {
+            "name": "Leagues"
+        },
+        {
+            "name": "Games"
+        },
+        {
+            "name": "Countries"
+        },
+        {
+            "name": "Teams"
+        },
+        {
+            "name": "Odds"
+        }
+    ],
+    "paths": {
+        "/teams": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "chicag"
+                        }
+                    }
+                ],
+                "operationId": "search teams",
+                "description": "search teams",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/odds": {
+            "get": {
+                "tags": [
+                    "Odds"
+                ],
+                "parameters": [
+                    {
+                        "name": "game",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "bookmaker",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "bet",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "odds",
+                "description": "odds",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/games/h2h": {
+            "get": {
+                "tags": [
+                    "Games"
+                ],
+                "parameters": [
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "timezone",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "h2h",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "5-6"
+                        }
+                    }
+                ],
+                "operationId": "head to head",
+                "description": "games head to head",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/games": {
+            "get": {
+                "tags": [
+                    "Games"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timezone",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "games",
+                "description": "games",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/leagues": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "mlb"
+                        }
+                    }
+                ],
+                "operationId": "search leagues",
+                "description": "search leagues",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standings": {
+            "get": {
+                "tags": [
+                    "Standings"
+                ],
+                "parameters": [
+                    {
+                        "name": "group",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "stage",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "example": "2020"
+                        }
+                    }
+                ],
+                "operationId": "standings",
+                "description": "standings",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standings/groups": {
+            "get": {
+                "tags": [
+                    "Standings"
+                ],
+                "parameters": [
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "2020"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "operationId": "groups",
+                "description": "groups",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standings/stages": {
+            "get": {
+                "tags": [
+                    "Standings"
+                ],
+                "parameters": [
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "2020"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "operationId": "stages",
+                "description": "stages",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/countries": {
+            "get": {
+                "tags": [
+                    "Countries"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "countries",
+                "description": "countries",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/odds/bookmakers": {
+            "get": {
+                "tags": [
+                    "Odds"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "bookmakers",
+                "description": "bookmakers",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/odds/bets": {
+            "get": {
+                "tags": [
+                    "Odds"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "bets",
+                "description": "Bets",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/seasons": {
+            "get": {
+                "tags": [
+                    "Seasons"
+                ],
+                "operationId": "seasons",
+                "description": "seasons",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teams/statistics": {
+            "get": {
+                "tags": [
+                    "Teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "league",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "2019"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "5"
+                        }
+                    }
+                ],
+                "operationId": "teams statistics",
+                "description": "teams statistics",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/timezone": {
+            "get": {
+                "operationId": "timezone",
+                "description": "timezone",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

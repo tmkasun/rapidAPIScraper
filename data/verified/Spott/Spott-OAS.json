@@ -1,0 +1,385 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_76e67d99-90dd-46e7-87ef-4ed70c47660e",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_5cf140be-e9b0-4280-8741-d226b3d4a510",
+        "apiId": "api_3aa87f54-528d-4b25-99db-d11da640013f"
+    },
+    "info": {
+        "title": "Spott",
+        "description": "Search cities, countries and administrative divisions by name, autocompletion or IP.",
+        "version": "v1",
+        "x-category": "Location",
+        "x-long-description": "We build tools to make easier for developers to work with places.\n------\nWith Spott you'll be able to:\n\n\n🌎 **Search places** by a full query or autocompletion, across more than 240,000 records from all the world.\n\n⚙️ **Filter them** by country, type and location.\n\n🗺 Find places and get their localized names in more than **20 languages**.\n\n💻 Get the place where an **IP** address is located.\n\n\nWe'd love to hear what are you using Spott for, or any idea to make it better.\n\nVisit our [website](https://spott.dev) to learn more.",
+        "x-website": "https://spott.dev",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b5/255b7b1d2b401d80a2c1fc5902d2bb/c27e47132cb92ecd310202eb090fd7ea.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://spott.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/places/geoname-id/{geonameId}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specifies a language (ISO 639-1) to get the localized name of the place. If translation is not available, \\\"localizedName\\\" property will be null.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "geonameId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Unique identificator given by Geonames",
+                        "schema": {
+                            "type": "number",
+                            "example": "5391959"
+                        }
+                    }
+                ],
+                "operationId": "Get place by Geoname ID",
+                "description": "Returns a single Place identified by a Geoname ID.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/places/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specifies a language (ISO 639-1) to get the localized name of the place. If translation is not available, \"localizedName\" property will be null.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID of the Place.",
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    }
+                ],
+                "operationId": "Get place by ID",
+                "description": "Returns a single Place identified by an ID.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/places/ip/me": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specifies a language (ISO 639-1) to get the localized name of the place. If translation is not available, \"localizedName\" property will be null.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Get place by my IP",
+                "description": "Returns the place related to the IP where the request was performed. Returns \"Not Found\" error when no place is related to the IP.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/places/ip/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specifies a language (ISO 639-1) to get the localized name of the place. If translation is not available, \"localizedName\" property will be null.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "IP Address (v4 and v6 are supported).",
+                        "schema": {
+                            "type": "string",
+                            "example": "200.194.51.97"
+                        }
+                    }
+                ],
+                "operationId": "Get place by IP",
+                "description": "Returns the Place where a given IP Address is located. Returns \"Not Found\" error when no place is related to the IP. When sending '127.0.0.1' or '0.0.0.0' IP Addresses it will return the Place from the request was performed.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/places": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": false,
+                        "description": "Longitude component of a coordinates set to filter places by their location. This parameter is ignored if \\\"latitude\\\" is not specified.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": false,
+                        "description": "Query string to find places with a similar name.",
+                        "schema": {
+                            "type": "string",
+                            "example": "New York"
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": false,
+                        "description": "Latitude component of a coordinates set to filter places by their location. This parameter is ignored if \\\"longitude\\\" is not specified.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "accuracyRadiusKm",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum radius from the point specified by \\\"latitude\\\" and \\\"longitude\\\" to filter places located within the area. The value must be expressed in Kilometers. Defaults to 100km.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "adminDivision2",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filters places by their adminDivision2 \\\"id\\\". It's possible to specify multiple values separating them with commas.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "adminDivision1",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filters places by their adminDivision1 \\\"id\\\". It's possible to specify multiple values separating them with commas (Ex. ?country=US.CA,US.DE).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum number of places to return. Used together with \\\"skip\\\" to paginate results. Defaults to 10, maximum is 100.",
+                        "schema": {
+                            "type": "number",
+                            "example": "10"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filters places by their country \\\"id\\\". It's possible to specify multiple values separating them with commas (Ex. ?country=US,CA,MX).",
+                        "schema": {
+                            "type": "string",
+                            "example": "US,CA"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": false,
+                        "description": "Amount of places to ignore before beginning to return results. Used together with \\\"limit\\\" to paginate results. Defaults to 0.",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specifies a language (ISO 639-1) to get the localized name of the place. If translation is not available, \"localizedName\" property will be null.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filters places by \\\"type\\\". It's possible to specify multiple values separating them with commas. Valid types are CITY, ADMIN_DIVISION_1, ADMIN_DIVISION_2 and COUNTRY.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CITY"
+                        }
+                    }
+                ],
+                "operationId": "Search places",
+                "description": "Returns a list of places (either countries, cities or administrative divisions) matching a query and filtered by properties.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/places/autocomplete": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filters places by their country \\\"id\\\". It's possible to specify multiple values separating them with commas (Ex. ?country=US,CA,MX).",
+                        "schema": {
+                            "type": "string",
+                            "example": "US,CA"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filters places by their \\\"type\\\". It's possible to specify multiple values separating them with commas. Valid types are CITY, ADMIN_DIVISION_1, ADMIN_DIVISION_2 and COUNTRY.",
+                        "schema": {
+                            "type": "string",
+                            "example": "CITY"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": false,
+                        "description": "Longitude component of a coordinates set to filter places by their location. This parameter is ignored if \\\"latitude\\\" is not specified.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": false,
+                        "description": "Query string to find places which name starts with this prefix.",
+                        "schema": {
+                            "type": "string",
+                            "example": "Sea"
+                        }
+                    },
+                    {
+                        "name": "adminDivision2",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filters places by their adminDivision2 \\\"id\\\". It's possible to specify multiple values separating them with commas.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": false,
+                        "description": "Latitude component of a coordinates set to filter places by their location. This parameter is ignored if \\\"longitude\\\" is not specified.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "accuracyRadiusKm",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum radius from the point specified by \\\"latitude\\\" and \\\"longitude\\\" to filter places located within the area. The value must be expressed in Kilometers. Defaults to 100km.",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "adminDivision1",
+                        "in": "query",
+                        "required": false,
+                        "description": "Filters places by their adminDivision1 \\\"id\\\". It's possible to specify multiple values separating them with commas (Ex. ?country=US.CA,US.DE).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specifies a language (ISO 639-1) to get the localized name of the place. If translation is not available, \\\"localizedName\\\" property will be null.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": false,
+                        "description": "Amount of places to ignore before beginning to return results. Used together with \\\"limit\\\" to paginate results. Defaults to 0.",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "Maximum number of places to return. Used together with \\\"skip\\\" to paginate results. Defaults to 10, maximum is 100.",
+                        "schema": {
+                            "type": "number",
+                            "example": "10"
+                        }
+                    }
+                ],
+                "operationId": "Autocomplete places",
+                "description": "Returns a list of places matching a prefix and specified filter properties. Useful to create \"search as you type\" inputs.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

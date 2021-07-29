@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_612ceb13-2bab-4377-8bd8-7fb3ff28711f",
+    "name": "Speech Recognition French",
+    "title": "Speech Recognition French",
+    "description": "HiVoicy French ASR API can convert any French voice to the text.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "speech-recognition-french1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-29T15:31:11.788Z",
+    "category": "Machine Learning",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/3306b733-8741-433f-9ab0-cbc8fa8b58fd.png",
+    "user": {
+        "id": 5063165,
+        "username": "hivoicy-vxmKOG2vl",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_eaaa1ee3-d3e7-4db2-86fa-88db36ffc000",
+        "tags": [
+            {
+                "id": "tag_25c6a36c-fc9b-4fb6-aa5c-2befadcbb714",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_befc216a-841f-4c9f-8633-5d9735e5c9ec",
+                "isGraphQL": false,
+                "route": "/api/asr",
+                "method": "POST",
+                "name": "GetVoice",
+                "description": "French Speech Recognition can convert any french voice to text.\n\n-Supported file types: mp3, Ogg, Wav, m4a and WMA.\n-Max length can be 1 minute.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

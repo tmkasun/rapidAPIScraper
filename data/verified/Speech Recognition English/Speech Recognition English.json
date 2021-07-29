@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_e05256a3-f218-4d0a-9730-fb3f1d749451",
+    "name": "Speech Recognition English",
+    "title": "Speech Recognition English",
+    "description": "HiVoicy English ASR API can convert any English voice to text",
+    "visibility": "PUBLIC",
+    "slugifiedName": "speech-recognition-english1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-29T15:39:34.463Z",
+    "category": "Machine Learning",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/da0c5670-49d4-48d7-baf2-7b5859c9efb1.png",
+    "user": {
+        "id": 5063165,
+        "username": "hivoicy-vxmKOG2vl",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_3879d94c-c600-49c3-8f48-0cfbc68001a8",
+        "tags": [
+            {
+                "id": "tag_0b174833-16b0-40f5-8c58-569f1915066d",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_8f5ba704-1b67-4d30-a8fb-f26d4fa781c4",
+                "isGraphQL": false,
+                "route": "/api/asr",
+                "method": "POST",
+                "name": "Getvoice",
+                "description": "English ASR API can convert any English voice to text.\n\n-Supported file types: mp3, Ogg, Wav, m4a and WMA.\n-Max length can be 1 minute.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

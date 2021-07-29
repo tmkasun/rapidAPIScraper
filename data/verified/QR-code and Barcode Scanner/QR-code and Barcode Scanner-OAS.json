@@ -1,0 +1,176 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_04de061c-556e-40b9-9bce-ba37f4600ca0",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_4353641f-b8f5-45b9-8782-e5dc9340e418",
+        "apiId": "api_73ab404c-0251-4153-b18e-470d6b6f1642"
+    },
+    "info": {
+        "title": "QR-code and Barcode Scanner",
+        "description": "PresentID QR-Code & Barcode scanner API can scan both QR code and barcode.",
+        "version": "v1",
+        "x-category": "Machine Learning",
+        "x-long-description": "PresentID QR-Code & Barcode scanner API can scan both QR code and barcode.\n\n**Input:**\n- Image file\n- Image URL link\n- Base64 image\n\n**Output:**\n- Code\n- Code type\n- Field name\n- Field type\n- Field value\n- Code area\n\n**Ability & Potentials:**\n- Accuracy 100%.\n- Less than 1.5 milliseconds.\n- Types of QR codes such as contacts, plain text, links, events, etc.\n- Common barcode standards such as:\n- Code 93\n- Code 128\n- PDF 417\n- Data Matrix\n- EAN-8\n- UPC-E\n- Codabar, etc.\n- Support IOS, Android, Windows, and Mac devices.\n- Easy integration with your app.\n\n**Use Cases:**\n- Tracking products\n- Art and pop culture\n- Tracking food intake\n- Games\n- Advertising\n\n**Rules & Restrictions:**\n- Send data via Base64 or an image URL or an image file.\n- Image size should not exceed 8 MB.\n- Also, the images should not be larger than 5000 pixels and smaller than 50 pixels.\n",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/c64fa1b3-abff-44f0-a8c4-bf6405bc0173.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://qr-code-and-barcode-scanner.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/ScanCode": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "FileUpload",
+                "description": "•\tSend data via Base64 or an image URL or an image file.\n•\tImage size should not exceed 8 MB.\n•\tAlso, the images should not be larger than 5000 pixels and smaller than 50 pixels.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "statusCode": {
+                                            "type": "integer"
+                                        },
+                                        "statusMessage": {
+                                            "type": "string"
+                                        },
+                                        "hasError": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "codeType": {
+                                                        "type": "string"
+                                                    },
+                                                    "allFields": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fieldName": {
+                                                                    "type": "string"
+                                                                },
+                                                                "fieldType": {
+                                                                    "type": "string"
+                                                                },
+                                                                "fieldValue": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "codeArea": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "x0": {
+                                                                "type": "integer"
+                                                            },
+                                                            "y0": {
+                                                                "type": "integer"
+                                                            },
+                                                            "x1": {
+                                                                "type": "integer"
+                                                            },
+                                                            "y1": {
+                                                                "type": "integer"
+                                                            },
+                                                            "x2": {
+                                                                "type": "integer"
+                                                            },
+                                                            "y2": {
+                                                                "type": "integer"
+                                                            },
+                                                            "x3": {
+                                                                "type": "integer"
+                                                            },
+                                                            "y3": {
+                                                                "type": "integer"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "statusCode": 200,
+                                            "statusMessage": "ok",
+                                            "hasError": false,
+                                            "data": [
+                                                {
+                                                    "code": "qrcode",
+                                                    "codeType": "text",
+                                                    "allFields": [
+                                                        {
+                                                            "fieldName": "text",
+                                                            "fieldType": "string",
+                                                            "fieldValue": "@ELTOROIT"
+                                                        }
+                                                    ],
+                                                    "codeArea": {
+                                                        "x0": 1,
+                                                        "y0": 1,
+                                                        "x1": 1,
+                                                        "y1": 711,
+                                                        "x2": 711,
+                                                        "y2": 711,
+                                                        "x3": 711,
+                                                        "y3": 1
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "image": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

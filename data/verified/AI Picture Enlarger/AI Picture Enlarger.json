@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_4d8e12db-6ea8-49b9-91eb-d8dcbf1df46e",
+    "name": "AI Picture Enlarger",
+    "title": "AI Picture Enlarger",
+    "description": "Enlarge graphics and increase image resolution without losing quality. Our image upscaler draws from ESRGAN and other advanced research in machine learning. Web interface: https://hotpot.ai/enlarge-picture",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ai-picture-enlarger",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-30T00:32:55.854Z",
+    "category": "Video, Images",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/5b461ded-faf9-4c58-aed3-f7f5b7678653.jpg",
+    "user": {
+        "id": 4827930,
+        "username": "hotpot-ai-hotpot",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_bafd277c-b082-4cf6-90bf-625194ea4c41",
+        "tags": [
+            {
+                "id": "tag_7a0d2ca4-61ac-4b12-b406-c2c7669c160f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_9f05dbf6-19ff-450c-8d9b-a2175d834d28",
+                "isGraphQL": false,
+                "route": "/super-resolution-api-bin",
+                "method": "POST",
+                "name": "AI Picture Enlarger",
+                "description": "Enlarge photos, game assets, and other raster images in seconds. Our AI can create images of higher resolution without losing quality and is optimized for e-commerce stores, app developers, and picture sites.\n\nThis API uses the latest machine learning advances in ESRGAN to create images of higher resolution without losing quality.\n\nWeb interface: https://hotpot.ai/enlarge-picture",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

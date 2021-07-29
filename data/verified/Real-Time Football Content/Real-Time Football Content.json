@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_5277f4d4-1a63-4040-b612-116056efc260",
+    "name": "Real-Time Football Content",
+    "title": "Real-Time Football Content",
+    "description": "Our \"Real-Time Football (Soccer) Content\" API returns present and historical information on football from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of football with our solution, or collect historical structured data on the most relevant past stories and events. Returns list of items which dwell upon football news. Identified by its IAB code IAB17-44, this endpoint returns news items which contain topics such as football, soccer, world soccer FIFA etc. Similar news topics are clustered together. Test our api for free and do not hesitate to reach us out for further information.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "real-time-football-content",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-07T17:23:56.311Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/c130b342-534c-4969-a737-4d802052674d.jpg",
+    "user": {
+        "id": 4551023,
+        "username": "connexun-srl-connexun-srl-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_0c88dabc-00ec-41f3-9c94-8e5d63b665cc",
+        "tags": [
+            {
+                "id": "tag_e29a8c63-69d9-4a81-b30d-45d6121f07b5",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_879f7279-33d3-4567-ab4d-4c8c44c094ac",
+                "isGraphQL": false,
+                "route": "/football",
+                "method": "GET",
+                "name": "/real-time_football_content",
+                "description": "The API returns real-time and historical content and information on football (soccer) from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of baseball with our solution, or collect historical structured data on the most relevant past stories and events.\n\nReturns list of items which talks about football news. Identified by its IAB code IAB17-44, this endpoint returns news items which contains topics such as football, soccer, world soccer FIFA etc. Similar news topics are clustered together.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

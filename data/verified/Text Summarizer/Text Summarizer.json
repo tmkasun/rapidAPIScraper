@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_6fe50519-e1b5-4c47-96b0-3ff1754b406b",
+    "name": "Text Summarizer",
+    "title": "Text Summarizer",
+    "description": "Connexun's \"Text Summarizer\" API generates an extractive summary from any given text. Test our api for free and do not hesitate to reach us out for further information.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "text-summarizer1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-07T17:32:05.042Z",
+    "category": "Text Analysis",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/e8daafc6-1ffb-4a0d-b99a-abb90ae067f9.jpg",
+    "user": {
+        "id": 4551023,
+        "username": "connexun-srl-connexun-srl-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_cb823b93-e3e2-4a38-8994-0a1398cd88fa",
+        "tags": [
+            {
+                "id": "tag_c649e9a4-b0a8-4890-9054-88d03f26729a",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_600e972e-ff4a-42ac-98d3-ee6551cc7a9d",
+                "isGraphQL": false,
+                "route": "/detect-language",
+                "method": "POST",
+                "name": "/detect-language",
+                "description": "The endpoint takes as input the text that needs to be analyzed and returns with the probability the language in which the text is written. If the text contains multiple language, the response is an array of objects each specifying the language detected and the corresponding probability.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_f33c22fc-0313-4c44-a71a-0586701582ac",
+                "isGraphQL": false,
+                "route": "/summarize",
+                "method": "POST",
+                "name": "/summarize",
+                "description": "Summarizes a valid input content and returns the highest ranked sentences from the text. These sentences in the order of appearence in the main text are then combined, which represents the most weighted sentences of the text also called summary.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

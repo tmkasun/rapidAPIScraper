@@ -1,0 +1,107 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_ad16affc-3484-4302-9d10-50dceed9fe88",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_066ef457-472a-458c-b1eb-c0a295980c5a",
+        "apiId": "api_3eaec704-bb64-4d14-99d3-02e302a94ea7"
+    },
+    "info": {
+        "title": "News Sentiment Analysis",
+        "description": "News sentiment analysis API",
+        "version": "v1",
+        "x-category": "News, Media",
+        "x-long-description": "News sentiment analysis API works by analyzing the title and description of your inputted URL.  News sentiment API is proper, low latency, and friendly price. You can get news sentiment by news url online, which can be used in python, php, and nodejs, etc. Free news sentiment API plan available.",
+        "x-website": "https://textsla.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/22f1d8b8-1c4e-4626-8371-60653c4779f7.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://news-sentiment-analysis.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "https://www.goodnewsnetwork.org/paige-tobin-great-skateboarder-australia-age-6/"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "News Sentiment Analysis API by URL",
+                "description": "Get english news sentiment analysis API by input news URL",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sentiment": {
+                                            "type": "string"
+                                        },
+                                        "score": {
+                                            "type": "object",
+                                            "properties": {
+                                                "negative": {
+                                                    "type": "integer"
+                                                },
+                                                "neutral": {
+                                                    "type": "number"
+                                                },
+                                                "positive": {
+                                                    "type": "number"
+                                                },
+                                                "compound": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "url": "https://www.goodnewsnetwork.org/paige-tobin-great-skateboarder-australia-age-6/",
+                                            "sentiment": "positive",
+                                            "score": {
+                                                "negative": 0,
+                                                "neutral": 0.783,
+                                                "positive": 0.217,
+                                                "compound": 0.8176
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

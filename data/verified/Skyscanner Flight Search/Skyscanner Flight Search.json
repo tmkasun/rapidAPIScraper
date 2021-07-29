@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5a9b565ae4b04378c0c99666",
+    "name": "Skyscanner Flight Search",
+    "title": "Skyscanner Flight Search",
+    "description": "The Skyscanner API lets you search for flights & get flight prices from Skyscanner's database of prices, as well as get live quotes directly from ticketing agencies.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "skyscanner-flight-search",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-11-02T09:44:41.707Z",
+    "category": "Travel, Transportation",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5a9b565ae4b00687d357311e_medium",
+    "user": {
+        "id": 3844009,
+        "username": "skyscanner",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5a9b565ae4b00687d357311e",
+        "tags": [
+            {
+                "id": "tag_d719c2d1-34d6-48e4-9eb5-59f8735ab866",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "5c50a3c8e4b08cf00f3fc318",
+                "isGraphQL": false,
+                "route": "/apiservices/browseroutes/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}",
+                "method": "GET",
+                "name": "Browse Routes Inbound",
+                "description": "Retrieve the cheapest routes from our cache prices. Similar to the Browse Quotes API but with the routes built for you from the individual quotes. Must include inboundpartialdate",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5c50a381e4b079c3de8a377a",
+                "isGraphQL": false,
+                "route": "/apiservices/browsequotes/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}",
+                "method": "GET",
+                "name": "Browse Quotes Inbound",
+                "description": "Retrieve the cheapest quotes from our cache prices. Must include inboundpartialdate",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5c50a323e4b079c3de8a3778",
+                "isGraphQL": false,
+                "route": "/apiservices/browsedates/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}",
+                "method": "GET",
+                "name": "Browse Dates Inbound",
+                "description": "Retrieve the cheapest dates for a given route from our cache. Must include inboundpartialdate.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

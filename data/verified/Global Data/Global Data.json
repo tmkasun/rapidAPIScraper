@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_6495ed3c-401e-4c0f-9acc-85a9fc6d953b",
+    "name": "Global Data",
+    "title": "Global Data",
+    "description": "General API to be used for together with other APIs that based on various sports",
+    "visibility": "PUBLIC",
+    "slugifiedName": "global-data",
+    "pricing": "FREE",
+    "updatedAt": "2021-01-28T15:06:29.792Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/23969b66-2da5-4a26-925c-914240cbc474.png",
+    "user": {
+        "id": 3943606,
+        "username": "BroadageSports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4a0314fd-f6ad-455e-8f1b-30a22d4ed14e",
+        "tags": [
+            {
+                "id": "tag_20b5615e-18da-4055-9df0-7197a63c70e2",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_dccebb48-dbe8-4bf7-9394-045fc6dc535f",
+                "isGraphQL": false,
+                "route": "/status/list",
+                "method": "GET",
+                "name": "Status List",
+                "description": "Provides the list of the global statuses for the sports.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_ce09cfb1-2fdc-4e3b-988a-fdc896ac8775",
+                "isGraphQL": false,
+                "route": "/sport/list",
+                "method": "GET",
+                "name": "Sports List",
+                "description": "Provides the list of the sports which are supported in the global coverage.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_814f746f-97fb-4319-a3e1-5ab8ba74aa83",
+                "isGraphQL": false,
+                "route": "/round/list",
+                "method": "GET",
+                "name": "Round List",
+                "description": "Provides the list of the global rounds for the sports.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

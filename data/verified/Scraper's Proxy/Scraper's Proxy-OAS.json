@@ -1,0 +1,1106 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_0bd749d3-9742-4385-8dac-4b20ed25924e",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_08992612-8e18-4f8d-933f-bdf9677c4f03",
+        "apiId": "api_3dcdd6cb-1965-4f22-8229-bad1988265d2"
+    },
+    "info": {
+        "title": "Scraper's Proxy",
+        "description": "Simple HTTP proxy API made for scrapers.  Scrape anonymously without having to worry about restrictions, blocks or captchas. Our goal is to provide you with faster response times and higher success rates.",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "Scraper's Proxy is a simple API that makes scraping easy. Scrape anonymously without having to worry about:    \n🚧 Blocks    \n🤖 Captchas    \n🛑 Geo-restrictions    \n😓 Managing a pool of proxies    ",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b9206274-6b93-45df-8575-e7788d9c8990.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://scrapers-proxy2.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Parser",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Tor",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "JavaScript Rendered Pages",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Standard",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Miscellaneous"
+        }
+    ],
+    "paths": {
+        "/parser": {
+            "get": {
+                "tags": [
+                    "Parser"
+                ],
+                "parameters": [
+                    {
+                        "name": "device",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `device` to specify the type of web page you would like to see without needing to specify a user agent. This is recommended as an alternative to using `user_agent ` since it has a higher success rate",
+                        "schema": {
+                            "default": "",
+                            "enum": [
+                                "",
+                                "desktop",
+                                "mobile"
+                            ],
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "user_agent",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `user_agent` if the page you are trying to scrape requires a specific user agent. If the page does not require a specific user agent, but a user agent from a type of device using `device` is recommended",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `country` for requests that require geolocation to route requests to proxies in specific country. Note: using `country` parameter can increase latency and decrease success rate for certain domains",
+                        "schema": {
+                            "default": "",
+                            "enum": [
+                                "",
+                                "at",
+                                "au",
+                                "br",
+                                "by",
+                                "ca",
+                                "cn",
+                                "cz",
+                                "de",
+                                "ee",
+                                "es",
+                                "fr",
+                                "gb",
+                                "hk",
+                                "il",
+                                "in",
+                                "jp",
+                                "kw",
+                                "lv",
+                                "md",
+                                "nl",
+                                "pl",
+                                "ro",
+                                "ru",
+                                "tr",
+                                "ua",
+                                "us"
+                            ],
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "parser",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `parser` to specify how to parse the page. For example, pass in `generic-extractor` to extract basic information from any page. For more options please contact support.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "auto_detect",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `auto_detect` to get our system to automatically detect which parser to use.",
+                        "schema": {
+                            "type": "boolean",
+                            "externalDocs": {},
+                            "default": "true"
+                        }
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "description": " Pass in `url` to specify the url that you want to fetch. If you require  query parameters you can include a query string in the url or specify a json serialized object in the `params` parameter",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "https://example.com"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Parser GET",
+                "description": "Automatically parses html into an easily processable json format",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "title": "Example Domain",
+                                            "links": [
+                                                "https://www.iana.org/domains/example"
+                                            ],
+                                            "images": {},
+                                            "content": "Example Domain.This domain is for use in illustrative examples in documents. You may use this domain in literature without prior coordination or asking for permission.",
+                                            "canonical": null,
+                                            "alert": "A generic web scraper has been selected. Please contact support if you require a more detailed scraper for your given URL.",
+                                            "meta": {
+                                                "keywords": "",
+                                                "description": ""
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Bad URL Example": {
+                                        "description": "",
+                                        "summary": "Bad URL Example",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "property": "url",
+                                                    "value": "http://example",
+                                                    "message": "url must be an URL address"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "500": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Invalid Parser": {
+                                        "description": "",
+                                        "summary": "Invalid Parser",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "Could not parse page using parser specified. Please make sure the parser is able to parse the page at the url specified or set the \"auto_detect\" parameter instead of \"parser\"."
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standard": {
+            "post": {
+                "tags": [
+                    "Standard"
+                ],
+                "parameters": [
+                    {
+                        "name": "params",
+                        "in": "query",
+                        "required": false,
+                        "description": " Pass in `params` as json serialized object to specify url query parameters. This is an alternative to adding a query string to the `url` parameter",
+                        "schema": {
+                            "type": "object",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "user_agent",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `user_agent` if the page you are trying to scrape requires a specific user agent. If the page does not require a specific user agent, but a user agent from a type of device using `device` is recommended",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "session",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `session` to keep cookies and ip address (if necessary) for future requests. You can obtain a session token from the response header `scrapers_proxy_session` after sending a request to the api. Session tokens will expire after 30 seconds of inactivity",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "content_type",
+                        "in": "query",
+                        "required": false,
+                        "description": " Pass in `content_type` to specify the content type of your request payload. This will override the `content-type` request header",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "application/json"
+                        }
+                    },
+                    {
+                        "name": "device",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `device` to specify the type of web page you would like to see without needing to specify a user agent. This is recommended as an alternative to using `user_agent ` since it has a higher success rate",
+                        "schema": {
+                            "default": "",
+                            "enum": [
+                                "",
+                                "desktop",
+                                "mobile"
+                            ],
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `country` for requests that require geolocation to route requests to proxies in specific country. Note: using `country` parameter can increase latency and decrease success rate for certain domains",
+                        "schema": {
+                            "default": "",
+                            "enum": [
+                                "",
+                                "at",
+                                "au",
+                                "br",
+                                "by",
+                                "ca",
+                                "cn",
+                                "cz",
+                                "de",
+                                "ee",
+                                "es",
+                                "fr",
+                                "gb",
+                                "hk",
+                                "il",
+                                "in",
+                                "jp",
+                                "kw",
+                                "lv",
+                                "md",
+                                "nl",
+                                "pl",
+                                "ro",
+                                "ru",
+                                "tr",
+                                "ua",
+                                "us"
+                            ],
+                            "type": "string",
+                            "externalDocs": {}
+                        },
+                        "examples": {
+                            "us": {
+                                "description": "United States",
+                                "summary": "us",
+                                "value": ""
+                            }
+                        }
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "description": " Pass in `url` to specify the url that you want to fetch. If you require  query parameters you can include a query string in the url or specify a json serialized object in the `params` parameter",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "https://example.com"
+                        }
+                    },
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "required": false,
+                        "description": " Pass in `content-type` header to specify content type of your request payload. This will overridden by the `content_type` query parameter",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Standard POST",
+                "description": "Basic proxy POST request\nNote: Misuse of this endpoint to cause harm to other websites (e.g. spam, denial of service, etc.) will result in suspension service to your account",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Successful response": {
+                                        "description": "",
+                                        "summary": "Successful response",
+                                        "value": "<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>\n\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <style type=\"text/css\">\n    body {\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", \"Open Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n        \n    }\n    div {\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);\n    }\n    a:link, a:visited {\n        color: #38488f;\n        text-decoration: none;\n    }\n    @media (max-width: 700px) {\n        div {\n            margin: 0 auto;\n            width: auto;\n        }\n    }\n    </style>    \n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n    <p>This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.</p>\n    <p><a href=\"https://www.iana.org/domains/example\">More information...</a></p>\n</div>\n</body>\n</html>\n"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Invalid request response": {
+                                        "description": "",
+                                        "summary": "Invalid request response",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "url must be an URL address",
+                                                    "property": "url",
+                                                    "value": "http://amazon"
+                                                },
+                                                {
+                                                    "message": "device must be a valid enum value",
+                                                    "property": "device",
+                                                    "value": "mobil"
+                                                },
+                                                {
+                                                    "message": "property sesion should not exist",
+                                                    "property": "sesion",
+                                                    "value": "s0-18e4a6bd-eee4-4af6-ab42-2854b5637330"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "502": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Failure in upstream proxy": {
+                                        "description": "",
+                                        "summary": "Failure in upstream proxy",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "Failure in upstream proxy."
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "503": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Not enough proxies available": {
+                                        "description": "",
+                                        "summary": "Not enough proxies available",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "Not enough proxies available for the specified domain or region. If this is your first request, the domain or region may require whitelisting. If this problem persists contact support."
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {},
+                            "examples": {
+                                "Example Payload": {
+                                    "description": "",
+                                    "summary": "Example Payload",
+                                    "value": {
+                                        "query": "You can include any payload you want. This is just an example."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            },
+            "get": {
+                "tags": [
+                    "Standard"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_agent",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `user_agent` if the page you are trying to scrape requires a specific user agent. If the page does not require a specific user agent, but a user agent from a type of device using `device` is recommended",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "params",
+                        "in": "query",
+                        "required": false,
+                        "description": " Pass in `params` as json serialized object to specify url query parameters. This is an alternative to adding a query string to the `url` parameter",
+                        "schema": {
+                            "type": "object",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "session",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `session` to keep cookies and ip address (if necessary) for future requests. You can obtain a session token from the response header `scrapers_proxy_session` after sending a request to the api. Session tokens will expire after 30 seconds of inactivity",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `country` for requests that require geolocation to route requests to proxies in specific country. Note: using `country` parameter can increase latency and decrease success rate for certain domains",
+                        "schema": {
+                            "default": "",
+                            "enum": [
+                                "",
+                                "at",
+                                "au",
+                                "br",
+                                "by",
+                                "ca",
+                                "cn",
+                                "cz",
+                                "de",
+                                "ee",
+                                "es",
+                                "fr",
+                                "gb",
+                                "hk",
+                                "il",
+                                "in",
+                                "jp",
+                                "kw",
+                                "lv",
+                                "md",
+                                "nl",
+                                "pl",
+                                "ro",
+                                "ru",
+                                "tr",
+                                "ua",
+                                "us"
+                            ],
+                            "type": "string",
+                            "externalDocs": {}
+                        },
+                        "examples": {
+                            "us": {
+                                "description": "United States",
+                                "summary": "us",
+                                "value": ""
+                            }
+                        }
+                    },
+                    {
+                        "name": "device",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `device` to specify the type of web page you would like to see without needing to specify a user agent. This is recommended as an alternative to using `user_agent ` since it has a higher success rate",
+                        "schema": {
+                            "default": "",
+                            "enum": [
+                                "",
+                                "desktop",
+                                "mobile"
+                            ],
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "description": " Pass in `url` to specify the url that you want to fetch. If you require  query parameters you can include a query string in the url or specify a json serialized object in the `params` parameter",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "https://example.com"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Standard GET",
+                "description": "Basic proxy GET request",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Successful response": {
+                                        "description": "",
+                                        "summary": "Successful response",
+                                        "value": "<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>\n\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <style type=\"text/css\">\n    body {\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", \"Open Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n        \n    }\n    div {\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);\n    }\n    a:link, a:visited {\n        color: #38488f;\n        text-decoration: none;\n    }\n    @media (max-width: 700px) {\n        div {\n            margin: 0 auto;\n            width: auto;\n        }\n    }\n    </style>    \n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n    <p>This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.</p>\n    <p><a href=\"https://www.iana.org/domains/example\">More information...</a></p>\n</div>\n</body>\n</html>\n"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Invalid request response": {
+                                        "description": "",
+                                        "summary": "Invalid request response",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "url must be an URL address",
+                                                    "property": "url",
+                                                    "value": "http://amazon"
+                                                },
+                                                {
+                                                    "message": "device must be a valid enum value",
+                                                    "property": "device",
+                                                    "value": "mobil"
+                                                },
+                                                {
+                                                    "message": "property sesion should not exist",
+                                                    "property": "sesion",
+                                                    "value": "s0-18e4a6bd-eee4-4af6-ab42-2854b5637330"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "502": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Failure in upstream proxy": {
+                                        "description": "",
+                                        "summary": "Failure in upstream proxy",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "Failure in upstream proxy."
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "503": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Not enough proxies available": {
+                                        "description": "",
+                                        "summary": "Not enough proxies available",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "Not enough proxies available for the specified domain or region. If this is your first request, the domain or region may require whitelisting. If this problem persists contact support."
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/javascript": {
+            "get": {
+                "tags": [
+                    "JavaScript Rendered Pages"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `country` for requests that require geolocation to route requests to proxies in specific country. Note: using `country` parameter can increase latency and decrease success rate for certain domains",
+                        "schema": {
+                            "default": "",
+                            "enum": [
+                                "",
+                                "at",
+                                "au",
+                                "br",
+                                "by",
+                                "ca",
+                                "cn",
+                                "cz",
+                                "de",
+                                "ee",
+                                "es",
+                                "fr",
+                                "gb",
+                                "hk",
+                                "il",
+                                "in",
+                                "jp",
+                                "kw",
+                                "lv",
+                                "md",
+                                "nl",
+                                "pl",
+                                "ro",
+                                "ru",
+                                "tr",
+                                "ua",
+                                "us"
+                            ],
+                            "type": "string",
+                            "externalDocs": {}
+                        },
+                        "examples": {
+                            "us": {
+                                "description": "United States",
+                                "summary": "us",
+                                "value": ""
+                            }
+                        }
+                    },
+                    {
+                        "name": "user_agent",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `user_agent` if the page you are trying to scrape requires a specific user agent. If the page does not require a specific user agent, but a user agent from a type of device using `device` is recommended",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "wait_ajax",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `wait_ajax` to specify if the browser should wait for ajax requests to finish before capturing the html of the page.",
+                        "schema": {
+                            "enum": [
+                                "true",
+                                "false",
+                                ""
+                            ],
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "params",
+                        "in": "query",
+                        "required": false,
+                        "description": " Pass in `params` as json serialized object to specify url query parameters. This is an alternative to adding a query string to the `url` parameter",
+                        "schema": {
+                            "type": "object",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "session",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `session` to keep cookies and ip address (if necessary) for future requests. You can obtain a session token from the response header `scrapers_proxy_session` after sending a request to the api. Session tokens will expire after 30 seconds of inactivity",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "wait_time",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `wait_time` to specify the time in milliseconds to wait before capturing the resulting html of the page.",
+                        "schema": {
+                            "type": "number",
+                            "externalDocs": {},
+                            "default": "1000"
+                        }
+                    },
+                    {
+                        "name": "device",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `device` to specify the type of web page you would like to see without needing to specify a user agent. This is recommended as an alternative to using `user_agent ` since it has a higher success rate",
+                        "schema": {
+                            "default": "",
+                            "enum": [
+                                "",
+                                "desktop",
+                                "mobile"
+                            ],
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "click_selector",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `click_selector` as a css selector to specify an element that the browser should click on before  capturing the html of the page",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "description": " Pass in `url` to specify the url that you want to fetch. If you require  query parameters you can include a query string in the url or specify a json serialized object in the `params` parameter",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {},
+                            "default": "https://example.com"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "JavaScript Rendered Page GET",
+                "description": "Render html using a real browser. Useful for if content is loaded asynchronously or generated dynamically in the browser. JavaScript rendering is usually required to scrape websites that use React, Angular or Vue. For websites that do not need javascript rendering use [Standard GET](//rapidapi.com/scapers-proxy-scapers-proxy-default/api/scrapers-proxy2) instead for better performance and reliability.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": "<html><head>\n    <title>Example Domain</title>\n\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <style type=\"text/css\">\n    body {\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", \"Open Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n        \n    }\n    div {\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);\n    }\n    a:link, a:visited {\n        color: #38488f;\n        text-decoration: none;\n    }\n    @media (max-width: 700px) {\n        div {\n            margin: 0 auto;\n            width: auto;\n        }\n    }\n    </style>    \n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n    <p>This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.</p>\n    <p><a href=\"https://www.iana.org/domains/example\">More information...</a></p>\n</div>\n\n\n</body></html>"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Invalid request response": {
+                                        "description": "",
+                                        "summary": "Invalid request response",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "url must be an URL address",
+                                                    "property": "url",
+                                                    "value": "http://amazon"
+                                                },
+                                                {
+                                                    "message": "device must be a valid enum value",
+                                                    "property": "device",
+                                                    "value": "mobil"
+                                                },
+                                                {
+                                                    "message": "property sesion should not exist",
+                                                    "property": "sesion",
+                                                    "value": "s0-18e4a6bd-eee4-4af6-ab42-2854b5637330"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "502": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Failure in upstream proxy": {
+                                        "description": "",
+                                        "summary": "Failure in upstream proxy",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "Failure in upstream proxy."
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "503": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Not enough proxies available": {
+                                        "description": "",
+                                        "summary": "Not enough proxies available",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "Not enough proxies available for the specified domain or region. If this is your first request, the domain or region may require whitelisting. If this problem persists contact support."
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tor": {
+            "get": {
+                "tags": [
+                    "Tor"
+                ],
+                "parameters": [
+                    {
+                        "name": "params",
+                        "in": "query",
+                        "required": false,
+                        "description": " Pass in `params` as json serialized object to specify url query parameters. This is an alternative to adding a query string to the `url` parameter",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "user_agent",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `user_agent` if the page you are trying to scrape requires a specific user agent. If the page does not require a specific user agent, but a user agent from a type of device using `device` is recommended",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device",
+                        "in": "query",
+                        "required": false,
+                        "description": "Pass in `device` to specify the type of web page you would like to see without needing to specify a user agent. This is recommended as an alternative to using `user_agent ` since it has a higher success rate",
+                        "schema": {
+                            "default": "",
+                            "enum": [
+                                "",
+                                "desktop",
+                                "mobile"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "http://expyuzz4wqqyqhjn.onion/about/history/"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Tor GET",
+                "description": "Send request to the [Tor network](//www.torproject.org/). Use [Standard GET](//rapidapi.com/scapers-proxy-scapers-proxy-default/api/scrapers-proxy2) instead for better performance and reliability for normal websites. Only recommended to access websites that are only accessible from the Tor network (e.g. websites with a \".onion\" top level domain).",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": "<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>\n\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <style type=\"text/css\">\n    body {\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", \"Open Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n        \n    }\n    div {\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);\n    }\n    a:link, a:visited {\n        color: #38488f;\n        text-decoration: none;\n    }\n    @media (max-width: 700px) {\n        div {\n            margin: 0 auto;\n            width: auto;\n        }\n    }\n    </style>    \n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n    <p>This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.</p>\n    <p><a href=\"https://www.iana.org/domains/example\">More information...</a></p>\n</div>\n</body>\n</html>\n"
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Invalid request response": {
+                                        "description": "",
+                                        "summary": "Invalid request response",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "url must be an URL address",
+                                                    "property": "url",
+                                                    "value": "http://amazon"
+                                                },
+                                                {
+                                                    "message": "device must be a valid enum value",
+                                                    "property": "device",
+                                                    "value": "mobil"
+                                                },
+                                                {
+                                                    "message": "property sesion should not exist",
+                                                    "property": "sesion",
+                                                    "value": "s0-18e4a6bd-eee4-4af6-ab42-2854b5637330"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "502": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Failure in upstream proxy": {
+                                        "description": "",
+                                        "summary": "Failure in upstream proxy",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "Failure in upstream proxy."
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "503": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Not enough proxies available": {
+                                        "description": "",
+                                        "summary": "Not enough proxies available",
+                                        "value": {
+                                            "errors": [
+                                                {
+                                                    "message": "Not enough proxies available for the specified domain or region. If this is your first request, the domain or region may require whitelisting. If this problem persists contact support."
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

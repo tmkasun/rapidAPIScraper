@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_c37c1272-4eb4-40c5-a5fc-835046232ff6",
+    "name": "Promity Facial Emotion",
+    "title": "Promity Facial Emotion",
+    "description": "API for recognizing facial emotions in images in real time.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "promity-facial-emotion",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-22T09:21:01.160Z",
+    "category": "Visual Recognition",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f40ec879-04cc-489a-a873-7e3587713f69.png",
+    "user": {
+        "id": 4912217,
+        "username": "promityai-promityai-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4f9e73ce-07ad-4fa7-b597-91517d558010",
+        "tags": [
+            {
+                "id": "tag_83c7e640-804b-45cf-ac57-986faeaa9e25",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_acfd7485-9390-41ea-96e9-f82c6a2bcc2f",
+                "isGraphQL": false,
+                "route": "/emotions/process_file",
+                "method": "POST",
+                "name": "Emotions by file",
+                "description": "This endpoint recognize 7 emotions:\n1. angry\n2. disgust\n3. fear\n4. happy\n5. sad\n6. surprise\n7. neutral\nCheck out our tutorials for example of usage in Python.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_6bcba152-fa34-4615-8484-394ca6f7daf1",
+                "isGraphQL": false,
+                "route": "/emotions/process_url",
+                "method": "POST",
+                "name": "Emotions by URL",
+                "description": "This endpoint recognize 7 emotions:\n1. angry\n2. disgust\n3. fear\n4. happy\n5. sad\n6. surprise\n7. neutral\nCheck out our tutorials for example of usage in Python.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "596a5c70e4b03e024df91b10",
+    "name": "GeoDB Cities",
+    "title": "GeoDB Cities",
+    "description": "Get global city, region, and country data. Filter and display results in multiple languages.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "geodb-cities",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-24T07:47:23.842Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/186d1031-a2d8-4710-b518-5180819d9f9e.png",
+    "user": {
+        "id": 3468232,
+        "username": "wirefreethought",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "596a5c70e4b03e024df91b11",
+        "tags": [
+            {
+                "id": "tag_6f4400c6-1550-434b-bde7-673ea82437be",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "5a187d3ee4b06bd8892cb0c0",
+                "isGraphQL": false,
+                "route": "/v1/locale/timezones/{zoneid}/time",
+                "method": "GET",
+                "name": "Time-Zone Time",
+                "description": "Get the time-zone current time in ISO-6801 format: HHmmss.SSSZ",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5afcbe24e4b0cb33fcf0092a",
+                "isGraphQL": false,
+                "route": "/v1/locale/languages",
+                "method": "GET",
+                "name": "Languages",
+                "description": "Get all supported languages",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5a187605e4b0a5e0bc5dee03",
+                "isGraphQL": false,
+                "route": "/v1/locale/timezones/{zoneid}/dateTime",
+                "method": "GET",
+                "name": "Time-Zone Date-Time",
+                "description": "Get the timezone current date-time in ISO-6801 format: yyyyMMdd'T'HHmmssZ",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

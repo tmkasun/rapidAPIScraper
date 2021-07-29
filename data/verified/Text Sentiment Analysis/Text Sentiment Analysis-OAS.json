@@ -1,0 +1,80 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_ebc2f2ee-fda5-4c61-bf14-a8ec0bf9d449",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_968507af-3e0b-46c1-a084-1ce58693bfef",
+        "apiId": "api_6768bc42-0c94-4ca5-8c46-df16cb9ed059"
+    },
+    "info": {
+        "title": "Text Sentiment Analysis",
+        "description": "Text sentiment analysis API",
+        "version": "v1",
+        "x-category": "Text Analysis",
+        "x-long-description": "Free text sentiment analysis API can help you get a sentiment analysis score. This is English-only free text sentiment analysis. This API works by analyzing your inputted text, and sentiment analysis score as a result.",
+        "x-website": "https://textsla.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/6bbd4809-3e18-4866-b4d4-07b912e1147b.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://text-sentiment-analysis2.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "Textsla text sentiment anlysis API is proper, friendly price, and low latency"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Text Sentiment Analysis",
+                "description": "Insert text to get sentiment analysis score",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "text": "Textsla text sentiment anlysis API is proper, friendly price, and low latency",
+                                            "sentiment": "positive",
+                                            "score": {
+                                                "negative": 0.137,
+                                                "neutral": 0.654,
+                                                "positive": 0.209,
+                                                "compound": 0.2732
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

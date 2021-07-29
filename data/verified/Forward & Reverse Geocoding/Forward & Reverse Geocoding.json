@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_898ee606-d6bd-4536-995b-7fa5b0eed5bf",
+    "name": "Forward & Reverse Geocoding",
+    "title": "Forward & Reverse Geocoding",
+    "description": "Forward & Reverse Geocoding based on OpenStreetMap data. Find geocoordinates (latitude and longitude) for an address or use reverse geocoding to define positions for asset tracking and more.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "forward-reverse-geocoding",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-09T16:13:41.963Z",
+    "category": "Mapping",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/9578e733-bb2d-405e-bb11-1135972e83df.png",
+    "user": {
+        "id": 4488200,
+        "username": "GeocodeSupport",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_d1e146a7-9501-46c8-8af4-bcbd91c653fd",
+        "tags": [
+            {
+                "id": "tag_9b4a81a1-4058-4a8a-b84c-641e6719b370",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_c22931bd-187b-4a01-ad7d-42b9dea2d23f",
+                "isGraphQL": false,
+                "route": "/v1/reverse",
+                "method": "GET",
+                "name": "ReverseGeocoding",
+                "description": "Find address or place by latitude and longitude",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_75751c3c-7f39-4403-ac0b-d56c5a77da9b",
+                "isGraphQL": false,
+                "route": "/v1/forward",
+                "method": "GET",
+                "name": "ForwardGeocoding",
+                "description": "Turn an address into latitude and longitude (e.g. to display on a map) by schematic input.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_77841b8b-6b43-4f84-92c6-bf6f168cdec2",
+                "isGraphQL": false,
+                "route": "/v1/search",
+                "method": "GET",
+                "name": "GeocodingSearch",
+                "description": "Free-form query forward geocoding.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

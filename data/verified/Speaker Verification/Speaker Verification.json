@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_6486cdec-fa7a-472b-8e57-8b6acaac5194",
+    "name": "Speaker Verification",
+    "title": "Speaker Verification",
+    "description": "PresentID Speaker verification API checks whether two voices belong to the same  person or not. This capability is potentially useful in call centers. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "speaker-verification1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-20T15:58:47.963Z",
+    "category": "Machine Learning",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/641234dd-e897-4653-8042-5cba113f17b0.png",
+    "user": {
+        "id": 4565546,
+        "username": "PresentID",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_178b3e64-bec2-4f55-918c-9a1ad50fb422",
+        "tags": [
+            {
+                "id": "tag_58b327d3-5338-4b86-a93f-f4149510e88b",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_054aa3ac-0275-4187-99ce-ce61655b99e5",
+                "isGraphQL": false,
+                "route": "/Verification",
+                "method": "POST",
+                "name": "Send voice with voice file",
+                "description": "Speaker verification API checks whether two voices belong to one person or not \n\nThe voice must be between three seconds and one minute\nThe voices must not exceed 5 MB\nSupported file types: wav, mp3, m4a, FLAC, aac, ogg",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_b8f283b9-956b-495a-b2b9-87ceb5120504",
+                "isGraphQL": false,
+                "route": "/Verification",
+                "method": "POST",
+                "name": "Send voice with Voice URL",
+                "description": "Speaker verification API checks whether two voices belong to one person or not.\n\nThe voice must be between three seconds and one minute\nThe voices must not exceed 5 MB\nSupported file types: wav, mp3, m4a, FLAC, aac, ogg",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_add35bb3-d2fd-4194-9e60-7c449baafc50",
+                "isGraphQL": false,
+                "route": "/Verification",
+                "method": "POST",
+                "name": "Send voice with Base64",
+                "description": "Speaker verification API checks whether two voices belong to one person or not \n\nThe voice must be between three seconds and one minute\nThe voices must not exceed 5 MB\nSupported file types: wav, mp3, m4a, FLAC, aac, ogg",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5ad523b0e4b00687d357d4e7",
+    "name": "TeleSign Score",
+    "title": "TeleSign Score",
+    "description": "Delivers reputation scoring based on phone number intelligence, traffic patterns, machine learning and a global data consortium",
+    "visibility": "PUBLIC",
+    "slugifiedName": "telesign-score",
+    "pricing": "PAID",
+    "updatedAt": "2019-10-03T21:50:13.548Z",
+    "category": "Communication",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5ad523b0e4b04378c0ca375f_medium",
+    "user": {
+        "id": 3526630,
+        "username": "telesign",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5ad523b0e4b04378c0ca375f",
+        "tags": [
+            {
+                "id": "tag_e730ab2a-945f-4001-81fa-5e1fe68e6311",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            },
+            {
+                "id": "tag_ffdf24ec-e1ab-44a1-85ef-aee690562975",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_0364d241-f423-4ff4-9e3e-e51de3cdc835",
+                "type": "tag",
+                "value": "Official",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "5ad5242fe4b00687d357d4eb",
+                "isGraphQL": false,
+                "route": "/score/{complete_phone_number}",
+                "method": "POST",
+                "name": "Score",
+                "description": "Send a request that a phone number be evaluated to see whether it is potentially used for fraudulent activities.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

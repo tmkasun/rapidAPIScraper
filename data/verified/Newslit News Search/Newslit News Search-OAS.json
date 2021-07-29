@@ -1,0 +1,73 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_9a08fe83-8025-4432-a155-a6ea27025a1b",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_385a9583-5614-453a-ba92-9ed48f7c434e",
+        "apiId": "api_befdc09b-d362-4d41-ab35-1ccc95e0bb89"
+    },
+    "info": {
+        "title": "Newslit News Search",
+        "description": "Newslit tracks the most comprehensive set of important news sources, and integrates social signals from thousands of top business influencers. Over 100,000 sources are scanned each day.",
+        "version": "v1",
+        "x-category": "News, Media",
+        "x-long-description": "Newslit makes it easy to monitor the web for breaking news headlines and interesting new content to help you hone in on your industry, competitors and brands for accurate market research",
+        "x-website": "newslit.co",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/5d/56e6af5985408995db3c20449c34a5/568766c5527688b0ab4dc43843742446.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://newslit-news-search.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/news": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "Offset of first item in result (default 0)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of items in response (default 10, max 100)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "Query Term(s)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/news",
+                "description": "Get news stories by keyword(s)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

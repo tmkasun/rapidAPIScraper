@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_fbd3b676-0132-4de0-9995-d2b51de0fffd",
+    "name": "Stock Price",
+    "title": "Stock Price",
+    "description": "Get the latest stock market quote price data.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "stock-price4",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-22T00:59:14.037Z",
+    "category": "Financial",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/d1775a4f-ee2f-4850-b3e8-52f2949a959c.png",
+    "user": {
+        "id": 4349829,
+        "username": "fridaystock",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_fb5cf7a5-b492-47e0-a04d-689f6f283e9e",
+        "tags": [
+            {
+                "id": "tag_a09e6231-f82b-4dc6-97e6-8ff86d2ea579",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_65fe4fd0-1c40-4bf3-b714-2d8f7457449d",
+                "isGraphQL": false,
+                "route": "/price/{symbol}",
+                "method": "GET",
+                "name": "Get Stock Quote Price",
+                "description": "Enter the stock symbol ticker and get the price returned in response.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

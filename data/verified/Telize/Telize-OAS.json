@@ -1,0 +1,132 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_84dc78c6-66b8-4119-a876-df4ff766a602",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "55dcd7f4e4b0fd0fcdcd04e8",
+        "apiId": "55dcd7f4e4b0a29b2c35f969"
+    },
+    "info": {
+        "title": "Telize",
+        "description": "Telize offers a JSON IP and GeoIP REST API allowing to get a visitor IP address and to query location information from any IP address. It outputs JSON-encoded IP geolocation data, and supports both Cross-origin resource sharing (CORS) and JSONP.",
+        "version": "v1",
+        "x-category": "Location",
+        "x-long-description": "Telize offers a JSON IP and GeoIP REST API allowing to get a visitor IP address and to query location information from any IP address. It outputs JSON-encoded IP geolocation data, and supports both Cross-origin resource sharing (CORS) and JSONP.",
+        "x-website": "https://www.telize.com",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/55dcd7f4e4b0fd0fcdcd04e8_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://telize-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/location/{ip_address}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "callback",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return data in JSONP format",
+                        "schema": {
+                            "type": "string",
+                            "example": "getlocation"
+                        }
+                    },
+                    {
+                        "name": "ip_address",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Location with specific IP",
+                "description": "Get a specific IP address location in JSON format",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/location": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "callback",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return data in JSONP format",
+                        "schema": {
+                            "type": "string",
+                            "example": "getlocation"
+                        }
+                    }
+                ],
+                "operationId": "Location",
+                "description": "Get visitor IP address location in JSON format",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/ip": {
+            "get": {
+                "operationId": "IP",
+                "description": "Get IP address in plain text format. Returns the visitor IP address (IPv4 or IPv6) in plain text, useful for shell scripts or to find the external Internet routable address.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/jsonip": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "callback",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return data in JSONP format",
+                        "schema": {
+                            "type": "string",
+                            "example": "getip"
+                        }
+                    }
+                ],
+                "operationId": "JSON IP",
+                "description": "Get IP address in JSON format. Returns the visitor IP address (IPv4 or IPv6) in a JSON object.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/geoip": {
+            "get": {
+                "operationId": "Legacy - GeoIP",
+                "description": "Get visitor IP address location in JSON format",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

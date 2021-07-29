@@ -1,0 +1,463 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_65839086-faaf-4050-af1f-873e7b935ea4",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_933d261e-4c17-4ddf-a555-43a1e4427a06",
+        "apiId": "api_7575048a-9cee-422f-b0e4-7b44d9460e55"
+    },
+    "info": {
+        "title": "Football Data",
+        "description": "Broadage Football API can deliver any type of data for a football match, tournament or team; including livescores, play-by-play, boxscore, match statistics and many more. Our Football Coverage includes the biggest football tournaments from all around the world with in-depth coverage, giving you the opportunity to present the best sports data to users located anywhere.<br>This is a limited version in RapidApi. <a href=\"https://www.broadage.com/signup/api/free?utm_source=rapidapi&utm_medium=click&utm_campaign=football_api\" target=”_blank”>Please, click here to start your Free Trial and try the endpoints with live data now!</a>",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Daily live football scores, schedules, standings and many more. From pre-season to regular season, playoffs and all the way to the conference finals and Super Bowl, enrich and widen your football coverage with Broadage Football API.\n\nTournaments from every level, with NFL or NCAA football is brought to you live with detailed data. Sports oriented data with conference or division standings lets you create your tournament and team pages easier than ever before.",
+        "x-website": "https://www.broadage.com/sports-data-api/football",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/9178c669-8cfc-4169-97a7-78a32cb9e1a5.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://football-data1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Post-Match Data"
+        },
+        {
+            "name": "Live Data"
+        },
+        {
+            "name": "Pre-Match Data"
+        }
+    ],
+    "paths": {
+        "/match/statistics/key": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "21587"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Match Key Statistics Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/match-key-statistics/"
+                },
+                "operationId": "Match Key Statistics",
+                "description": "Live key match statistics for both team of the match.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Football Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/playbyplay": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "18656"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Match Play by Play Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/match-play-by-play/"
+                },
+                "operationId": "Match Play by Play",
+                "description": "Provides all match drives and plays during the match with their detailed informations.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Football Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/teams": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "1"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Tournament Teams Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/tournament-teams/"
+                },
+                "operationId": "Tournament Teams",
+                "description": "List of teams participating in a specific tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/live": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the matches. The format is {dd/mm/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "06/10/2020"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Match List: Live Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/match-list-live/"
+                },
+                "operationId": "Daily Match List-Live",
+                "description": "Daily match list including live matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/boxscore": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Match Boxscore Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/match-boxscore/"
+                },
+                "operationId": "Match Boxscore",
+                "description": "Live, detailed team and player statistics.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Football Match List or Fixture endpoints.**\n\nP.S.\nFull data is available at Boxscore endpoint but can not shown in mock  response.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/statistics/team": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "21587"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Match Team Statistics Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/match-team-statistics/"
+                },
+                "operationId": "Match Team Statistics",
+                "description": "Provides the team statistics of the match.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Football Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/gameleaders": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the match.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "21587"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Match Game Leaders Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/match-game-leaders/"
+                },
+                "operationId": "Match Game Leaders",
+                "description": "Live passing, rushing and receiving stats leaders of the game.\n\n**The data will return for only -+7 days period, so endpoint can be tested with match that its date is in today +- 7 days. You can choose suitable match from Football Match List or Fixture endpoints.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/scheduled": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of the matches. The format is {dd/mm/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "07/02/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Match List: Scheduled Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/match-list-scheduled/"
+                },
+                "operationId": "Daily Match List-Scheduled",
+                "description": "Daily match list including scheduled matches.\n\nThe data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list/results": {
+            "get": {
+                "tags": [
+                    "Post-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "The date of matches. The format is {dd/mm/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "24/01/2021"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Match List: Results Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/match-list-results/"
+                },
+                "operationId": "Daily Match List-Results",
+                "description": "Daily match list including finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match/list": {
+            "get": {
+                "tags": [
+                    "Live Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "Date of the match. The format is {dd/MM/yyyy}. Match list data can be retrieved for only ± 7 days.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "06/10/2020"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Match List: All Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/match-list-all/"
+                },
+                "operationId": "Daily Match List-All",
+                "description": "Daily match list including scheduled, live and finished matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/info": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "9"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Tournament Info Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/tournament-info/"
+                },
+                "operationId": "Tournament Info",
+                "description": "Current season, stage structure(divisions,conferences etc.), country and many more information about a tournament.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/standings": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "9"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Tournament Standings Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/tournament-standings/"
+                },
+                "operationId": "Tournament Standings",
+                "description": "Team Rankings for a specific competition.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/fixture": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "parameters": [
+                    {
+                        "name": "tournamentId",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the tournament.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "9"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Football API Tournament Fixture Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/tournament-fixture/"
+                },
+                "operationId": "Tournament Fixture",
+                "description": "Full match list with quarter, half time and final scores.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/tournament/list": {
+            "get": {
+                "tags": [
+                    "Pre-Match Data"
+                ],
+                "externalDocs": {
+                    "description": "Football API Tournament List Documentation",
+                    "url": "https://www.broadage.com/developers/football-api/tournament-list/"
+                },
+                "operationId": "Tournament List",
+                "description": "List of tournaments in your data coverage.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

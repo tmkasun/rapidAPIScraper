@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_8273d77f-64ea-4199-bf41-67e03d259f27",
+    "name": "IP Geo Location ",
+    "title": "IP Geo Location ",
+    "description": "API returns location data such as country, city, latitude, longitude, timezone, asn, currency, security data for IPv4 and IPv6 addresses in JSON or XML formats.  ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ip-geo-location",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-09-04T10:32:11.027Z",
+    "category": "Location",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/52/6c1740354211e994a3c7dbaed426e4/6c4a84853b826b48a70db245145cfb09.png",
+    "user": {
+        "id": 3631200,
+        "username": "natkapral",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_a83145ed-5f4b-49cc-803b-4ac366644648",
+        "tags": [
+            {
+                "id": "tag_cbc3278c-0d4f-4fb9-a074-fa70ec6d997f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_0e95eebe-5290-481c-93d8-c417de659b25",
+                "isGraphQL": false,
+                "route": "/ip/check",
+                "method": "GET",
+                "name": "Visitor Lookup",
+                "description": "Returns the IP address of the client with all the location data",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_e257aebb-d730-4979-8f42-35f233c2a6af",
+                "isGraphQL": false,
+                "route": "/ip/{ip}",
+                "method": "GET",
+                "name": "IP Lookup",
+                "description": "Provides geo information for the given IP",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5c0ca92be4b09c6b17cf9912",
+    "name": "Neobi Open Cannabis",
+    "title": "Neobi Open Cannabis",
+    "description": "Canadian Cannabis Database: Products, Producers, Strains, Seeds, and Scientific Papers",
+    "visibility": "PUBLIC",
+    "slugifiedName": "neobi-open-cannabis",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-02-28T01:31:24.313Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/e828b851-f729-4f8b-a838-adb0999e6d4e_medium",
+    "user": {
+        "id": 3605526,
+        "username": "neobi",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5c0ca92ce4b0cc6cdc0e8f7c",
+        "tags": [
+            {
+                "id": "tag_f585c3ff-3a25-43ff-9553-6767925604d7",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_f29f5df8-cd6a-4a66-8401-0d8dc5358379",
+                "isGraphQL": false,
+                "route": "/api/producers/{id}/products",
+                "method": "GET",
+                "name": "Get Products from Producer",
+                "description": "Gets a list of products from a specified Producer (CannaCode)",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_ec2adc1c-5488-4e2f-b475-3cf7a857d0b9",
+                "isGraphQL": false,
+                "route": "/api/producers/search",
+                "method": "GET",
+                "name": "Search for Producers",
+                "description": "Gets a list of Producers from a keyword",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_0642474f-2675-4257-99e4-332fec192f3e",
+                "isGraphQL": false,
+                "route": "/api/variants",
+                "method": "GET",
+                "name": "Get Variants by Product ID",
+                "description": "Get a list of Variants for a single product",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

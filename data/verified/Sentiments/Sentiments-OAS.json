@@ -1,0 +1,269 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_9d93f94c-e76f-4b33-9127-8737e5e39efc",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_aec2b5ad-feff-4370-8b41-90376f7402d2",
+        "apiId": "api_e60fe6da-8641-4cc9-9f80-65dff3e73540"
+    },
+    "info": {
+        "title": "Sentiments",
+        "description": "Our \"Sentiments\" API returns the sentiment score of any given text. Test our api for free and do not hesitate to reach us out for further information.",
+        "version": "v1",
+        "x-category": "Text Analysis",
+        "x-long-description": "Today Connexun is an AI news and text analysis engine with long lasting experience and know-how, promoting content and text analysis APIs and proprietary technologies of use to developers, startups, businesses and eventually also consumers. It enables its clients to source in real time multilingual headlines, articles and dynamic summaries extracted from thousands of trusted online news outlets. It serves its clients with proprietary text crawling and classifying technologies.\n\nConnexun also developed B.I.R.B.AL., its artificial intelligent engine used to power its mobile app, to deliver real time news and information to digital cosmopolitans. We continue to augment intelligent tools that leverage the power of Machine Learning and Natural Language Processing to analyze large datasets of aggregated content.\n\nConnexun's sentiment analysis evaluates if a given text is positive, negative or neutral. The API returns a sentiment score for any text in English. The score may be negative or positive, with greater values representing a more negative or more positive nature of the text. A score closer to 0 (zero), on the other hand, reflects a more neutral tone of the sentence.\n\nTest our api for free and do not hesitate to reach us out for further information.",
+        "x-website": "https://connexun.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0bb43279-9f45-4c93-9910-b0f2a84ddd13.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://sentiments1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Post text to evaluate its sentiment"
+        },
+        {
+            "name": "sentiment"
+        }
+    ],
+    "paths": {
+        "/sentiment": {
+            "post": {
+                "tags": [
+                    "Post text to evaluate its sentiment"
+                ],
+                "summary": "Returns the sentiment of the input text as positive, negative or neutal.",
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/sentiment",
+                "description": "This endpoint requires an input text in english language, and in response evaluates if the overall sentiment of the text is positive, negative, or neutral. This sentiment along with the score obtained is returned in response as JSON object. The main value which reflect sentiment of a text is score which could be below zero - mostly negative sentiment or above zero - mostly positive. We convert continuous score to three classes negative sentiment (score<=-0.58), neutral (-0.58<score<0.21), positive (>=0.21). Such division is subjective and could be used as it is for text classification by sentiments.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Sentiment": {
+                                            "type": "string"
+                                        },
+                                        "Value": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "title": "SentimentSuccessSchema",
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "Sentiment": "neutral",
+                                            "score": -0.431
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "Error Schema",
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "$schema": "http://json-schema.org/draft-04/schema#",
+                                            "type": "object",
+                                            "properties": {
+                                                "detail": {
+                                                    "type": "array",
+                                                    "items": [
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "loc": {
+                                                                    "type": "array",
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "string"
+                                                                        },
+                                                                        {
+                                                                            "type": "string"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "msg": {
+                                                                    "type": "string"
+                                                                },
+                                                                "type": {
+                                                                    "type": "string"
+                                                                },
+                                                                "ctx": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "limit_value": {
+                                                                            "type": "integer"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "limit_value"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "loc",
+                                                                "msg",
+                                                                "type",
+                                                                "ctx"
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "detail"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "422": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "loc": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "msg": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "type": "string"
+                                                    },
+                                                    "ctx": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "limit_value": {
+                                                                "type": "integer"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "Min text length": {
+                                        "description": "",
+                                        "summary": "Min text length",
+                                        "value": {
+                                            "detail": [
+                                                {
+                                                    "loc": [
+                                                        "body",
+                                                        "text"
+                                                    ],
+                                                    "msg": "ensure this value has at least 10 characters",
+                                                    "type": "value_error.any_str.min_length",
+                                                    "ctx": {
+                                                        "limit_value": 10
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "Max text length": {
+                                        "description": "",
+                                        "summary": "Max text length",
+                                        "value": {
+                                            "detail": [
+                                                {
+                                                    "loc": [
+                                                        "body",
+                                                        "text"
+                                                    ],
+                                                    "msg": "ensure this value has at most 200 characters",
+                                                    "type": "value_error.any_str.max_length",
+                                                    "ctx": {
+                                                        "limit_value": 200
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "text": {
+                                        "description": "Enter text in English for which sentiments needs to be evaluated. A maximum of 500 characters including spaces is supported.",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "text"
+                                ],
+                                "title": "SentimentReqSchema",
+                                "type": "object"
+                            },
+                            "examples": {
+                                "Example_1": {
+                                    "description": "",
+                                    "summary": "Example_1",
+                                    "value": {
+                                        "text": "This winter has seen more snow than usual"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

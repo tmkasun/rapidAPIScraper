@@ -1,0 +1,132 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_6c1ffaeb-fd05-45cd-bedf-55586d900eff",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_bb28ce6d-7c34-4e18-b1c5-458392d2b2d2",
+        "apiId": "api_6521716b-400e-4e35-a303-2365b47bee06"
+    },
+    "info": {
+        "title": "Sales Tax Calculator",
+        "description": "Sales tax rates with rooftop accuracy by street address location for applications, business processes, and workflows. This Automated Sales Tax API returns the full combined rate in real-time, which can be used for any billing, commerce, payment, or application/service transactions.",
+        "version": "v1",
+        "x-category": "eCommerce",
+        "x-long-description": "✅ Built-in address validation and detection  \n✅ Real time, automatic tax configuration by full address\n✅ Precise rooftop compliant sales tax rate lookups",
+        "x-website": "http://www.taxprodigital.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/41e96a99-99d7-4d03-9a11-932fc6827b35.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://sales-tax-calculator.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/rates": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Tax Rate by Street Address",
+                "description": "Retrieves tax rates applicable to a specific address. This endpoint accepts address inputs to deliver up-to-date, relevant local tax rates instantly.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "tax_rate": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "tax_rate": 9.25
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "type": "string"
+                                    },
+                                    "street": {
+                                        "type": "string"
+                                    },
+                                    "zip": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "examples": {
+                                "California": {
+                                    "description": "",
+                                    "summary": "California",
+                                    "value": {
+                                        "city": "Menlo Park",
+                                        "state": "CA",
+                                        "street": "1 Hacker Way",
+                                        "zip": "94025"
+                                    }
+                                }
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "city": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Menlo Park"
+                                    },
+                                    "zip": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "94025"
+                                    },
+                                    "state": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "CA"
+                                    },
+                                    "street": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "1 Hacker Way"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

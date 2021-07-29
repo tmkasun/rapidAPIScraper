@@ -1,0 +1,2614 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_6f4400c6-1550-434b-bde7-673ea82437be",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "596a5c70e4b03e024df91b11",
+        "apiId": "596a5c70e4b03e024df91b10"
+    },
+    "info": {
+        "title": "GeoDB Cities",
+        "description": "Get global city, region, and country data. Filter and display results in multiple languages.",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "Get global city, region, and country data. Filter cities by name prefix, country, location, time-zone, and even minimum population (currently over 500,000 towns, cities, and counties). Display results in multiple languages. Sort by name, country code, elevation, and population - or any combination of these. Get distances between cities. Get all country regions. Get all cities in a given region. RESTful API adheres to industry best-practices, including HATEOAS-style links to help page results. Data is periodically refreshed from GeoNames and WikiData. Backed by cloud-based load-balanced infrastructure for resiliency and performance! If you'd like to host the service internally, contact us for details through the dev portal site. Data licensed under Creative Commons, http://creativecommons.org/licenses/by/3.0. For more information check out our website at http://geodb-cities-api.wirefreethought.com",
+        "x-website": "http://geodb-cities-api.wirefreethought.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/186d1031-a2d8-4710-b518-5180819d9f9e.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://wft-geo-db.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "geo"
+        },
+        {
+            "name": "locale"
+        }
+    ],
+    "paths": {
+        "/v1/locale/timezones/{zoneid}/time": {
+            "get": {
+                "tags": [
+                    "locale"
+                ],
+                "parameters": [
+                    {
+                        "name": "zoneid",
+                        "in": "path",
+                        "required": true,
+                        "description": "The time-zone id",
+                        "schema": {
+                            "type": "string",
+                            "example": "America__Los_Angeles"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Time-Zone Time",
+                "description": "Get the time-zone current time in ISO-6801 format: HHmmss.SSSZ",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/locale/languages": {
+            "get": {
+                "tags": [
+                    "locale"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset index into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "Languages",
+                "description": "Get all supported languages",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/locale/timezones/{zoneid}/dateTime": {
+            "get": {
+                "tags": [
+                    "locale"
+                ],
+                "parameters": [
+                    {
+                        "name": "zoneid",
+                        "in": "path",
+                        "required": true,
+                        "description": "The time-zone id",
+                        "schema": {
+                            "type": "string",
+                            "example": "America__Los_Angeles"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Time-Zone Date-Time",
+                "description": "Get the timezone current date-time in ISO-6801 format: yyyyMMdd'T'HHmmssZ",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "data": "20171124T114616-0800"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/locale/timezones": {
+            "get": {
+                "tags": [
+                    "locale"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset index into the results",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "operationId": "Time-Zones",
+                "description": "Get all known time-zones.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/locale/locales": {
+            "get": {
+                "tags": [
+                    "locale"
+                ],
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset index into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "Locales",
+                "description": "Get all known locales.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/locale/currencies": {
+            "get": {
+                "tags": [
+                    "locale"
+                ],
+                "parameters": [
+                    {
+                        "name": "countryId",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only currencies supported by this country",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "null"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset index into the results",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Currencies",
+                "description": "Get currencies, filtering by optional criteria. If no criteria are set, you will get back all known currencies.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "items": {
+                                                "properties": {
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "countryCodes": {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": "array"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "links": {
+                                            "items": {
+                                                "properties": {
+                                                    "href": {
+                                                        "type": "string"
+                                                    },
+                                                    "rel": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "metadata": {
+                                            "properties": {
+                                                "currentOffset": {
+                                                    "type": "integer"
+                                                },
+                                                "totalCount": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "data": [
+                                                {
+                                                    "code": "AED",
+                                                    "countryCodes": [
+                                                        "AE"
+                                                    ]
+                                                },
+                                                {
+                                                    "code": "AFN",
+                                                    "countryCodes": [
+                                                        "AF"
+                                                    ]
+                                                },
+                                                {
+                                                    "code": "ALL",
+                                                    "countryCodes": [
+                                                        "AL"
+                                                    ]
+                                                },
+                                                {
+                                                    "code": "AMD",
+                                                    "countryCodes": [
+                                                        "AM"
+                                                    ]
+                                                },
+                                                {
+                                                    "code": "ANG",
+                                                    "countryCodes": [
+                                                        "CW",
+                                                        "SX",
+                                                        "AN"
+                                                    ]
+                                                }
+                                            ],
+                                            "links": [
+                                                {
+                                                    "href": "/v1/locale/currencies?offset=0&limit=5",
+                                                    "rel": "first"
+                                                },
+                                                {
+                                                    "href": "/v1/locale/currencies?offset=0&limit=5",
+                                                    "rel": "prev"
+                                                },
+                                                {
+                                                    "href": "/v1/locale/currencies?offset=5&limit=5",
+                                                    "rel": "next"
+                                                },
+                                                {
+                                                    "href": "/v1/locale/currencies?offset=166&limit=5",
+                                                    "rel": "last"
+                                                }
+                                            ],
+                                            "metadata": {
+                                                "currentOffset": 0,
+                                                "totalCount": 171
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/countries/{countryid}/regions/{regioncode}/adminDivisions": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "How to sort the results. Format: ±SORT_FIELD,±SORT_FIELD where SORT_FIELD =  elevation | name | population",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "minPopulation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities having at least this population",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "includeDeleted",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether to include any cities marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "countryid",
+                        "in": "path",
+                        "required": true,
+                        "description": "An ISO-3166 country code or WikiData id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "regioncode",
+                        "in": "path",
+                        "required": true,
+                        "description": "An ISO-3166 or FIPS region code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Country Region Divisions",
+                "description": "Get the administrative divisions in the given region.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/locations/{locationid}/nearbyDivisions": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "includeDeleted",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether to include any divisions marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "How to sort the results. Format: ±SORT_FIELD,±SORT_FIELD where SORT_FIELD = countryCode | elevation | name | population",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timeZoneIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions in these time-zones",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "minPopulation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions having at least this population",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "namePrefix",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions whose names start with this prefix. If languageCode is set, the prefix will be matched on the name as it appears in that language.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "countryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "distanceUnit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unit of distance to use: MI | KM",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "excludedCountryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions NOT in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "locationid",
+                        "in": "path",
+                        "required": true,
+                        "description": "Only divisions near this location. Latitude/longitude in ISO-6709 format: ±DD.DDDD±DDD.DDDD",
+                        "schema": {
+                            "type": "string",
+                            "example": "33.832213-118.387099"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": true,
+                        "description": "The location radius within which to find divisions",
+                        "schema": {
+                            "type": "string",
+                            "example": "100"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Divisions Near Location",
+                "description": "Get administrative divisions near the given location, filtering by optional criteria.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/adminDivisions/{divisionId}/nearbyDivisions": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "excludedCountryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions NOT in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "How to sort the results. Format: ±SORT_FIELD,±SORT_FIELD where SORT_FIELD = countryCode | elevation | name | population",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "namePrefix",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions whose names start with this prefix. If languageCode is set, the prefix will be matched on the name as it appears in that language.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "distanceUnit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unit of distance to use: MI | KM",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "minPopulation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions having at least this population",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "countryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "timeZoneIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions in these time-zones",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "includeDeleted",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether to include any divisions marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "divisionId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": true,
+                        "description": "The location radius within which to find divisions",
+                        "schema": {
+                            "type": "number",
+                            "example": "100"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Divisions Near Division",
+                "description": "Get divisions near the given administrative division, filtering by optional criteria.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/countries/{countryid}/regions/{regioncode}/cities": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "namePrefix",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities whose names start with this prefix. If languageCode is set, the prefix will be matched on the name as it appears in that language.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timeZoneIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities in these time-zones",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "types",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities for these types (comma-delimited): CITY | ADM2",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "minPopulation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities having at least this population",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "includeDeleted",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether to include any cities marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "How to sort the results. Format: ±SORT_FIELD,±SORT_FIELD where SORT_FIELD =  elevation | name | population",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "regioncode",
+                        "in": "path",
+                        "required": true,
+                        "description": "An ISO-3166 or FIPS region code",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "countryid",
+                        "in": "path",
+                        "required": true,
+                        "description": "An ISO-3166 country code or WikiData id",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Country Region Cities",
+                "description": "Get the cities in the given region.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/cities/{cityid}/distance": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "fromCityId",
+                        "in": "query",
+                        "required": false,
+                        "description": "The distance from this city",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "distanceUnit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unit of distance: KM | MI [default]",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "toCityId",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "cityid",
+                        "in": "path",
+                        "required": true,
+                        "description": "The city id (either native id or wikiDataId)",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "undefined"
+                },
+                "operationId": "City Distance",
+                "description": "Gets the distance to the given city.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "data": 829
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/cities/{cityid}/time": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "cityid",
+                        "in": "path",
+                        "required": true,
+                        "description": "The city id (either native id or wikiDataId)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "City Time",
+                "description": "Get the city current time in ISO-8601 format: HHmmss.SSSZ",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/countries/{countryid}/regions/{regioncode}": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "regioncode",
+                        "in": "path",
+                        "required": true,
+                        "description": "An ISO-3166 or FIPS region code",
+                        "schema": {
+                            "type": "string",
+                            "example": "CA"
+                        }
+                    },
+                    {
+                        "name": "countryid",
+                        "in": "path",
+                        "required": true,
+                        "description": "An ISO-3166 country code or WikiData id",
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Country Region Details",
+                "description": "Get the details of a specific country region, including number of cities.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "data": {
+                                        "properties": {
+                                            "capital": {
+                                                "type": "string"
+                                            },
+                                            "countryCode": {
+                                                "type": "string"
+                                            },
+                                            "fipsCode": {
+                                                "format": "utc-millisec",
+                                                "type": "string"
+                                            },
+                                            "isoCode": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "numCities": {
+                                                "type": "integer"
+                                            },
+                                            "wikiDataId": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "data": {
+                                                "capital": "Sacramento",
+                                                "countryCode": "US",
+                                                "fipsCode": "06",
+                                                "isoCode": "CA",
+                                                "name": "California",
+                                                "numCities": 1077,
+                                                "wikiDataId": "Q99"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/countries/{countryid}/regions": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset index into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "namePrefix",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only regions whose names start with this prefix. If languageCode is set, the prefix will be matched on the name as it appears in that language.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "countryid",
+                        "in": "path",
+                        "required": true,
+                        "description": "An ISO-3166 country code or WikiData id",
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Country Regions",
+                "description": "Find regions in a specific country, filtering by optional criteria. Regions can be states, provinces, districts, or otherwise major political divisions.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "items": {
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "links": {
+                                            "items": {
+                                                "properties": {
+                                                    "href": {
+                                                        "type": "string"
+                                                    },
+                                                    "rel": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "metadata": {
+                                            "properties": {
+                                                "currentOffset": {
+                                                    "type": "integer"
+                                                },
+                                                "totalCount": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "data": [
+                                                {
+                                                    "countryCode": "US",
+                                                    "fipsCode": "02",
+                                                    "isoCode": "AK",
+                                                    "name": "Alaska",
+                                                    "wikiDataId": "Q797"
+                                                },
+                                                {
+                                                    "countryCode": "US",
+                                                    "fipsCode": "10",
+                                                    "isoCode": "DE",
+                                                    "name": "Delaware",
+                                                    "wikiDataId": "Q1393"
+                                                },
+                                                {
+                                                    "countryCode": "US",
+                                                    "fipsCode": "HQ",
+                                                    "isoCode": "UM-84",
+                                                    "name": "Howland Island",
+                                                    "wikiDataId": "Q131305"
+                                                },
+                                                {
+                                                    "countryCode": "US",
+                                                    "fipsCode": "24",
+                                                    "isoCode": "MD",
+                                                    "name": "Maryland",
+                                                    "wikiDataId": "Q1391"
+                                                },
+                                                {
+                                                    "countryCode": "US",
+                                                    "fipsCode": "FQ",
+                                                    "isoCode": "UM-81",
+                                                    "name": "Baker Island",
+                                                    "wikiDataId": "Q46879"
+                                                }
+                                            ],
+                                            "links": [
+                                                {
+                                                    "href": "/v1/geo/countries/Q30/regions?offset=0&limit=5",
+                                                    "rel": "first"
+                                                },
+                                                {
+                                                    "href": "/v1/geo/countries/Q30/regions?offset=0&limit=5",
+                                                    "rel": "prev"
+                                                },
+                                                {
+                                                    "href": "/v1/geo/countries/Q30/regions?offset=5&limit=5",
+                                                    "rel": "next"
+                                                },
+                                                {
+                                                    "href": "/v1/geo/countries/Q30/regions?offset=60&limit=5",
+                                                    "rel": "last"
+                                                }
+                                            ],
+                                            "metadata": {
+                                                "currentOffset": 0,
+                                                "totalCount": 65
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/countries/{countryid}": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "countryid",
+                        "in": "path",
+                        "required": true,
+                        "description": "An ISO-3166 country code or WikiData id",
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    }
+                ],
+                "operationId": "Country Details",
+                "description": "Get the details for a specific country, including number of regions.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/cities/{cityId}/locatedIn": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "cityId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "Q65"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "City Located In",
+                "description": "Get the details for the containing populated place (e.g., its county or other administrative division), including location coordinates, population, and elevation above sea-level  (if available). \n\nCurrently, this data is highly dependent on whether the Wikidata **locatedIn** relation is properly defined. If you see an issue, please propose a change to the corresponding Wikidata entry.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/locations/{locationid}/nearbyCities": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "How to sort the results. Format: ±SORT_FIELD,±SORT_FIELD where SORT_FIELD = countryCode | elevation | name | population",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "includeDeleted",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether to include any cities marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "namePrefix",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities whose names start with this prefix. If languageCode is set, the prefix will be matched on the name as it appears in that language.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timeZoneIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities in these time-zones",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "minPopulation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities having at least this population",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "distanceUnit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unit of distance to use: MI | KM",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "countryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "excludedCountryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities NOT in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "types",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities for these types (comma-delimited): CITY | ADM2",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "locationid",
+                        "in": "path",
+                        "required": true,
+                        "description": "Only cities near this location. Latitude/longitude in ISO-6709 format: ±DD.DDDD±DDD.DDDD",
+                        "schema": {
+                            "type": "string",
+                            "example": "33.832213-118.387099"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": true,
+                        "description": "The location radius within which to find cities",
+                        "schema": {
+                            "type": "string",
+                            "example": "100"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Cities Near Location",
+                "description": "Get cities near the given location, filtering by optional criteria.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/cities/{cityid}/dateTime": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "cityid",
+                        "in": "path",
+                        "required": true,
+                        "description": "The city id (either native id or wikiDataId)",
+                        "schema": {
+                            "type": "string",
+                            "example": "3"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "City Date-Time",
+                "description": "Get the city current date-time in ISO-6801 format: yyyyMMdd'T'HHmmssZ",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/countries": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "currencyCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only countries supporting this currency",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset index into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "namePrefix",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only countries whose names start with this prefix. If languageCode is set, the prefix will be matched on the name as it appears in that language.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "operationId": "Countries",
+                "description": "Find countries, filtering by optional criteria. If no criteria are set, you will get back all known countries.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/cities/{cityid}": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cityid",
+                        "in": "path",
+                        "required": true,
+                        "description": "The city id (either native id or wikiDataId)",
+                        "schema": {
+                            "type": "string",
+                            "example": "Q60"
+                        }
+                    }
+                ],
+                "operationId": "City Details",
+                "description": "Get the details for a specific city, including location coordinates, population, and elevation above sea-level (if available).",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/adminDivisions": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "maxPopulation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions having no more than this population",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions near this location. Latitude/longitude in ISO-6709 format: ±DD.DDDD±DDD.DDDD",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "How to sort the results. Format: ±SORT_FIELD,±SORT_FIELD where SORT_FIELD = countryCode | elevation | name | population",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timeZoneIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions in these time-zones",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "distanceUnit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unit of distance to use: MI | KM",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "minPopulation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions having at least this population",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "namePrefix",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions whose names start with this prefix. If languageCode is set, the prefix will be matched on the name as it appears in that language.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "excludedCountryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions NOT in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "countryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only divisions in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": false,
+                        "description": "The location radius within which to find divisions",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "includeDeleted",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether to include any divisions marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Administrative Divisions",
+                "description": "Find administrative divisions, filtering by optional criteria. If no criteria are set, you will get back all known divisions with a population of at least 1000.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/adminDivisions/{divisionId}/nearbyCities": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "timeZoneIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities in these time-zones",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "countryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "minPopulation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities having at least this population",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "namePrefix",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities whose names start with this prefix. If languageCode is set, the prefix will be matched on the name as it appears in that language.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "How to sort the results. Format: ±SORT_FIELD,±SORT_FIELD where SORT_FIELD = countryCode | elevation | name | population",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "distanceUnit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unit of distance to use: MI | KM",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "types",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities for these types (comma-delimited): CITY | ADM2",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "excludedCountryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities NOT in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "includeDeleted",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether to include any cities marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "divisionId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": true,
+                        "description": "The location radius within which to find cities",
+                        "schema": {
+                            "type": "number",
+                            "example": "100"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Cities Near Division",
+                "description": "Get cities near the given administrative division, filtering by optional criteria.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/adminDivisions/{divisionId}": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "divisionId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Q2670909"
+                        }
+                    }
+                ],
+                "operationId": "Administrative Division Details",
+                "description": "Get the details for a specific administrative division, including location coordinates, population, and elevation above sea-level (if available).",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/cities/{cityid}/nearbyCities": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "includeDeleted",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether to include any cities marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "How to sort the results. Format: ±SORT_FIELD,±SORT_FIELD where SORT_FIELD = countryCode | elevation | name | population",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "types",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities for these types (comma-delimited): CITY | ADM2",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "distanceUnit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unit of distance to use: MI | KM",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "countryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "namePrefix",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities whose names start with this prefix. If languageCode is set, the prefix will be matched on the name as it appears in that language.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timeZoneIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities in these time-zones",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "minPopulation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities having at least this population",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "excludedCountryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities NOT in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": true,
+                        "description": "The location radius within which to find cities",
+                        "schema": {
+                            "type": "number",
+                            "example": "100"
+                        }
+                    },
+                    {
+                        "name": "cityid",
+                        "in": "path",
+                        "required": true,
+                        "description": "The city id (either native id or wikiDataId)",
+                        "schema": {
+                            "type": "string",
+                            "example": "Q60"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Cities Near City",
+                "description": "Get cities near the given city, filtering by optional criteria.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "items": {
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "links": {
+                                            "items": {
+                                                "properties": {
+                                                    "href": {
+                                                        "type": "string"
+                                                    },
+                                                    "rel": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "metadata": {
+                                            "properties": {
+                                                "currentOffset": {
+                                                    "type": "integer"
+                                                },
+                                                "totalCount": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "data": [
+                                                {
+                                                    "city": "Financial District",
+                                                    "country": "United States of America",
+                                                    "countryCode": "US",
+                                                    "distance": 0.46,
+                                                    "id": 129145,
+                                                    "latitude": 40.70789,
+                                                    "longitude": -74.00857,
+                                                    "name": "Financial District",
+                                                    "region": "New York",
+                                                    "regionCode": "NY",
+                                                    "type": "CITY"
+                                                },
+                                                {
+                                                    "city": "East Village",
+                                                    "country": "United States of America",
+                                                    "countryCode": "US",
+                                                    "distance": 1.42,
+                                                    "id": 123883,
+                                                    "latitude": 40.72927,
+                                                    "longitude": -73.98736,
+                                                    "name": "East Village",
+                                                    "region": "New York",
+                                                    "regionCode": "NY",
+                                                    "type": "CITY",
+                                                    "wikiDataId": "Q1043326"
+                                                },
+                                                {
+                                                    "city": "Brooklyn Heights",
+                                                    "country": "United States of America",
+                                                    "countryCode": "US",
+                                                    "distance": 1.45,
+                                                    "id": 122680,
+                                                    "latitude": 40.69538,
+                                                    "longitude": -73.99375,
+                                                    "name": "Brooklyn Heights",
+                                                    "region": "New York",
+                                                    "regionCode": "NY",
+                                                    "type": "CITY",
+                                                    "wikiDataId": "Q828553"
+                                                },
+                                                {
+                                                    "city": "Gramercy Park",
+                                                    "country": "United States of America",
+                                                    "countryCode": "US",
+                                                    "distance": 1.91,
+                                                    "id": 128701,
+                                                    "latitude": 40.7375,
+                                                    "longitude": -73.98611,
+                                                    "name": "Gramercy Park",
+                                                    "region": "New York",
+                                                    "regionCode": "NY",
+                                                    "type": "CITY"
+                                                },
+                                                {
+                                                    "city": "Hoboken",
+                                                    "country": "United States of America",
+                                                    "countryCode": "US",
+                                                    "distance": 2.48,
+                                                    "id": 122235,
+                                                    "latitude": 40.74399,
+                                                    "longitude": -74.03236,
+                                                    "name": "Hoboken",
+                                                    "region": "New Jersey",
+                                                    "regionCode": "NJ",
+                                                    "type": "CITY",
+                                                    "wikiDataId": "Q138578"
+                                                }
+                                            ],
+                                            "links": [
+                                                {
+                                                    "href": "/v1/geo/cities/Q60/nearbyCities?offset=0&limit=5&radius=100",
+                                                    "rel": "first"
+                                                },
+                                                {
+                                                    "href": "/v1/geo/cities/Q60/nearbyCities?offset=5&limit=5&radius=100",
+                                                    "rel": "next"
+                                                },
+                                                {
+                                                    "href": "/v1/geo/cities/Q60/nearbyCities?offset=1495&limit=5&radius=100",
+                                                    "rel": "last"
+                                                }
+                                            ],
+                                            "metadata": {
+                                                "currentOffset": 0,
+                                                "totalCount": 1496
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/geo/cities": {
+            "get": {
+                "tags": [
+                    "geo"
+                ],
+                "parameters": [
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities near this location. Latitude/longitude in ISO-6709 format: ±DD.DDDD±DDD.DDDD",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The maximum number of results to retrieve",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "countryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "includeDeleted",
+                        "in": "query",
+                        "required": false,
+                        "description": "Whether to include any cities marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "minPopulation",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities having at least this population",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "namePrefix",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities whose names start with this prefix. If languageCode is set, the prefix will be matched on the name as it appears in that language.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "radius",
+                        "in": "query",
+                        "required": false,
+                        "description": "The location radius within which to find cities",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "distanceUnit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The unit of distance to use: MI | KM",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "required": false,
+                        "description": "The zero-ary offset into the results",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "excludedCountryIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities NOT in these countries (comma-delimited country codes or WikiData ids)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "How to sort the results. Format: ±SORT_FIELD,±SORT_FIELD where SORT_FIELD = countryCode | elevation | name | population",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "timeZoneIds",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities in these time-zones",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "asciiMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results using ASCII characters",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "languageCode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Display results in this language",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hateoasMode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Include HATEOAS-style links in results",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "types",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only cities for these types (comma-delimited): CITY | ADM2",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Cities",
+                "description": "Find cities, filtering by optional criteria. If no criteria are set, you will get back all known cities with a population of at least 1000.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_3f90d297-3157-494a-92c1-6fa5136ffc8f",
+    "name": "Twelve Data",
+    "title": "Twelve Data",
+    "description": "Financial data provided for developers, to enter the world markets. Instant access for real-time and historical data of stocks, forex, crypto, ETFs, indices, and more. Read more in [documentation](https://twelvedata.com/docs) and start [here](https://twelvedata.com/apikey).",
+    "visibility": "PUBLIC",
+    "slugifiedName": "twelve-data1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-11-26T14:51:23.069Z",
+    "category": "Finance",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/56b6b106-8e1d-4f31-9611-10ba18a7acfe.png",
+    "user": {
+        "id": 4719145,
+        "username": "twelvedata",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_3b012629-0240-4adc-a299-54cbe0b0c774",
+        "tags": [
+            {
+                "id": "tag_35228230-05f1-4100-b84f-9296cd0eeb13",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_3d064d01-5da6-4ef2-89fd-83e2c98cf4a9",
+                "isGraphQL": false,
+                "route": "/ad",
+                "method": "GET",
+                "name": "AD",
+                "description": "Chaikin A/D Line(AD) calculates the Advance/Decline of an asset. This indicator belongs to the group of Volume Indicators.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_2d125704-6e3e-4be1-a561-70705e199ef7",
+                "isGraphQL": false,
+                "route": "/quote",
+                "method": "GET",
+                "name": "Quote",
+                "description": "Quote endpoint is an efficient method to retrieve the latest quote of the selected instrument.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_3d58aede-3f0d-418d-b09c-d6f4f25bab73",
+                "isGraphQL": false,
+                "route": "/wclprice",
+                "method": "GET",
+                "name": "WCLPRICE",
+                "description": "Weighted Close Price(WCLPRICE) is usually used as the base for other indicators for smoothness. Formula: (high + low + close * 2) / 4.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

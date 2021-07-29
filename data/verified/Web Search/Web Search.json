@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_b4b9fe50-a51c-4ae1-89e5-e6df6d70a1e5",
+    "name": "Web Search",
+    "title": "Web Search",
+    "description": "The comprehensive web search API, powered by Google Search.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "web-search9",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-15T04:11:11.540Z",
+    "category": "Search",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b15ce0d4-e8e7-4042-b3cf-8ed4b91ce95b.png",
+    "user": {
+        "id": 5029954,
+        "username": "lattice-data-lattice-data-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_57afb610-bab8-40bf-8cf6-438e9fdbc9a4",
+        "tags": [
+            {
+                "id": "tag_408fdbbf-61ad-4be5-b665-54f2602d1662",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_1ebf8175-a6d2-4475-9805-8fd04163793c",
+                "isGraphQL": false,
+                "route": "/",
+                "method": "GET",
+                "name": "Search",
+                "description": "Conducts a comprehensive web search based on a free text query.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

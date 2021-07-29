@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_1cc750ea-d94f-4699-9c13-360b69174058",
+    "name": "IP Location",
+    "title": "IP Location",
+    "description": "IP Geo-location API for City, Country, Timezone, and Maps",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ip-location2",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-09-03T17:15:13.154Z",
+    "category": "Location",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0f/8c69c0351011e9b1d3693dd29c4edf/8367c114f7d40caf4a1e65387bc416b9.png",
+    "user": {
+        "id": 3613774,
+        "username": "fastah",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_dec1a52b-0cc2-4b13-8a4e-c3684fba0c90",
+        "tags": [
+            {
+                "id": "tag_c70bd3be-c527-4bab-a75a-6d26979c8b2e",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_83c14466-568f-4188-85ce-6426c552f8f1",
+                "isGraphQL": false,
+                "route": "/whereis/v1/json/{IP}",
+                "method": "GET",
+                "name": "REST endpoint for IP location",
+                "description": "Find approximate location, country, continent, and timezone for an IPv4 or IPv6 address.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

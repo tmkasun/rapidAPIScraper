@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_c4e8a26e-0ecb-43bf-ba99-25d6e7d7e35a",
+    "name": "API-BASEBALL",
+    "title": "API-BASEBALL",
+    "description": "Baseball Leagues & Cups with Livescore, Odds, Bookmakers, Statistics, Standings, Historical Data...",
+    "visibility": "PUBLIC",
+    "slugifiedName": "api-baseball",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-07T21:52:00.584Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/4751d3dc-9c81-4e39-a60b-0b454746761c_medium",
+    "user": {
+        "id": 3553584,
+        "username": "api-sports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_34a44c9b-1b10-41d3-9ad4-de6f84f548a1",
+        "tags": [
+            {
+                "id": "tag_c191bc83-7a8c-45c8-bdba-ad10b8b6840c",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_fe974404-4ed3-4a75-bacd-42eed33d2917",
+                "isGraphQL": false,
+                "route": "/teams",
+                "method": "GET",
+                "name": "teams",
+                "description": "teams",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_449f3b9d-e185-481a-ad7e-7893dfa66e05",
+                "isGraphQL": false,
+                "route": "/odds",
+                "method": "GET",
+                "name": "odds",
+                "description": "odds",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_f994778d-817a-42a9-baf7-9d28b6866531",
+                "isGraphQL": false,
+                "route": "/games/h2h",
+                "method": "GET",
+                "name": "head to head",
+                "description": "games head to head",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

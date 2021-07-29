@@ -1,0 +1,125 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_d8f62235-a8dc-423d-b4de-f275b347415e",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_21a84348-c885-4a98-9f1c-1e58e2f2639a",
+        "apiId": "api_47efa1c3-c46a-4d84-8504-f1ffa1f0cf12"
+    },
+    "info": {
+        "title": "Face Mask Detection",
+        "description": "PresentID face mask detection API can detect that the person wears a mask or not.",
+        "version": "v1",
+        "x-category": "Machine Learning",
+        "x-long-description": "PresentID Face mask detection API can detect whether a person is wearing a mask.\nThis service can recognize all the faces in the image and say whether people have masks or not!\n\n**Input:**\n- Image file\n- Image URL link\n- Base64 image\n\n**Output:**\n- Masked: 0 or 1\n\n\n**Ability & Potentials:**\n- Recall rate on FDDB:70.6, Classification Accuracy: 93.7.\n- Less than 300 milliseconds processing time.\n- Detect all small and large faces.\n- High-precision detection of size; pitch, roll, yaw, and 14-point key landmarks.\n- Low resource and impressive high performance.\n- Robust detection of faces with rotation, glasses, etc.\n- Region of interest detection.\n- Support IOS, Android, Windows, and Mac devices.\n- Easy integration with your app.\n\n**Use Cases:**\n- Building access control\n\n**Rules & Restrictions:**\n- Send data via base64 or an image URL or an image file.\n- Image size should not exceed 8 MB.\n- Also, the images should not be larger than 5000 pixels and smaller than 50 pixels.\n",
+        "x-website": "https://PresentID.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/b1aa95bd-2a15-4e8e-98f7-6b76f6575776.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://face-mask-detection.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/FaceMaskDetection": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Sending image with image file",
+                "description": "- Send Data via Base64 or an image Url or an  image file\n- Image size should not exceed 8 MB\n- Also, the images should not be larger than 5000 pixels and smaller than 50 pixels",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "items": {
+                                                "properties": {
+                                                    "masked": {
+                                                        "type": "integer"
+                                                    },
+                                                    "x0": {
+                                                        "type": "integer"
+                                                    },
+                                                    "x1": {
+                                                        "type": "integer"
+                                                    },
+                                                    "y0": {
+                                                        "type": "integer"
+                                                    },
+                                                    "y1": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "hasError": {
+                                            "type": "boolean"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer"
+                                        },
+                                        "statusMessage": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "data": [
+                                                {
+                                                    "masked": 1,
+                                                    "x0": 263,
+                                                    "x1": 528,
+                                                    "y0": 83,
+                                                    "y1": 442
+                                                }
+                                            ],
+                                            "hasError": false,
+                                            "statusCode": 200,
+                                            "statusMessage": "OK"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "photo": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

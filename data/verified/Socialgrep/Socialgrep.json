@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_4c59d57e-9b09-49de-a230-0e9fccdd2d0f",
+    "name": "Socialgrep",
+    "title": "Socialgrep",
+    "description": "Search Reddit comments and posts in near real time and view archive data from 2010 to present day",
+    "visibility": "PUBLIC",
+    "slugifiedName": "socialgrep",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-07T20:10:34.832Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0bcfec85-2bae-4eee-81aa-11d52041d6d1.png",
+    "user": {
+        "id": 5061969,
+        "username": "lexyr-inc-lexyr-inc-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_d90fbc69-2639-4b8c-b8af-9f7894c97a6e",
+        "tags": [
+            {
+                "id": "tag_097ff7d2-3fa6-47db-8f28-4e8f3f180c8c",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_3b83345d-0981-4a63-93f6-d17df72b1220",
+                "isGraphQL": false,
+                "route": "/search/comments",
+                "method": "GET",
+                "name": "Comment search",
+                "description": "Searches Reddit comments.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_f5a79bd9-a65e-4e44-b148-cf5e74dea404",
+                "isGraphQL": false,
+                "route": "/search/posts",
+                "method": "GET",
+                "name": "Post search",
+                "description": "Searches Reddit posts.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

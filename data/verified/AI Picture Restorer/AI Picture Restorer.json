@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_ffee19f8-b418-4802-9fdc-6126c381b722",
+    "name": "AI Picture Restorer",
+    "title": "AI Picture Restorer",
+    "description": "Restore pictures with AI in seconds. Hotpot.ai builds on the latest research to automatically remove scratches, sharpen colors, and enhance faces, transforming tattered photos into cherished memories. Repair faded color photos and worn black & white photos. Web interface: https://hotpot.ai/restore-picture",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ai-picture-restorer",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-20T06:58:04.120Z",
+    "category": "Video, Images",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/7585fd36-de1a-4d67-b48d-9f9cab7a1a0f.jpg",
+    "user": {
+        "id": 4827930,
+        "username": "hotpot-ai-hotpot",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_de351688-9e3f-425c-aa83-20b17c2bd1ff",
+        "tags": [
+            {
+                "id": "tag_a9e34349-d769-4435-8e84-e0594437a101",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_846037af-9886-44d1-b33a-2b5679c95fcd",
+                "isGraphQL": false,
+                "route": "/restoration-api-bin",
+                "method": "POST",
+                "name": "AI Picture Restorer",
+                "description": "This [Hotpot.ai](https://hotpot.ai) service [restores pictures ](https://hotpot.ai/restore-picture) by automatically performing scratch removal, face enhancement, and color sharpening. What used to require trained professionals hours can now be accomplished in seconds.\n\nThe service is not limited to restoring black and white photographs. The service can also repair color pictures with faded parts.\n\nNote: the maximum image resolution we support is 1280x1280, but our new model supports larger images and is launching soon. Please contact us to try this larger model.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

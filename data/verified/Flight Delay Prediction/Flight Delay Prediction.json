@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_b5a930f3-8b6f-40e8-86ed-f62081a7d753",
+    "name": "Flight Delay Prediction",
+    "title": "Flight Delay Prediction",
+    "description": "Help flyers avoid delays with Amadeus AI APIs. The Flight Delay Prediction API uses A.I. trained on Amadeus historical flight delay data to give the probability that a given flight will be delayed by: under 30min., 30-60min., 60-120min or +120min./cancelled. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "flight-delay-prediction",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-12T15:30:52.076Z",
+    "category": "Travel, Transportation",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/218d6ee0-1a53-4d40-b5d1-a6c7fd45e5bd.png",
+    "user": {
+        "id": 4393545,
+        "username": "amadeus-for-developers-amadeus-for-developers-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_75ce5242-0af3-4b36-a2d1-dcb0e77cb927",
+        "tags": [
+            {
+                "id": "tag_fa301f69-d6f7-4c05-9417-de718cc2cf11",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_29f992fa-61a0-4b75-8155-70c7490eb528",
+                "isGraphQL": false,
+                "route": "/travel/predictions/flight-delay",
+                "method": "GET",
+                "name": "getFlightDelayPrediction",
+                "description": "Determine the probability and length of a flight delay.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

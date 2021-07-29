@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_16847be3-616b-4eda-90b8-9f2ff984a71b",
+    "name": "Get Email Information",
+    "title": "Get Email Information",
+    "description": "Validate and retrieve useful information for an email address",
+    "visibility": "PUBLIC",
+    "slugifiedName": "get-email-information",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-07-11T03:17:39.585Z",
+    "category": "Email",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/45/ee4e7f179f4ddb93e65fe6efb23d3b/35598c3e987a71b8b9337aff316bab00.png",
+    "user": {
+        "id": 3754606,
+        "username": "interzoid",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_dd9d65ec-d99f-4719-a177-e217b7e4501c",
+        "tags": [
+            {
+                "id": "tag_966a464d-47f0-4d4d-834d-9a45e799473f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_decb6bbc-8e07-4719-bbaa-303138419a5f",
+                "isGraphQL": false,
+                "route": "/getemailinfo",
+                "method": "GET",
+                "name": "Get Email Information",
+                "description": "Validates and retrieves useful information for an email address",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_901e945b-a0ef-4cbd-a184-02047cb1c6ba",
+    "name": "History",
+    "title": "History",
+    "description": "To enrich data science projects with historical and forecast weather conditions this API can be used. Note you can get historical and forecast data from the same endpoint with the same structure. Besides typical weather parameters, long term temperature is also provided. For Germany, air quality and pollen data is also part of the response.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "history3",
+    "pricing": "FREE",
+    "updatedAt": "2021-03-17T11:28:29.608Z",
+    "category": "Weather",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/8fdc373a-3a75-4a42-ba9b-197d0e9afcae.png",
+    "user": {
+        "id": 4364704,
+        "username": "wettercom-wettercom-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_5392b01a-7497-4564-aa21-ca57d2c1219f",
+        "tags": [
+            {
+                "id": "tag_d0a5544d-57eb-4a94-a2e4-f45d7f8cc6b6",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_d798a16e-dd06-406d-ab91-c4ccba2ff92e",
+                "isGraphQL": false,
+                "route": "/v0/daily-zip/{country}/{zip-code}/{day}",
+                "method": "GET",
+                "name": "dailyWeatherZip",
+                "description": "This endpoint returns the historical weather for a given day for a given location (Country and zip code)",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_658319b8-4b7e-42fc-b5a5-626be4d260a7",
+                "isGraphQL": false,
+                "route": "/v0/hourly-zip/{country}/{zip-code}/{day}",
+                "method": "GET",
+                "name": "hourlyWeatherZip",
+                "description": "This endpoint returns the historical weather on hourly level for a given day for a given location (country and zip-code)",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_7fbde77f-1460-414f-a7d9-77b82777c4a7",
+                "isGraphQL": false,
+                "route": "/v0/daily/{lng}/{lat}/{start_day}/{end_day}",
+                "method": "GET",
+                "name": "dailyWeatherSeries",
+                "description": "This endpoint returns the historical weather for a given series of days for a given location (latitude and longitude)",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

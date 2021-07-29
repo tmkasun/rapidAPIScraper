@@ -1,0 +1,76 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_7a0d2ca4-61ac-4b12-b406-c2c7669c160f",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_bafd277c-b082-4cf6-90bf-625194ea4c41",
+        "apiId": "api_4d8e12db-6ea8-49b9-91eb-d8dcbf1df46e"
+    },
+    "info": {
+        "title": "AI Picture Enlarger",
+        "description": "Enlarge graphics and increase image resolution without losing quality. Our image upscaler draws from ESRGAN and other advanced research in machine learning. Web interface: https://hotpot.ai/enlarge-picture",
+        "version": "v1",
+        "x-category": "Video, Images",
+        "x-long-description": "Enlarge photos, game assets, and other raster images in seconds. Our AI can create images of higher resolution without losing quality and is optimized for e-commerce stores, app developers, and picture sites.\n\nThis API uses the latest machine learning advances in ESRGAN to create images of higher resolution without losing quality.\n\nWeb interface: https://hotpot.ai/enlarge-picture",
+        "x-website": "Web interface: https://hotpot.ai/enlarge-picture",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/5b461ded-faf9-4c58-aed3-f7f5b7678653.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://ai-picture-enlarger.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/super-resolution-api-bin": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "AI Picture Enlarger",
+                "description": "Enlarge photos, game assets, and other raster images in seconds. Our AI can create images of higher resolution without losing quality and is optimized for e-commerce stores, app developers, and picture sites.\n\nThis API uses the latest machine learning advances in ESRGAN to create images of higher resolution without losing quality.\n\nWeb interface: https://hotpot.ai/enlarge-picture",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "imageStyle": {
+                                        "type": "string",
+                                        "format": "enum"
+                                    },
+                                    "sizeFactor": {
+                                        "type": "string",
+                                        "format": "enum"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    },
+                                    "noiseCancellationFactor": {
+                                        "type": "string",
+                                        "format": "enum"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

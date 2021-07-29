@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_bde81f96-f708-4733-97d2-d76abf1dc4f3",
+    "name": "WURFL",
+    "title": "WURFL",
+    "description": "WURFL is an API for Device Detection that maps HTTP requests to the properties of the device and browser",
+    "visibility": "PUBLIC",
+    "slugifiedName": "wurfl",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-04-06T13:42:20.254Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/566c5503-ef11-47d1-bd44-0d043b3e4038.png",
+    "user": {
+        "id": 5152286,
+        "username": "wurfl-rapidapi-team-wurfl-rapidapi-team-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_3c26fcb3-a806-49de-b2e2-67db1811642c",
+        "tags": [
+            {
+                "id": "tag_bf16e7df-fde5-4895-bbd2-3d107b36dd54",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_c2b45ef2-54c5-469b-928f-16e7b08d2181",
+                "isGraphQL": false,
+                "route": "/v2/lookuprequest/json",
+                "method": "POST",
+                "name": "lookuprequest",
+                "description": "Returns device capability info using the HTTP request headers as input.\nAt least one header (\"User-Agent\") is needed.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_848e19f1-fd0a-4f35-9f02-9c4db8be6154",
+                "isGraphQL": false,
+                "route": "/v2/lookupdeviceid/json",
+                "method": "POST",
+                "name": "lookupdeviceid",
+                "description": "Performs a device detection and returns a device's capabilities.\nPOST request body must contain, at least, the wurfl_id field",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_556095cb-db6f-4b22-a300-fc6b500be945",
+                "isGraphQL": false,
+                "route": "/v2/lookupuseragent/json",
+                "method": "POST",
+                "name": "lookupuseragent",
+                "description": "Performs a device detection and returns a device's capabilities.\nPOST request body must contain the user agent string",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

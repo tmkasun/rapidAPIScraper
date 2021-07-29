@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "55902d65e4b0b94e3b827ceb",
+    "name": "E-mail Check Invalid or Disposable Domain",
+    "title": "E-mail Check Invalid or Disposable Domain",
+    "description": "Easily check if a certain e-mail address is valid. Is it a valid domain? Is the e-mail a temporary/disposable e-mail? That's a common indicator of spamming/trolling, so now there's an API for you so you can easily block it!",
+    "visibility": "PUBLIC",
+    "slugifiedName": "e-mail-check-invalid-or-disposable-domain",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-19T10:37:20.535Z",
+    "category": "Commerce",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/55902d65e4b0b94e3b827ceb_large",
+    "user": {
+        "id": 1951720,
+        "username": "Top-Rated",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "55902d65e4b0308652230fdd",
+        "tags": [
+            {
+                "id": "tag_4776ffb8-7206-463d-86b3-e3a0b70466cb",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "55902d95e4b0b94e3b827cf1",
+                "isGraphQL": false,
+                "route": "/",
+                "method": "GET",
+                "name": "mailcheck",
+                "description": "Check if e-mail domain is valid, or a disposable/temporary address. Invalid domains (typos, non-responding mailserver, etc) will return \"valid: false\", \"block: true\". Disposable e-mail domains will return \"valid: true\" (since it's a valid domain), but \"block: true\" and \"disposable: true\".",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

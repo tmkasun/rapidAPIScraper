@@ -1,0 +1,796 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_91721bdd-05c0-40b6-a379-d7a5b2f1908d",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5bb75b62e4b085e3f4087c16",
+        "apiId": "5bb75b62e4b02d6cfa6a80b4"
+    },
+    "info": {
+        "title": "API-NBA",
+        "description": "All NBA Stats DATA, Games, Livescore, Standings, Statistics...",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "All NBA Stats DATA, Games, Livescore, Standings, Statistics, Teams, Players, Seasons, Leagues.",
+        "x-website": "www.api-football.com/sports",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5bb75b62e4b085e3f4087c16_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://api-nba-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "statistics"
+        },
+        {
+            "name": "standings"
+        },
+        {
+            "name": "gameDetails"
+        },
+        {
+            "name": "games"
+        },
+        {
+            "name": "players"
+        },
+        {
+            "name": "teams"
+        },
+        {
+            "name": "leagues"
+        },
+        {
+            "name": "seasons"
+        }
+    ],
+    "paths": {
+        "/teams/teamId/{teamid}": {
+            "get": {
+                "tags": [
+                    "teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/teams/teamId/",
+                "description": "Get team by his id",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teams/league/{league}": {
+            "get": {
+                "tags": [
+                    "teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/teams/league/",
+                "description": "Get team by league",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standings/{league}/{seasonyear}": {
+            "get": {
+                "tags": [
+                    "standings"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "seasonyear",
+                        "in": "path",
+                        "required": true,
+                        "description": "YYYY",
+                        "schema": {
+                            "type": "number",
+                            "example": "2018"
+                        }
+                    }
+                ],
+                "operationId": "/standings/",
+                "description": "Get standings by league & season",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/statistics/players/playerId/{playerid}": {
+            "get": {
+                "tags": [
+                    "statistics"
+                ],
+                "parameters": [
+                    {
+                        "name": "playerid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/statistics/players/playerId/",
+                "description": "Get all statistics from one player",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/statistics/players/gameId/{gameid}": {
+            "get": {
+                "tags": [
+                    "statistics"
+                ],
+                "parameters": [
+                    {
+                        "name": "gameid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/statistics/players/gameId/",
+                "description": "Get all players statistics from one game",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/statistics/games/gameId/{gameid}": {
+            "get": {
+                "tags": [
+                    "statistics"
+                ],
+                "parameters": [
+                    {
+                        "name": "gameid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/statistics/games/gameId/",
+                "description": "Get all statistics from one game",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standings/{league}/{seasonyear}/teamId/{teamid}": {
+            "get": {
+                "tags": [
+                    "standings"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "seasonyear",
+                        "in": "path",
+                        "required": true,
+                        "description": "YYYY",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "teamid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/standings/teamId/",
+                "description": "Get standing from teamId by league & season",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standings/{league}/{seasonyear}/division/{division}": {
+            "get": {
+                "tags": [
+                    "standings"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "division",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "seasonyear",
+                        "in": "path",
+                        "required": true,
+                        "description": "YYYY",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/standings/division/",
+                "description": "Get standings from division by league & season",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/standings/{league}/{seasonyear}/conference/{conference}": {
+            "get": {
+                "tags": [
+                    "standings"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "conference",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "seasonyear",
+                        "in": "path",
+                        "required": true,
+                        "description": "YYYY",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/standings/conference/",
+                "description": "Get standings from conference by league & season",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/gameDetails/{gameid}": {
+            "get": {
+                "tags": [
+                    "gameDetails"
+                ],
+                "parameters": [
+                    {
+                        "name": "gameid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/gameDetails/",
+                "description": "Get all details about a game",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/games/live/": {
+            "get": {
+                "tags": [
+                    "games"
+                ],
+                "operationId": "/games/live/",
+                "description": "Get all games in play",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/games/date/{date}": {
+            "get": {
+                "tags": [
+                    "games"
+                ],
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "required": true,
+                        "description": "YYYY-MM-DD",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/games/date/",
+                "description": "Get all games from one date",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/games/teamId/{teamid}": {
+            "get": {
+                "tags": [
+                    "games"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/games/teamId/",
+                "description": "Get all games from one team",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/games/gameId/{gameid}": {
+            "get": {
+                "tags": [
+                    "games"
+                ],
+                "parameters": [
+                    {
+                        "name": "gameid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/games/gameId/",
+                "description": "Get game by his id",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/games/league/{league}/{seasonyear}": {
+            "get": {
+                "tags": [
+                    "games"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "seasonyear",
+                        "in": "path",
+                        "required": true,
+                        "description": "YYYY",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/games/league/",
+                "description": "Get all game by league and season",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/games/seasonYear/{seasonyear}": {
+            "get": {
+                "tags": [
+                    "games"
+                ],
+                "parameters": [
+                    {
+                        "name": "seasonyear",
+                        "in": "path",
+                        "required": true,
+                        "description": "YYYY",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/games/seasonYear/",
+                "description": "Get all games from one season",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/players/firstName/{firstname}": {
+            "get": {
+                "tags": [
+                    "players"
+                ],
+                "parameters": [
+                    {
+                        "name": "firstname",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/players/firstName/",
+                "description": "Get players by firstname",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/players/lastName/{lastname}": {
+            "get": {
+                "tags": [
+                    "players"
+                ],
+                "parameters": [
+                    {
+                        "name": "lastname",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/players/lastName/",
+                "description": "Get players by lastname",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/players/country/{country}": {
+            "get": {
+                "tags": [
+                    "players"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/players/country/",
+                "description": "Get all players from one country",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/players/league/{league}": {
+            "get": {
+                "tags": [
+                    "players"
+                ],
+                "parameters": [
+                    {
+                        "name": "league",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/players/league/",
+                "description": "Get all players from one league",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/players/teamId/{teamid}": {
+            "get": {
+                "tags": [
+                    "players"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/players/teamId/",
+                "description": "Get all players from one team",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/players/playerId/{playerid}": {
+            "get": {
+                "tags": [
+                    "players"
+                ],
+                "parameters": [
+                    {
+                        "name": "playerid",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "operationId": "/players/playerId/",
+                "description": "Get player by his id",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teams/divName/{divname}": {
+            "get": {
+                "tags": [
+                    "teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "divname",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/teams/divName/",
+                "description": "Get team by division name",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teams/confName/{confname}": {
+            "get": {
+                "tags": [
+                    "teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "confname",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/teams/confName/",
+                "description": "Get team by conference name",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teams/nickName/{nickname}": {
+            "get": {
+                "tags": [
+                    "teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "nickname",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/teams/nickName/",
+                "description": "Get team by his nickname",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teams/city/{city}": {
+            "get": {
+                "tags": [
+                    "teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/teams/city/",
+                "description": "Get team by city",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teams/shortName/{shortname}": {
+            "get": {
+                "tags": [
+                    "teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "shortname",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "/teams/shortName/",
+                "description": "Get team by his shortName",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/leagues/": {
+            "get": {
+                "tags": [
+                    "leagues"
+                ],
+                "operationId": "/leagues/",
+                "description": "Get all available leagues",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/seasons/": {
+            "get": {
+                "tags": [
+                    "seasons"
+                ],
+                "operationId": "/seasons/",
+                "description": "Gell all available seasons",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

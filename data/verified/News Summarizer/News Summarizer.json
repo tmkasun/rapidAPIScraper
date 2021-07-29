@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_421348da-c681-4ef1-82e0-adb13dee1002",
+    "name": "News Summarizer",
+    "title": "News Summarizer",
+    "description": "Extract quick highlights from news articles using state of the art text summarizer.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "news-summarizer",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-11-12T17:01:20.741Z",
+    "category": "Text Analysis",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/8ce83508-c6dc-415b-b8b8-19d9b31508d0.jpg",
+    "user": {
+        "id": 4369567,
+        "username": "stegopodai-stegopodai-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_e868b8f1-0b95-4ce4-9128-4dfb5d4b6ab9",
+        "tags": [
+            {
+                "id": "tag_7c56ac75-0663-48c5-ba3d-f817cf97330f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_0cce7d25-b3df-4d6a-b745-100a04f955b1",
+                "isGraphQL": false,
+                "route": "/summarize",
+                "method": "POST",
+                "name": "News Summarizer",
+                "description": "Get abstractive and extractive summaries of news articles by providing the raw text of the article or a web URL of the article.\n\nParameters:\n`input_link`: URL of the article.\n`input_text`: Raw text of the article.\n\nUse one of the above two parameters. If both are provided, only `input_text` will be picked.\n\nGuidance:\nIt is advised to use `input_text` parameter as opposed to `input_link` if all your articles come from a small set of source websites. In such a case, you can write a parser for your articles which is custom-tailored to the structure of your articles and hence no extra phrases are captured during the parsing of the text.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

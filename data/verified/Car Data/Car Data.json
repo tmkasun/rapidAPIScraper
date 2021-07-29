@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_9361589b-3c18-4e48-907f-beaff3eb3923",
+    "name": "Car Data",
+    "title": "Car Data",
+    "description": "Use this API to pull relevant automobile data such as the car make, model, type, and year.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "car-data",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-04T04:12:21.088Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/faaed3e0-a0bc-4a62-b972-7fbc461add28.png",
+    "user": {
+        "id": 5179894,
+        "username": "principalapis",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_149cd47a-5c76-4807-b2bf-256bb87e440e",
+        "tags": [
+            {
+                "id": "tag_1ca88fe3-2c59-4265-937a-5294e64f4a60",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_110d9e56-8199-4939-973a-57703ebb7f28",
+                "isGraphQL": false,
+                "route": "/cars",
+                "method": "GET",
+                "name": "Cars",
+                "description": "Retrieve and filter lists of cars",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_43559c23-dce2-41d6-910a-6475f11b3801",
+                "isGraphQL": false,
+                "route": "/cars/years",
+                "method": "GET",
+                "name": "Years",
+                "description": "get a list of supported years",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_a3a0f497-6dcc-43a6-948f-3c0630a5e11a",
+                "isGraphQL": false,
+                "route": "/cars/makes",
+                "method": "GET",
+                "name": "Makes",
+                "description": "get a list of supported makes",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

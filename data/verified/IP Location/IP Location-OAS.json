@@ -1,0 +1,140 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_c70bd3be-c527-4bab-a75a-6d26979c8b2e",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_dec1a52b-0cc2-4b13-8a4e-c3684fba0c90",
+        "apiId": "api_1cc750ea-d94f-4699-9c13-360b69174058"
+    },
+    "info": {
+        "title": "IP Location",
+        "description": "IP Geo-location API for City, Country, Timezone, and Maps",
+        "version": "v1",
+        "x-category": "Location",
+        "x-long-description": "Locate your users with this high-performance REST API by Fastah. Use it for geo-targeting, displaying country or city-specific pages, spam avoidance, analytics, time-zone related scheduling, and visualization.\n\nThe underlying dataset has strong mobile coverage worldwide.\n\nFor proactive support, please contact us at support@getfastah.com.",
+        "x-website": "https://www.getfastah.com/products/ip-location-api",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0f/8c69c0351011e9b1d3693dd29c4edf/8367c114f7d40caf4a1e65387bc416b9.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://fastah-ip.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "IP Location Services"
+        }
+    ],
+    "paths": {
+        "/whereis/v1/json/{IP}": {
+            "get": {
+                "tags": [
+                    "IP Location Services"
+                ],
+                "parameters": [
+                    {
+                        "name": "IP",
+                        "in": "path",
+                        "required": true,
+                        "description": "An IP address, IPv4 or IPv6.",
+                        "schema": {
+                            "type": "string",
+                            "default": "1.1.1.1"
+                        },
+                        "examples": {
+                            "1.1.1.1": {
+                                "description": "1.1.1.1",
+                                "summary": "A famous DNS server",
+                                "value": "1.1.1.1"
+                            },
+                            "auto": {
+                                "description": "Let the backend auto-detect client's IP address",
+                                "summary": "auto",
+                                "value": "auto"
+                            }
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Documentation",
+                    "url": "https://docs.getfastah.com/reference/location"
+                },
+                "operationId": "REST endpoint for IP location",
+                "description": "Find approximate location, country, continent, and timezone for an IPv4 or IPv6 address.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "locationData": {
+                                            "properties": {
+                                                "cityName": {
+                                                    "type": "string"
+                                                },
+                                                "continentCode": {
+                                                    "type": "string"
+                                                },
+                                                "countryCode": {
+                                                    "type": "string"
+                                                },
+                                                "countryName": {
+                                                    "type": "string"
+                                                },
+                                                "lat": {
+                                                    "type": "number"
+                                                },
+                                                "lng": {
+                                                    "type": "number"
+                                                },
+                                                "tz": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "ip": "1.1.1.1",
+                                            "locationData": {
+                                                "cityName": "",
+                                                "continentCode": "OC",
+                                                "countryCode": "AU",
+                                                "countryName": "Australia",
+                                                "lat": -33.49,
+                                                "lng": 143.21,
+                                                "tz": "Australia/Sydney"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

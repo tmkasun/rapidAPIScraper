@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_9868ea6a-4350-450d-994d-e1b050a9278b",
+    "name": "Brain Text Summarizer",
+    "title": "Brain Text Summarizer",
+    "description": "Text summarization using advanced Natural Language Processing techniques and multi-language support.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "brain-text-summarizer",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-12-30T02:30:22.756Z",
+    "category": "Text Analysis",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/de34a884-1d45-4163-a8d0-3c227d962681.png",
+    "user": {
+        "id": 4901598,
+        "username": "braincompany",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_884c0714-41ae-4076-9ecc-b7ddfa7c7023",
+        "tags": [
+            {
+                "id": "tag_09a35eec-36de-4a69-8752-3d825d117be2",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_cbc10ea1-c69a-4d5a-a0a9-c20b5d0fe759",
+                "isGraphQL": false,
+                "route": "/api/text_summarizer",
+                "method": "POST",
+                "name": "Text summarizer using advanced Natural Language Processing with multi-lingual support",
+                "description": "The API provides the text summarization in terms of the most relevant sentences:\n- the number of sentences to be returned is 5 by default and can be configured from 1 to 10.\n- the maximum length of text is 100.000 characters\n- multi-lingual support; the following languages are supported: danish, dutch, english, finnish, french, german, hungarian, italian, kazakh, norwegian, portuguese, romanian, russian, spanish, swedish, turkish",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

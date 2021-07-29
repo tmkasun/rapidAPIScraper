@@ -1,0 +1,56 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_f22f2b0c-ea36-4409-b420-24e079492954",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_bca0c1f0-388e-4352-8701-0699d2800986",
+        "apiId": "api_84587a59-80e9-4b8f-aed4-4e9f8e5996a1"
+    },
+    "info": {
+        "title": "Noise Reduction",
+        "description": "Reduce non-speech background noise in audios using machine learning.",
+        "version": "v1",
+        "x-category": "Machine Learning",
+        "x-long-description": "Noise reduction API developed at Kernel Labs can reduce non‑speech background noise in audios using machine learning. It automatically learns a noise profile by analyzing voice activities, and suppresses noise spectrum. Users can adjust noise reduction level to achieve a desired balance between noise reduction and speech natureness. The noise reduction API is designed for improving perceptual intelligence of noise audios in applications of audio conferencing, audio and video editing, speech therapy and couching, and etc. This is a purely software based technology, independent of recording devices or environment.",
+        "x-website": "https://www.mokri.io/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/3a/bacab8504a49afbe0cc8b149aa4cfe/475d55760ed03b48bf7c5adc9d057483.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://noise-reduction.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/denoise": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "denoise_control",
+                        "in": "query",
+                        "required": false,
+                        "description": "This parameter controls the denoise level. The default value is 20, and can be changed between 10 to 40. Larger values can remove more noise while preserve less speech. ",
+                        "schema": {
+                            "type": "string",
+                            "example": "20"
+                        }
+                    }
+                ],
+                "operationId": "denoise",
+                "description": "Takes a noisy audio file, and returns a denoised audio file. Audios taken in and returned must be in the WAV format. Each input audio file has size limit up to 10MB. Large audios can be split into clips before sending to the API.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

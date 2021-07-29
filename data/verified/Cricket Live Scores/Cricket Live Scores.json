@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "557d8c40e4b030865222e002",
+    "name": "Cricket Live Scores",
+    "title": "Cricket Live Scores",
+    "description": "Cricket Live Scores API provides invaluable data to develop cricket related apps. The API accepts GET calls and returns JSON formatted content. Cricket Live Scores API is able to deliver a list of available matches as well as cricket scores, cricket scorecards, Test scores, ODI scores, T20 scores, BBL scores, IPL scores, World Cup scores. Learn more at https://blog.rapidapi.com/cricket-api/",
+    "visibility": "PUBLIC",
+    "slugifiedName": "cricket-live-scores",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-01-07T00:44:39.781Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/7091dd53-527c-41ec-8dfd-8b2427663540_medium",
+    "user": {
+        "id": 3134727,
+        "username": "dev132",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "557d8c40e4b0520d42b55c9c",
+        "tags": [
+            {
+                "id": "tag_09e79df9-9705-48ba-a573-34c1004984e8",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "557dd94ce4b09383550cd3a9",
+                "isGraphQL": false,
+                "route": "/comments.php",
+                "method": "GET",
+                "name": "Commentary",
+                "description": "Get Detailed Commentary for a given Match",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "557d9bb3e4b09ec98bb30bb3",
+                "isGraphQL": false,
+                "route": "/partnerships.php",
+                "method": "GET",
+                "name": "Partnerships",
+                "description": "This intended to be used for display of a Partnership graph for a particular innings within a Match.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "557dca9fe4b09519279b03ac",
+                "isGraphQL": false,
+                "route": "/resource.php",
+                "method": "GET",
+                "name": "GET Images",
+                "description": "Get Images",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

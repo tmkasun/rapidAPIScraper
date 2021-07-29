@@ -1,0 +1,91 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_610925d1-04d4-4e44-834e-86cc041e5f3d",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5bef032ce4b02e4415401f36",
+        "apiId": "5bef032ce4b0a5d5a03bb9bf"
+    },
+    "info": {
+        "title": "aztro",
+        "description": "aztro API - Get daily horoscope!  100% Free & Open Source | Astrology API by Sameer Kumar",
+        "version": "v1",
+        "x-category": "Science",
+        "x-long-description": "100% Free | Open API - Star the GitHub: https://github.com/sameerkumar18/aztro\nShowcase your project here - https://github.com/sameerkumar18/aztro#projects-using-aztro-api\nIf you use Python: http://github.com/sameerkumar18/pyaztro\n\nServers cost us! If you like the API, please consider donating here: http://paypal.me/sameerkumar18",
+        "x-website": "https://aztro.readthedocs.io/en/latest/",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5bef032ce4b02e4415401f36_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://sameer-kumar-aztro-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "sign",
+                        "in": "query",
+                        "required": true,
+                        "description": "List of possible values of \\\"sign\\\":\n- Aries\n- Taurus\n- Gemini\n- Cancer\n- Leo\n- Virgo\n- Libra\n- Scorpio\n- Sagittarius\n- Capricorn\n- Aquarius\n- Pisces",
+                        "schema": {
+                            "type": "string",
+                            "default": "aquarius"
+                        }
+                    },
+                    {
+                        "name": "day",
+                        "in": "query",
+                        "required": true,
+                        "description": "Possible values for \\\"day\\\":\n- today\n- yesterday\n- tomorrow",
+                        "schema": {
+                            "type": "string",
+                            "default": "today"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://aztro.readthedocs.io/en/latest/"
+                },
+                "operationId": "Fetch Horoscope Information",
+                "description": "Provides horoscope info for sun signs such as Lucky Number, Lucky Color, Mood, Color, Compatibility with other sun signs, description of a sign for that day, etc.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Sample Response for Aquarius": {
+                                        "description": "/?sign=aquarius&day=today",
+                                        "summary": "Sample Response for Aquarius",
+                                        "value": {
+                                            "color": "Blue",
+                                            "compatibility": "Taurus",
+                                            "current_date": "September 24, 2020",
+                                            "date_range": "Jan 20 - Feb 18",
+                                            "description": "Your busy lifestyle has been fun, but today it's time to slow down and just relax.",
+                                            "lucky_number": "93",
+                                            "lucky_time": "6pm",
+                                            "mood": "Relieved"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

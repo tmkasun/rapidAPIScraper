@@ -1,0 +1,401 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_e29a8c63-69d9-4a81-b30d-45d6121f07b5",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_0c88dabc-00ec-41f3-9c94-8e5d63b665cc",
+        "apiId": "api_5277f4d4-1a63-4040-b612-116056efc260"
+    },
+    "info": {
+        "title": "Real-Time Football Content",
+        "description": "Our \"Real-Time Football (Soccer) Content\" API returns present and historical information on football from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of football with our solution, or collect historical structured data on the most relevant past stories and events. Returns list of items which dwell upon football news. Identified by its IAB code IAB17-44, this endpoint returns news items which contain topics such as football, soccer, world soccer FIFA etc. Similar news topics are clustered together. Test our api for free and do not hesitate to reach us out for further information.",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Connexun is an innovative tech startup based in Milan, Italy. It was founded to ease cultural integration, reduce information barriers and foster internationalization.\n\nToday Connexun is an AI news engine with long lasting experience and know-how, promoting content and text analysis APIs and proprietary technologies of use to developers, startups, businesses and eventually also consumers. It enables its clients to source in real time multilingual headlines, articles and dynamic summaries extracted from thousands of trusted online news outlets. It serves its clients with proprietary text crawling and classifying technologies.\n\nConnexun also developed B.I.R.B.AL., its artificial intelligent engine used to power its mobile app, to deliver real time news and information to digital cosmopolitans. We continue to augment intelligent tools that leverage the power of Machine Learning and Natural Language Processing to analyze large datasets of aggregated content.\n\nCheck out our recently released \"Real-Time Football Content\" API. It returns present and historical information on football from trusted sources worldwide. Our crawler enables our users to be the first to pick up on emerging stories and most relevant information.\n\nEnsure a real-time view into the world of football with our solution, or collect historical structured data on the most relevant past stories and events.\n\nIdentified by its IAB code IAB17-44, this endpoint returns news items which contain topics such as football, soccer, world soccer FIFA etc. Similar news topics are clustered together.\n\nNews will be retrieved in the following languages: \n\nen - English, \nes - Spanish, \nfr- French, \nde - German, \nit - Italian, \nru - Russian, \nhi - Hindi, \npl - Polish, \nuk - Ukrainian, \npa - Punjab\n\nTest our api for free and do not hesitate to reach us out for further information.",
+        "x-website": "https://connexun.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/c130b342-534c-4969-a737-4d802052674d.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://real-time-football-content.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Football_Content",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "Get Covid19 News"
+        },
+        {
+            "name": "finance"
+        },
+        {
+            "name": "Get Basketball News"
+        },
+        {
+            "name": "Get Tennis News"
+        },
+        {
+            "name": "covid"
+        },
+        {
+            "name": "baseball"
+        },
+        {
+            "name": "Get Cricket News"
+        },
+        {
+            "name": "basketball"
+        },
+        {
+            "name": "tennis"
+        },
+        {
+            "name": "Get Baseball News"
+        },
+        {
+            "name": "cricket"
+        },
+        {
+            "name": "Get Finance News"
+        },
+        {
+            "name": "Category News APIs",
+            "description": "Various endpoints that filters and returns news by categories. Category is defined by IAB standard and is used to classify contents of a news. This calssification can be used to quicly look up news items which are oriented towards certain topics. Some of the major topics are covered by our endpoints in this API."
+        },
+        {
+            "name": "football"
+        }
+    ],
+    "paths": {
+        "/football": {
+            "get": {
+                "tags": [
+                    "Football_Content"
+                ],
+                "summary": "Get news content for Football.",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": true,
+                        "description": "Integer value to set the maximum number of documents returned in a call.",
+                        "schema": {
+                            "externalDocs": {},
+                            "maximum": 15,
+                            "minimum": 1,
+                            "type": "number",
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "langs",
+                        "in": "query",
+                        "required": true,
+                        "description": "Comma seperated values containing two letter ISO code for each language the news is requested in. For eg. to filter news by English, French and Italian, use en,fr,it",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "en,es,fr,de,it,ru,hi,pl,uk,pa"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "required": true,
+                        "description": "Integer value to set up pagination in the response. ",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "integer",
+                            "default": "0"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/real-time_football_content",
+                "description": "The API returns real-time and historical content and information on football (soccer) from trusted sources worldwide. Our crawler scrapes content published by over 20.000 highly-trusted online sources in different languages, thus enabling our users to be the first to pick up on emerging stories and most relevant information. Ensure a real-time view into the world of baseball with our solution, or collect historical structured data on the most relevant past stories and events.\n\nReturns list of items which talks about football news. Identified by its IAB code IAB17-44, this endpoint returns news items which contains topics such as football, soccer, world soccer FIFA etc. Similar news topics are clustered together.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "categories": {
+                                                "items": {
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "countries": {
+                                                "description": "an array of nationalities that are talked about in the news",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "description": {
+                                                "description": "news description as captured",
+                                                "type": "string"
+                                            },
+                                            "embassies": {
+                                                "items": {
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "entitySummary": {
+                                                "description": "objects containing summary for entity discovered in news, for countries, the eneitites are represented by country code, and for cities using city name and its coordinates.",
+                                                "type": "object"
+                                            },
+                                            "id": {
+                                                "description": "id of the news",
+                                                "format": "uuid",
+                                                "type": "string"
+                                            },
+                                            "image": {
+                                                "format": "url",
+                                                "type": "string"
+                                            },
+                                            "language": {
+                                                "description": "language of the news in two letter format",
+                                                "type": "string"
+                                            },
+                                            "nationality": {
+                                                "description": "country of origin of source",
+                                                "type": "string"
+                                            },
+                                            "publishedDate": {
+                                                "description": "Date news was published on, as captured by us",
+                                                "format": "date-time",
+                                                "type": "string"
+                                            },
+                                            "relatedNews": {
+                                                "items": {
+                                                    "properties": {
+                                                        "countries": {
+                                                            "items": {
+                                                                "type": "string"
+                                                            },
+                                                            "type": "array"
+                                                        },
+                                                        "description": {
+                                                            "type": "string"
+                                                        },
+                                                        "id": {
+                                                            "format": "uuid",
+                                                            "type": "string"
+                                                        },
+                                                        "image": {
+                                                            "format": "url",
+                                                            "type": "string"
+                                                        },
+                                                        "language": {
+                                                            "type": "string"
+                                                        },
+                                                        "nationality": {
+                                                            "type": "string"
+                                                        },
+                                                        "publishedDate": {
+                                                            "format": "date",
+                                                            "type": "string"
+                                                        },
+                                                        "sentiment": {
+                                                            "items": {
+                                                                "properties": {
+                                                                    "score": {
+                                                                        "type": "number"
+                                                                    },
+                                                                    "sentiment": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "type": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "type": "array"
+                                                        },
+                                                        "source": {
+                                                            "type": "string"
+                                                        },
+                                                        "title": {
+                                                            "type": "string"
+                                                        },
+                                                        "url": {
+                                                            "format": "url",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "relatedNewsNumber": {
+                                                "description": "Number of news in the cluster as main news filtered by language selected",
+                                                "format": "int32",
+                                                "maximum": 2147483647,
+                                                "minimum": -2147483648,
+                                                "type": "integer"
+                                            },
+                                            "sentiment": {
+                                                "items": {
+                                                    "properties": {
+                                                        "score": {
+                                                            "type": "number"
+                                                        },
+                                                        "sentiment": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "source": {
+                                                "type": "string"
+                                            },
+                                            "summarization": {
+                                                "description": "A 2 line summary generated by us, by extracting the most weighted sentences from the text.",
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "description": "News Title",
+                                                "type": "string"
+                                            },
+                                            "titleEn": {
+                                                "description": "News Title in English",
+                                                "type": "string"
+                                            },
+                                            "url": {
+                                                "description": "source url of the news",
+                                                "format": "url",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "countries",
+                                            "description",
+                                            "id",
+                                            "image",
+                                            "language",
+                                            "nationality",
+                                            "publishedDate",
+                                            "relatedNews",
+                                            "relatedNewsNumber",
+                                            "source",
+                                            "summarization",
+                                            "title",
+                                            "url",
+                                            "categories"
+                                        ]
+                                    },
+                                    "type": "array"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": [
+                                            {
+                                                "categories": [],
+                                                "countries": [],
+                                                "description": "",
+                                                "embassies": [],
+                                                "entitySummary": {},
+                                                "id": "",
+                                                "image": "",
+                                                "language": "",
+                                                "nationality": "",
+                                                "publishedDate": "",
+                                                "relatedNews": [
+                                                    {
+                                                        "countries": [],
+                                                        "description": "",
+                                                        "id": "",
+                                                        "image": "",
+                                                        "language": "",
+                                                        "nationality": "",
+                                                        "publishedDate": "",
+                                                        "sentiment": [
+                                                            {
+                                                                "score": 0,
+                                                                "sentiment": "",
+                                                                "type": ""
+                                                            }
+                                                        ],
+                                                        "source": "",
+                                                        "title": "",
+                                                        "url": ""
+                                                    }
+                                                ],
+                                                "relatedNewsNumber": 0,
+                                                "sentiment": [
+                                                    {
+                                                        "score": 0,
+                                                        "sentiment": "",
+                                                        "type": ""
+                                                    }
+                                                ],
+                                                "source": "",
+                                                "summarization": "",
+                                                "title": "",
+                                                "titleEn": "",
+                                                "url": ""
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "description": "error message corresponding to the failed request",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "message": ""
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

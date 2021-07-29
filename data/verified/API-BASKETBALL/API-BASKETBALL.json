@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_ed8496b9-674d-4c82-b02d-f620d3b79cae",
+    "name": "API-BASKETBALL",
+    "title": "API-BASKETBALL",
+    "description": "+190 Basketball Leagues & Cups with Livescore, Odds, Bookmakers, Statistics...",
+    "visibility": "PUBLIC",
+    "slugifiedName": "api-basketball",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-07T21:51:16.709Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/14/f5b39f8b2b47768f37d10acaf77442/7a61c9b1f0b85fcc7a6ea455d202ad35.png",
+    "user": {
+        "id": 3553584,
+        "username": "api-sports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_c43b5e9b-e4fc-41be-a579-236146ebc45a",
+        "tags": [
+            {
+                "id": "tag_ed935fff-bcbb-493d-b218-2fb39f513871",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_52cd3539-8147-4ff4-ab73-152d3fc9038e",
+                "isGraphQL": false,
+                "route": "/standings/groups",
+                "method": "GET",
+                "name": "groups",
+                "description": "Get all available groups for standings",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_711313f5-b06a-40d9-9038-8f801a78c6f9",
+                "isGraphQL": false,
+                "route": "/standings/stages",
+                "method": "GET",
+                "name": "stages",
+                "description": "Get all available stages for standings",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_269251f1-a6d9-4464-9912-fd323981f4df",
+                "isGraphQL": false,
+                "route": "/standings",
+                "method": "GET",
+                "name": "standings",
+                "description": "Get all available standings | Return a table of one or more rankings according to the league / cup",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

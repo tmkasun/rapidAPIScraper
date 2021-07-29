@@ -1,0 +1,64 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_bd79bc24-31cd-4c06-9b75-9c7470c7a370",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_ff87bf90-778c-4bc8-8518-489e6ef6e329",
+        "apiId": "api_4bcb8dfb-64f6-43df-93ba-bc66e31db1a1"
+    },
+    "info": {
+        "title": "Voice Gender Recognition",
+        "description": "PresentID Voice gender recognition API can recognize the gender of the speaker.",
+        "version": "v1",
+        "x-category": "Machine Learning",
+        "x-long-description": "PresentID Voice gender recognition API can recognize the gender of the speaker.\n\n**Input:**\n- Voice file\n- Voice URL link\n- Base64 voice\n\n**Output:**\n- Status message \n- Gender index\n- Gender title\n\n**Ability & Potentials:**\n- Accuracy over 96%.\n- Less than 1 second processing time.\n- No need for GPU.\n- Language & text-independent.\n- Support IOS, Android, Windows, and Mac devices.\n- Easy integration with your app.\n\n**Use Cases:**\n- Call center\n\n**Rules & Restrictions:**\n- Send data via Base64 or a voice URL or voice file.\n- The voice must be between three seconds and one minute.\n- The voices must not exceed 5 MB.\n- Supported file types: WAV, MP3, M4A, FLAC, AAC, OGG.\n\n",
+        "x-website": "https://www.presentid.com/Demo/GenderRecognition",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0dad3bad-45f3-47e5-b3f8-82db3be63693.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://voice-gender-recognition.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/api/gender": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Send voice with voice URL",
+                "description": "Voice gender recognition API can recognize the gender of the speaker.\n\n*The voice file size must not exceed 5 MB*\n*Also, the voice lenght must be between 3 socunds and  1 minute*",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "linkFile": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

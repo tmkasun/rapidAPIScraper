@@ -1,0 +1,466 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_f585c3ff-3a25-43ff-9553-6767925604d7",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5c0ca92ce4b0cc6cdc0e8f7c",
+        "apiId": "5c0ca92be4b09c6b17cf9912"
+    },
+    "info": {
+        "title": "Neobi Open Cannabis",
+        "description": "Canadian Cannabis Database: Products, Producers, Strains, Seeds, and Scientific Papers",
+        "version": "v1",
+        "x-category": "Data",
+        "x-long-description": "The most comprehensive Canadian cannabis database on the market. Lab reports,  research papers and over 20,000 products pulled from provincial and mail orders sites in Canada.",
+        "x-website": "https://neobi.io",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/e828b851-f729-4f8b-a838-adb0999e6d4e_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://neobi.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Documents"
+        },
+        {
+            "name": "Lab Reports"
+        },
+        {
+            "name": "Flowers"
+        },
+        {
+            "name": "Products"
+        },
+        {
+            "name": "Producers"
+        }
+    ],
+    "paths": {
+        "/api/producers/{id}/products": {
+            "get": {
+                "tags": [
+                    "Producers"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of records to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "5"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "The Producer's ID (CannaCode)",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "246"
+                        }
+                    },
+                    {
+                        "name": "rev",
+                        "in": "query",
+                        "required": true,
+                        "description": "API Revision number",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "v1.9"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Get Products from Producer",
+                "description": "Gets a list of products from a specified Producer (CannaCode)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/producers/search": {
+            "get": {
+                "tags": [
+                    "Producers"
+                ],
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "required": false,
+                        "description": "Search query",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "bc cannabis"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of records to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "5"
+                        }
+                    },
+                    {
+                        "name": "rev",
+                        "in": "query",
+                        "required": true,
+                        "description": "Revision number",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "v1.9"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Search for Producers",
+                "description": "Gets a list of Producers from a keyword",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/variants": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "cannacode",
+                        "in": "query",
+                        "required": false,
+                        "description": "The Product's CannaCode or ID",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "rev",
+                        "in": "query",
+                        "required": true,
+                        "description": "The Revision",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "v1.9"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Get Product Variants",
+                "description": "Get a list of variants for a single product (Product Option)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/documents": {
+            "get": {
+                "tags": [
+                    "Documents"
+                ],
+                "parameters": [
+                    {
+                        "name": "rev",
+                        "in": "query",
+                        "required": false,
+                        "description": "The API revision number",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "v1.9"
+                        }
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of records to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "The Page to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "1"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Get Research Papers",
+                "description": "Gets a list of Cannabis research papers and scientific material",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of records to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "5"
+                        }
+                    },
+                    {
+                        "name": "htmlDescription",
+                        "in": "query",
+                        "required": false,
+                        "description": "Raw Description with HTML",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "0"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "required": false,
+                        "description": "Sort results on this field",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "rev",
+                        "in": "query",
+                        "required": true,
+                        "description": "API Revision number",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "v1.9"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Get Products",
+                "description": "Gets a list of Products",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "rev",
+                        "in": "query",
+                        "required": true,
+                        "description": "Revision number",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "v1.9"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Id of the Product",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Get Product by Id",
+                "description": "Gets a single product from an ID (CannaCode)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/producers": {
+            "get": {
+                "tags": [
+                    "Producers"
+                ],
+                "parameters": [
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of records to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "5"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "rev",
+                        "in": "query",
+                        "required": true,
+                        "description": "API Revision number",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "v1.9"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Get Producers",
+                "description": "Get a list of Cannabis Producers",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/labreports": {
+            "get": {
+                "tags": [
+                    "Documents"
+                ],
+                "parameters": [
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "required": false,
+                        "description": "Number of records to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page to be returned",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "rev",
+                        "in": "query",
+                        "required": false,
+                        "description": "API Revision number",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "v1.9"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Get Lab Reports",
+                "description": "Gets a list of professional Cannabis lab reports that includes Cannabanoid content",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_9b069f84-d43c-4110-8225-6160738e049d",
+    "name": "eQRito",
+    "title": "eQRito",
+    "description": "Create beautiful customized, colored, QR Code in svg,  pdf, png, jpeg, webp format.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "eqrito1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-07T18:37:14.239Z",
+    "category": "Business",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/8a811bd2-07ac-4856-98b7-9658339e78ef.png",
+    "user": {
+        "id": 5009928,
+        "username": "klicat-sas-klicat-sas-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_ae5dc342-e4c6-4d81-956b-f95a97472269",
+        "tags": [
+            {
+                "id": "tag_26c01960-b522-4411-800c-9075772281bd",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_5c812642-0cb9-48a7-b861-dc4c33c91b2e",
+                "isGraphQL": false,
+                "route": "/gen",
+                "method": "POST",
+                "name": "Create beautiful QR code in one request",
+                "description": "This endpoints creates your QRcode as an image in many format and with many options",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

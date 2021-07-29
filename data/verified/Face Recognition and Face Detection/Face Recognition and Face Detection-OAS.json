@@ -1,0 +1,320 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_06f8c892-bb9a-48fe-a85e-a64b522135f2",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "53aa3242e4b0a9b1348d8dce",
+        "apiId": "53aa3242e4b07e1f4ebe9bab"
+    },
+    "info": {
+        "title": "Face Recognition and Face Detection",
+        "description": "Stephen here from Lambda Labs. For sample code and a graphical demo, check out http://api.lambdal.com/docs. Our API provides face recognition, face detection, eye position, nose position, mouth position, and gender classification. If you have any questions ask! Just send an email to s@lambdal.com. Happy Hacking! -Stephen",
+        "version": "v1",
+        "x-category": "Media",
+        "x-long-description": "Stephen here from Lambda Labs. For sample code and a graphical demo, check out http://api.lambdal.com/docs. Our API provides face recognition, face detection, eye position, nose position, mouth position, and gender classification. If you have any questions ask! Just send an email to s@lambdal.com. Happy Hacking! -Stephen",
+        "x-website": "http://www.lambdal.com/",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa3242e4b0a9b1348d8dce_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://lambda-face-recognition.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Album Management"
+        },
+        {
+            "name": "Detect & Recognize"
+        }
+    ],
+    "paths": {
+        "/album_train": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "entryid",
+                        "in": "query",
+                        "required": true,
+                        "description": "An entry id for the person you with to view",
+                        "schema": {
+                            "type": "string",
+                            "example": "TigerWoods"
+                        }
+                    },
+                    {
+                        "name": "albumkey",
+                        "in": "query",
+                        "required": true,
+                        "description": "The album key for the album",
+                        "schema": {
+                            "type": "string",
+                            "example": "b1ccb6caa8cefb7347d0cfb65146d5e3f84608f6ee55b1c90d37ed4ecca9b273"
+                        }
+                    },
+                    {
+                        "name": "album",
+                        "in": "query",
+                        "required": true,
+                        "description": "The name of the album",
+                        "schema": {
+                            "type": "string",
+                            "example": "CELEBS"
+                        }
+                    }
+                ],
+                "operationId": "View Entry",
+                "description": "View an entry in an album, telling you how many training images it has",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Album Management"
+                ],
+                "operationId": "Train Album",
+                "description": "Add an image and entryid to an album",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "files": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "description": "An image containing the person you are adding to the album"
+                                    },
+                                    "urls": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "A comma separated list of image urls",
+                                        "example": "http://www.lambdal.com/tiger.jpg"
+                                    },
+                                    "album": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The name of the album",
+                                        "example": "CELEBS"
+                                    },
+                                    "albumkey": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The album key for the album",
+                                        "example": "b1ccb6caa8cefb7347d0cfb65146d5e3f84608f6ee55b1c90d37ed4ecca9b273"
+                                    },
+                                    "entryid": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "An entry id for the person you are uploading pictures of",
+                                        "example": "TigerWoods"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/recognize": {
+            "post": {
+                "tags": [
+                    "Detect & Recognize"
+                ],
+                "operationId": "Recognize",
+                "description": "After creating, training, and rebuilding an album (see above), you'll be able to recognize people in that album.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "files": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "description": "A set of binary image files to recognize"
+                                    },
+                                    "urls": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "A comma separated list of image URLs to recognize",
+                                        "example": "http://www.lambdal.com/tiger.jpg"
+                                    },
+                                    "album": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The album you want to look in",
+                                        "example": "CELEBS"
+                                    },
+                                    "albumkey": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Your album key",
+                                        "example": "b1ccb6caa8cefb7347d0cfb65146d5e3f84608f6ee55b1c90d37ed4ecca9b273"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/album": {
+            "get": {
+                "tags": [
+                    "Album Management"
+                ],
+                "parameters": [
+                    {
+                        "name": "albumkey",
+                        "in": "query",
+                        "required": true,
+                        "description": "The album key of the album you want to view",
+                        "schema": {
+                            "type": "string",
+                            "example": "b1ccb6caa8cefb7347d0cfb65146d5e3f84608f6ee55b1c90d37ed4ecca9b273"
+                        }
+                    },
+                    {
+                        "name": "album",
+                        "in": "query",
+                        "required": true,
+                        "description": "The name of the album you want to view",
+                        "schema": {
+                            "type": "string",
+                            "example": "CELEBS"
+                        }
+                    }
+                ],
+                "operationId": "View Album",
+                "description": "View one of your albums, with a visual summary.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Album Management"
+                ],
+                "operationId": "Create Album",
+                "description": "Create a new photo album, be sure to save your albumkey!",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "album": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "The name of the album to create",
+                                        "example": "CELEBS"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/album_rebuild": {
+            "get": {
+                "tags": [
+                    "Album Management"
+                ],
+                "parameters": [
+                    {
+                        "name": "albumkey",
+                        "in": "query",
+                        "required": true,
+                        "description": "The albumkey for the album to rebuild",
+                        "schema": {
+                            "type": "string",
+                            "example": "b1ccb6caa8cefb7347d0cfb65146d5e3f84608f6ee55b1c90d37ed4ecca9b273"
+                        }
+                    },
+                    {
+                        "name": "album",
+                        "in": "query",
+                        "required": true,
+                        "description": "The name of the album to rebuild",
+                        "schema": {
+                            "type": "string",
+                            "example": "CELEBS"
+                        }
+                    }
+                ],
+                "operationId": "Rebuild Album",
+                "description": "Manually rebuild an album after adding training examples",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/detect": {
+            "post": {
+                "tags": [
+                    "Detect & Recognize"
+                ],
+                "operationId": "Detect",
+                "description": "Detect faces in an image, as well as extract facial features (eyes, nose, mouth)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "files": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "description": "A set of binary image files"
+                                    },
+                                    "urls": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "A comma separated list of image URLs",
+                                        "example": "http://www.lambdal.com/test2.jpg"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

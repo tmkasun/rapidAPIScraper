@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_ff1b90cb-8084-4920-a845-8f64b0b37a4a",
+    "name": "MAC Address Lookup",
+    "title": "MAC Address Lookup",
+    "description": "Provide Company name, address, MAC address range, MAC address prefix ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "mac-address-lookup1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-06T07:45:03.184Z",
+    "category": "Monitoring",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/18bb4a4c-7f26-4eb6-a45c-1e660b7612c4.png",
+    "user": {
+        "id": 5077432,
+        "username": "softrix-technologies-dnschecker",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_84edaaf8-3f6e-41d1-88bf-84fc6ec441a0",
+        "tags": [
+            {
+                "id": "tag_a1f2be3e-04da-4636-84b2-70e09da512ae",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_24b71094-9018-48ed-abff-355e5d4315bd",
+                "isGraphQL": false,
+                "route": "/static_rapid/mac_lookup/",
+                "method": "GET",
+                "name": "MAC Lookup",
+                "description": "MAC Lookup",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

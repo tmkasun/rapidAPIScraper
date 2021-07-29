@@ -1,0 +1,245 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_98cfebf3-e688-49a5-a2c7-75409966852b",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_c5ce9de3-a2ee-44f2-b05a-ef0da573acca",
+        "apiId": "api_16d93fbd-9f1a-4d64-bed1-44cf8a37e2e4"
+    },
+    "info": {
+        "title": "Face Enroll",
+        "description": "PresentID Face enroll API allows you to register your users for future authentication. This API stores two image files along with the user's personal information. Before saving, it is checked whether these two images belong to one person or not. So allows the user to authenticate by sending the face and personID.",
+        "version": "v1",
+        "x-category": "Visual Recognition",
+        "x-long-description": "**Enroll by face**\n\nEnroll by face API allows you to register your users for future authentication. This API, stores two image files along with the user's personal information. Before saving, it is checked whether these two images belong to one person or not. The parameters must be submitted in multipart form. The API is called by POST method.\nParameters\n\n**Ability & Potentials**\n- Accuracy is %99.76 on the LFW face verification dataset, a very popular benchmark.\n- Less than 500 milliseconds processing time.\n- Android, iOS, Windows, Mac.\n\n**Rules & Restrictions**\n- Image size should not exceed 8 MB\n- Also, the images should not be larger than 5000 pixels and smaller - than 50 pixels\n",
+        "x-website": "https://presentid.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/3928e800-ff31-49bb-b1d1-4313253b0423.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://face-enroll1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/Login": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Login by face",
+                "description": "Identify your clients by their photo face.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "firstName": {
+                                                    "type": "string"
+                                                },
+                                                "isLogin": {
+                                                    "type": "boolean"
+                                                },
+                                                "lastName": {
+                                                    "type": "string"
+                                                },
+                                                "personId": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "hasError": {
+                                            "type": "boolean"
+                                        },
+                                        "request": {
+                                            "properties": {
+                                                "conversationId": {
+                                                    "type": "null"
+                                                },
+                                                "packageId": {
+                                                    "type": "null"
+                                                },
+                                                "userId": {
+                                                    "type": "null"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer"
+                                        },
+                                        "statusMessage": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Face Enroll Login": {
+                                        "description": "",
+                                        "summary": "Face Enroll Login",
+                                        "value": {
+                                            "data": {
+                                                "firstName": "hossein",
+                                                "isLogin": true,
+                                                "lastName": "shahabi",
+                                                "personId": "8000000070314049b090831f"
+                                            },
+                                            "hasError": false,
+                                            "request": {
+                                                "conversationId": null,
+                                                "packageId": null,
+                                                "userId": null
+                                            },
+                                            "statusCode": 200,
+                                            "statusMessage": "Login Successfully."
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "personID": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "photo": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Register": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Enroll by face",
+                "description": "Enroll by face API allows you to register your users for future authentication. In this API, it stores two image files along with the user's personal information. Before saving, it is checked whether these two images belong to one person or not. The parameters must be submitted in ```multipart form```. The API is called by ```POST``` method.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "personID": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "details": {
+                                            "type": "null"
+                                        },
+                                        "hasError": {
+                                            "type": "boolean"
+                                        },
+                                        "statusCode": {
+                                            "type": "integer"
+                                        },
+                                        "statusMessage": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Face Enroll Registration": {
+                                        "description": "",
+                                        "summary": "Face Enroll Registration",
+                                        "value": {
+                                            "data": {
+                                                "personID": "8000000070314049b090831f"
+                                            },
+                                            "details": null,
+                                            "hasError": false,
+                                            "statusCode": 200,
+                                            "statusMessage": "OK"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "lastname": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "firstname": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "mobile": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": ""
+                                    },
+                                    "photo1": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    },
+                                    "photo2": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "yourname@example.com"
+                                    },
+                                    "group": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "example.com_Users"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

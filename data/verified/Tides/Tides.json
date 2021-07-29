@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_b3dea533-fe02-45eb-8ea3-ec8021ef04d4",
+    "name": "Tides",
+    "title": "Tides",
+    "description": "Global Tides API provides tidal heights predictions at any location of the World Ocean.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "tides",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-05-28T12:53:51.130Z",
+    "category": "Weather",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/a8/80a908b7054a89b4a7883cd193b8f8/c7cc382a5067455bf739c34eba7763ac.png",
+    "user": {
+        "id": 3833536,
+        "username": "apihood",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_bdf305c1-79d3-4012-a791-811a1d5b9f03",
+        "tags": [
+            {
+                "id": "tag_01b0c604-33f9-4efe-8339-a93d0ff3bd11",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_8b50249f-f780-424a-bd76-d02093ca76bb",
+                "isGraphQL": false,
+                "route": "/tides",
+                "method": "GET",
+                "name": "Tides",
+                "description": "Endpoint for getting Tide predictions like extremes and water level",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

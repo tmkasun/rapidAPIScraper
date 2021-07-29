@@ -1,0 +1,196 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_9481ec5f-8516-49e1-aba3-e55e6174dac9",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_fc5e700f-f44b-41f5-922e-6b022391478f",
+        "apiId": "api_cdb725be-8d98-4883-a8d5-a7146154a03e"
+    },
+    "info": {
+        "title": "TrueWay Directions",
+        "description": "Find the best route between two or more locations",
+        "version": "v1",
+        "x-category": "Mapping",
+        "x-long-description": "The routing service can be used to find the best route to get from one location to another or to visit several locations. The best route can be the fastest route for a given time of day considering the traffic conditions applicable during that time. If you have more than two stops to visit, the routing service can determine the best order in which to visit the locations (the traveling salesman problem).",
+        "x-website": "https://truewayapi.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0c1e4383-f2e6-47e4-911c-b44aac6ec534_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://trueway-directions2.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/FindDrivingRoute": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "avoid_tolls",
+                        "in": "query",
+                        "required": false,
+                        "description": "the route should avoid toll roads",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "geometry_format",
+                        "in": "query",
+                        "required": false,
+                        "description": "geometry format: latlng, lnglat or geojson",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "avoid_highways",
+                        "in": "query",
+                        "required": false,
+                        "description": "the route should avoid highways",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "avoid_ferries",
+                        "in": "query",
+                        "required": false,
+                        "description": "the route should avoid ferries",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "optimize",
+                        "in": "query",
+                        "required": false,
+                        "description": "Instructs the API to reorder stops to find the optimized route. The route first stop and last stop order is not changed, their position is considered fixed.",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "stops",
+                        "in": "query",
+                        "required": true,
+                        "description": "Specify two or more semicolon-delimited locations(Lat/Lng) between which the route is to be found. Max: 25",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "40.629041,-74.025606;40.630099,-73.993521;40.644895,-74.013818;40.627177,-73.980853"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "FindDrivingRoute",
+                "description": "Find the best route and get multiple stops driving directions",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/FindDrivingPath": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "waypoints",
+                        "in": "query",
+                        "required": false,
+                        "description": "Specifies an array of intermediate locations to include along the route between the origin and destination points as pass through locations. Max: 23",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "avoid_tolls",
+                        "in": "query",
+                        "required": false,
+                        "description": "the route should avoid toll roads",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "avoid_highways",
+                        "in": "query",
+                        "required": false,
+                        "description": "the route should avoid highways",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "geometry_format",
+                        "in": "query",
+                        "required": false,
+                        "description": "geometry format: latlng, lnglat or geojson",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "avoid_ferries",
+                        "in": "query",
+                        "required": false,
+                        "description": "the route should avoid ferries",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "start_time",
+                        "in": "query",
+                        "required": false,
+                        "description": "Time when travel is expected to start. You can specify the time as an integer in seconds since midnight, January 1, 1970 UTC or you can use \"now\" to specify the current time.",
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "destination",
+                        "in": "query",
+                        "required": true,
+                        "description": "The location to which you wish to calculate directions. ",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "40.627177,-73.980853"
+                        }
+                    },
+                    {
+                        "name": "origin",
+                        "in": "query",
+                        "required": true,
+                        "description": "The location from which you wish to calculate directions.",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "40.629041,-74.025606"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "FindDrivingPath",
+                "description": "Find the best route between an origin and a destination, passing through waypoints (if specified)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

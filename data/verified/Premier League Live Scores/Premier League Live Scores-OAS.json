@@ -1,0 +1,1137 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_c5475ca4-797d-48fe-add9-13f08f172313",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "55e1b9cfe4b099861109926d",
+        "apiId": "55e1b9cee4b0034a968f7398"
+    },
+    "info": {
+        "title": "Premier League Live Scores",
+        "description": "Premier League Live Scores API allows to retrieve historical data as well as current season results, scorers, lineups, substitutes, events, statistics, odds and much more all with live updates, for the top professional English football league. And more is coming...",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Premier League Live Scores API allows to retrieve historical data as well as current season results, scorers, lineups, substitutes, events, statistics, odds and much more all with live updates, for the top professional English football league. And more is coming...",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/55e1b9cfe4b099861109926d_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Premier League Live (NO MORE SUPPORTED)"
+        },
+        {
+            "name": "Webhooks"
+        },
+        {
+            "name": "Betting"
+        },
+        {
+            "name": "Premier League"
+        }
+    ],
+    "paths": {
+        "/api/premierleague/table": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to specify the first match number to use to compute the table (default 1)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to restrict the table compute on home or away games (default all)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "description": "Season code (default 2017-18)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "query",
+                        "required": false,
+                        "description": "Let to compute the table considering only the first half (FH) or the second time (SH) results. Default is full time (FT).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to specify the last match number to consider to compute the table (default last match number played registered on system)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "fromdate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Compute the table only with matches played fromdate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "todate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Compute the table only with matches played todate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "League Table",
+                "description": "Returns the table for the league",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/playerdetails": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "honours",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return only the honours for the player (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "player",
+                        "in": "query",
+                        "required": true,
+                        "description": "Player name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Mohamed Salah"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": true,
+                        "description": "Team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Liverpool"
+                        }
+                    }
+                ],
+                "operationId": "Player details",
+                "description": "Returns all data about a player. Available only with ULTRA and MEGA plans!",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchday",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return all matches results for the specified match day",
+                        "schema": {
+                            "type": "string",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "season",
+                        "in": "query",
+                        "required": false,
+                        "description": "Season code (default 2017-18)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns all match in the date (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns results for playing matches (live) (default false, overwrite others parameters)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns all matches with team1",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns all matches with team2",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Season matches results",
+                "description": "Return season matches results for a match day",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/predict": {
+            "get": {
+                "tags": [
+                    "Betting"
+                ],
+                "parameters": [
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name (case sensitiva)",
+                        "schema": {
+                            "type": "string",
+                            "example": "Arsenal"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name (case sensitive)",
+                        "schema": {
+                            "type": "string",
+                            "example": "Watford"
+                        }
+                    }
+                ],
+                "operationId": "Prediction",
+                "description": "Returns match result perdiction (use an AI deep learning engine)",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/push/activate": {
+            "get": {
+                "tags": [
+                    "Webhooks"
+                ],
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": true,
+                        "description": "Token",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Activate webhook",
+                "description": "Activate a webhook registered with the subscribe endpoint. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/push/subscribe": {
+            "post": {
+                "tags": [
+                    "Webhooks"
+                ],
+                "parameters": [
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "description": "The wekhook where to receive the notifications",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Subscribe",
+                "description": "Register to an event for push notifications. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/push/list": {
+            "get": {
+                "tags": [
+                    "Webhooks"
+                ],
+                "operationId": "Events subscribed",
+                "description": "Returns all the events subscribed. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/odds": {
+            "get": {
+                "tags": [
+                    "Betting"
+                ],
+                "parameters": [
+                    {
+                        "name": "bookmaker",
+                        "in": "query",
+                        "required": true,
+                        "description": "Bookmaker name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Bet365"
+                        }
+                    },
+                    {
+                        "name": "odd",
+                        "in": "query",
+                        "required": true,
+                        "description": "Odd name",
+                        "schema": {
+                            "type": "string",
+                            "example": "1x2-FT"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Brighton"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Newcastle United"
+                        }
+                    }
+                ],
+                "operationId": "Odd quotas",
+                "description": "Return quotas for an odd a match and a bookmaker. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/table/betting": {
+            "get": {
+                "tags": [
+                    "Betting"
+                ],
+                "parameters": [
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "Team name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "query",
+                        "required": false,
+                        "description": "Let you to select only first half (FH) result, second half (SH) or full time (FT) default",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fromdate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only matches fromdate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "todate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Only matches todate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "over",
+                        "in": "query",
+                        "required": false,
+                        "description": "Over values, mandatory for underover bet",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Together with team parameter, let you to select only games where team has played home, away or all (default)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "handicap",
+                        "in": "query",
+                        "required": false,
+                        "description": "Handicap values (only for 1x2 bet)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "when",
+                        "in": "query",
+                        "required": false,
+                        "description": "Let you to select only games with win, loss, draw or all (default)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bet",
+                        "in": "query",
+                        "required": true,
+                        "description": "Type of data required, result, totalgoals,underover,1x2,goalnogoal",
+                        "schema": {
+                            "type": "string",
+                            "example": "1x2"
+                        }
+                    }
+                ],
+                "operationId": "Bet Stats",
+                "description": "Returns aggregate data about results, goal-nogoal, underover, 1x2 and totalgoals to support your bet activities. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/listodds": {
+            "get": {
+                "tags": [
+                    "Betting"
+                ],
+                "parameters": [
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Brighton"
+                        }
+                    },
+                    {
+                        "name": "bookmaker",
+                        "in": "query",
+                        "required": true,
+                        "description": "Bookmaker name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Bet365"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Newcastle United"
+                        }
+                    }
+                ],
+                "operationId": "Odds List",
+                "description": "Returns the available odds for a match and a bookmaker. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/listbookmakers": {
+            "get": {
+                "tags": [
+                    "Betting"
+                ],
+                "parameters": [
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Brighton"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team",
+                        "schema": {
+                            "type": "string",
+                            "example": "Newcastle United"
+                        }
+                    }
+                ],
+                "operationId": "Bookmakers List",
+                "description": "Return the list of the available bookmakers for a match. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/table/teamstat": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "avg",
+                        "in": "query",
+                        "required": false,
+                        "description": "Set to true if you want average statistic value, that is the table computed as (total value statistic/played games). Default false.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Match day number from which to compute the table",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Set with top to get the top 5, with bottom to get the worse 5 teams (default top)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "Team name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Match day number till which compute the table",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "stat",
+                        "in": "query",
+                        "required": true,
+                        "description": "Statistic name",
+                        "schema": {
+                            "type": "string",
+                            "example": "shotsOnTarget"
+                        }
+                    }
+                ],
+                "operationId": "Teams Statistic Table",
+                "description": "Teams table for a specified statistic. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/table/playerstat": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Match day number from which compute the table",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "player",
+                        "in": "query",
+                        "required": false,
+                        "description": "Player name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Match day number till which compute the table",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "Team name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "stat",
+                        "in": "query",
+                        "required": true,
+                        "description": "Statistic name",
+                        "schema": {
+                            "type": "string",
+                            "example": "shotsOnTarget"
+                        }
+                    }
+                ],
+                "operationId": "Players Statistic Table",
+                "description": "Return the players table for a specified statistic. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/match/missing": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Everton"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Arsenal"
+                        }
+                    }
+                ],
+                "operationId": "Missing players for a match",
+                "description": "Return missing players for a match. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/players": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": true,
+                        "description": "Team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Arsenal"
+                        }
+                    }
+                ],
+                "operationId": "League Players",
+                "description": "Returns all players for a team. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/match/stats": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns data for a playing match (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Stoke"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Liverpool"
+                        }
+                    }
+                ],
+                "operationId": "Match statistics",
+                "description": "Return statistics for a match after a while it is finished or live. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/table/scorers": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to specify the first match number to use to compute the result (default 1)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "player",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to get goals number only for the player name specified",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team",
+                        "in": "query",
+                        "required": false,
+                        "description": "Team name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "todate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Compute the table only with matches played todate (format mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "description": "Page result to return. Default is 1 that are results from 1 to 5 (max. value is 20).",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to specify the last match number to consider to compute the result (default last match number played registered on system)",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional parameter to restrict the table compute on home or away games (possible values are home, away or all, that is the default)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fromdate",
+                        "in": "query",
+                        "required": false,
+                        "description": "Compute the table only with matches played fromdate (forma mmddyyyy)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "how",
+                        "in": "query",
+                        "required": false,
+                        "description": "Return only goals scored according the how parameter. Its value can be: left, right, head or any, that is the default.",
+                        "schema": {
+                            "type": "string",
+                            "example": "head"
+                        }
+                    }
+                ],
+                "operationId": "Top scorers",
+                "description": "Returns top scorers for the league",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/match/player": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns data for a playing match (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Everton"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Manchester United"
+                        }
+                    },
+                    {
+                        "name": "player",
+                        "in": "query",
+                        "required": true,
+                        "description": "Player name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Paul Pogba"
+                        }
+                    }
+                ],
+                "operationId": "Player stats for a match",
+                "description": "Return the player's statistics for a match. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/match/events": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns data for a playing match (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Amat team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Watford"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home tema name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Leicester"
+                        }
+                    }
+                ],
+                "operationId": "Match events",
+                "description": "Return the events for a match (yellow and red cards, substitutions, shots on post and formations module). Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/formations": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns data for a playing match (default false)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Everton"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Manchester United"
+                        }
+                    }
+                ],
+                "operationId": "Lineups and substitutes for a game",
+                "description": "Return lineups, substitutes and coaches for a game (only after the game is finished). Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/scorers": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "parameters": [
+                    {
+                        "name": "live",
+                        "in": "query",
+                        "required": false,
+                        "description": "Returns data for a playing match (default false)",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "team1",
+                        "in": "query",
+                        "required": true,
+                        "description": "Home team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Leicester"
+                        }
+                    },
+                    {
+                        "name": "team2",
+                        "in": "query",
+                        "required": true,
+                        "description": "Away team name",
+                        "schema": {
+                            "type": "string",
+                            "example": "Liverpool"
+                        }
+                    }
+                ],
+                "operationId": "Match scorers",
+                "description": "Return scorers for a match. Not available for BASIC plan.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/premierleague/table/referee": {
+            "get": {
+                "tags": [
+                    "Premier League"
+                ],
+                "operationId": "Referees Statistics",
+                "description": "Referees statistics",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

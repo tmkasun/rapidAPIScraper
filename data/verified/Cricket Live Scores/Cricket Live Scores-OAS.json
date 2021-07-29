@@ -1,0 +1,567 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_09e79df9-9705-48ba-a573-34c1004984e8",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "557d8c40e4b0520d42b55c9c",
+        "apiId": "557d8c40e4b030865222e002"
+    },
+    "info": {
+        "title": "Cricket Live Scores",
+        "description": "Cricket Live Scores API provides invaluable data to develop cricket related apps. The API accepts GET calls and returns JSON formatted content. Cricket Live Scores API is able to deliver a list of available matches as well as cricket scores, cricket scorecards, Test scores, ODI scores, T20 scores, BBL scores, IPL scores, World Cup scores. Learn more at https://blog.rapidapi.com/cricket-api/",
+        "version": "v1",
+        "x-category": "Sports",
+        "x-long-description": "Cricket Live Scores API provides invaluable data to develop cricket related apps. The API accepts GET calls and returns JSON formatted content. Cricket Live Scores API is able to deliver a list of available matches as well as cricket scores, cricket scorecards, Test scores, ODI scores, T20 scores, BBL scores, IPL scores, World Cup scores. Learn more at https://blog.rapidapi.com/cricket-api/",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/7091dd53-527c-41ec-8dfd-8b2427663540_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://dev132-cricket-live-scores-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Commentary"
+        },
+        {
+            "name": "Matches GROUP"
+        },
+        {
+            "name": "Other"
+        },
+        {
+            "name": "Media"
+        },
+        {
+            "name": "Teams"
+        },
+        {
+            "name": "Series"
+        },
+        {
+            "name": "Scorecards"
+        },
+        {
+            "name": "Players"
+        },
+        {
+            "name": "Patnerships"
+        }
+    ],
+    "paths": {
+        "/comments.php": {
+            "get": {
+                "tags": [
+                    "Commentary"
+                ],
+                "parameters": [
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "2141"
+                        }
+                    },
+                    {
+                        "name": "matchid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "43434"
+                        }
+                    }
+                ],
+                "operationId": "Commentary",
+                "description": "Get Detailed Commentary for a given Match",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/partnerships.php": {
+            "get": {
+                "tags": [
+                    "Patnerships"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "37519"
+                        }
+                    },
+                    {
+                        "name": "innid",
+                        "in": "query",
+                        "required": true,
+                        "description": "Innings Id",
+                        "schema": {
+                            "type": "string",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "1445"
+                        }
+                    }
+                ],
+                "operationId": "Partnerships",
+                "description": "This intended to be used for display of a Partnership graph for a particular innings within a Match.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/resource.php": {
+            "get": {
+                "tags": [
+                    "Media"
+                ],
+                "parameters": [
+                    {
+                        "name": "imageurl",
+                        "in": "query",
+                        "required": true,
+                        "description": "Image Url",
+                        "schema": {
+                            "type": "string",
+                            "example": "media/Logos/Teams/International/West%20Indies.ashx"
+                        }
+                    }
+                ],
+                "operationId": "GET Images",
+                "description": "Get Images",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/seriesstandings.php": {
+            "get": {
+                "tags": [
+                    "Series"
+                ],
+                "parameters": [
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "2141"
+                        }
+                    }
+                ],
+                "operationId": "Series Standings",
+                "description": "This gives detailed information on the scorecard of a match. In includes all innings, teams, batsmen and bowler details.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/teamplayers.php": {
+            "get": {
+                "tags": [
+                    "Teams"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "4"
+                        }
+                    }
+                ],
+                "operationId": "Team Players",
+                "description": "This endpoint provides the detail of each player in the team.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/playersbymatch.php": {
+            "get": {
+                "tags": [
+                    "Players"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "43434"
+                        }
+                    },
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "2141"
+                        }
+                    }
+                ],
+                "operationId": "Players By Match",
+                "description": "This endpoint provides the detail of each player in the team for a given match",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/seriesteams.php": {
+            "get": {
+                "tags": [
+                    "Series"
+                ],
+                "parameters": [
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "2141"
+                        }
+                    }
+                ],
+                "operationId": "Series Teams",
+                "description": "This endpoint provides the detail of each Team in the series.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/scorecards.php": {
+            "get": {
+                "tags": [
+                    "Scorecards"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "43431"
+                        }
+                    },
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "2141"
+                        }
+                    }
+                ],
+                "operationId": "Scorecards",
+                "description": "This gives detailed information on the scorecard of a match. In includes all innings, teams, batsmen and bowler details.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/graph.php": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "parameters": [
+                    {
+                        "name": "matchid",
+                        "in": "query",
+                        "required": true,
+                        "description": "This is the match identifier eg. 1 for 1st Test",
+                        "schema": {
+                            "type": "number",
+                            "example": "37519"
+                        }
+                    },
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "description": "This is the series identifier eg. 2752 for 2013 Ashes Test Series (ENG v AUS)",
+                        "schema": {
+                            "type": "number",
+                            "example": "1445"
+                        }
+                    }
+                ],
+                "operationId": "Graph",
+                "description": "This can be used to draw the Manhattan chart, Total Runs chart and Run Rate Chart, re-drawn on a live basis as and when match progresses.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/series.php": {
+            "get": {
+                "tags": [
+                    "Series"
+                ],
+                "operationId": "Series",
+                "description": "Returns a collection of series names, short names, images, start and end date, teams etc.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/battingwheel.php": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "parameters": [
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "description": "This is the series identifier eg. 2752 for 2013 Ashes Test Series (ENG v AUS)",
+                        "schema": {
+                            "type": "number",
+                            "example": "1445"
+                        }
+                    },
+                    {
+                        "name": "matchid",
+                        "in": "query",
+                        "required": true,
+                        "description": "This is the match identifier eg. 1 for 1st Test",
+                        "schema": {
+                            "type": "number",
+                            "example": "37519"
+                        }
+                    },
+                    {
+                        "name": "innid",
+                        "in": "query",
+                        "required": true,
+                        "description": "This is the inning identifier eg. 1",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "operationId": "Batting Wheel",
+                "description": "Batting Wheel",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matchdetail.php": {
+            "get": {
+                "tags": [
+                    "Matches GROUP"
+                ],
+                "parameters": [
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "2141"
+                        }
+                    },
+                    {
+                        "name": "matchid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "43434"
+                        }
+                    }
+                ],
+                "operationId": "Match Live & HighLights",
+                "description": "This intended to be used primarily a Live or Completed match highlight view, as it provides the overall current state of a match with a live up- to-the-minute updates and optional media. It does not contain Commentary, Match Players, Ball or other MatchDetail information",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matchseries.php": {
+            "get": {
+                "tags": [
+                    "Matches GROUP"
+                ],
+                "parameters": [
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "description": "The id of the series to search the match detail on.",
+                        "schema": {
+                            "type": "number",
+                            "example": "2141"
+                        }
+                    }
+                ],
+                "operationId": "Match By  Series ID",
+                "description": "Returns a list of matches for a specific series. The matches can be upcoming, in progress, or completed.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/playersbyteam.php": {
+            "get": {
+                "tags": [
+                    "Players"
+                ],
+                "parameters": [
+                    {
+                        "name": "teamid",
+                        "in": "query",
+                        "required": true,
+                        "description": "Team ID",
+                        "schema": {
+                            "type": "number",
+                            "example": "4"
+                        }
+                    }
+                ],
+                "operationId": "Players By Team",
+                "description": "This endpoint provides the detail of each player in the team.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/match.php": {
+            "get": {
+                "tags": [
+                    "Matches GROUP"
+                ],
+                "parameters": [
+                    {
+                        "name": "seriesid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "2141"
+                        }
+                    },
+                    {
+                        "name": "matchid",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "example": "43434"
+                        }
+                    }
+                ],
+                "operationId": "Match by Match ID",
+                "description": "Gets the detail of a match like scores, teams and venue.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/matches.php": {
+            "get": {
+                "tags": [
+                    "Matches GROUP"
+                ],
+                "parameters": [
+                    {
+                        "name": "upcomingLimit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        }
+                    },
+                    {
+                        "name": "inprogresslimit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        }
+                    },
+                    {
+                        "name": "completedlimit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        }
+                    }
+                ],
+                "operationId": "# Matches (LIST ALL MATCHES)",
+                "description": "Returns a list of matches for any series. The matches can be upcoming, in progress, or completed.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,122 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_09a35eec-36de-4a69-8752-3d825d117be2",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_884c0714-41ae-4076-9ecc-b7ddfa7c7023",
+        "apiId": "api_9868ea6a-4350-450d-994d-e1b050a9278b"
+    },
+    "info": {
+        "title": "Brain Text Summarizer",
+        "description": "Text summarization using advanced Natural Language Processing techniques and multi-language support.",
+        "version": "v1",
+        "x-category": "Text Analysis",
+        "x-long-description": "Text summariazation using advanced Natural Language Processing techniques and multi-language support with 16 languages supported. A consistent input text of 100.000 characters is supported.\nThe API provides the text summarization in terms of the most relevant sentences:\n- the number of sentences to be returned is 5 by default and can be configured from 1 to 10.\n- the maximum length of text is 100.000 characters\n- multi-lingual support; the following languages are supported:\n- - danish\n- - dutch\n- - english\n- - finnish\n- - french\n- - german\n- - hungarian\n- - italian\n- - kazakh\n- - norwegian\n- - portuguese\n- - romanian\n- - russian\n- - spanish\n- - swedish\n- - turkish\n",
+        "x-website": "https://braincompany.co",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/de34a884-1d45-4163-a8d0-3c227d962681.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://brain-text-summarizer.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/api/text_summarizer": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Text summarizer using advanced Natural Language Processing with multi-lingual support",
+                "description": "The API provides the text summarization in terms of the most relevant sentences:\n- the number of sentences to be returned is 5 by default and can be configured from 1 to 10.\n- the maximum length of text is 100.000 characters\n- multi-lingual support; the following languages are supported: danish, dutch, english, finnish, french, german, hungarian, italian, kazakh, norwegian, portuguese, romanian, russian, spanish, swedish, turkish",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "summarySentences": {
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "summarySentences": [
+                                                "Cleopatra's death effectively ended the final war of the Roman Republic between the remaining triumvirs Octavian and Antony, in which Cleopatra aligned herself with Antony, father to three of her children.",
+                                                "Cleopatra's death marked the end of the Hellenistic period and Ptolemaic rule of Egypt, as well as the beginning of Roman Egypt, which became a province of the Roman Empire.",
+                                                "According to popular belief, Cleopatra committed suicide by allowing an asp (Egyptian cobra) to bite her, but for Greek and Roman historians, Cleopatra poisoned herself using either a toxic ointment or by introducing the poison with a sharp implement such as a hairpin."
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response for Error in Parameters": {
+                                        "description": "",
+                                        "summary": "Response for Error in Parameters",
+                                        "value": {
+                                            "message": "error message related to parameters in the request"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "language": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Language of the provided text. If not provided the default is set to \"english\". Possible values are:\n-  danish\n- dutch\n-  english\n-  finnish\n-  french\n-  german\n-  hungarian\n-  italian\n-  kazakh\n-  norwegian\n-  portuguese\n-  romanian\n-  russian\n-  spanish\n-  swedish\n-  turkish",
+                                        "example": "english"
+                                    },
+                                    "numberSentences": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "description": "Number of sentences to be included in the summary. Default value is 5. Maximum value is 10.",
+                                        "example": "3"
+                                    },
+                                    "text": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "description": "Text be summarized. Maximum supported length is 100.000 characters.",
+                                        "example": "The death of Cleopatra VII, the last ruler of Ptolemaic Egypt, occurred on either 10 or 12 August, 30 BC, in Alexandria, when she was 39 years old. According to popular belief, Cleopatra committed suicide by allowing an asp (Egyptian cobra) to bite her, but for Greek and Roman historians, Cleopatra poisoned herself using either a toxic ointment or by introducing the poison with a sharp implement such as a hairpin. Primary source accounts are derived mainly from the works of the ancient Roman historians Strabo, Plutarch, and Cassius Dio. Modern scholars debate the validity of ancient reports involving snakebites as the cause of death and if she was murdered or not. Some academics hypothesize that her Roman political rival Octavian forced her to commit suicide in the manner of her choosing. The location of Cleopatra's tomb is unknown. It was recorded that Octavian allowed for her and her husband, the Roman politician and general Mark Antony, who stabbed himself with a sword, to be buried together properly. Cleopatra's death effectively ended the final war of the Roman Republic between the remaining triumvirs Octavian and Antony, in which Cleopatra aligned herself with Antony, father to three of her children. Antony and Cleopatra fled to Egypt following their loss at the 31 BC Battle of Actium in Roman Greece, after which Octavian invaded Egypt and defeated their forces. Committing suicide allowed her to avoid the humiliation of being paraded as a prisoner in a Roman triumph celebrating the military victories of Octavian, who would become Rome's first emperor in 27 BC and be known as Augustus. Octavian had Cleopatra's son Caesarion (also known as Ptolemy XV), rival heir of Julius Caesar, killed in Egypt but spared her children with Antony and brought them to Rome. Cleopatra's death marked the end of the Hellenistic period and Ptolemaic rule of Egypt, as well as the beginning of Roman Egypt, which became a province of the Roman Empire. The death of Cleopatra has been depicted in various works of art throughout history. These include the visual, literary, and performance arts, ranging from sculptures and paintings to poetry and plays, as well as modern films. Cleopatra featured prominently in the prose and poetry of ancient Latin literature. While surviving ancient Roman depictions of her death in visual arts are rare, Medieval, Renaissance, Baroque, and Modern works are numerous. Ancient Greco-Roman sculptures such as the Esquiline Venus and Sleeping Ariadne served as inspirations for later artworks portraying her death, universally involving the snakebite of an asp. Cleopatra's death has evoked themes of eroticismand sexuality, in works that include paintings, plays, and films, especially from the Victorian era. Modern works depicting Cleopatra's death include Neoclassical sculpture, Orientalist painting, and cinema."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

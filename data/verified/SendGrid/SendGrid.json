@@ -1,0 +1,70 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "5b0d98cfe4b091d6b3343827",
+    "name": "SendGrid",
+    "title": "SendGrid",
+    "description": "Welcome to SendGrid’s Web API v3! This API is RESTful, fully featured, and easy to integrate with.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "sendgrid",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-01-17T17:44:08.247Z",
+    "category": "Email",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/0f/6e4a73e9ca4402a2857f850097d8b1/b1041e5e7273d024c2b4e50ee1f8bad2.png",
+    "user": {
+        "id": 3548557,
+        "username": "sendgrid",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "5b0d98cfe4b083052c9cc3ba",
+        "tags": [
+            {
+                "id": "tag_32670353-150e-4b74-a456-8f1cb555dbe9",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            },
+            {
+                "id": "tag_81d70eea-43f2-4501-9cce-d8ca45b9d635",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_0364d241-f423-4ff4-9e3e-e51de3cdc835",
+                "type": "tag",
+                "value": "Official",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "5b1878bbe4b06fc8c8fff0d3",
+                "isGraphQL": false,
+                "route": "/suppression/blocks/{email}}",
+                "method": "DELETE",
+                "name": "Delete a specific block",
+                "description": "This endpoint allows you to delete a specific email address from your blocks list. Blocks happen when your message was rejected for a reason related to the message, not the recipient address. This can happen when your mail server IP address has been added to a blacklist or blocked by an ISP, or if the message content is flagged by a filter on the receiving server.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5b187263e4b05b36a9cbdcfd",
+                "isGraphQL": false,
+                "route": "/alerts",
+                "method": "GET",
+                "name": "Retrieve all alerts",
+                "description": "This endpoint allows you to retieve all of your alerts.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "5b1874c6e4b059a7a9d93439",
+                "isGraphQL": false,
+                "route": "/alerts/{alert_id}",
+                "method": "PATCH",
+                "name": "Update an alert",
+                "description": "This endpoint allows you to update an alert.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_dda80b08-be48-48c4-9715-dbfaffdf5278",
+    "name": "Api-Football-Beta",
+    "title": "Api-Football-Beta",
+    "description": "Beta Program for api-football. Here you can test the next version of the API.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "api-football-beta",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-01-19T12:34:23.495Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/d7419064f70e87c247c7b950ce8ff11e.png",
+    "user": {
+        "id": 3553584,
+        "username": "api-sports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_0d94bbb3-73cc-40be-9d59-87b2923eb4f4",
+        "tags": [
+            {
+                "id": "tag_a0e08edc-41aa-4ae5-820f-d1c5bc9ab65f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_fb8fd835-1362-44aa-8dd3-cb115a39c065",
+                "isGraphQL": false,
+                "route": "/trophies",
+                "method": "GET",
+                "name": "trophies",
+                "description": "Get all available trophies for a player or a coach\n**Update Frequency** : Several times a week\n**Recommended Calls** : 1 call per day",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_e22e748a-d49f-4bf0-8bd3-fa16f5dbfb94",
+                "isGraphQL": false,
+                "route": "/fixtures/lineups",
+                "method": "GET",
+                "name": "fixtures lineups",
+                "description": "Get the lineups for one fixture\n**Update Frequency** : Every 15 minutes.\n**Recommended Calls** : 1 call every 15 minutes for the fixtures in progress otherwise 1 call per day",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_e2f03f76-184c-4b3a-b876-f870d1dfb53a",
+                "isGraphQL": false,
+                "route": "/predictions",
+                "method": "GET",
+                "name": "fixtures predictions",
+                "description": "Get predictions about a fixture\n**Update Frequency** : Every hour\n**Recommended Calls** : 1 call per hour for the fixtures in progress otherwise 1 call per day",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,374 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_f01afd60-c92a-444b-b846-cd7de0875fa8",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_a6dff44d-330b-4417-8530-9641fcd6e1d8",
+        "apiId": "api_5475fc2a-a3f3-42a2-bf30-6ae75a2f3876"
+    },
+    "info": {
+        "title": "Word Similarity",
+        "description": "Word Similarity (Owl) API lets you extract the most similar words to target words with a meaningful granularity. ",
+        "version": "v1",
+        "x-category": "Text Analysis",
+        "x-long-description": "Word Similarity (Owl) API lets you extract the most similar words to target words. Given a word, this API returns a list of groups of words that are similar to the original word in predefined contexts. Note that the results must differ in various contexts such as News or General. \n\nOwl API is built upon a series of word2vec models and advanced clustering techniques to create a revolutionary word similarity service.  This API can be used in various projects including language understanding or recommendation systems. We help you build your dreams. ",
+        "x-website": "https://towardsdatascience.com/how-to-compute-word-similarity-a-comparative-analysis-e9d9d3cb3080",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/e961dd0b-9802-487d-bb07-495b2e284e43.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://word-similarity.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "News",
+            "description": "Extract similar words in the **News** context based on the model trained on Wikipedia and Gigaword data with **400k vocabs** created at Stanford University, i.e., [**glove-wiki-gigaword-300**](https://nlp.stanford.edu/projects/glove/).",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        },
+        {
+            "name": "General",
+            "description": "Extract similar words in the **General** context using the largest model created by spaCy with  **1M+ vocabs**, i.e., [**en-core-web-lg**](https://spacy.io/models/en#en_core_web_lg).",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        }
+    ],
+    "paths": {
+        "/general/10/{word}": {
+            "get": {
+                "tags": [
+                    "General"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "tylenol"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top_10_G",
+                "description": "The top 10 most similar words in the **General** context",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "tylenol": {
+                                        "description": "",
+                                        "summary": "tylenol",
+                                        "value": {
+                                            "0": [
+                                                "codeine",
+                                                "vicodin",
+                                                "hydrocodone",
+                                                "oxycodone"
+                                            ],
+                                            "1": [
+                                                "benadryl",
+                                                "adderall",
+                                                "valium",
+                                                "ambien"
+                                            ],
+                                            "2": [
+                                                "ibuprofen",
+                                                "acetaminophen"
+                                            ],
+                                            "word": "tylenol"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/news/50/{word}": {
+            "get": {
+                "tags": [
+                    "News"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "vancouver"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top_50_N",
+                "description": "The top 50 most similar words in the **News** context",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "vancouver": {
+                                        "description": "",
+                                        "summary": "vancouver",
+                                        "value": {
+                                            "0": [
+                                                "portland",
+                                                "seattle",
+                                                "phoenix",
+                                                "sacramento",
+                                                "angeles",
+                                                "anaheim",
+                                                "chicago",
+                                                "nashville",
+                                                "detroit",
+                                                "dallas",
+                                                "denver",
+                                                "philadelphia",
+                                                "l.a.",
+                                                "grizzlies",
+                                                "boston",
+                                                "los",
+                                                "pittsburgh",
+                                                "tampa",
+                                                "columbus",
+                                                "charlotte",
+                                                "utah",
+                                                "atlanta",
+                                                "buffalo",
+                                                "downtown"
+                                            ],
+                                            "1": [
+                                                "calgary",
+                                                "toronto",
+                                                "montreal",
+                                                "edmonton",
+                                                "canucks",
+                                                "ottawa",
+                                                "winnipeg",
+                                                "canada",
+                                                "ontario",
+                                                "nhl",
+                                                "alberta",
+                                                "nanaimo",
+                                                "canadian",
+                                                "burnaby",
+                                                "hockey",
+                                                "islanders",
+                                                "columbia",
+                                                "whitecaps",
+                                                "leafs",
+                                                "canadiens"
+                                            ],
+                                            "2": [
+                                                "sydney",
+                                                "olympics",
+                                                "melbourne",
+                                                "games",
+                                                "olympic",
+                                                "nagano"
+                                            ],
+                                            "word": "vancouver"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/general/50/{word}": {
+            "get": {
+                "tags": [
+                    "General"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "coffee"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top_50_G",
+                "description": "The top 50 most similar words in the **General** context",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "coffee": {
+                                        "description": "",
+                                        "summary": "coffee",
+                                        "value": {
+                                            "0": [
+                                                "drinks",
+                                                "drink",
+                                                "beverage",
+                                                "beverages",
+                                                "beer",
+                                                "brew",
+                                                "soda",
+                                                "brewed",
+                                                "drinking",
+                                                "caffeine",
+                                                "wine",
+                                                "juice",
+                                                "brewing",
+                                                "sodas",
+                                                "liquor"
+                                            ],
+                                            "1": [
+                                                "espresso",
+                                                "tea",
+                                                "coffees",
+                                                "latte",
+                                                "cafe",
+                                                "iced",
+                                                "café",
+                                                "starbucks",
+                                                "decaf",
+                                                "mug",
+                                                "teas",
+                                                "lattes",
+                                                "sipping",
+                                                "chai"
+                                            ],
+                                            "2": [
+                                                "chocolate",
+                                                "breakfast",
+                                                "gourmet",
+                                                "snack",
+                                                "milk",
+                                                "food",
+                                                "cocoa",
+                                                "lunch",
+                                                "snacks",
+                                                "pastries",
+                                                "meal",
+                                                "chocolates",
+                                                "beans",
+                                                "dessert",
+                                                "popcorn",
+                                                "bread",
+                                                "cup",
+                                                "fruit",
+                                                "delicious",
+                                                "cereal",
+                                                "taste"
+                                            ],
+                                            "word": "coffee"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/news/10/{word}": {
+            "get": {
+                "tags": [
+                    "News"
+                ],
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "apple"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Top_10_N",
+                "description": "The top 10 most similar words in the **News** context",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "apple": {
+                                        "description": "",
+                                        "summary": "apple",
+                                        "value": {
+                                            "0": [
+                                                "microsoft",
+                                                "intel",
+                                                "google",
+                                                "software"
+                                            ],
+                                            "1": [
+                                                "macintosh",
+                                                "ibm",
+                                                "imac"
+                                            ],
+                                            "2": [
+                                                "iphone",
+                                                "ipod",
+                                                "ipad"
+                                            ],
+                                            "word": "apple"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

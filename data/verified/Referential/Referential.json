@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_e35558b4-3f7b-410a-aeff-9068c25ab51f",
+    "name": "Referential",
+    "title": "Referential",
+    "description": "The fastest API to access countries, states, cities, continents, dial and zip codes in up to 20 languages. A collection of data APIs to support forms, signups, search and lookup. Our endpoints are optimized for speed and size. Our data is regularly maintained and comes from International Standardization bodies, the United Nations, government surveys and GIS datasets. We do not scrape WikiPedia etc",
+    "visibility": "PUBLIC",
+    "slugifiedName": "referential",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-23T04:49:56.737Z",
+    "category": "Data",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/87d84503-642e-4203-b07e-1a8fc2a4f1db_medium",
+    "user": {
+        "id": 4074992,
+        "username": "referential",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_3fcf4bef-f23b-4114-b97a-ec37b41e755d",
+        "tags": [
+            {
+                "id": "tag_be50b3e1-c17a-46fa-a4d1-962311baff82",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_a2a50c50-bf45-44f8-af94-e47825af566d",
+                "isGraphQL": false,
+                "route": "/v1/city",
+                "method": "GET",
+                "name": "Cities",
+                "description": "List and search over 75,000 world cities in 20 languages.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_97510ab4-c336-462b-80ba-290383009d60",
+                "isGraphQL": false,
+                "route": "/v1/city",
+                "method": "GET",
+                "name": "City by IP address (Geo IP)",
+                "description": "Find a city, state, country and continent by IP address. For some results, the closest result within 10 miles will be provided.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_dbdae4c3-8ad9-486c-9809-31dee256d844",
+                "isGraphQL": false,
+                "route": "/v1/city/{id}",
+                "method": "GET",
+                "name": "City by id",
+                "description": "Direct lookup of over 75,000 cities by id. See the v1/city API to search for city ids.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

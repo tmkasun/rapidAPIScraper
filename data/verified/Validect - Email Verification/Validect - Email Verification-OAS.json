@@ -1,0 +1,88 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_083c1d11-e350-4fdf-b479-ae851a1f4d4f",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5c4b808ee4b062e1a150d6dc",
+        "apiId": "5c4b808ce4b08cf00f3fbd9c"
+    },
+    "info": {
+        "title": "Validect - Email Verification",
+        "description": "Email address validation API",
+        "version": "v1",
+        "x-category": "Email",
+        "x-long-description": "Verify existence of specified email address using Validect API",
+        "x-website": "https://validect.com",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5c4b808ee4b062e1a150d6dc_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://validect-email-verification-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "v1"
+        }
+    ],
+    "paths": {
+        "/v1/verify": {
+            "get": {
+                "tags": [
+                    "v1"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "description": "Email address to validate",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "example@gmail.com"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "/v1/verify",
+                "description": "#### Verify email address\n*We do bill only valid or invalid verification statuses.*\nPass the email as a GET parameter. Response properties description:\n```json\n{\n\"status\": \"valid\", // verification status of the email\n\"reason\": \"accepted_email\", // the reason of the status\n\"email\": \"example@gmail.com\",  // normalized email address\n\"user\": \"example\",  // The part before at-sign\n\"domain\": \"gmail.com\", // The part after at-sign\n\"public\": true, // Is address belongs to a publicly accessible email provider\n\"disposable\": false,  // Is address belongs to a disposable email service\n\"role\": false // Is address role based (e.g. abuse, admin, no-reply etc.)\n}\n```\nPossible verification statuses:\n-  `valid` - email address has been accepted by the mail server (safe to send)\n- `invalid` - email address is invalid, various reasons possible, see below (do not send)\n- `accept_all` - mail server accepts any email address (not recommended to send)\n- `unknown` - unable to verify email address (not recommended to send)\n\nPossible status reasons:\n- `accepted_email` - email address has been accepted by the mail server\n- `rejected_email` - email address has been rejected by the mail server\n- `invalid_syntax` - syntax of the email address is invalid according to RFC\n- `invalid_domain` - domain name of the email address does not exist\n- `no_mx_record` - mx record for the domain does not exist\n- `invalid_mx_record` - mx record of the domain is invalid\n- `dns_error` - error occurred while performing dns resolving of the domain\n- `smtp_error` - error occurred while performing smtp validation",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Invalid Status": {
+                                        "description": "",
+                                        "summary": "Invalid Status",
+                                        "value": {
+                                            "disposable": false,
+                                            "domain": "gmail.com",
+                                            "email": "example@gmail.com",
+                                            "public": true,
+                                            "reason": "rejected_email",
+                                            "role": false,
+                                            "status": "invalid",
+                                            "user": "example"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

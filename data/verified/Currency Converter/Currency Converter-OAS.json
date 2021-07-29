@@ -1,0 +1,265 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_34152df9-ae2e-4aa0-84ad-92aabc26ecf6",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_5f5e495f-a91e-4f38-b7c9-1358ffedf12f",
+        "apiId": "api_5dd0bdf2-3494-47d3-bef8-4f3670be797d"
+    },
+    "info": {
+        "title": "Currency Converter",
+        "description": "Provides exchange rates based on the official banks data.",
+        "version": "v1",
+        "x-category": "Finance",
+        "x-long-description": "This API supports 160+ currencies and is  based on the data provided by National Central Banks. \nRates are updated once an hour.\nHistorical data starts from 2010.",
+        "x-website": "https://getgeoapi.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/4d/9cbc0035de11e982223f9668e6304d/a0bd224b220dc13a66193d8c4cfa8401.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://currency-converter5.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/currency/list": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "required": false,
+                        "description": "Response format: json or xml",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Available Currencies",
+                "description": "List of available currencies",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/currency/historical/{date}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "json"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "EUR"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "GBP"
+                        }
+                    },
+                    {
+                        "name": "amount",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "default": "1"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "2020-01-20"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Historical Currency Data",
+                "description": "returns the rates on the specific date",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "amount": {
+                                            "type": "string"
+                                        },
+                                        "base_currency_code": {
+                                            "type": "string"
+                                        },
+                                        "base_currency_name": {
+                                            "type": "string"
+                                        },
+                                        "rates": {
+                                            "properties": {
+                                                "GBP": {
+                                                    "properties": {
+                                                        "currency_name": {
+                                                            "type": "string"
+                                                        },
+                                                        "rate": {
+                                                            "type": "string"
+                                                        },
+                                                        "rate_for_amount": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "updated_date": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "amount": "1.0000",
+                                            "base_currency_code": "EUR",
+                                            "base_currency_name": "Euro",
+                                            "rates": {
+                                                "GBP": {
+                                                    "currency_name": "Pound sterling",
+                                                    "rate": "0.8541",
+                                                    "rate_for_amount": "0.8541"
+                                                }
+                                            },
+                                            "status": "success",
+                                            "updated_date": "2020-01-20"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/currency/convert": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "description": "Desired currency code (AUD, CAD, EUR, GBP ...)",
+                        "schema": {
+                            "type": "string",
+                            "example": "CAD"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "required": false,
+                        "description": "Response format: json or xml",
+                        "schema": {
+                            "type": "string",
+                            "example": "json"
+                        }
+                    },
+                    {
+                        "name": "amount",
+                        "in": "query",
+                        "required": false,
+                        "description": "Amount that needs to be converted",
+                        "schema": {
+                            "type": "number",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "description": "Base currency code (AUD, CAD, EUR, GBP ...)",
+                        "schema": {
+                            "type": "string",
+                            "example": "AUD"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Currency Converter",
+                "description": "Converts from one currency to another",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

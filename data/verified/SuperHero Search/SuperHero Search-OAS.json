@@ -1,0 +1,2656 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_127e7603-4131-4847-b7db-1d10078edbf9",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_dc450607-e2d0-4b50-9f7d-b363f0da7510",
+        "apiId": "api_20b7df6b-594a-47cf-b48a-f8f64a44f4d1"
+    },
+    "info": {
+        "title": "SuperHero Search",
+        "description": "An API to get information about superheroes.",
+        "version": "v1",
+        "x-category": "Search",
+        "x-long-description": "This API returns all the information available about a superhero. Search using hero name, real name, or a unique id.\n\nNew regex based search added, premium users get unlimited results while free users get 5.\n\nTOO EXPENSIVE? Feel free to drop me a DM twitter.com/thewritingdev",
+        "x-website": "akashj.com",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/db/6bb6c380224b469901248bc686af0a/b7967d23aaaa36ff10a58270ee4bca50.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://superhero-search.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/api/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "regex",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "hero",
+                        "in": "query",
+                        "required": false,
+                        "description": "The name or superhero name of the hero",
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "Spiderman"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Search",
+                "description": "This endpoint searches through our superhero database",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "appearance": {
+                                            "properties": {
+                                                "eyeColor": {
+                                                    "type": "string"
+                                                },
+                                                "gender": {
+                                                    "type": "string"
+                                                },
+                                                "hairColor": {
+                                                    "type": "string"
+                                                },
+                                                "height": {
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "race": {
+                                                    "type": "string"
+                                                },
+                                                "weight": {
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "biography": {
+                                            "properties": {
+                                                "aliases": {
+                                                    "items": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "alignment": {
+                                                    "type": "string"
+                                                },
+                                                "alterEgos": {
+                                                    "type": "string"
+                                                },
+                                                "firstAppearance": {
+                                                    "type": "string"
+                                                },
+                                                "fullName": {
+                                                    "type": "string"
+                                                },
+                                                "placeOfBirth": {
+                                                    "type": "string"
+                                                },
+                                                "publisher": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "connections": {
+                                            "properties": {
+                                                "groupAffiliation": {
+                                                    "type": "string"
+                                                },
+                                                "relatives": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "images": {
+                                            "properties": {
+                                                "lg": {
+                                                    "type": "string"
+                                                },
+                                                "md": {
+                                                    "type": "string"
+                                                },
+                                                "sm": {
+                                                    "type": "string"
+                                                },
+                                                "xs": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "powerstats": {
+                                            "properties": {
+                                                "combat": {
+                                                    "type": "integer"
+                                                },
+                                                "durability": {
+                                                    "type": "integer"
+                                                },
+                                                "intelligence": {
+                                                    "type": "integer"
+                                                },
+                                                "power": {
+                                                    "type": "integer"
+                                                },
+                                                "speed": {
+                                                    "type": "integer"
+                                                },
+                                                "strength": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "slug": {
+                                            "type": "string"
+                                        },
+                                        "work": {
+                                            "properties": {
+                                                "base": {
+                                                    "type": "string"
+                                                },
+                                                "occupation": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "examples": {
+                                    "Example_1": {
+                                        "description": "",
+                                        "summary": "Example_1",
+                                        "value": {
+                                            "appearance": {
+                                                "eyeColor": "Hazel",
+                                                "gender": "Male",
+                                                "hairColor": "Brown",
+                                                "height": [
+                                                    "5'10",
+                                                    "178 cm"
+                                                ],
+                                                "race": "Human",
+                                                "weight": [
+                                                    "165 lb",
+                                                    "74 kg"
+                                                ]
+                                            },
+                                            "biography": {
+                                                "aliases": [
+                                                    "Spiderman",
+                                                    "Bag-Man",
+                                                    "Black Marvel",
+                                                    "Captain Universe",
+                                                    "Dusk",
+                                                    "Green Hood",
+                                                    "Hornet",
+                                                    "Mad Dog 336",
+                                                    "Peter Palmer",
+                                                    "Prodigy",
+                                                    "Ricochet",
+                                                    "Scarlet Spider",
+                                                    "Spider-Boy",
+                                                    "Spider-Hulk",
+                                                    "Spider-Morphosis"
+                                                ],
+                                                "alignment": "good",
+                                                "alterEgos": "No alter egos found.",
+                                                "firstAppearance": "Amazing Fantasy #15",
+                                                "fullName": "Peter Parker",
+                                                "placeOfBirth": "New York, New York",
+                                                "publisher": "Marvel Comics"
+                                            },
+                                            "connections": {
+                                                "groupAffiliation": "Member of the Avengers, formerly member of Outlaws, alternate Fantastic Four",
+                                                "relatives": "Richard Parker (father, deceased), Mary Parker(mother, deceased), Benjamin Parker (uncle, deceased), May Parker (aunt), Mary Jane Watson-Parker (wife), May Parker (daughter, allegedly deceased)"
+                                            },
+                                            "id": 476,
+                                            "images": {
+                                                "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/620-spider-man.jpg",
+                                                "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/620-spider-man.jpg",
+                                                "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/620-spider-man.jpg",
+                                                "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/620-spider-man.jpg"
+                                            },
+                                            "name": "Spider-Man",
+                                            "powerstats": {
+                                                "combat": 85,
+                                                "durability": 75,
+                                                "intelligence": 90,
+                                                "power": 74,
+                                                "speed": 67,
+                                                "strength": 55
+                                            },
+                                            "slug": "620-spider-man",
+                                            "work": {
+                                                "base": "New York, New York",
+                                                "occupation": "Freelance photographer, teacher"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/villains": {
+            "get": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Villains",
+                "description": "Return 20 random Villains",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "appearance": {
+                                                "type": "object"
+                                            },
+                                            "biography": {
+                                                "properties": {
+                                                    "aliases": {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "alignment": {
+                                                        "type": "string"
+                                                    },
+                                                    "alterEgos": {
+                                                        "type": "string"
+                                                    },
+                                                    "firstAppearance": {
+                                                        "type": "string"
+                                                    },
+                                                    "fullName": {
+                                                        "type": "string"
+                                                    },
+                                                    "placeOfBirth": {
+                                                        "type": "string"
+                                                    },
+                                                    "publisher": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "connections": {
+                                                "properties": {
+                                                    "groupAffiliation": {
+                                                        "type": "string"
+                                                    },
+                                                    "relatives": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "images": {
+                                                "properties": {
+                                                    "lg": {
+                                                        "type": "string"
+                                                    },
+                                                    "md": {
+                                                        "type": "string"
+                                                    },
+                                                    "sm": {
+                                                        "type": "string"
+                                                    },
+                                                    "xs": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "powerstats": {
+                                                "properties": {
+                                                    "combat": {
+                                                        "type": "integer"
+                                                    },
+                                                    "durability": {
+                                                        "type": "integer"
+                                                    },
+                                                    "intelligence": {
+                                                        "type": "integer"
+                                                    },
+                                                    "power": {
+                                                        "type": "integer"
+                                                    },
+                                                    "speed": {
+                                                        "type": "integer"
+                                                    },
+                                                    "strength": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "slug": {
+                                                "type": "string"
+                                            },
+                                            "work": {
+                                                "properties": {
+                                                    "base": {
+                                                        "type": "string"
+                                                    },
+                                                    "occupation": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "examples": {
+                                    "New Example": {
+                                        "description": "",
+                                        "summary": "New Example",
+                                        "value": [
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Blue",
+                                                    "gender": "Female",
+                                                    "hairColor": "Purple",
+                                                    "height": [
+                                                        "5'9",
+                                                        "175 cm"
+                                                    ],
+                                                    "race": "Atlantean",
+                                                    "weight": [
+                                                        "160 lb",
+                                                        "72 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Aquaman #22 (August, 1965)",
+                                                    "fullName": "Hila",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "Mera (twin sister), Aquaman (brother-in-law)"
+                                                },
+                                                "id": 602,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/602-siren.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/602-siren.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/602-siren.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/602-siren.jpg"
+                                                },
+                                                "name": "Siren",
+                                                "powerstats": {
+                                                    "combat": 60,
+                                                    "durability": 60,
+                                                    "intelligence": 56,
+                                                    "power": 92,
+                                                    "speed": 79,
+                                                    "strength": 62
+                                                },
+                                                "slug": "602-siren",
+                                                "work": {
+                                                    "base": "formely Atlantis",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Brown",
+                                                    "gender": "Male",
+                                                    "hairColor": "No Hair",
+                                                    "height": [
+                                                        "5'11",
+                                                        "180 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "175 lb",
+                                                        "79 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Amazing Spider-Man #2",
+                                                    "fullName": "Adrian Toomes",
+                                                    "placeOfBirth": "Staten Island, New York City",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Formerly Sinister Twelve, Sinister Six",
+                                                    "relatives": "Marcus (brother, possibly deceased), Malachi Toomes (nephew, deceased), Valeria Toomes (daughter), unnamed son, Ramona (daughter-in-law), unnamed grandson"
+                                                },
+                                                "id": 701,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/701-vulture.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/701-vulture.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/701-vulture.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/701-vulture.jpg"
+                                                },
+                                                "name": "Vulture",
+                                                "powerstats": {
+                                                    "combat": 30,
+                                                    "durability": 25,
+                                                    "intelligence": 75,
+                                                    "power": 26,
+                                                    "speed": 42,
+                                                    "strength": 22
+                                                },
+                                                "slug": "701-vulture",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "Professional criminal; formerly electronics engineer"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Green",
+                                                    "gender": "Male",
+                                                    "hairColor": "No Hair",
+                                                    "height": [
+                                                        "6'6",
+                                                        "198 cm"
+                                                    ],
+                                                    "race": "Android",
+                                                    "weight": [
+                                                        "300 lb",
+                                                        "135 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Milton Fine"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Action Comics #242 (July 1958)",
+                                                    "fullName": "Vril Dox",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Lex Luthor",
+                                                    "relatives": "Vril Dox II (son), Brainiac 5 (descendant)"
+                                                },
+                                                "id": 136,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/136-brainiac.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/136-brainiac.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/136-brainiac.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/136-brainiac.jpg"
+                                                },
+                                                "name": "Brainiac",
+                                                "powerstats": {
+                                                    "combat": 75,
+                                                    "durability": 90,
+                                                    "intelligence": 100,
+                                                    "power": 60,
+                                                    "speed": 63,
+                                                    "strength": 95
+                                                },
+                                                "slug": "136-brainiac",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Purple",
+                                                    "gender": "Male",
+                                                    "hairColor": "-",
+                                                    "height": [
+                                                        "5'7",
+                                                        "170 cm"
+                                                    ],
+                                                    "race": "Rodian",
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "-",
+                                                    "fullName": "Greedo",
+                                                    "placeOfBirth": "Rodia",
+                                                    "publisher": "George Lucas"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "-"
+                                                },
+                                                "id": 297,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/297-greedo.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/297-greedo.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/297-greedo.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/297-greedo.jpg"
+                                                },
+                                                "name": "Greedo",
+                                                "powerstats": {
+                                                    "combat": 40,
+                                                    "durability": 15,
+                                                    "intelligence": 38,
+                                                    "power": 31,
+                                                    "speed": 13,
+                                                    "strength": 10
+                                                },
+                                                "slug": "297-greedo",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "Bounty Hunter"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "-",
+                                                    "gender": "Male",
+                                                    "hairColor": "-",
+                                                    "height": [
+                                                        "-",
+                                                        "0 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Dr. Ashley Kafka",
+                                                        "Dr. Turner",
+                                                        "J. Jonah Jameson",
+                                                        "Torpedo",
+                                                        "Rick Jones",
+                                                        "Dr. Henry Pym",
+                                                        "Peter Parker",
+                                                        "Captain George Stacy",
+                                                        "Dr. Robert Bruce Banner",
+                                                        "General"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Amazing Spider-Man #1",
+                                                    "fullName": "Dmitri Anatoly Smerdyakov Kravinoff",
+                                                    "placeOfBirth": "Russia",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "The Exterminators; formerly Sinister Six, Sinister Twelve",
+                                                    "relatives": "Kravinoff Patriarch (father, deceased), mother (unnamed), Sergei Kravinoff (Kraven I, half-brother, deceased), Vladimir Kravinoff (The Grim Hunter, nephew, deceased), Alyosha Kravinoff (Kraven the Hunter, nephew), Ned Tannengarden (nephew, deceased)"
+                                                },
+                                                "id": 170,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/170-chameleon.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/170-chameleon.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/170-chameleon.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/170-chameleon.jpg"
+                                                },
+                                                "name": "Chameleon",
+                                                "powerstats": {
+                                                    "combat": 28,
+                                                    "durability": 28,
+                                                    "intelligence": 88,
+                                                    "power": 28,
+                                                    "speed": 12,
+                                                    "strength": 10
+                                                },
+                                                "slug": "170-chameleon",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Brown",
+                                                    "gender": "Male",
+                                                    "hairColor": "Brown",
+                                                    "height": [
+                                                        "5'9",
+                                                        "175 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "175 lb",
+                                                        "79 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Amazing Spider-Man #46",
+                                                    "fullName": "Herman Schultz",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Formerly Masters of Evil, Sinister Syndicate, Sinister Seven, Sinister Twelve",
+                                                    "relatives": "Mr. & Mrs. Schultz (parents)"
+                                                },
+                                                "id": 591,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/591-shocker.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/591-shocker.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/591-shocker.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/591-shocker.jpg"
+                                                },
+                                                "name": "Shocker",
+                                                "powerstats": {
+                                                    "combat": 56,
+                                                    "durability": 70,
+                                                    "intelligence": 63,
+                                                    "power": 79,
+                                                    "speed": 23,
+                                                    "strength": 10
+                                                },
+                                                "slug": "591-shocker",
+                                                "work": {
+                                                    "base": "New York City, New York",
+                                                    "occupation": "Professional thief, hired assassin"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Brown",
+                                                    "gender": "Male",
+                                                    "hairColor": "Brown",
+                                                    "height": [
+                                                        "5'9",
+                                                        "175 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "170 lb",
+                                                        "77 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Iron Man #223 (1987)",
+                                                    "fullName": "Donald Gill",
+                                                    "placeOfBirth": "Newark, Delaware",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Formerly Thunderbolts, Hammer Industries",
+                                                    "relatives": "-"
+                                                },
+                                                "id": 118,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/118-blizzard-ii.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/118-blizzard-ii.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/118-blizzard-ii.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/118-blizzard-ii.jpg"
+                                                },
+                                                "name": "Blizzard II",
+                                                "powerstats": {
+                                                    "combat": 56,
+                                                    "durability": 42,
+                                                    "intelligence": 38,
+                                                    "power": 47,
+                                                    "speed": 27,
+                                                    "strength": 10
+                                                },
+                                                "slug": "118-blizzard-ii",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "Adventurer; former mercenary and professional criminal"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Blue",
+                                                    "gender": "Male",
+                                                    "hairColor": "Brown",
+                                                    "height": [
+                                                        "6'1",
+                                                        "185 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "189 lb",
+                                                        "85 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Brave and the Bold #25 (September 1959)",
+                                                    "fullName": "Richard Rogers Flag",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Suicide Squad, Task Force X",
+                                                    "relatives": "Richard Flag, Sr. (father, deceased); Richard Flag III (son); Karin Grace (mother of child)"
+                                                },
+                                                "id": 557,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/557-rick-flag.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/557-rick-flag.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/557-rick-flag.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/557-rick-flag.jpg"
+                                                },
+                                                "name": "Rick Flag",
+                                                "powerstats": {
+                                                    "combat": 95,
+                                                    "durability": 28,
+                                                    "intelligence": 88,
+                                                    "power": 19,
+                                                    "speed": 23,
+                                                    "strength": 11
+                                                },
+                                                "slug": "557-rick-flag",
+                                                "work": {
+                                                    "base": "Belle Reve, Louisiana",
+                                                    "occupation": "Government Agent, Covert Ops field Commander"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Brown",
+                                                    "gender": "Male",
+                                                    "hairColor": "Brown",
+                                                    "height": [
+                                                        "6'5",
+                                                        "196 cm"
+                                                    ],
+                                                    "race": "Human / Radiation",
+                                                    "weight": [
+                                                        "710 lb",
+                                                        "320 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Alex O'Hirn",
+                                                        "Mecha-Rhino"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Amazing Spider-Man #41",
+                                                    "fullName": "Aleksei Mikhailovich Sytsevich",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Sinister Syndicate",
+                                                    "relatives": "Miriam Sytsevich (mother, deceased), Alexia (niece, lastname unrevealed), unnamed grandmother"
+                                                },
+                                                "id": 556,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/556-rhino.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/556-rhino.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/556-rhino.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/556-rhino.jpg"
+                                                },
+                                                "name": "Rhino",
+                                                "powerstats": {
+                                                    "combat": 85,
+                                                    "durability": 90,
+                                                    "intelligence": 25,
+                                                    "power": 36,
+                                                    "speed": 43,
+                                                    "strength": 80
+                                                },
+                                                "slug": "556-rhino",
+                                                "work": {
+                                                    "base": "Mobile",
+                                                    "occupation": "Professional Criminal ,Henchman of the Russian Mafia"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "-",
+                                                    "gender": "Male",
+                                                    "hairColor": "-",
+                                                    "height": [
+                                                        "9'2",
+                                                        "279 cm"
+                                                    ],
+                                                    "race": "Maiar",
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Annatar",
+                                                        "Gorthaur the Cruel",
+                                                        "Sauron the Dark",
+                                                        "The Necromancer",
+                                                        "Dark Lord of Mordor",
+                                                        "Lord of the Rings",
+                                                        "The Great Eye"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "-",
+                                                    "fullName": "Sauron",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "J. R. R. Tolkien"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "-"
+                                                },
+                                                "id": 574,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/574-sauron.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/574-sauron.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/574-sauron.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/574-sauron.jpg"
+                                                },
+                                                "name": "Sauron",
+                                                "powerstats": {
+                                                    "combat": 70,
+                                                    "durability": 100,
+                                                    "intelligence": 88,
+                                                    "power": 100,
+                                                    "speed": 33,
+                                                    "strength": 85
+                                                },
+                                                "slug": "574-sauron",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "blue",
+                                                    "gender": "Male",
+                                                    "hairColor": "blond",
+                                                    "height": [
+                                                        "6'0",
+                                                        "183 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "200 lb",
+                                                        "90 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Benjamin Poindexter",
+                                                        "Daredevil",
+                                                        "Punisher",
+                                                        "Bullseye",
+                                                        "Hawkeye",
+                                                        "pitcher"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Daredevil #131 (March, 1976)",
+                                                    "fullName": "Lester",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Formerly Dark Avengers, Thunderbolts, employee of Kingpin, Purple Man, Eric Slaughter, Mysterio; formerly US Army",
+                                                    "relatives": "Kingmaker (father)"
+                                                },
+                                                "id": 141,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/141-bullseye.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/141-bullseye.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/141-bullseye.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/141-bullseye.jpg"
+                                                },
+                                                "name": "Bullseye",
+                                                "powerstats": {
+                                                    "combat": 70,
+                                                    "durability": 70,
+                                                    "intelligence": 50,
+                                                    "power": 20,
+                                                    "speed": 25,
+                                                    "strength": 11
+                                                },
+                                                "slug": "141-bullseye",
+                                                "work": {
+                                                    "base": "Formerly Avengers Tower; Thunderbolts Mountain",
+                                                    "occupation": "Assassin, professional criminal, former mercenary"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Black",
+                                                    "gender": "Male",
+                                                    "hairColor": "White",
+                                                    "height": [
+                                                        "9'2",
+                                                        "279 cm"
+                                                    ],
+                                                    "race": "Zombie",
+                                                    "weight": [
+                                                        "971 lb",
+                                                        "437 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Marshland Monster"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "All-American Comics #61 (October, 1944)",
+                                                    "fullName": "Cyrus Gold",
+                                                    "placeOfBirth": "Gotham City",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Formerly, Injustice Society, Injustice League, the Society, Infinity, Inc; Injustice Unlimited, Black Lantern Corps",
+                                                    "relatives": "Unnamed wife (deceased); Karin Rykel (possible descendant, deceased); Chrissie Cavendish (possible descendant)"
+                                                },
+                                                "id": 609,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/609-solomon-grundy.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/609-solomon-grundy.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/609-solomon-grundy.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/609-solomon-grundy.jpg"
+                                                },
+                                                "name": "Solomon Grundy",
+                                                "powerstats": {
+                                                    "combat": 30,
+                                                    "durability": 100,
+                                                    "intelligence": 9,
+                                                    "power": 92,
+                                                    "speed": 13,
+                                                    "strength": 93
+                                                },
+                                                "slug": "609-solomon-grundy",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Yellow",
+                                                    "gender": "Male",
+                                                    "hairColor": "No Hair",
+                                                    "height": [
+                                                        "200",
+                                                        "61.0 meters"
+                                                    ],
+                                                    "race": "God / Eternal",
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Monitor",
+                                                        "Mobius"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Crisis on Infinite Earths #4",
+                                                    "fullName": "",
+                                                    "placeOfBirth": "Moon of Qward",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Sinestro Corps, Weaponers of Qward, Thunderers of Qward, Shadow Demons",
+                                                    "relatives": "Monitor (\"brother\"), The Monitors"
+                                                },
+                                                "id": 32,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/32-anti-monitor.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/32-anti-monitor.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/32-anti-monitor.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/32-anti-monitor.jpg"
+                                                },
+                                                "name": "Anti-Monitor",
+                                                "powerstats": {
+                                                    "combat": 90,
+                                                    "durability": 100,
+                                                    "intelligence": 88,
+                                                    "power": 100,
+                                                    "speed": 50,
+                                                    "strength": 100
+                                                },
+                                                "slug": "32-anti-monitor",
+                                                "work": {
+                                                    "base": "Qward, Antimatter Universe",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "White / Red",
+                                                    "gender": "Male",
+                                                    "hairColor": "Black",
+                                                    "height": [
+                                                        "6'2",
+                                                        "188 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "175 lb",
+                                                        "79 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Amazing Spider-Man #30 (2001)",
+                                                    "fullName": "Morlun",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "-"
+                                                },
+                                                "id": 472,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/472-morlun.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/472-morlun.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/472-morlun.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/472-morlun.jpg"
+                                                },
+                                                "name": "Morlun",
+                                                "powerstats": {
+                                                    "combat": 56,
+                                                    "durability": 42,
+                                                    "intelligence": 63,
+                                                    "power": 74,
+                                                    "speed": 35,
+                                                    "strength": 60
+                                                },
+                                                "slug": "472-morlun",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Green",
+                                                    "gender": "Female",
+                                                    "hairColor": "Black",
+                                                    "height": [
+                                                        "5'7",
+                                                        "170 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "115 lb",
+                                                        "52 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Tanya Sweet"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Marvel Two-In-One #64",
+                                                    "fullName": "Tanya Sealy",
+                                                    "placeOfBirth": "Chicago, Illinois",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Serpent Squad, Serpent Society, BAD Girls",
+                                                    "relatives": "-"
+                                                },
+                                                "id": 104,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/104-black-mamba.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/104-black-mamba.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/104-black-mamba.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/104-black-mamba.jpg"
+                                                },
+                                                "name": "Black Mamba",
+                                                "powerstats": {
+                                                    "combat": 65,
+                                                    "durability": 42,
+                                                    "intelligence": 75,
+                                                    "power": 88,
+                                                    "speed": 35,
+                                                    "strength": 10
+                                                },
+                                                "slug": "104-black-mamba",
+                                                "work": {
+                                                    "base": "Mobile, formerly Serpent Citadel",
+                                                    "occupation": "Mercenary, professional criminal, former call girl"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Blue",
+                                                    "gender": "Male",
+                                                    "hairColor": "Black",
+                                                    "height": [
+                                                        "6'0",
+                                                        "183 cm"
+                                                    ],
+                                                    "race": "Mutant",
+                                                    "weight": [
+                                                        "195 lb",
+                                                        "88 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Paris Bennet"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "X-Factor #92 (July, 1993)",
+                                                    "fullName": "Bennet du Paris",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Acolytes, formerly Brotherhood and Marauders",
+                                                    "relatives": "-"
+                                                },
+                                                "id": 249,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/249-exodus.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/249-exodus.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/249-exodus.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/249-exodus.jpg"
+                                                },
+                                                "name": "Exodus",
+                                                "powerstats": {
+                                                    "combat": 70,
+                                                    "durability": 28,
+                                                    "intelligence": 63,
+                                                    "power": 100,
+                                                    "speed": 28,
+                                                    "strength": 81
+                                                },
+                                                "slug": "249-exodus",
+                                                "work": {
+                                                    "base": "Currently mobile, Formerly Avalon",
+                                                    "occupation": "Terrorist, would-be conqueror, Former leader of the Acolytes, Crusader"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "White",
+                                                    "gender": "Male",
+                                                    "hairColor": "Brownn",
+                                                    "height": [
+                                                        "12'0",
+                                                        "366 cm"
+                                                    ],
+                                                    "race": "Cyborg",
+                                                    "weight": [
+                                                        "750 lb",
+                                                        "338 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "M.O.D.O.K.",
+                                                        "Mental Organism Designed Only for Killing"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Tales of Suspense #93",
+                                                    "fullName": "George Tarleton",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "M.O.D.O.K. Superior (clone), Head Case (son), Number None (son)"
+                                                },
+                                                "id": 463,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/463-modok.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/463-modok.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/463-modok.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/463-modok.jpg"
+                                                },
+                                                "name": "MODOK",
+                                                "powerstats": {
+                                                    "combat": 15,
+                                                    "durability": 25,
+                                                    "intelligence": 100,
+                                                    "power": 79,
+                                                    "speed": 25,
+                                                    "strength": 18
+                                                },
+                                                "slug": "463-modok",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "Would-be conqueror, AIM leader, terrorist; former AIM agent, technician"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Green",
+                                                    "gender": "Male",
+                                                    "hairColor": "Green",
+                                                    "height": [
+                                                        "6'5",
+                                                        "196 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "192 lb",
+                                                        "86 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Red Hood I",
+                                                        "Clown Prince of Crime",
+                                                        "Harlequin of Hate",
+                                                        "Jack Napier",
+                                                        "Joe Kerr",
+                                                        "Mr. J"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Batman #1 (Spring 1940)",
+                                                    "fullName": "Jack Napier",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Black Glove, Injustice Gang, Injustice League, Joker League of Anarchy",
+                                                    "relatives": "Jeannie (wife, deceased); Unborn son (deceased); Melvin Reipan (cousin, deceased)"
+                                                },
+                                                "id": 370,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/370-joker.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/370-joker.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/370-joker.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/370-joker.jpg"
+                                                },
+                                                "name": "Joker",
+                                                "powerstats": {
+                                                    "combat": 70,
+                                                    "durability": 60,
+                                                    "intelligence": 100,
+                                                    "power": 43,
+                                                    "speed": 12,
+                                                    "strength": 10
+                                                },
+                                                "slug": "370-joker",
+                                                "work": {
+                                                    "base": "Arkham Asylum, Gotham City; Ha-Hacienda",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Blue",
+                                                    "gender": "Female",
+                                                    "hairColor": "Black",
+                                                    "height": [
+                                                        "5'9",
+                                                        "175 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "165 lb",
+                                                        "74 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "X-MEN (first series) #169",
+                                                    "fullName": "Callisto",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Excalibur, Morlocks, Gene Nation",
+                                                    "relatives": "-"
+                                                },
+                                                "id": 146,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/146-callisto.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/146-callisto.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/146-callisto.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/146-callisto.jpg"
+                                                },
+                                                "name": "Callisto",
+                                                "powerstats": {
+                                                    "combat": 85,
+                                                    "durability": 42,
+                                                    "intelligence": 63,
+                                                    "power": 52,
+                                                    "speed": 23,
+                                                    "strength": 53
+                                                },
+                                                "slug": "146-callisto",
+                                                "work": {
+                                                    "base": "The Xavier Institute, Salem Center, Westchester County, New York State, (former) The Alley (beneath Manhattan's surface), X-Factor I's sentient starship",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Green",
+                                                    "gender": "Female",
+                                                    "hairColor": "Black",
+                                                    "height": [
+                                                        "7'0",
+                                                        "213 cm"
+                                                    ],
+                                                    "race": "Asgardian",
+                                                    "weight": [
+                                                        "500 lb",
+                                                        "225 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Goddess of Death"
+                                                    ],
+                                                    "alignment": "bad",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Journey into Mystery #102",
+                                                    "fullName": "",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "Loki (father), Thor (Uncle)"
+                                                },
+                                                "id": 321,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/321-hela.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/321-hela.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/321-hela.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/321-hela.jpg"
+                                                },
+                                                "name": "Hela",
+                                                "powerstats": {
+                                                    "combat": 45,
+                                                    "durability": 100,
+                                                    "intelligence": 63,
+                                                    "power": 100,
+                                                    "speed": 46,
+                                                    "strength": 100
+                                                },
+                                                "slug": "321-hela",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "Asgardian Goddess of Death, former Ruler of Hel and Niffleheim"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/heroes": {
+            "get": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Heroes",
+                "description": "Return a list of 20 random heroes",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "properties": {
+                                            "appearance": {
+                                                "type": "object"
+                                            },
+                                            "biography": {
+                                                "type": "object"
+                                            },
+                                            "connections": {
+                                                "properties": {
+                                                    "groupAffiliation": {
+                                                        "type": "string"
+                                                    },
+                                                    "relatives": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "images": {
+                                                "properties": {
+                                                    "lg": {
+                                                        "type": "string"
+                                                    },
+                                                    "md": {
+                                                        "type": "string"
+                                                    },
+                                                    "sm": {
+                                                        "type": "string"
+                                                    },
+                                                    "xs": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "powerstats": {
+                                                "properties": {
+                                                    "combat": {
+                                                        "type": "integer"
+                                                    },
+                                                    "durability": {
+                                                        "type": "integer"
+                                                    },
+                                                    "intelligence": {
+                                                        "type": "integer"
+                                                    },
+                                                    "power": {
+                                                        "type": "integer"
+                                                    },
+                                                    "speed": {
+                                                        "type": "integer"
+                                                    },
+                                                    "strength": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "slug": {
+                                                "type": "string"
+                                            },
+                                            "work": {
+                                                "properties": {
+                                                    "base": {
+                                                        "type": "string"
+                                                    },
+                                                    "occupation": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "examples": {
+                                    "New Example": {
+                                        "description": "",
+                                        "summary": "New Example",
+                                        "value": [
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Brown",
+                                                    "gender": "Male",
+                                                    "hairColor": "Auburn",
+                                                    "height": [
+                                                        "6'2'",
+                                                        "188 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "200 lb",
+                                                        "90 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Stargod",
+                                                        "Vanwolf",
+                                                        "Skywolf"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "AMAZING SPIDER-MAN #1, (as Man-Wolf) AMAZING SPIDER-MAN #124",
+                                                    "fullName": "John Jameson",
+                                                    "placeOfBirth": "New York, New York",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Ravencroft Insitute Staff, Avengers Support Crew, NASA, USAF",
+                                                    "relatives": "J. Jonah (father), Joan (mother, deceased), Marla Madison (stepmother), David (paternal grandfather, presumed deceased), Betty (paternal grandmother, presumed deceased)"
+                                                },
+                                                "id": 429,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/429-man-wolf.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/429-man-wolf.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/429-man-wolf.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/429-man-wolf.jpg"
+                                                },
+                                                "name": "Man-Wolf",
+                                                "powerstats": {
+                                                    "combat": 70,
+                                                    "durability": 42,
+                                                    "intelligence": 63,
+                                                    "power": 45,
+                                                    "speed": 35,
+                                                    "strength": 44
+                                                },
+                                                "slug": "429-man-wolf",
+                                                "work": {
+                                                    "base": "Queens",
+                                                    "occupation": "Employed by Dept. of Social Services, Queens; former astronaut, test pilot, security chief for Ravenscroft Institute"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "White",
+                                                    "gender": "Female",
+                                                    "hairColor": "Orange",
+                                                    "height": [
+                                                        "6'4",
+                                                        "193 cm"
+                                                    ],
+                                                    "race": "Alien",
+                                                    "weight": [
+                                                        "218 lb",
+                                                        "98 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "The Order #4",
+                                                    "fullName": "Ardina",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "Norrin Radd (Silver Surfer, clonal source), Clea (creator)"
+                                                },
+                                                "id": 42,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/42-ardina.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/42-ardina.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/42-ardina.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/42-ardina.jpg"
+                                                },
+                                                "name": "Ardina",
+                                                "powerstats": {
+                                                    "combat": 25,
+                                                    "durability": 80,
+                                                    "intelligence": 63,
+                                                    "power": 100,
+                                                    "speed": 100,
+                                                    "strength": 100
+                                                },
+                                                "slug": "42-ardina",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Blue",
+                                                    "gender": "Male",
+                                                    "hairColor": "Black",
+                                                    "height": [
+                                                        "5'5",
+                                                        "165 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "125 lb",
+                                                        "56 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Alvin Draper",
+                                                        "Batman",
+                                                        "Robin",
+                                                        "Timothy Wayne"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "Red Robin",
+                                                    "firstAppearance": "Batman #436 (August, 1989)",
+                                                    "fullName": "Tim Drake",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Red Robin"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Teen Titans, Batman Family, Batman Inc., Wayne Enterprises; formerly Young Justice",
+                                                    "relatives": "Jack Drake (father, deceased), Janet Drake (mother, deceased), Dana Winters Drake (step-mother, status unknown), Bruce Wayne (Batman, adoptive father), Damian Wayne (Robin V, adoptive brother), Dick Grayson (Robin I, adoptive brother), Jason Todd (Robin II, adoptive brother), Cassandra Cain (Batgirl IV, adoptive sister)"
+                                                },
+                                                "id": 563,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/563-robin-iii.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/563-robin-iii.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/563-robin-iii.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/563-robin-iii.jpg"
+                                                },
+                                                "name": "Robin III",
+                                                "powerstats": {
+                                                    "combat": 85,
+                                                    "durability": 28,
+                                                    "intelligence": 81,
+                                                    "power": 29,
+                                                    "speed": 27,
+                                                    "strength": 11
+                                                },
+                                                "slug": "563-robin-iii",
+                                                "work": {
+                                                    "base": "Gotham City; Titans Tower, San Francisco",
+                                                    "occupation": "High School Student"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "-",
+                                                    "gender": "Female",
+                                                    "hairColor": "Blond",
+                                                    "height": [
+                                                        "-",
+                                                        "0 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "No Ordinary Family S01E01 (2010)",
+                                                    "fullName": "Stephanie Powell",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "ABC Studios"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "Jim Powell (husband), Daphne Powell (daughter), JJ Powell (son)"
+                                                },
+                                                "id": 636,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/636-stephanie-powell.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/636-stephanie-powell.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/636-stephanie-powell.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/636-stephanie-powell.jpg"
+                                                },
+                                                "name": "Stephanie Powell",
+                                                "powerstats": {
+                                                    "combat": 10,
+                                                    "durability": 10,
+                                                    "intelligence": 69,
+                                                    "power": 24,
+                                                    "speed": 54,
+                                                    "strength": 10
+                                                },
+                                                "slug": "636-stephanie-powell",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "Executive Vice President of Research at Global Tech"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Blue",
+                                                    "gender": "Male",
+                                                    "hairColor": "Black",
+                                                    "height": [
+                                                        "5'9",
+                                                        "175 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "165 lb",
+                                                        "74 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Captain Marvel Jr.",
+                                                        "CM3"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Current incarnation: (As Freddy Freeman) The Power of Shazam #3 (May, 1995)",
+                                                    "fullName": "Frederick Christopher Freeman",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Marvel Family, formerly Outsiders and Teen Titans.",
+                                                    "relatives": "parents, deceased, Jacob Freeman (granfather, deceased), Timothy Karnes (Sabbac, foster brother, deceased)"
+                                                },
+                                                "id": 158,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/158-captain-marvel-ii.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/158-captain-marvel-ii.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/158-captain-marvel-ii.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/158-captain-marvel-ii.jpg"
+                                                },
+                                                "name": "Captain Marvel II",
+                                                "powerstats": {
+                                                    "combat": 56,
+                                                    "durability": 90,
+                                                    "intelligence": 75,
+                                                    "power": 34,
+                                                    "speed": 27,
+                                                    "strength": 81
+                                                },
+                                                "slug": "158-captain-marvel-ii",
+                                                "work": {
+                                                    "base": "Primarily Fawcett City.",
+                                                    "occupation": "Adventurer"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Brown",
+                                                    "gender": "Male",
+                                                    "hairColor": "Grey",
+                                                    "height": [
+                                                        "6'4",
+                                                        "193 cm"
+                                                    ],
+                                                    "race": "Cyborg",
+                                                    "weight": [
+                                                        "395 lb",
+                                                        "178 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Demolisher"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Astonishing Tales #25 (August, 1974)",
+                                                    "fullName": "Luther Manning",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Former member of the CIA, Project: Alpha-Mech, US Army, ally of Godwulf's Redeemers",
+                                                    "relatives": "Janice (Wife, seperated), Richard (son)"
+                                                },
+                                                "id": 215,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/215-deathlok.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/215-deathlok.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/215-deathlok.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/215-deathlok.jpg"
+                                                },
+                                                "name": "Deathlok",
+                                                "powerstats": {
+                                                    "combat": 60,
+                                                    "durability": 70,
+                                                    "intelligence": 69,
+                                                    "power": 40,
+                                                    "speed": 30,
+                                                    "strength": 32
+                                                },
+                                                "slug": "215-deathlok",
+                                                "work": {
+                                                    "base": "New York area",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "-",
+                                                    "gender": "Male",
+                                                    "hairColor": "-",
+                                                    "height": [
+                                                        "-",
+                                                        "0 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Cape"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "The Cape S01E01 (2011)",
+                                                    "fullName": "Vince Faraday",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": null
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "Trip Faraday (son), Dana Thompson-Faraday (wife)"
+                                                },
+                                                "id": 656,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/656-the-cape.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/656-the-cape.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/656-the-cape.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/656-the-cape.jpg"
+                                                },
+                                                "name": "The Cape",
+                                                "powerstats": {
+                                                    "combat": 64,
+                                                    "durability": 32,
+                                                    "intelligence": 38,
+                                                    "power": 22,
+                                                    "speed": 23,
+                                                    "strength": 10
+                                                },
+                                                "slug": "656-the-cape",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Blue",
+                                                    "gender": "Female",
+                                                    "hairColor": "Blond",
+                                                    "height": [
+                                                        "5'5",
+                                                        "165 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "125 lb",
+                                                        "56 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Spider-Woman"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Edge of Spider-Verse #2",
+                                                    "fullName": "Gwen Stacy",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Warriors of the Great Web; formerly Mary Janes, Spider-Army",
+                                                    "relatives": "George Stacy (father), Helen Stacy (mother, deceased)"
+                                                },
+                                                "id": 619,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/619-spider-gwen.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/619-spider-gwen.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/619-spider-gwen.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/619-spider-gwen.jpg"
+                                                },
+                                                "name": "Spider-Gwen",
+                                                "powerstats": {
+                                                    "combat": 70,
+                                                    "durability": 70,
+                                                    "intelligence": 75,
+                                                    "power": 66,
+                                                    "speed": 63,
+                                                    "strength": 55
+                                                },
+                                                "slug": "619-spider-gwen",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Grey",
+                                                    "gender": "Male",
+                                                    "hairColor": "Black",
+                                                    "height": [
+                                                        "6'2",
+                                                        "188 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "180 lb",
+                                                        "81 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Sorcerer Supreme",
+                                                        "Master of the Mystic Arts",
+                                                        "Stephen Sanders",
+                                                        "Captain Universe",
+                                                        "Vincent Stevens"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Strange Tales #110 (July, 1963)",
+                                                    "fullName": "Stephen Strange",
+                                                    "placeOfBirth": "Philadelphia, Pennsylvania",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Defenders, underground Avengers; formerly the Order, Midnight Sons; former disciple of the Ancient One",
+                                                    "relatives": "Eugene (father, deceased), Beverly (mother, deceased), Victor (Khiron, brother, apparently deceased), Donna (sister, deceased), Clea (wife, estranged), Umar (mother-in-law), Orini (father-in-law), Dormammu (uncle-in-law)"
+                                                },
+                                                "id": 226,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/226-doctor-strange.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/226-doctor-strange.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/226-doctor-strange.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/226-doctor-strange.jpg"
+                                                },
+                                                "name": "Doctor Strange",
+                                                "powerstats": {
+                                                    "combat": 60,
+                                                    "durability": 84,
+                                                    "intelligence": 100,
+                                                    "power": 100,
+                                                    "speed": 12,
+                                                    "strength": 10
+                                                },
+                                                "slug": "226-doctor-strange",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "Sorcerer Supreme, retired neurosurgeon"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Bown",
+                                                    "gender": "Male",
+                                                    "hairColor": "Black",
+                                                    "height": [
+                                                        "-",
+                                                        "0 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Green Lantern",
+                                                        "White Lantern"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "The New 52: FCBD Special Edition #1 (June, 2012)",
+                                                    "fullName": "Simoon Baz",
+                                                    "placeOfBirth": "Dearborn, Michigan",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "Sira Baz (sister), Farid Amar (nephew), Nazir Amar (brother in-law)"
+                                                },
+                                                "id": 600,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/600-simon-baz.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/600-simon-baz.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/600-simon-baz.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/600-simon-baz.jpg"
+                                                },
+                                                "name": "Simon Baz",
+                                                "powerstats": {
+                                                    "combat": 60,
+                                                    "durability": 55,
+                                                    "intelligence": 56,
+                                                    "power": 100,
+                                                    "speed": 42,
+                                                    "strength": 90
+                                                },
+                                                "slug": "600-simon-baz",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "-",
+                                                    "gender": "Female",
+                                                    "hairColor": "-",
+                                                    "height": [
+                                                        "-",
+                                                        "0 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Heroes S02E04 - The Kindness of Strangers",
+                                                    "fullName": "Monica Dawson",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "NBC - Heroes"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "Nana Dawson (Grandmother), Damon (brother), DL Hawkins (cousin), Niki Sanders (cousin-in-law once removed), Micah Sanders (second cousin)"
+                                                },
+                                                "id": 469,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/469-monica-dawson.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/469-monica-dawson.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/469-monica-dawson.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/469-monica-dawson.jpg"
+                                                },
+                                                "name": "Monica Dawson",
+                                                "powerstats": {
+                                                    "combat": 90,
+                                                    "durability": 14,
+                                                    "intelligence": 50,
+                                                    "power": 48,
+                                                    "speed": 35,
+                                                    "strength": 10
+                                                },
+                                                "slug": "469-monica-dawson",
+                                                "work": {
+                                                    "base": "New Orleans, LA",
+                                                    "occupation": "Fast food service"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Brown",
+                                                    "gender": "Male",
+                                                    "hairColor": "Brown",
+                                                    "height": [
+                                                        "6'1",
+                                                        "185 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "180 lb",
+                                                        "81 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Bucket-Head",
+                                                        "Edge-Man",
+                                                        "Powell"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Darkhawk #1 (March, 1991)",
+                                                    "fullName": "Christopher Powell",
+                                                    "placeOfBirth": "Queens, New York",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "formerly Loners, New Warriors, Avengers West Coast (reservist), Secret Defenders (founder)",
+                                                    "relatives": "Michael Powell (father), Grace Powell (mother), Jonathon and Jason Powell (brothers)"
+                                                },
+                                                "id": 202,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/202-darkhawk.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/202-darkhawk.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/202-darkhawk.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/202-darkhawk.jpg"
+                                                },
+                                                "name": "Darkhawk",
+                                                "powerstats": {
+                                                    "combat": 64,
+                                                    "durability": 70,
+                                                    "intelligence": 50,
+                                                    "power": 74,
+                                                    "speed": 33,
+                                                    "strength": 32
+                                                },
+                                                "slug": "202-darkhawk",
+                                                "work": {
+                                                    "base": "Los Angeles, California; formerly New York City and Avengers Compound",
+                                                    "occupation": "Retired Superhero"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Brown",
+                                                    "gender": "Male",
+                                                    "hairColor": "Brown",
+                                                    "height": [
+                                                        "5'4",
+                                                        "163 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "124 lb",
+                                                        "56 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Max"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "New X-Men: Academy X #1",
+                                                    "fullName": "Maxwell Jordan",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Corsairs",
+                                                    "relatives": "-"
+                                                },
+                                                "id": 537,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/537-quill.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/537-quill.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/537-quill.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/537-quill.jpg"
+                                                },
+                                                "name": "Quill",
+                                                "powerstats": {
+                                                    "combat": 14,
+                                                    "durability": 14,
+                                                    "intelligence": 38,
+                                                    "power": 23,
+                                                    "speed": 12,
+                                                    "strength": 10
+                                                },
+                                                "slug": "537-quill",
+                                                "work": {
+                                                    "base": "X-Mansion",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "-",
+                                                    "gender": "Male",
+                                                    "hairColor": "-",
+                                                    "height": [
+                                                        "-",
+                                                        "0 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Darkman (August 24, 1990)",
+                                                    "fullName": "Peyton Westlake",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "Universal Studios"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "Julie Hastings (girlfriend)"
+                                                },
+                                                "id": 203,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/203-darkman.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/203-darkman.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/203-darkman.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/203-darkman.jpg"
+                                                },
+                                                "name": "Darkman",
+                                                "powerstats": {
+                                                    "combat": 28,
+                                                    "durability": 85,
+                                                    "intelligence": 75,
+                                                    "power": 12,
+                                                    "speed": 23,
+                                                    "strength": 14
+                                                },
+                                                "slug": "203-darkman",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "Scientist"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Green",
+                                                    "gender": "Female",
+                                                    "hairColor": "Blond",
+                                                    "height": [
+                                                        "5'10",
+                                                        "178 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "120 lb",
+                                                        "54 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Felicity Harmon"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Amazing Spider-Man #194 (July, 1979)",
+                                                    "fullName": "Felicia Hardy",
+                                                    "placeOfBirth": "Queens, New York",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Formerly Heroes for Hire",
+                                                    "relatives": "Walter Hardy (father, deceased), Lydia Hardy (mother)"
+                                                },
+                                                "id": 99,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/99-black-cat.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/99-black-cat.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/99-black-cat.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/99-black-cat.jpg"
+                                                },
+                                                "name": "Black Cat",
+                                                "powerstats": {
+                                                    "combat": 70,
+                                                    "durability": 10,
+                                                    "intelligence": 75,
+                                                    "power": 23,
+                                                    "speed": 33,
+                                                    "strength": 16
+                                                },
+                                                "slug": "99-black-cat",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "Cat burglar; Private investigator, founder of Cat's Eye Investigations."
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Blue",
+                                                    "gender": "Male",
+                                                    "hairColor": "Blond",
+                                                    "height": [
+                                                        "-",
+                                                        "0 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Time Lord",
+                                                        "Time Master",
+                                                        "Boppy",
+                                                        "Dr. Hunter",
+                                                        "Mr",
+                                                        "Hunter",
+                                                        "Carter"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Showcase #20",
+                                                    "fullName": "Richard Hunter",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Formerly leader of the Time Masters; former member of the Forgotten Heroes; former member of the Linear Men, Booster Gold International (BGI)",
+                                                    "relatives": "Michael Carter, (Booster Gold, father), Unknown (mother), Jonar Carter (grandfather), Ellen Carter (grandmother, deceased), Michelle Carter (Goldstar) (aunt), Daniel Carter (21st century ancestor), Rose Levin (ancestor), Dan Hunter (cousin),"
+                                                },
+                                                "id": 559,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/559-rip-hunter.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/559-rip-hunter.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/559-rip-hunter.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/559-rip-hunter.jpg"
+                                                },
+                                                "name": "Rip Hunter",
+                                                "powerstats": {
+                                                    "combat": 25,
+                                                    "durability": 10,
+                                                    "intelligence": 100,
+                                                    "power": 100,
+                                                    "speed": 8,
+                                                    "strength": 8
+                                                },
+                                                "slug": "559-rip-hunter",
+                                                "work": {
+                                                    "base": "Time Lab, Arizona",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Black",
+                                                    "gender": "Female",
+                                                    "hairColor": "Black",
+                                                    "height": [
+                                                        "5'8",
+                                                        "173 cm"
+                                                    ],
+                                                    "race": "Talokite",
+                                                    "weight": [
+                                                        "120 lb",
+                                                        "54 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Adventure Comics #365",
+                                                    "fullName": "Tasmia Mallor",
+                                                    "placeOfBirth": "Talok VIII",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "-"
+                                                },
+                                                "id": 585,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/585-shadow-lass.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/585-shadow-lass.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/585-shadow-lass.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/585-shadow-lass.jpg"
+                                                },
+                                                "name": "Shadow Lass",
+                                                "powerstats": {
+                                                    "combat": 80,
+                                                    "durability": 20,
+                                                    "intelligence": 63,
+                                                    "power": 79,
+                                                    "speed": 67,
+                                                    "strength": 10
+                                                },
+                                                "slug": "585-shadow-lass",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Yellow",
+                                                    "gender": "Male",
+                                                    "hairColor": "Indigo",
+                                                    "height": [
+                                                        "5'9'",
+                                                        "175 cm"
+                                                    ],
+                                                    "race": null,
+                                                    "weight": [
+                                                        "195 lb",
+                                                        "88 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "-"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "GIANT-SIZE X-MEN #1",
+                                                    "fullName": "Kurt Wagner",
+                                                    "placeOfBirth": "Somewhere in the Bavarian Alps",
+                                                    "publisher": "Marvel Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "X-Men, formerly Excalibur",
+                                                    "relatives": "Eric Wagner (father, deceased), Margali Szardos (foster mother), Jimaine Szardos (Daytripper, alias Amanda Sefton, foster sister), Stefan Szardos (foster brother, deceased), Mystique (mother), Graydon Creed (half-brother, deceased)."
+                                                },
+                                                "id": 490,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/490-nightcrawler.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/490-nightcrawler.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/490-nightcrawler.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/490-nightcrawler.jpg"
+                                                },
+                                                "name": "Nightcrawler",
+                                                "powerstats": {
+                                                    "combat": 80,
+                                                    "durability": 14,
+                                                    "intelligence": 50,
+                                                    "power": 76,
+                                                    "speed": 47,
+                                                    "strength": 10
+                                                },
+                                                "slug": "490-nightcrawler",
+                                                "work": {
+                                                    "base": "Xavier Institute for Higher Learning, Salem Center, Westchester County, New York (former) Muir Island, Scotland; Braddock Lighthouse",
+                                                    "occupation": "Adventurer, Teacher"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Green",
+                                                    "gender": "Female",
+                                                    "hairColor": "Brown",
+                                                    "height": [
+                                                        "-",
+                                                        "0 cm"
+                                                    ],
+                                                    "race": "Human",
+                                                    "weight": [
+                                                        "- lb",
+                                                        "0 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Green Lantern",
+                                                        "Power Ring"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Green Lantern Vol 5 #20 (July, 2013)",
+                                                    "fullName": "Jessica Cruz",
+                                                    "placeOfBirth": "-",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "-",
+                                                    "relatives": "Sara Cruz (sister)"
+                                                },
+                                                "id": 360,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/360-jessica-cruz.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/360-jessica-cruz.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/360-jessica-cruz.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/360-jessica-cruz.jpg"
+                                                },
+                                                "name": "Jessica Cruz",
+                                                "powerstats": {
+                                                    "combat": 55,
+                                                    "durability": 50,
+                                                    "intelligence": 56,
+                                                    "power": 100,
+                                                    "speed": 46,
+                                                    "strength": 90
+                                                },
+                                                "slug": "360-jessica-cruz",
+                                                "work": {
+                                                    "base": "-",
+                                                    "occupation": "-"
+                                                }
+                                            },
+                                            {
+                                                "appearance": {
+                                                    "eyeColor": "Blue",
+                                                    "gender": "Male",
+                                                    "hairColor": "No Hair",
+                                                    "height": [
+                                                        "6'1",
+                                                        "185 cm"
+                                                    ],
+                                                    "race": "Ungaran",
+                                                    "weight": [
+                                                        "200 lb",
+                                                        "90 kg"
+                                                    ]
+                                                },
+                                                "biography": {
+                                                    "aliases": [
+                                                        "Lagzia"
+                                                    ],
+                                                    "alignment": "good",
+                                                    "alterEgos": "No alter egos found.",
+                                                    "firstAppearance": "Showcase #22 (October, 1959)",
+                                                    "fullName": "",
+                                                    "placeOfBirth": "Ungara",
+                                                    "publisher": "DC Comics"
+                                                },
+                                                "connections": {
+                                                    "groupAffiliation": "Green Lantern Corps, Black Lantern Corps",
+                                                    "relatives": "Amon Sur (son), Arin Sur (sister), Thaal Sinestro (brother-in-law), Soranik Natu (niece)"
+                                                },
+                                                "id": 3,
+                                                "images": {
+                                                    "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/3-abin-sur.jpg",
+                                                    "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/3-abin-sur.jpg",
+                                                    "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/3-abin-sur.jpg",
+                                                    "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/3-abin-sur.jpg"
+                                                },
+                                                "name": "Abin Sur",
+                                                "powerstats": {
+                                                    "combat": 65,
+                                                    "durability": 64,
+                                                    "intelligence": 50,
+                                                    "power": 99,
+                                                    "speed": 53,
+                                                    "strength": 90
+                                                },
+                                                "slug": "3-abin-sur",
+                                                "work": {
+                                                    "base": "Oa",
+                                                    "occupation": "Green Lantern, former history professor"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

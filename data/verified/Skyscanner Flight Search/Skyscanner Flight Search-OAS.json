@@ -1,0 +1,723 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_d719c2d1-34d6-48e4-9eb5-59f8735ab866",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "5a9b565ae4b00687d357311e",
+        "apiId": "5a9b565ae4b04378c0c99666"
+    },
+    "info": {
+        "title": "Skyscanner Flight Search",
+        "description": "The Skyscanner API lets you search for flights & get flight prices from Skyscanner's database of prices, as well as get live quotes directly from ticketing agencies.",
+        "version": "v1",
+        "x-category": "Transportation",
+        "x-long-description": "",
+        "x-website": "https://www.skyscanner.com",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/5a9b565ae4b00687d357311e_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Localisation"
+        },
+        {
+            "name": "Browse Flight Prices"
+        },
+        {
+            "name": "Places"
+        },
+        {
+            "name": "Live Flight Search"
+        }
+    ],
+    "paths": {
+        "/apiservices/browseroutes/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}": {
+            "get": {
+                "tags": [
+                    "Browse Flight Prices"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "The market country your user is in",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "path",
+                        "required": true,
+                        "description": "The currency you want the prices in",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "destinationplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The destination place (see places)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "inboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The return date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”. Use empty string for oneway trip.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "locale",
+                        "in": "path",
+                        "required": true,
+                        "description": "The locale you want the results in (ISO locale)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "originplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The origin place (see places)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "outboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The outbound date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Browse Routes Inbound",
+                "description": "Retrieve the cheapest routes from our cache prices. Similar to the Browse Quotes API but with the routes built for you from the individual quotes. Must include inboundpartialdate",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/apiservices/browsequotes/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}": {
+            "get": {
+                "tags": [
+                    "Browse Flight Prices"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "The market country your user is in",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "path",
+                        "required": true,
+                        "description": "The currency you want the prices in",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "destinationplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The destination place (see places)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "inboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The return date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”. Use empty string for oneway trip.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "locale",
+                        "in": "path",
+                        "required": true,
+                        "description": "The locale you want the results in (ISO locale)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "originplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The origin place (see places)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "outboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The outbound date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Browse Quotes Inbound",
+                "description": "Retrieve the cheapest quotes from our cache prices. Must include inboundpartialdate",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/apiservices/browsedates/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}": {
+            "get": {
+                "tags": [
+                    "Browse Flight Prices"
+                ],
+                "parameters": [
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "The market country your user is in",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "path",
+                        "required": true,
+                        "description": "The currency you want the prices in",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "destinationplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The destination place (see places)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "inboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The return date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”. Use empty string for oneway trip.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "locale",
+                        "in": "path",
+                        "required": true,
+                        "description": "The locale you want the results in (ISO locale)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "originplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The origin place (see places)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "outboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The outbound date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "operationId": "Browse Dates Inbound",
+                "description": "Retrieve the cheapest dates for a given route from our cache. Must include inboundpartialdate.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/apiservices/referral/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}/{inboundpartialdate}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "inboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The return date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”. Use empty string for oneway trip.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "The market country your user is in",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "path",
+                        "required": true,
+                        "description": "The currency you want the prices in",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "destinationplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The destination place (see places)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "outboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The outbound date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”.",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "locale",
+                        "in": "path",
+                        "required": true,
+                        "description": "The locale you want the results in (ISO locale)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "originplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The origin place (see places)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "shortapikey",
+                        "in": "query",
+                        "required": false,
+                        "description": "Please insure that you use the short API key (the first 16 characters of your full API key) to avoid exposing your key.",
+                        "schema": {
+                            "type": "string",
+                            "example": "ra66933236979928"
+                        }
+                    }
+                ],
+                "operationId": "To Skyscanner",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/apiservices/reference/v1.0/currencies": {
+            "get": {
+                "tags": [
+                    "Localisation"
+                ],
+                "operationId": "Currencies",
+                "description": "Retrieve the currencies that we support.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/apiservices/browsedates/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}": {
+            "get": {
+                "tags": [
+                    "Browse Flight Prices"
+                ],
+                "parameters": [
+                    {
+                        "name": "inboundpartialdate",
+                        "in": "query",
+                        "required": false,
+                        "description": "The return date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”. Use empty string for oneway trip.",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-12-01"
+                        }
+                    },
+                    {
+                        "name": "locale",
+                        "in": "path",
+                        "required": true,
+                        "description": "The locale you want the results in (ISO locale)",
+                        "schema": {
+                            "type": "string",
+                            "example": "en-US"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "The market country your user is in",
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "path",
+                        "required": true,
+                        "description": "The currency you want the prices in",
+                        "schema": {
+                            "type": "string",
+                            "example": "USD"
+                        }
+                    },
+                    {
+                        "name": "originplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The origin place (see places)",
+                        "schema": {
+                            "type": "string",
+                            "example": "SFO-sky"
+                        }
+                    },
+                    {
+                        "name": "outboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The outbound date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”.",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-09-01"
+                        }
+                    },
+                    {
+                        "name": "destinationplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The destination place (see places)",
+                        "schema": {
+                            "type": "string",
+                            "example": "LAX-sky"
+                        }
+                    }
+                ],
+                "operationId": "Browse Dates",
+                "description": "Retrieve the cheapest dates for a given route from our cache.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/apiservices/browseroutes/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}": {
+            "get": {
+                "tags": [
+                    "Browse Flight Prices"
+                ],
+                "parameters": [
+                    {
+                        "name": "inboundpartialdate",
+                        "in": "query",
+                        "required": false,
+                        "description": "The return date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”. Use empty string for oneway trip.",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-12-01"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "path",
+                        "required": true,
+                        "description": "The currency you want the prices in",
+                        "schema": {
+                            "type": "string",
+                            "example": "USD"
+                        }
+                    },
+                    {
+                        "name": "originplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The origin place (see places)",
+                        "schema": {
+                            "type": "string",
+                            "example": "SFO-sky"
+                        }
+                    },
+                    {
+                        "name": "outboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The outbound date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”.",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-09-01"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "The market country your user is in",
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    },
+                    {
+                        "name": "destinationplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The destination place (see places)",
+                        "schema": {
+                            "type": "string",
+                            "example": "ORD-sky"
+                        }
+                    },
+                    {
+                        "name": "locale",
+                        "in": "path",
+                        "required": true,
+                        "description": "The locale you want the results in (ISO locale)",
+                        "schema": {
+                            "type": "string",
+                            "example": "en-US"
+                        }
+                    }
+                ],
+                "operationId": "Browse Routes",
+                "description": "Retrieve the cheapest routes from our cache prices. Similar to the Browse Quotes API but with the routes built for you from the individual quotes.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/apiservices/browsequotes/v1.0/{country}/{currency}/{locale}/{originplace}/{destinationplace}/{outboundpartialdate}": {
+            "get": {
+                "tags": [
+                    "Browse Flight Prices"
+                ],
+                "parameters": [
+                    {
+                        "name": "inboundpartialdate",
+                        "in": "query",
+                        "required": false,
+                        "description": "The return date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”. Use empty string for oneway trip.",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-12-01"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "The market country your user is in",
+                        "schema": {
+                            "type": "string",
+                            "example": "US"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "path",
+                        "required": true,
+                        "description": "The currency you want the prices in",
+                        "schema": {
+                            "type": "string",
+                            "example": "USD"
+                        }
+                    },
+                    {
+                        "name": "locale",
+                        "in": "path",
+                        "required": true,
+                        "description": "The locale you want the results in (ISO locale)",
+                        "schema": {
+                            "type": "string",
+                            "example": "en-US"
+                        }
+                    },
+                    {
+                        "name": "destinationplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The destination place (see places)",
+                        "schema": {
+                            "type": "string",
+                            "example": "JFK-sky"
+                        }
+                    },
+                    {
+                        "name": "outboundpartialdate",
+                        "in": "path",
+                        "required": true,
+                        "description": "The outbound date. Format “yyyy-mm-dd”, “yyyy-mm” or “anytime”.",
+                        "schema": {
+                            "type": "string",
+                            "example": "2019-09-01"
+                        }
+                    },
+                    {
+                        "name": "originplace",
+                        "in": "path",
+                        "required": true,
+                        "description": "The origin place (see places)",
+                        "schema": {
+                            "type": "string",
+                            "example": "SFO-sky"
+                        }
+                    }
+                ],
+                "operationId": "Browse Quotes",
+                "description": "Retrieve the cheapest quotes from our cache prices.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/apiservices/reference/v1.0/countries/{locale}": {
+            "get": {
+                "tags": [
+                    "Localisation"
+                ],
+                "parameters": [
+                    {
+                        "name": "locale",
+                        "in": "path",
+                        "required": true,
+                        "description": "The language you want the results in (ISO locale). See locales for locales that we support.",
+                        "schema": {
+                            "type": "string",
+                            "example": "en-US"
+                        }
+                    }
+                ],
+                "operationId": "List markets",
+                "description": "Retrieve the market countries that we support.  Most suppliers (airlines, travel agents and car hire dealers) set their fares based on the market (or country of purchase). It is therefore necessary to specify the market country in every query.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/apiservices/autosuggest/v1.0/{country}/{currency}/{locale}/": {
+            "get": {
+                "tags": [
+                    "Places"
+                ],
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "required": true,
+                        "description": "The query string, must be at least 2 characters long.",
+                        "schema": {
+                            "type": "string",
+                            "example": "Stockholm"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "path",
+                        "required": true,
+                        "description": "The market/country your user is in",
+                        "schema": {
+                            "type": "string",
+                            "example": "UK"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "path",
+                        "required": true,
+                        "description": "The currency you want the prices in",
+                        "schema": {
+                            "type": "string",
+                            "example": "GBP"
+                        }
+                    },
+                    {
+                        "name": "locale",
+                        "in": "path",
+                        "required": true,
+                        "description": "The locale you want the results in (ISO locale)",
+                        "schema": {
+                            "type": "string",
+                            "example": "en-GB"
+                        }
+                    }
+                ],
+                "operationId": "List Places",
+                "description": "Get a list of places that match a query string.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

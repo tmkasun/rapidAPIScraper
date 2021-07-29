@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_f6f506f5-0d78-49ba-9f11-43d4bcfca272",
+    "name": "UPHERE.SPACE",
+    "title": "UPHERE.SPACE",
+    "description": "Real-time satellite tracking and predictions",
+    "visibility": "PUBLIC",
+    "slugifiedName": "uphere-space1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-06-24T07:58:08.475Z",
+    "category": "Science",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/eab0abbf-90a5-4462-846d-d8b41977d397_medium",
+    "user": {
+        "id": 4110194,
+        "username": "uphere.space",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_f7e68556-7c53-409f-b5fd-096db66a6a08",
+        "tags": [
+            {
+                "id": "tag_45a35263-a8b4-4707-98a6-d7471f376370",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_aea302ae-d795-4a63-9949-b53e15f1d58f",
+                "isGraphQL": false,
+                "route": "/satellite/list",
+                "method": "GET",
+                "name": "Satellite List",
+                "description": "List of satellites in orbit",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_d27e3eef-f070-40c0-b812-c6eb786a4d38",
+                "isGraphQL": false,
+                "route": "/satellite/list/countries",
+                "method": "GET",
+                "name": "Countries",
+                "description": "Countries who have launched satellites which have been or are in orbit.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_b5680d22-31f9-4769-94f3-0b8e29b445dd",
+                "isGraphQL": false,
+                "route": "/satellite/list/categories",
+                "method": "GET",
+                "name": "Categories",
+                "description": "Categories used to filter satellites",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

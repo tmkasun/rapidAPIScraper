@@ -1,0 +1,196 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_c649e9a4-b0a8-4890-9054-88d03f26729a",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_cb823b93-e3e2-4a38-8994-0a1398cd88fa",
+        "apiId": "api_6fe50519-e1b5-4c47-96b0-3ff1754b406b"
+    },
+    "info": {
+        "title": "Text Summarizer",
+        "description": "Connexun's \"Text Summarizer\" API generates an extractive summary from any given text. Test our api for free and do not hesitate to reach us out for further information.",
+        "version": "v1",
+        "x-category": "Text Analysis",
+        "x-long-description": "Today Connexun is an AI news and text analysis engine with long lasting experience and know-how, promoting content and text analysis APIs and proprietary technologies of use to developers, startups, businesses and eventually also consumers. It enables its clients to source in real time multilingual headlines, articles and dynamic summaries extracted from thousands of trusted online news outlets. It serves its clients with proprietary text crawling and classifying technologies.\n\nConnexun also developed B.I.R.B.AL., its artificial intelligent engine used to power its mobile app, to deliver real time news and information to digital cosmopolitans. We continue to augment intelligent tools that leverage the power of Machine Learning and Natural Language Processing to analyze large datasets of aggregated content.\n\nFind Connexun's extractive summarizer and language detection APIs. Our summarizer can extract the most relevant sentences of a given corpus of text which allows the user to go through great amounts of content in a short amount of time by focusing on the most relevant information.\n\nTest our api for free and do not hesitate to reach us out for further information.",
+        "x-website": "https://connexun.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/e8daafc6-1ffb-4a0d-b99a-abb90ae067f9.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://text-summarizer1.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Post articles to be summarized"
+        },
+        {
+            "name": "summarize"
+        },
+        {
+            "name": "Post text for language detection"
+        },
+        {
+            "name": "detect-language"
+        }
+    ],
+    "paths": {
+        "/detect-language": {
+            "post": {
+                "tags": [
+                    "Post text for language detection"
+                ],
+                "summary": "Returns language/s identified in the input text.",
+                "operationId": "/detect-language",
+                "description": "The endpoint takes as input the text that needs to be analyzed and returns with the probability the language in which the text is written. If the text contains multiple language, the response is an array of objects each specifying the language detected and the corresponding probability.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "minItems": 2
+                                    },
+                                    "title": "LanguageSuccessSchema",
+                                    "type": "array"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "Error Schema",
+                                    "type": "object"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "text": {
+                                        "description": "Single or multilingual text for which language determination is required. The method supports text entered in english with maximum length of 500 chars inclusding spaces.",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "text"
+                                ],
+                                "title": "langDetectBodySchema",
+                                "type": "object"
+                            },
+                            "examples": {}
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        },
+        "/summarize": {
+            "post": {
+                "tags": [
+                    "Post articles to be summarized"
+                ],
+                "summary": "Get summary of text along with the ranking of sentences based on sentence number.",
+                "operationId": "/summarize",
+                "description": "Summarizes a valid input content and returns the highest ranked sentences from the text. These sentences in the order of appearence in the main text are then combined, which represents the most weighted sentences of the text also called summary.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "language": {
+                                            "description": "Two letter language code of the language detected in the text.",
+                                            "type": "string"
+                                        },
+                                        "sentenceLength": {
+                                            "description": "Number of output sentences that are present in the final summary",
+                                            "type": "integer"
+                                        },
+                                        "summary": {
+                                            "description": "Summary of the text generated.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "SummarySuccessSchema",
+                                    "type": "object"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "title": "Error Schema",
+                                    "type": "object"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "language": {
+                                        "description": "Two letter code for the language of the text that is input. If the language input does not match the text language detected by the system, an error code is returned.",
+                                        "type": "string"
+                                    },
+                                    "output_sentences": {
+                                        "description": "Number of sentences that are required in the output of the summary. This number cannot exceed the total number of sentences that are detected by our tokenizer in the text. In such case an error is returned. Use this parameter define the upper limit of the output sentneces required, which the system then caps to 50% of input sentences. ",
+                                        "type": "integer"
+                                    },
+                                    "text": {
+                                        "description": "Text of article or any other content that needs to be summarized.",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "output_sentences",
+                                    "text"
+                                ],
+                                "title": "SummaryPostBodySchema",
+                                "type": "object"
+                            },
+                            "examples": {}
+                        }
+                    },
+                    "description": ""
+                }
+            }
+        }
+    }
+}

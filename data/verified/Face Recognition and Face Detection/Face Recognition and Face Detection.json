@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "53aa3242e4b07e1f4ebe9bab",
+    "name": "Face Recognition and Face Detection",
+    "title": "Face Recognition and Face Detection",
+    "description": "Stephen here from Lambda Labs. For sample code and a graphical demo, check out http://api.lambdal.com/docs. Our API provides face recognition, face detection, eye position, nose position, mouth position, and gender classification. If you have any questions ask! Just send an email to s@lambdal.com. Happy Hacking! -Stephen",
+    "visibility": "PUBLIC",
+    "slugifiedName": "face-recognition-and-face-detection",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-02-20T10:10:16.013Z",
+    "category": "Media",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa3242e4b0a9b1348d8dce_medium",
+    "user": {
+        "id": 1418264,
+        "username": "lambda",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "53aa3242e4b0a9b1348d8dce",
+        "tags": [
+            {
+                "id": "tag_06f8c892-bb9a-48fe-a85e-a64b522135f2",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "53aa3244e4b0a9b1348d8dd7",
+                "isGraphQL": false,
+                "route": "/album_train",
+                "method": "GET",
+                "name": "View Entry",
+                "description": "View an entry in an album, telling you how many training images it has",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa3243e4b07e1f4ebe9bb3",
+                "isGraphQL": false,
+                "route": "/recognize",
+                "method": "POST",
+                "name": "Recognize",
+                "description": "After creating, training, and rebuilding an album (see above), you'll be able to recognize people in that album.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "53aa3244e4b059614033ed22",
+                "isGraphQL": false,
+                "route": "/album",
+                "method": "GET",
+                "name": "View Album",
+                "description": "View one of your albums, with a visual summary.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

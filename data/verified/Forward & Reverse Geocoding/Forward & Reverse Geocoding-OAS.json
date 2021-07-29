@@ -1,0 +1,550 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_9b4a81a1-4058-4a8a-b84c-641e6719b370",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_d1e146a7-9501-46c8-8af4-bcbd91c653fd",
+        "apiId": "api_898ee606-d6bd-4536-995b-7fa5b0eed5bf"
+    },
+    "info": {
+        "title": "Forward & Reverse Geocoding",
+        "description": "Forward & Reverse Geocoding based on OpenStreetMap data. Find geocoordinates (latitude and longitude) for an address or use reverse geocoding to define positions for asset tracking and more.",
+        "version": "v1",
+        "x-category": "Mapping",
+        "x-long-description": "Easy to use forward and reverse geocoding search based on OpenStreetMap data. Just add your X-RapidAPI-Key header with your apikey and use the free-form forward geocoding search or the structured forward geocoding search (e.g. for address completion, postalcode retrieval or showing your address on a map)  or the reverse geocoding search for asset tracking and more.\n\nYou can use this geocoding service with any map you like, e.g. the [MapTiles API here at RapidAPI](https://rapidapi.com/MapTilesApi/api/maptiles).\n\n*Attribution Requirement*\nYou have to attribute OpenStreetMap contributors (see https://www.openstreetmap.org/copyright ) as this geocoder is based on OpenStreetMap data.\n\nFor a complete documentation of all available query parameters and options, visit https://docs.geocodingapi.net\n\n*Rate Limiting*\nPlease note that the Forward & Reverse Geocoding API is bound by rate-limiting. For continuous frequent requests, requests per second are limited to 3 (Basic plan), 6 (Pro plan), 24 (Ultra plan) or 48 (Mega plan). There is a burst rate allowed of up to 4 (Basic plan), 9 (Pro plan), 36 (Ultra plan) or 72 (Mega plan) requests per second **for one second max** but using this burst rate will dimish your further available requests in the next second, so that you can only send a max amount of 6 (Basic plan), 12 (Pro plan), 48 (Ultra plan) or 96 (Mega plan) requests in total in two seconds. Further requests will get blocked (indicated by a 429 http error - \"too many requests\"). The blocking may uphold for several seconds before you are allowed to send requests again. Please note that the bulk rate requests limits are an approximation and are dependent on the round trip time latency of your requests.",
+        "x-website": "https://docs.geocodingapi.net",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/9578e733-bb2d-405e-bb11-1135972e83df.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://forward-reverse-geocoding.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Standard Functions",
+            "externalDocs": {
+                "description": "",
+                "url": ""
+            }
+        }
+    ],
+    "paths": {
+        "/v1/reverse": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "accept-language",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "en"
+                        }
+                    },
+                    {
+                        "name": "json_callback",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "namedetails",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "polygon_kml",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "polygon_threshold",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "externalDocs": {},
+                            "default": "0.0"
+                        }
+                    },
+                    {
+                        "name": "polygon_geojson",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "addressdetails",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "zoom",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {
+                                "description": "",
+                                "url": ""
+                            },
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "polygon_text",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "polygon_svg",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "externalDocs": {},
+                            "default": "41.8755616"
+                        }
+                    },
+                    {
+                        "name": "lon",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "externalDocs": {},
+                            "default": "-87.6244212"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Documentation Reverse Geocoding",
+                    "url": "https://docs.geocodingapi.net/#reversegeocoding-v1reverse"
+                },
+                "operationId": "ReverseGeocoding",
+                "description": "Find address or place by latitude and longitude",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/forward": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "countrycodes",
+                        "in": "query",
+                        "required": false,
+                        "description": "Two letter country code to restrict area to search in. Use the country code as defined in ISO 3166-1 alpha2.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "polygon_svg",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "polygon_threshold",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "number",
+                            "default": "0.0"
+                        }
+                    },
+                    {
+                        "name": "county",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "polygon_geojson",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "New York City"
+                        }
+                    },
+                    {
+                        "name": "namedetails",
+                        "in": "query",
+                        "required": false,
+                        "description": "- namedetails = [0,1]\n\nSet this to 1 to receive different spellings in different languages of a returned place.\nDefault is 0.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "polygon_text",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "NY"
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "addressdetails",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "query",
+                        "required": false,
+                        "description": "Set the query and response language. Accepts two letter language codes (e.g. \\\\\\\"en\\\\\\\" or \\\\\\\"es\\\\\\\") or a combination of language and region code, e.g. \\\\\\\"en-GB\\\\\\\" or \\\\\\\"es-AR\\\\\\\".",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string",
+                            "default": "en"
+                        }
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "USA"
+                        }
+                    },
+                    {
+                        "name": "street",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "12 West 4th Street"
+                        }
+                    },
+                    {
+                        "name": "viewbox",
+                        "in": "query",
+                        "required": false,
+                        "description": "Format: x1,y1,x2,y2 - restrict search area to a bounded box defined by two coordinates (x is longitude, y is latitude). The two coordinates have to span a box to work.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "json_callback",
+                        "in": "query",
+                        "required": false,
+                        "description": "Use this with format=json to define a callback function for jsonp. ",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "polygon_kml",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bounded",
+                        "in": "query",
+                        "required": false,
+                        "description": "Used in conjunction with viewbox to search only in an area.",
+                        "schema": {
+                            "externalDocs": {},
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "postalcode",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "10012"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Documentation Structured Forward Geocoding",
+                    "url": "https://docs.geocodingapi.net/#forwardgeocoding-v1forward"
+                },
+                "operationId": "ForwardGeocoding",
+                "description": "Turn an address into latitude and longitude (e.g. to display on a map) by schematic input.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/search": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "polygon_text",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "polygon_kml",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "json_callback",
+                        "in": "query",
+                        "required": false,
+                        "description": "Name of json callback function for jsonp calls. Use format=json for this.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "namedetails",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "viewbox",
+                        "in": "query",
+                        "required": false,
+                        "description": "Format: x1,y1,x2,y2 where is x is longitude and y latitude. The two coordinates have to span a box to let this work in conjunction with bounded=1 (see there).",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "addressdetails",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "polygon_geojson",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "polygon_threshold",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "externalDocs": {},
+                            "default": "0.0"
+                        }
+                    },
+                    {
+                        "name": "countrycodes",
+                        "in": "query",
+                        "required": false,
+                        "description": "Two-letter country code as defined in ISO 3166-1 alpha2 to restrict search to a country.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "bounded",
+                        "in": "query",
+                        "required": false,
+                        "description": "Use bounded=1 in conjunction with viewbox to restrict search area. You can use this to search for amenities in a given area, e.g. post offices or police stations, etc. as q param.",
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "polygon_svg",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "externalDocs": {}
+                        }
+                    },
+                    {
+                        "name": "accept-language",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "en"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {},
+                            "default": "New York City NY USA"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Documentation Free-form Geocoding Search",
+                    "url": "https://docs.geocodingapi.net/#geocodingsearch-v1search"
+                },
+                "operationId": "GeocodingSearch",
+                "description": "Free-form query forward geocoding.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

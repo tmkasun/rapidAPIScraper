@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_17095202-213c-4d28-a01e-2c202254419c",
+    "name": "Face Similarity",
+    "title": "Face Similarity",
+    "description": "PresentID Face Similarity API can detect a face in your image and shows the most similar image.",
+    "visibility": "PUBLIC",
+    "slugifiedName": "face-similarity",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-06-02T10:18:08.531Z",
+    "category": "Visual Recognition",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/58650e1a-2a74-43b9-bada-f80494675e21.png",
+    "user": {
+        "id": 4565546,
+        "username": "PresentID",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_d50e9367-dd44-410c-b905-61a79918f800",
+        "tags": [
+            {
+                "id": "tag_24792327-21d4-478e-b44a-40b7d46f3895",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_9c2d0d68-bb2b-4057-abd8-0a1ad1665aed",
+                "isGraphQL": false,
+                "route": "/FaceSimilar",
+                "method": "POST",
+                "name": "Send image with Base64",
+                "description": "Face Similarity API can detect a face in your image and shows the most similar image.\n\n*Image size should not exceed 8 MB*\n*Also, the images should not be larger than 5000 pixels and smaller than 50 pixels*",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_623c3f9f-5e61-4aa5-809b-686d7916bff5",
+                "isGraphQL": false,
+                "route": "/FaceSimilar",
+                "method": "POST",
+                "name": "Send image with image URL",
+                "description": "Face Similarity API can detect a face in your image and shows the most similar image.\n\n*Image size should not exceed 8 MB*\n*Also, the images should not be larger than 5000 pixels and smaller than 50 pixels*",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_60e2581a-8180-4329-9f35-c6c9eced4d75",
+                "isGraphQL": false,
+                "route": "/FaceSimilar",
+                "method": "POST",
+                "name": "Send image with image file",
+                "description": "Face Similarity API can detect a face in your image and shows the most similar image.\n\n*Image size should not exceed 8 MB*\n*Also, the images should not be larger than 5000 pixels and smaller than 50 pixels*",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

@@ -1,0 +1,1018 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_72fbaadf-2854-4732-ad8b-c5a3ed6f3824",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "53aa6041e4b07e1f4ebec8b4",
+        "apiId": "53aa6041e4b00287471a2b5d"
+    },
+    "info": {
+        "title": "Open Weather Map",
+        "description": "Get weather and weather forecasts for multiple cities.",
+        "version": "v1",
+        "x-category": "Weather",
+        "x-long-description": "Get weather and weather forecasts for multiple cities. ",
+        "x-website": "",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa6041e4b07e1f4ebec8b4_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://community-open-weather-map.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/find": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "units",
+                        "in": "query",
+                        "required": false,
+                        "description": "You can use different types of metric systems by units = metric or imperial",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "imperial, metric"
+                        }
+                    },
+                    {
+                        "name": "lon",
+                        "in": "query",
+                        "required": false,
+                        "description": "Must be used with lat. Get current weather data when you know the longitude of the city.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "0"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "If left blank will default to JSON output. Ability to retrieve data in XML or HTML.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "null"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": false,
+                        "description": "Must be used with lon. Get current weather data when you know the latitude of the city.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "0"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": false,
+                        "description": "To setup accuracy level please use type parameter that have two values - accurate and like. In case of accurate value you will get results that exactly equivalent to your searching word. In case of like value the result is searching by substring. type ['accurate', 'like']  Example",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "link, accurate"
+                        }
+                    },
+                    {
+                        "name": "cnt",
+                        "in": "query",
+                        "required": false,
+                        "description": "To limit number of listed cities please setup cnt parameter",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "0"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "use this parameter when searching for a city. Do not use with other parameters",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "london"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "undefined"
+                },
+                "operationId": "Search Weather Data",
+                "description": "By city name. Input the city name or its part and get the list of the most proper cities in the world. Example - Lon or Lond or London. The more precise city name you put the more precise list you will get. To make it more precise put the city's name or its part, comma, the name of the county or 2-letter country code. You will get all proper cities in chosen county. The order is important - the first is city name than comma than county. Example - Lon, UK or Lon, GB or London, GB or Lon, England. By geographic coordinates.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/onecall/timemachine": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "dt",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "1590094153 "
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "37.774929"
+                        }
+                    },
+                    {
+                        "name": "lon",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "-122.419418"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "Historical Weather Data",
+                "description": "To get access to historical weather data for the **5 previous days**\n\nlat, lon geographical coordinates (latitude, longitude)\ndt date from the 5 previous days (unix time, UTC time zone), e.g. dt=1586468027",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "Response": {
+                                        "description": "",
+                                        "summary": "Response",
+                                        "value": {
+                                            "current": {
+                                                "clouds": 0,
+                                                "dew_point": 285.27,
+                                                "dt": 1590094153,
+                                                "feels_like": 287.62,
+                                                "humidity": 69,
+                                                "pressure": 1016,
+                                                "sunrise": 1590065699,
+                                                "sunset": 1590117478,
+                                                "temp": 291.03,
+                                                "uvi": 8.28,
+                                                "weather": [
+                                                    {
+                                                        "description": "clear sky",
+                                                        "icon": "01d",
+                                                        "id": 800,
+                                                        "main": "Clear"
+                                                    }
+                                                ],
+                                                "wind_deg": 245,
+                                                "wind_gust": 10.28,
+                                                "wind_speed": 5.81
+                                            },
+                                            "hourly": [
+                                                {
+                                                    "clouds": 15,
+                                                    "dew_point": 283.98,
+                                                    "dt": 1590019200,
+                                                    "feels_like": 288.31,
+                                                    "humidity": 68,
+                                                    "pressure": 1018,
+                                                    "temp": 289.91,
+                                                    "weather": [
+                                                        {
+                                                            "description": "few clouds",
+                                                            "icon": "02d",
+                                                            "id": 801,
+                                                            "main": "Clouds"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 274,
+                                                    "wind_gust": 6.71,
+                                                    "wind_speed": 2.68
+                                                },
+                                                {
+                                                    "clouds": 0,
+                                                    "dew_point": 283.81,
+                                                    "dt": 1590022800,
+                                                    "feels_like": 287.94,
+                                                    "humidity": 70,
+                                                    "pressure": 1018,
+                                                    "temp": 289.28,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01d",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 267,
+                                                    "wind_gust": 5.81,
+                                                    "wind_speed": 2.24
+                                                },
+                                                {
+                                                    "clouds": 0,
+                                                    "dew_point": 283.88,
+                                                    "dt": 1590026400,
+                                                    "feels_like": 287.26,
+                                                    "humidity": 75,
+                                                    "pressure": 1017,
+                                                    "temp": 288.27,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01d",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 268,
+                                                    "wind_gust": 4.92,
+                                                    "wind_speed": 1.79
+                                                },
+                                                {
+                                                    "clouds": 0,
+                                                    "dew_point": 284.05,
+                                                    "dt": 1590030000,
+                                                    "feels_like": 286.49,
+                                                    "humidity": 80,
+                                                    "pressure": 1017,
+                                                    "temp": 287.45,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01d",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 278,
+                                                    "wind_gust": 4.92,
+                                                    "wind_speed": 1.79
+                                                },
+                                                {
+                                                    "clouds": 0,
+                                                    "dew_point": 283.65,
+                                                    "dt": 1590033600,
+                                                    "feels_like": 286.03,
+                                                    "humidity": 83,
+                                                    "pressure": 1018,
+                                                    "temp": 286.47,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01n",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 318,
+                                                    "wind_gust": 3.58,
+                                                    "wind_speed": 0.89
+                                                },
+                                                {
+                                                    "clouds": 0,
+                                                    "dew_point": 283,
+                                                    "dt": 1590037200,
+                                                    "feels_like": 285.32,
+                                                    "humidity": 84,
+                                                    "pressure": 1018,
+                                                    "temp": 285.63,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01n",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 270,
+                                                    "wind_gust": 2.24,
+                                                    "wind_speed": 0.45
+                                                },
+                                                {
+                                                    "clouds": 0,
+                                                    "dew_point": 283.1,
+                                                    "dt": 1590040800,
+                                                    "feels_like": 284.78,
+                                                    "humidity": 86,
+                                                    "pressure": 1018,
+                                                    "temp": 285.37,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01n",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 241,
+                                                    "wind_gust": 2.68,
+                                                    "wind_speed": 0.89
+                                                },
+                                                {
+                                                    "clouds": 0,
+                                                    "dew_point": 282.86,
+                                                    "dt": 1590044400,
+                                                    "feels_like": 284.6,
+                                                    "humidity": 87,
+                                                    "pressure": 1017,
+                                                    "temp": 284.95,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01n",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 297,
+                                                    "wind_gust": 1.79,
+                                                    "wind_speed": 0.45
+                                                },
+                                                {
+                                                    "clouds": 0,
+                                                    "dew_point": 282.57,
+                                                    "dt": 1590048000,
+                                                    "feels_like": 283.89,
+                                                    "humidity": 85,
+                                                    "pressure": 1017,
+                                                    "temp": 285.01,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01n",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 260,
+                                                    "wind_speed": 1.44
+                                                },
+                                                {
+                                                    "clouds": 1,
+                                                    "dew_point": 282.64,
+                                                    "dt": 1590051600,
+                                                    "feels_like": 283.83,
+                                                    "humidity": 87,
+                                                    "pressure": 1017,
+                                                    "temp": 284.73,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01n",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 239,
+                                                    "wind_speed": 1.16
+                                                },
+                                                {
+                                                    "clouds": 2,
+                                                    "dew_point": 282.67,
+                                                    "dt": 1590055200,
+                                                    "feels_like": 283.63,
+                                                    "humidity": 89,
+                                                    "pressure": 1017,
+                                                    "temp": 284.41,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01n",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 211,
+                                                    "wind_speed": 1
+                                                },
+                                                {
+                                                    "clouds": 3,
+                                                    "dew_point": 282.75,
+                                                    "dt": 1590058800,
+                                                    "feels_like": 283.39,
+                                                    "humidity": 91,
+                                                    "pressure": 1016,
+                                                    "temp": 284.16,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01n",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 187,
+                                                    "wind_speed": 1.01
+                                                },
+                                                {
+                                                    "clouds": 5,
+                                                    "dew_point": 283.09,
+                                                    "dt": 1590062400,
+                                                    "feels_like": 283.3,
+                                                    "humidity": 92,
+                                                    "pressure": 1016,
+                                                    "temp": 284.34,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01n",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 187,
+                                                    "wind_speed": 1.52
+                                                },
+                                                {
+                                                    "clouds": 8,
+                                                    "dew_point": 283.15,
+                                                    "dt": 1590066000,
+                                                    "feels_like": 283.31,
+                                                    "humidity": 93,
+                                                    "pressure": 1016,
+                                                    "temp": 284.24,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01d",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 187,
+                                                    "wind_speed": 1.4
+                                                },
+                                                {
+                                                    "clouds": 8,
+                                                    "dew_point": 283.37,
+                                                    "dt": 1590069600,
+                                                    "feels_like": 283.16,
+                                                    "humidity": 92,
+                                                    "pressure": 1016,
+                                                    "temp": 284.62,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01d",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 222,
+                                                    "wind_gust": 5.36,
+                                                    "wind_speed": 2.24
+                                                },
+                                                {
+                                                    "clouds": 19,
+                                                    "dew_point": 283.7,
+                                                    "dt": 1590073200,
+                                                    "feels_like": 285.34,
+                                                    "humidity": 89,
+                                                    "pressure": 1017,
+                                                    "temp": 285.46,
+                                                    "weather": [
+                                                        {
+                                                            "description": "few clouds",
+                                                            "icon": "02d",
+                                                            "id": 801,
+                                                            "main": "Clouds"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 228,
+                                                    "wind_gust": 4.02,
+                                                    "wind_speed": 0.45
+                                                },
+                                                {
+                                                    "clouds": 34,
+                                                    "dew_point": 283.68,
+                                                    "dt": 1590076800,
+                                                    "feels_like": 285.92,
+                                                    "humidity": 81,
+                                                    "pressure": 1018,
+                                                    "temp": 286.88,
+                                                    "weather": [
+                                                        {
+                                                            "description": "scattered clouds",
+                                                            "icon": "03d",
+                                                            "id": 802,
+                                                            "main": "Clouds"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 200,
+                                                    "wind_speed": 1.64
+                                                },
+                                                {
+                                                    "clouds": 28,
+                                                    "dew_point": 284.2,
+                                                    "dt": 1590080400,
+                                                    "feels_like": 288.42,
+                                                    "humidity": 76,
+                                                    "pressure": 1017,
+                                                    "temp": 288.4,
+                                                    "weather": [
+                                                        {
+                                                            "description": "scattered clouds",
+                                                            "icon": "03d",
+                                                            "id": 802,
+                                                            "main": "Clouds"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 259,
+                                                    "wind_gust": 3.58,
+                                                    "wind_speed": 0.45
+                                                },
+                                                {
+                                                    "clouds": 23,
+                                                    "dew_point": 283.96,
+                                                    "dt": 1590084000,
+                                                    "feels_like": 289.84,
+                                                    "humidity": 68,
+                                                    "pressure": 1017,
+                                                    "temp": 289.89,
+                                                    "weather": [
+                                                        {
+                                                            "description": "few clouds",
+                                                            "icon": "02d",
+                                                            "id": 801,
+                                                            "main": "Clouds"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 260,
+                                                    "wind_gust": 4.92,
+                                                    "wind_speed": 0.45
+                                                },
+                                                {
+                                                    "clouds": 0,
+                                                    "dew_point": 285,
+                                                    "dt": 1590087600,
+                                                    "feels_like": 287.21,
+                                                    "humidity": 72,
+                                                    "pressure": 1017,
+                                                    "temp": 290.08,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01d",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 247,
+                                                    "wind_gust": 8.05,
+                                                    "wind_speed": 4.92
+                                                },
+                                                {
+                                                    "clouds": 0,
+                                                    "dew_point": 285.5,
+                                                    "dt": 1590091200,
+                                                    "feels_like": 288.2,
+                                                    "humidity": 72,
+                                                    "pressure": 1016,
+                                                    "temp": 290.6,
+                                                    "weather": [
+                                                        {
+                                                            "description": "clear sky",
+                                                            "icon": "01d",
+                                                            "id": 800,
+                                                            "main": "Clear"
+                                                        }
+                                                    ],
+                                                    "wind_deg": 252,
+                                                    "wind_gust": 8.05,
+                                                    "wind_speed": 4.47
+                                                }
+                                            ],
+                                            "lat": 37.77,
+                                            "lon": -122.42,
+                                            "timezone": "America/Los_Angeles",
+                                            "timezone_offset": -25200
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/weather": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "You can use lang parameter to get output in your language. We support the following languages that you can use with the corresponded lang values: English - en, Russian - ru, Italian - it, Spanish - sp, Ukrainian - ua, German - de, Portuguese - pt, Romanian - ro, Polish - pl, Finnish - fi, Dutch - nl, French - fr, Bulgarian - bg, Swedish - se, Chinese Traditional - zh_tw, Chinese Simplified - zh_cn, Turkish - tr",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "null"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": false,
+                        "description": "Must be used with lon.  Get current weather data when you know the latitude of the city.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "0"
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "If left blank will default to JSON output.  Ability to retrieve data in XML or HTML.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "xml, html"
+                        }
+                    },
+                    {
+                        "name": "callback",
+                        "in": "query",
+                        "required": false,
+                        "description": "To use JavaScrip code you can transfer callback functionName to JSONP callback.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "test"
+                        }
+                    },
+                    {
+                        "name": "units",
+                        "in": "query",
+                        "required": false,
+                        "description": "You can use different types of metric systems by units = metric or imperial",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "\"metric\" or \"imperial\""
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "Get current weather data when you know the city ID.  Not to be used with lon, lat, or q",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "2172797"
+                        }
+                    },
+                    {
+                        "name": "lon",
+                        "in": "query",
+                        "required": false,
+                        "description": "Must be used with lat.  Get current weather data when you know the longitude of the city.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "0"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": true,
+                        "description": "use this parameter when searching for a city.  Do not use with other parameters",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "London,uk"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "undefined"
+                },
+                "operationId": "Current Weather Data",
+                "description": "Using this kind of requests you can get weather data in any location on the earth. The current weather data are updated online based on data from more than 40,000 weather stations.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/forecast/daily": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "mode - possible values are JSON xml. If mode parameter is empty the format is JSON by default.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "zip",
+                        "in": "query",
+                        "required": false,
+                        "description": "{zip code},{country code}",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "city id",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "units",
+                        "in": "query",
+                        "required": false,
+                        "description": "You can use different types of metric systems by units = metric or imperial",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "metric or imperial"
+                        }
+                    },
+                    {
+                        "name": "lon",
+                        "in": "query",
+                        "required": false,
+                        "description": "Must be used with lat. Get current weather data when you know the longitude of the city.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "139"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": false,
+                        "description": "Must be used with lon. Get current weather data when you know the latitude of the city.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "35"
+                        }
+                    },
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "You can use lang parameter to get the output in your language. We support the following languages that you can use with the corresponded lang values: Arabic - ar, Bulgarian - bg, Catalan - ca, Czech - cz, German - de, Greek - el, English - en, Persian (Farsi) - fa, Finnish - fi, French - fr, Galician - gl, Croatian - hr, Hungarian - hu, Italian - it, Japanese - ja, Korean - kr, Latvian - la, Lithuanian - lt, Macedonian - mk, Dutch - nl, Polish - pl, Portuguese - pt, Romanian - ro, Russian - ru, Swedish - se, Slovak - sk, Slovenian - sl, Spanish - es, Turkish - tr, Ukrainian - ua, Vietnamese - vi, Chinese Simplified - zh_cn, Chinese Traditional - zh_tw.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "cnt",
+                        "in": "query",
+                        "required": false,
+                        "description": "amount of days in the future to forecast",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "10"
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": false,
+                        "description": "city name and country code divided by comma, use ISO 3166 country codes",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "san francisco,us"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "undefined"
+                },
+                "operationId": "Call 16 day / daily forecast data",
+                "description": "16 day forecasts is available at any location or city. Forecasts include daily weather and available in JSON or XML format. It is only available for all paid accounts.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/forecast": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "query",
+                        "required": false,
+                        "description": "You can use lang parameter to get the output in your language. We support the following languages that you can use with the corresponded lang values: Arabic - ar, Bulgarian - bg, Catalan - ca, Czech - cz, German - de, Greek - el, English - en, Persian (Farsi) - fa, Finnish - fi, French - fr, Galician - gl, Croatian - hr, Hungarian - hu, Italian - it, Japanese - ja, Korean - kr, Latvian - la, Lithuanian - lt, Macedonian - mk, Dutch - nl, Polish - pl, Portuguese - pt, Romanian - ro, Russian - ru, Swedish - se, Slovak - sk, Slovenian - sl, Spanish - es, Turkish - tr, Ukrainian - ua, Vietnamese - vi, Chinese Simplified - zh_cn, Chinese Traditional - zh_tw.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "units",
+                        "in": "query",
+                        "required": false,
+                        "description": "Standard, metric, and imperial units are available.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "lon",
+                        "in": "query",
+                        "required": false,
+                        "description": "longitude (used with lat)",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "required": false,
+                        "description": "use 'xml' for xml output",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": false,
+                        "description": "{city name}, {country code} - city name and country code divided by comma, use ISO 3166 country codes",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "san francisco,us"
+                        }
+                    },
+                    {
+                        "name": "zip",
+                        "in": "query",
+                        "required": false,
+                        "description": "{zip code},{country code}",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "description": "id city ID",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "cnt",
+                        "in": "query",
+                        "required": false,
+                        "description": "To limit number of listed cities please setup 'cnt' parameter that specifies the number of lines returned.",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": false,
+                        "description": "latitude (used with lon)",
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            }
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "undefined"
+                },
+                "operationId": "5 day / 3 hour forecast data",
+                "description": "5 day forecast is available at any location or city. It includes weather data every 3 hours. Forecast is available in JSON or XML format.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/climate/month": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "externalDocs": {
+                                "url": "undefined"
+                            },
+                            "default": "San Francisco"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "",
+                    "url": "https://openweathermap.org/api/forecast30"
+                },
+                "operationId": "Climate forecast for 30 days",
+                "description": "Climate forecast for 30 days allows you to request weather data for the next 30 days. This product is based on a statistical approach to our Historical weather data and is updated with 1-hour frequency.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

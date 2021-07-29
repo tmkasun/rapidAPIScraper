@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_98690ea3-7655-42fb-95ca-f6b135f7cc25",
+    "name": "TrueWay VRP",
+    "title": "TrueWay VRP",
+    "description": "Solving the vehicle routing problem (multi-vehicle route optimization).",
+    "visibility": "PUBLIC",
+    "slugifiedName": "trueway-vrp",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-07-26T10:22:03.988Z",
+    "category": "Logistics",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/78d45c88-6976-48d0-ba92-750b39d59ccb.png",
+    "user": {
+        "id": 4062149,
+        "username": "trueway",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_4f5c2e94-fc84-4da4-9b25-b8e5fb65c386",
+        "tags": [
+            {
+                "id": "tag_0f43d4bd-1faa-461e-a4bc-c5b50215dd47",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_8851912a-efa3-4757-9d60-657f0a92e87e",
+                "isGraphQL": false,
+                "route": "/vrp",
+                "method": "POST",
+                "name": "/vrp",
+                "description": "Solves a vehicle routing problem (VRP) to find the best routes for a fleet of vehicles.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

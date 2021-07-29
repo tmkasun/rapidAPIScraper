@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_5bdfc3b0-7d3b-4a30-937f-935e799e4279",
+    "name": "API-FORMULA-1",
+    "title": "API-FORMULA-1",
+    "description": "All data about Formula 1, Circuits, Teams, Drivers, Rankings...",
+    "visibility": "PUBLIC",
+    "slugifiedName": "api-formula-1",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-03-07T21:51:46.743Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-collections.s3.amazonaws.com/8bd255bb-d904-4373-815a-9cb04a885644.jpg",
+    "user": {
+        "id": 3553584,
+        "username": "api-sports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_82153f4e-9ba4-4cc8-81db-4a480cbcb84b",
+        "tags": [
+            {
+                "id": "tag_8c824845-b8e7-4f25-92ab-8659c2dab51f",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_2408459d-89a6-442a-88cd-aa5701c43a38",
+                "isGraphQL": false,
+                "route": "/races",
+                "method": "GET",
+                "name": "races",
+                "description": "Get the list of available races for a competition.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_e167f178-46a3-4f97-9e8c-aa3a4d56eb3a",
+                "isGraphQL": false,
+                "route": "/circuits",
+                "method": "GET",
+                "name": "circuits",
+                "description": "Get the list of available circuits. The circuit id are unique in the API and circuits keep it across all seasons",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_fd332fa0-7ff5-40dd-9058-e9f6b3f41d22",
+                "isGraphQL": false,
+                "route": "/teams",
+                "method": "GET",
+                "name": "search teams",
+                "description": "Allow to search for a team name",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

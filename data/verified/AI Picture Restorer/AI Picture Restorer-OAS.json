@@ -1,0 +1,69 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_a9e34349-d769-4435-8e84-e0594437a101",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_de351688-9e3f-425c-aa83-20b17c2bd1ff",
+        "apiId": "api_ffee19f8-b418-4802-9fdc-6126c381b722"
+    },
+    "info": {
+        "title": "AI Picture Restorer",
+        "description": "Restore pictures with AI in seconds. Hotpot.ai builds on the latest research to automatically remove scratches, sharpen colors, and enhance faces, transforming tattered photos into cherished memories. Repair faded color photos and worn black & white photos. Web interface: https://hotpot.ai/restore-picture",
+        "version": "v1",
+        "x-category": "Video, Images",
+        "x-long-description": "Restore pictures with AI in seconds. Hotpot.ai builds on the latest research to automatically remove scratches, sharpen colors, and enhance faces, transforming tattered photos into cherished memories. Repair faded color photos and worn black & white photos.\n\nWeb interface: https://hotpot.ai/restore-picture",
+        "x-website": "https://hotpot.ai/restore-picture",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/7585fd36-de1a-4d67-b48d-9f9cab7a1a0f.jpg",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://ai-picture-restorer.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/restoration-api-bin": {
+            "post": {
+                "externalDocs": {
+                    "description": "",
+                    "url": ""
+                },
+                "operationId": "AI Picture Restorer",
+                "description": "This [Hotpot.ai](https://hotpot.ai) service [restores pictures ](https://hotpot.ai/restore-picture) by automatically performing scratch removal, face enhancement, and color sharpening. What used to require trained professionals hours can now be accomplished in seconds.\n\nThe service is not limited to restoring black and white photographs. The service can also repair color pictures with faded parts.\n\nNote: the maximum image resolution we support is 1280x1280, but our new model supports larger images and is launching soon. Please contact us to try this larger model.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "image": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "example": ""
+                                    },
+                                    "withScratch": {
+                                        "type": "string",
+                                        "format": "boolean",
+                                        "example": "true"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

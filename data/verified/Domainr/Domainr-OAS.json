@@ -1,0 +1,170 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_836532c4-ddad-48f4-b25e-09fb5399901a",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "53aa31dae4b0a9b1348d8be1",
+        "apiId": "53aa31dae4b07e1f4ebe997e"
+    },
+    "info": {
+        "title": "Domainr",
+        "description": "Instant domain search.\r\n\r\nDocumentation available at https://domainr.com/docs/api",
+        "version": "v1",
+        "x-category": "Business",
+        "x-long-description": "Instant domain search.\n\nDocumentation: https://domainr.com/docs/api",
+        "x-website": "https://domainr.com/",
+        "x-public": true,
+        "x-thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/53aa31dae4b0a9b1348d8be1_medium",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://domainr.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "v2"
+        }
+    ],
+    "paths": {
+        "/v2/search": {
+            "get": {
+                "tags": [
+                    "v2"
+                ],
+                "parameters": [
+                    {
+                        "name": "defaults",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optionally include a comma-separated list of zones to include by default.",
+                        "schema": {
+                            "type": "string",
+                            "example": "club,coffee"
+                        }
+                    },
+                    {
+                        "name": "registrar",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optionally restrict returned results to those supported by a registrar.",
+                        "schema": {
+                            "type": "string",
+                            "example": "dnsimple.com"
+                        }
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "required": false,
+                        "description": "Optional two-character country code, to include Geo TLDs.",
+                        "schema": {
+                            "type": "string",
+                            "example": "de"
+                        }
+                    },
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "required": true,
+                        "description": "Search query",
+                        "schema": {
+                            "type": "string",
+                            "example": "acme cafe"
+                        }
+                    }
+                ],
+                "operationId": "/v2/search",
+                "description": "Responds with search suggestions related to the query.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v2/status": {
+            "get": {
+                "tags": [
+                    "v2"
+                ],
+                "parameters": [
+                    {
+                        "name": "domain",
+                        "in": "query",
+                        "required": true,
+                        "description": "A single domain to check.",
+                        "schema": {
+                            "type": "string",
+                            "example": "ace.coffee"
+                        }
+                    }
+                ],
+                "operationId": "/v2/status",
+                "description": "Check domain availability.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v2/register": {
+            "get": {
+                "tags": [
+                    "v2"
+                ],
+                "parameters": [
+                    {
+                        "name": "registrar",
+                        "in": "query",
+                        "required": false,
+                        "description": "The registrar's root domain.",
+                        "schema": {
+                            "type": "string",
+                            "example": "namecheap.com"
+                        }
+                    },
+                    {
+                        "name": "domain",
+                        "in": "query",
+                        "required": true,
+                        "description": "Domain to register.",
+                        "schema": {
+                            "type": "string",
+                            "example": "example.com"
+                        }
+                    }
+                ],
+                "operationId": "/v2/register",
+                "description": "Responds with an HTTP redirect to a supporting registrar.",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "query_auth": {
+                "name": "mashape-key",
+                "type": "apiKey",
+                "in": "query",
+                "description": "Your RapidAPI API key"
+            }
+        }
+    },
+    "security": [
+        {
+            "query_auth": []
+        }
+    ]
+}

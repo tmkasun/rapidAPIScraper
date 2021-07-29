@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_57729e2a-c2ce-48e6-8764-39af5f43e507",
+    "name": "Baseball Data",
+    "title": "Baseball Data",
+    "description": "Broadage Baseball API will give you wide range of data of world's top baseball leagues, including fixtures, standings, match lists and many more. Our Baseball Coverage includes the biggest baseball tournaments from all around the world with in-depth coverage, giving you the opportunity to present the best sports data to users located anywhere. <br>This is a limited version in RapidApi. <a href=\"https://www.broadage.com/signup/api/free?utm_source=rapidapi&utm_medium=click&utm_campaign=baseball_api\" target=”_blank”>Please, click here to start your Free Trial and try the endpoints with live data now!</a>",
+    "visibility": "PUBLIC",
+    "slugifiedName": "baseball-data",
+    "pricing": "FREE",
+    "updatedAt": "2021-01-28T15:00:23.756Z",
+    "category": "Sports",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/6481a4b3-1295-4e74-b1e6-11058e985124.png",
+    "user": {
+        "id": 3943606,
+        "username": "BroadageSports",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_1815516d-15d5-443c-851b-7d1a83ba4c0e",
+        "tags": [
+            {
+                "id": "tag_5496e18a-a971-4500-b0ce-dc928be03033",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_5f537a9a-8227-4638-b4ca-fa54636d0a7f",
+                "isGraphQL": false,
+                "route": "/tournament/teams",
+                "method": "GET",
+                "name": "Tournament Teams",
+                "description": "List of teams participating in a specific tournament.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_dbf59e30-8757-441e-8561-090def9782d9",
+                "isGraphQL": false,
+                "route": "/tournament/list",
+                "method": "GET",
+                "name": "Tournament List",
+                "description": "List of tournaments in your data coverage.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_23090fb2-8c20-476a-a6a4-8c497dc8e45e",
+                "isGraphQL": false,
+                "route": "/match/list/scheduled",
+                "method": "GET",
+                "name": "Daily Match List-Scheduled",
+                "description": "Daily match list including scheduled matches.\n\n**The data will return for only -+7 days period, so endpoint can be tested with date range of today - 7 days.**",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

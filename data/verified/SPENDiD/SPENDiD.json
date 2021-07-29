@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_e1050e6d-e11c-4084-b1af-ec41f1111c44",
+    "name": "SPENDiD",
+    "title": "SPENDiD",
+    "description": "Demographically validated spending behavior models, automated user budget creation, and alternative metrics for cash-flow or budget health scoring. SPENDiD brings an addictively sticky user-experience component to any consumer facing financial wellness, digital banking, or other PFM platform. ",
+    "visibility": "PUBLIC",
+    "slugifiedName": "spendid",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-07-14T17:06:46.446Z",
+    "category": "Finance",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/79461257-cb4f-4ff7-be92-b369b798c77d.png",
+    "user": {
+        "id": 4603338,
+        "username": "spendid-spendid-default",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_7bcf8dc5-4697-43b7-b621-d4789d490986",
+        "tags": [
+            {
+                "id": "tag_853bbf57-92a2-437b-a03a-880309f4512b",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_aed63adc-fca3-4abc-8cc6-f1e32364b3a1",
+                "isGraphQL": false,
+                "route": "/budgets/generate",
+                "method": "POST",
+                "name": "post-budgeting-generate",
+                "description": "Generate an annual budget based off a demographic profile and partial budget.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_6fad93b3-40cc-4ce2-9cc2-a5dce39d42ce",
+                "isGraphQL": false,
+                "route": "/demographics/models/generate",
+                "method": "POST",
+                "name": "post-demographics-model-generate",
+                "description": "Generate an annual budget based off a demographic profile and partial budget.",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_f1ea6c8f-bf81-46de-95f6-1129f9cedbc8",
+                "isGraphQL": false,
+                "route": "/scores/generate",
+                "method": "POST",
+                "name": "post-scores-generate",
+                "description": "Generates several scores based on demographic and partial budget inputs.",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

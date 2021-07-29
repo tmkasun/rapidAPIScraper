@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_97217703-8de1-42cd-bb6f-9799e047bfd6",
+    "name": "Background Remover",
+    "title": "Background Remover",
+    "description": "Remove the background from images with AI. Our background removal is based on the latest research in semantic segmentation and image matting. Web interface: https://hotpot.ai/remove-background",
+    "visibility": "PUBLIC",
+    "slugifiedName": "background-remover",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-30T00:34:44.216Z",
+    "category": "Video, Images",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/1fca5f5d-779e-4747-a866-a8b1cc6a7c32.jpg",
+    "user": {
+        "id": 4827930,
+        "username": "hotpot-ai-hotpot",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_dc75ccd3-e6a9-47dd-9a27-5cbb7ceaf3ae",
+        "tags": [
+            {
+                "id": "tag_d2660747-88c5-4557-9c12-e70027727650",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_78794324-d42b-44cd-9351-87976bb40f8f",
+                "isGraphQL": false,
+                "route": "/bg-remover-api-bin",
+                "method": "POST",
+                "name": "Background Remover",
+                "description": "[Remove backgrounds](https://hotpot.ai/background-remover) in seconds with the Hotpot.ai Background Remover API. Our machine learning model is optimized for extracting products and people from photos, cleanly erasing the background. \n\nBackground removal is a rote and common chore for many people. From creating catchy ecommerce product photos to editing social media profile pictures and many other goals in between, there are countless reasons to isolate foreground objects and remove the background from a photo. Historically, this was a time-consuming and painstaking process that required trained experts using professional software like Photoshop to remove backgrounds from images.\n\nRecent advances in artificial intelligence have fortunately changed this. Deep learning algorithms can accurately separate the foreground from background when objects are sufficiently different, as with a Porsche and its dusty garage. Separating a glass of red wine from a white tablecloth, on the other hand, may prove trickier but can be done. Background removal from [Hotpot.ai](https://hotpot.ai) incorporates the latest research in image segmentation and edge detection and is specifically optimized to isolate people and products.\n\nThere are many situations where designers, entrepreneurs, developers, and consumers might benefit from automatic background removal. Some of these include:\n\n- Refining product photos for Shopify, Etsy, or other ecommerce platforms.\n- Creating more professional photos for Craigslist or eBay listings\n- Updating social media profile pictures with more appropriate backgrounds\n- Composing interesting collages from various photos\n- Adding turnkey marketing materials to print in books, magazines, or brochures\n- Generating stylish and professional web or Facebook ads",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

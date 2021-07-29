@@ -1,0 +1,102 @@
+{
+    "openapi": "3.0.0",
+    "x-badges": [
+        {
+            "name": "tag_8502282f-8416-483a-8aa9-7edac14bf94e",
+            "value": "✓"
+        }
+    ],
+    "x-rapidapi-info": {
+        "apiVersionId": "apiversion_251928ad-01da-4ced-968d-a869d0631f2e",
+        "apiId": "api_d7a2d21b-7184-4927-8dcf-d14e2b72a1a4"
+    },
+    "info": {
+        "title": "Airport On-Time Performance",
+        "description": "Help travelers avoid airport delays with Amadeus AI APIs. The Airport On-time Performance API uses A.I. trained on Amadeus historical airport data to predict the overall percentage of on-time flight departures from a given airport on a given day. ",
+        "version": "v1",
+        "x-category": "Transportation",
+        "x-long-description": "The Amadeus Airport On-time Performance API estimates the overall punctuality of flights from a given airport on a given date. The API uses machine-learning models trained on Amadeus historical flight delay data to return the overall percentage of on-time flight departures from a given airport. ",
+        "x-website": "https://developers.amadeus.com/",
+        "x-public": true,
+        "x-thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/facc2a1b-3e0f-446d-a164-c455b9ada257.png",
+        "x-version-lifecycle": "current"
+    },
+    "servers": [
+        {
+            "url": "https://airport-on-time-performance.p.rapidapi.com/",
+            "description": "Base URL"
+        }
+    ],
+    "tags": [
+        {
+            "name": "airport-ontime-prediction"
+        },
+        {
+            "name": "airport"
+        }
+    ],
+    "paths": {
+        "/airport/predictions/on-time": {
+            "get": {
+                "tags": [
+                    "airport-ontime-prediction"
+                ],
+                "summary": "Returns a percentage of on-time flight departures from a given airport.",
+                "parameters": [
+                    {
+                        "name": "airportCode",
+                        "in": "query",
+                        "required": true,
+                        "description": "airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx), e.g. BOS for Boston",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "pattern": "[A-Z]{3}",
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "required": true,
+                        "description": "the date on which the traveler will depart from the give airport. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "format": "date",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "externalDocs": {
+                    "description": "Official Documentation",
+                    "url": "https://developers.amadeus.com/self-service/category/air/api-doc/airport-on-time-performance"
+                },
+                "operationId": "getAirportOnTimePrediction",
+                "description": "Predict percentage of on-time departures from a given airport.",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "http://json-schema.org/draft-04/schema#"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$schema": "http://json-schema.org/draft-04/schema#"
+                                },
+                                "examples": {}
+                            }
+                        },
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

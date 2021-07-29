@@ -1,0 +1,62 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "55e1b9cee4b0034a968f7398",
+    "name": "Premier League Live Scores",
+    "title": "Premier League Live Scores",
+    "description": "Premier League Live Scores API allows to retrieve historical data as well as current season results, scorers, lineups, substitutes, events, statistics, odds and much more all with live updates, for the top professional English football league. And more is coming...",
+    "visibility": "PUBLIC",
+    "slugifiedName": "premier-league-live-scores",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2019-09-13T05:34:17.272Z",
+    "category": "Sports",
+    "thumbnail": "https://s3.amazonaws.com/mashape-production-logos/apis/55e1b9cfe4b099861109926d_medium",
+    "user": {
+        "id": 2431262,
+        "username": "heisenbug",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "55e1b9cfe4b099861109926d",
+        "tags": [
+            {
+                "id": "tag_c5475ca4-797d-48fe-add9-13f08f172313",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "568a487ce4b0e203818a566f",
+                "isGraphQL": false,
+                "route": "/api/premierleague/table",
+                "method": "GET",
+                "name": "League Table",
+                "description": "Returns the table for the league",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "57b4bf90e4b01bbb07703f18",
+                "isGraphQL": false,
+                "route": "/api/premierleague/playerdetails",
+                "method": "GET",
+                "name": "Player details",
+                "description": "Returns all data about a player. Available only with ULTRA and MEGA plans!",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "55e1ba5de4b0a29b2c360755",
+                "isGraphQL": false,
+                "route": "/api/premierleague",
+                "method": "GET",
+                "name": "Season matches results",
+                "description": "Return season matches results for a match day",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

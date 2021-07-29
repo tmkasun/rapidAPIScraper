@@ -1,0 +1,53 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_ed762aef-e305-4401-b2fe-b0f8c5f0f43d",
+    "name": "TrueWay Geocoding",
+    "title": "TrueWay Geocoding",
+    "description": "Forward and Reverse Geocoding",
+    "visibility": "PUBLIC",
+    "slugifiedName": "trueway-geocoding",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2020-12-22T16:05:20.635Z",
+    "category": "Mapping",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/f45a8fdf-f840-4d35-8283-666df16f0538_medium",
+    "user": {
+        "id": 4062149,
+        "username": "trueway",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_2c65308d-bd17-4252-8715-4e899eddfacf",
+        "tags": [
+            {
+                "id": "tag_ae3ceb1b-0c8d-4627-aade-a9132a7185bc",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_530cb41f-763e-411b-bc52-eb71137b6430",
+                "isGraphQL": false,
+                "route": "/Geocode",
+                "method": "GET",
+                "name": "Geocode",
+                "description": "Obtain geocoordinates for address",
+                "__typename": "Endpoint"
+            },
+            {
+                "id": "apiendpoint_d2bc70db-66bc-4b9f-895b-518a1e4d91c4",
+                "isGraphQL": false,
+                "route": "/ReverseGeocode",
+                "method": "GET",
+                "name": "ReverseGeocode",
+                "description": "Obtain address for location",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}

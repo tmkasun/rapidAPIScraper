@@ -1,0 +1,44 @@
+{
+    "type": "ApiSearch",
+    "__typename": "ApiSearch",
+    "id": "api_78b0efef-9b11-4764-9832-a040cb6fefc4",
+    "name": "AI Picture Colorizer",
+    "title": "AI Picture Colorizer",
+    "description": "Colorize black and white pictures with AI. Our picture colorizer is based on the latest machine learning research. Web interface: https://hotpot.ai/colorize-picture",
+    "visibility": "PUBLIC",
+    "slugifiedName": "ai-picture-colorizer",
+    "pricing": "FREEMIUM",
+    "updatedAt": "2021-05-20T06:59:09.169Z",
+    "category": "Video, Images",
+    "thumbnail": "https://rapidapi-prod-apis.s3.amazonaws.com/69d2b8c6-ec31-429b-8a51-274a51d808af.jpg",
+    "user": {
+        "id": 4827930,
+        "username": "hotpot-ai-hotpot",
+        "__typename": "ApiSearchUser"
+    },
+    "version": {
+        "id": "apiversion_d6362a20-4ccb-4de2-937d-9f1641843224",
+        "tags": [
+            {
+                "id": "tag_cb8b435a-1621-4fa3-912a-831a95964207",
+                "status": "ACTIVE",
+                "tagdefinition": "tagdefinition_ad8279d5-df5e-40b5-86f6-0c467a403932",
+                "type": "tag",
+                "value": "✓",
+                "__typename": "APITag"
+            }
+        ],
+        "endpoints": [
+            {
+                "id": "apiendpoint_49c0d1f7-b042-41df-8a86-828af1480256",
+                "isGraphQL": false,
+                "route": "/colorize-api-bin-mjbcrab",
+                "method": "POST",
+                "name": "AI Picture Colorizer",
+                "description": "Colorize pictures with AI, turning black and white photos to color in seconds. Reimagine the past by colorizing pictures of ancestors and historic figures. Our technology is currently based on a mixture of DeOldify and proprietary enhancements.\n\nWeb interface: https://hotpot.ai/colorize-picture",
+                "__typename": "Endpoint"
+            }
+        ],
+        "__typename": "ApiVersionSearch"
+    }
+}
